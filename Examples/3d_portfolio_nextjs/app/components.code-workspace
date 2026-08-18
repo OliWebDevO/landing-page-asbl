@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "components",
+			"path": "../../3D_Portfolio/src/components"
+		},
+		{
+			"name": "3d_portfolio_nextjs",
+			"path": ".."
+		},
+		{
+			"name": "constants",
+			"path": "../../3D_Portfolio/src/constants"
+		},
+		{
+			"name": "sections",
+			"path": "../../3D_Portfolio/src/sections"
+		}
+	],
+	"settings": {}
+}

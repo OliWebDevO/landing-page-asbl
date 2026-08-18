@@ -1,0 +1,766 @@
+/* ============================================================
+   BABCAT & THE WILD — LAYOUT
+   ------------------------------------------------------------
+   Conteneurs, header, footer, fallbacks sans JS.
+   Dépend de : tokens.css, base.css, components.css
+   Mobile-first, min-width uniquement (768 / 1024 / 1280).
+   ============================================================ */
+
+:root {
+  --header-h: 4.5rem;          /* 72px — hauteur header au repos    */
+  --header-h-compact: 3.5rem;  /* 56px — header compacté au scroll  */
+}
+
+/* Ancres internes : ne jamais passer sous le header sticky */
+html {
+  scroll-padding-block-start: calc(var(--header-h) + var(--space-2));
+}
+
+/* ------------------------------------------------------------
+   CONTENEURS
+   ------------------------------------------------------------ */
+
+.container {
+  width: min(100% - 2 * var(--container-gutter), var(--container));
+  margin-inline: auto;
+}
+
+.container--wide {
+  width: min(100% - 2 * var(--container-gutter), var(--container-wide));
+}
+
+/* ------------------------------------------------------------
+   HEADER — DA §3.7
+   Crème translucide + blur, flotte sur le papier (pas de
+   bordure au repos). Compacté au scroll : hauteur réduite,
+   logo typo → monogramme, filet grès en pied.
+   La classe .site-header--compact est posée par main.js
+   (une dizaine de lignes vanilla, pas de GSAP).
+   ------------------------------------------------------------ */
+
+.site-header {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 50;
+  background-color: var(--creme-85);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-block-end: 1px solid transparent;
+  transition: border-color var(--transition-base);
+}
+
+.site-header--compact {
+  border-block-end-color: var(--gres);
+}
+
+/* Menu ouvert : le header monte AU-DESSUS du voile (z-index 70 > 60) pour
+   que le burger reste cliquable — mais il devient TRANSPARENT (fond + blur
+   retirés) et LAISSE PASSER les clics (pointer-events: none) : le voile
+   anthracite dessous est donc pleinement visible et s'anime seul en
+   clip-path (une seule animation organique, uniforme, barre du haut
+   comprise). Seul le burger reste opaque aux clics (règle plus bas). */
+.site-header--open {
+  z-index: 70;
+  background-color: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-block-end-color: transparent;
+  pointer-events: none;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: var(--header-h);
+  transition: min-height var(--transition-base);
+}
+
+.site-header--compact .site-header__inner {
+  min-height: var(--header-h-compact);
+}
+
+/* Marque — monogramme B unique, à tous les états (demande client
+   07/07/2026). Agrandi en haut de page (au repos), réduit à sa
+   taille habituelle une fois scrollé (état compact) ; la bascule
+   de taille est adoucie par une transition. */
+.site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  text-decoration: none;
+}
+
+.site-header__logo {
+  display: block;
+  width: auto;
+  height: 3.5rem;             /* 56px — en haut de page (agrandi) */
+  transition: height var(--transition-base);
+}
+
+.site-header--compact .site-header__logo {
+  height: 2.5rem;             /* 40px — au scroll (taille inchangée) */
+}
+
+/* --- Burger (mobile / tablette) ------------------------------ */
+
+.site-header__burger {
+  position: relative;
+  z-index: 2;                 /* au-dessus du panneau plein écran */
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: var(--tap-target);
+  min-height: var(--tap-target);
+  padding: var(--space-1);
+  background: transparent;
+  border: none;
+  color: var(--anthracite);
+  font-family: var(--font-label);
+  /* Règle Stellar (client 06/07/2026) : jamais sous --text-label,
+     toujours épaissie au trait (--label-stroke) */
+  font-size: var(--text-label);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* Menu ouvert : le header est transparent aux clics (pointer-events: none),
+   mais le burger et le logo doivent rester VISIBLES et INTERACTIFS par-dessus
+   le voile → on leur redonne pointer-events. Le burger passe en couleur
+   claire (croix lisible sur l'anthracite). */
+.site-header--open .site-header__burger {
+  pointer-events: auto;
+  color: var(--color-text-on-dark);
+}
+
+.site-header--open .site-header__brand {
+  pointer-events: auto;
+}
+
+.site-header__burger-label {
+  line-height: 1.2;
+}
+
+/* Icône : 3 traits qui deviennent une croix quand le panneau
+   est ouvert (transition CSS, pas de GSAP). */
+.site-header__burger-icon {
+  position: relative;
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: var(--radius-pill);
+  transition: background-color var(--transition-fast);
+}
+
+.site-header__burger-icon::before,
+.site-header__burger-icon::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: var(--radius-pill);
+  transition: transform var(--transition-base);
+}
+
+.site-header__burger-icon::before {
+  transform: translateY(-0.5rem);
+}
+
+.site-header__burger-icon::after {
+  transform: translateY(0.5rem);
+}
+
+.site-header--open .site-header__burger-icon {
+  background-color: transparent;
+}
+
+.site-header--open .site-header__burger-icon::before {
+  transform: rotate(45deg);
+}
+
+.site-header--open .site-header__burger-icon::after {
+  transform: rotate(-45deg);
+}
+
+@media (min-width: 1024px) {
+  .site-header__burger {
+    display: none;
+  }
+}
+
+/* --- Navigation ----------------------------------------------
+   Mobile : panneau plein écran anthracite texturé (DA §3.7),
+   entrées en Robelia grande taille, signature Wanderlust en
+   pied. Desktop : rangée Stellar dans le header.
+   -------------------------------------------------------------- */
+
+.site-header__nav {
+  position: fixed;
+  inset: 0;
+  z-index: 60;                 /* AU-DESSUS du header (50) : le voile recouvre
+                                  la barre → une seule animation clip-path
+                                  uniforme. Le burger repasse au-dessus (70). */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-6);
+  padding: calc(var(--header-h) + var(--space-4)) var(--container-gutter) var(--space-6);
+  background-color: var(--anthracite);
+  overflow-y: auto;
+
+  /* Panneau fermé au repos : invisible et inerte, mais dans le DOM pour
+     pouvoir s'ANIMER. Révélation par un voile qui se déplie (clip-path)
+     depuis le coin du burger — geste organique, pas un simple fondu.
+
+     FERMETURE (cet état) = miroir de l'ouverture : le voile se REPLIE vers
+     le coin du burger avec la MÊME durée/ease que le dépliage. L'opacity
+     tient à 1 presque jusqu'au bout (le voile emporte le contenu au lieu de
+     le faire disparaître avant) et la visibility ne se coupe qu'À LA FIN
+     (delay = durée du clip) — c'est ce délai qui évite la saute d'écran. */
+  visibility: hidden;
+  opacity: 0;
+  clip-path: circle(0% at calc(100% - 2.5rem) 2.5rem);
+  transition: clip-path 0.55s cubic-bezier(0.5, 0, 0.75, 0),
+              opacity 0.3s ease 0.25s,
+              visibility 0s linear 0.55s;
+}
+
+/* Grain crème du panneau (même tuile que .texture-grain-dark,
+   appliquée ici seulement à l'état panneau — le grain ne doit
+   pas exister sur la nav desktop). */
+.site-header__nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/textures/grain-creme.png");
+  background-repeat: repeat;
+  opacity: var(--grain-dark-opacity);
+  pointer-events: none;
+}
+
+body.has-nav-open .site-header__nav {
+  visibility: visible;
+  opacity: 1;
+  clip-path: circle(150% at calc(100% - 2.5rem) 2.5rem);
+  transition: clip-path 0.62s cubic-bezier(0.33, 0, 0.2, 1),
+              opacity 0.35s ease;
+}
+
+/* Mouvement réduit : pas de dépliage ni de cascade — simple fondu, le
+   panneau reste pleinement fonctionnel. */
+@media (prefers-reduced-motion: reduce) {
+  .site-header__nav {
+    clip-path: none;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+  body.has-nav-open .site-header__nav {
+    clip-path: none;
+    transition: opacity 0.2s ease;
+  }
+  .site-header__list li,
+  .site-header__nav-signature {
+    transform: none !important;
+    transition: opacity 0.2s ease !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* Le body ne défile plus quand le panneau est ouvert (main.js) */
+.has-nav-open {
+  overflow: hidden;
+}
+
+.site-header__list {
+  position: relative;         /* au-dessus du grain */
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header__list li {
+  margin-block-start: 0;
+}
+
+/* Cascade d'entrée des liens — MOBILE/TABLETTE uniquement (le panneau
+   plein écran n'existe pas en desktop, où la nav est une rangée toujours
+   visible : ne jamais mettre opacity:0 sur les li desktop). */
+@media (max-width: 1023.98px) {
+  /* FERMETURE (état de base) : les entrées s'effacent VITE et presque sans
+     mouvement — le voile qui se replie doit rester la vedette, pas des liens
+     qui redescendent en désordre. Fondu court, sans delay, tout part
+     ensemble → aucune saute. */
+  .site-header__list li,
+  .site-header__nav-signature {
+    opacity: 0;
+    transform: translateY(0.5rem);
+    transition: opacity 0.2s ease,
+                transform 0.2s ease;
+  }
+
+  /* À l'ouverture : chaque entrée monte + apparaît, décalée en cascade
+     une fois le voile assez déplié (delay de base ~0.18s). L'ease et le
+     décalage vertical d'entrée sont plus amples que la fermeture. */
+  body.has-nav-open .site-header__list li,
+  body.has-nav-open .site-header__nav-signature {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease,
+                transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  body.has-nav-open .site-header__list li:nth-child(1) { transition-delay: 0.18s; }
+  body.has-nav-open .site-header__list li:nth-child(2) { transition-delay: 0.25s; }
+  body.has-nav-open .site-header__list li:nth-child(3) { transition-delay: 0.32s; }
+  body.has-nav-open .site-header__list li:nth-child(4) { transition-delay: 0.39s; }
+  body.has-nav-open .site-header__list li:nth-child(5) { transition-delay: 0.46s; }
+  body.has-nav-open .site-header__nav-signature { transition-delay: 0.54s; }
+}
+
+.site-header__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  color: var(--color-text-on-dark);
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 1.6rem + 1.8vw, 2.5rem);   /* DA : 2-2.5rem */
+  line-height: var(--leading-heading);
+  text-decoration: none;
+}
+
+/* État actif — jamais la couleur seule : trait terracotta
+   dessiné sous l'entrée (3.72:1 sur anthracite, ≥ 3:1 UI ✓) */
+.site-header__link[aria-current="page"] {
+  color: var(--terracotta);
+  box-shadow: inset 0 -3px 0 var(--terracotta);
+}
+
+/* Signature de pied de panneau — STELLAR (plus de Wanderlust,
+   demande client 07/07/2026). Taille ≥ --text-lg = grand texte :
+   terracotta 3.72:1 sur anthracite ✓. */
+.site-header__nav-signature {
+  position: relative;
+  max-width: none;
+  color: var(--terracotta);
+  font-family: var(--font-label);
+  font-size: var(--text-lg);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .site-header__nav {
+    position: static;
+    inset: auto;
+    z-index: auto;
+    display: block;
+    padding: 0;
+    background-color: transparent;
+    overflow-y: visible;
+    /* Neutralise l'état « panneau fermé » (hérité de la base mobile) :
+       en desktop la nav est une rangée toujours visible, jamais un voile. */
+    visibility: visible;
+    opacity: 1;
+    clip-path: none;
+    transition: none;
+  }
+
+  .site-header__nav::before {
+    content: none;
+  }
+
+  .site-header__list {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .site-header__link {
+    position: relative;
+    color: var(--anthracite);
+    font-family: var(--font-label);
+    /* Règle Stellar (client 06/07/2026) : jamais sous --text-label,
+       toujours épaissie au trait (--label-stroke) */
+    font-size: var(--text-label);
+    -webkit-text-stroke: var(--label-stroke) currentColor;
+    font-synthesis-weight: none;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    line-height: 1.2;
+    transition: color var(--transition-fast);
+  }
+
+  /* Trait qui se dessine sous l'entrée (hover + état actif) */
+  .site-header__link::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0.375rem;
+    height: 2px;
+    background-color: var(--terracotta);
+    border-radius: var(--radius-pill);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--transition-base);
+  }
+
+  .site-header__link:hover::after,
+  .site-header__link[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  .site-header__link[aria-current="page"] {
+    color: var(--terracotta-text);
+    box-shadow: none;
+  }
+
+  .site-header__nav-signature {
+    display: none;             /* réservée au panneau mobile */
+  }
+}
+
+/* ------------------------------------------------------------
+   FALLBACK SANS JS — header et footer minimaux, en dur dans
+   chaque page, remplacés au chargement par les partials
+   (main.js). Fonctionnels au clavier, sobres, sans burger
+   (le panneau exige JS — ici la nav est toujours visible).
+   ------------------------------------------------------------ */
+
+.fallback-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--container-gutter);
+  background-color: var(--creme-85);
+  border-block-end: 1px solid var(--gres);
+}
+
+.fallback-header__brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+}
+
+.fallback-header__logo {
+  height: 2.5rem;
+  width: auto;
+}
+
+.fallback-header__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fallback-header__list li {
+  margin-block-start: 0;
+}
+
+.fallback-header__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+}
+
+.fallback-footer {
+  padding: var(--space-6) var(--container-gutter);
+  background-color: var(--anthracite);
+  color: var(--color-text-on-dark);
+}
+
+.fallback-footer__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  max-width: none;
+  margin: 0 0 var(--space-2);
+  padding: 0;
+}
+
+.fallback-footer__list li {
+  margin-block-start: 0;
+}
+
+.fallback-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  color: var(--color-text-on-dark);
+}
+
+.fallback-footer__legal {
+  color: var(--sable-70);
+  font-size: var(--text-sm);
+}
+
+/* ------------------------------------------------------------
+   FOOTER — DA §3.7
+   Anthracite mat + grain (classe .texture-grain-dark en HTML).
+   3 zones : marque + signature / navs + réseaux / mentions.
+   Pictogramme soleil de marque sous les icônes réseaux.
+   ------------------------------------------------------------ */
+
+.site-footer {
+  background-color: var(--anthracite);
+  color: var(--color-text-on-dark);
+  overflow: hidden;
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--space-6);
+  padding-block: var(--space-10) var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .site-footer__inner {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .site-footer__brand {
+    grid-column: span 8;
+  }
+
+  .site-footer__nav,
+  .site-footer__social {
+    grid-column: span 4;
+  }
+
+  .site-footer__legal {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-footer__inner {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--space-3);
+  }
+
+  .site-footer__brand {
+    grid-column: span 6;
+  }
+
+  .site-footer__nav {
+    grid-column: span 3;
+  }
+
+  .site-footer__social {
+    grid-column: span 3;
+  }
+}
+
+/* Soleil de marque — placé sous les icônes réseaux, dans l'espace vide de
+   la colonne Social. Affiché normalement (plus de filigrane). */
+.site-footer__soleil {
+  display: block;
+  width: clamp(6rem, 12vw, 9rem);
+  height: auto;
+  margin-block-start: var(--space-6);
+}
+
+.site-footer__home-link {
+  display: inline-block;
+}
+
+.site-footer__logo {
+  width: clamp(12rem, 24vw, 16rem);
+  height: auto;
+}
+
+/* « Same song, different species. » — Wanderlust SANS accents,
+   terracotta décoratif grande taille (3.72:1 sur anthracite,
+   large text ✓) */
+/* Signature de footer — STELLAR (plus de Wanderlust, demande
+   client 07/07/2026) ; ≥ --text-lg = grand texte, terracotta
+   3.72:1 sur anthracite ✓. */
+.site-footer__signature {
+  margin-block-start: var(--space-3);
+  max-width: none;
+  color: var(--terracotta);
+  font-family: var(--font-label);
+  font-size: var(--text-lg);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.site-footer__title {
+  margin-block-end: var(--space-2);
+  color: var(--sable-70);
+  font-family: var(--font-label);
+  /* Règle Stellar (client 06/07/2026) : jamais sous --text-label,
+     toujours épaissie au trait (--label-stroke) */
+  font-size: var(--text-label);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.site-footer__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer__list li {
+  margin-block-start: 0;
+}
+
+.site-footer__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--tap-target);
+  color: var(--color-text-on-dark);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+/* Trait qui se dessine sous l'entrée au survol (même effet que la nav) */
+.site-footer__link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0.375rem;
+  height: 2px;
+  background-color: var(--terracotta);
+  border-radius: var(--radius-pill);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--transition-base);
+}
+
+.site-footer__link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Icônes réseaux — logos de marque officiels (Simple Icons) en fichiers SVG
+   externes, colorés via mask-image (background-color = currentColor, donc suit
+   la couleur du lien : sable, terracotta au survol). Les SVG sont SORTIS du
+   fragment (plus aucun <svg> inline dans partials/footer.html) car Live Server
+   injecte son script de live-reload avant le premier </svg> et tronquait alors
+   le footer (icônes YouTube/Facebook perdues) — cf. bug ritwickdey #684. */
+.site-footer__icon {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: currentColor;
+  -webkit-mask: var(--footer-icon-src) center / contain no-repeat;
+  mask: var(--footer-icon-src) center / contain no-repeat;
+}
+
+.site-footer__icon--instagram { --footer-icon-src: url("../img/icons/instagram.svg"); }
+.site-footer__icon--tiktok    { --footer-icon-src: url("../img/icons/tiktok.svg"); }
+.site-footer__icon--youtube   { --footer-icon-src: url("../img/icons/youtube.svg"); }
+.site-footer__icon--facebook  { --footer-icon-src: url("../img/icons/facebook.svg"); }
+
+/* Réseaux sociaux — icônes seules, agrandies, sur une ligne */
+.site-footer__social-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Reset des <li> — neutralise le margin-top hérité des listes footer
+   qui décalait verticalement les icônes dans la grille. */
+.site-footer__social-list > li {
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-target);
+  min-height: var(--tap-target);
+  color: var(--color-text-on-dark);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.site-footer__social-link:hover {
+  color: var(--terracotta);
+}
+
+.site-footer__social-link .site-footer__icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Filet grès à 20 % puis mentions (DA §3.7) */
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-4);
+  padding-block-start: var(--space-3);
+  border-block-start: 1px solid rgb(216 203 184 / 0.2);
+  color: var(--sable-70);
+  font-size: var(--text-sm);
+}
+
+.site-footer__legal-text {
+  max-width: none;
+}
+
+.site-footer__legal-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  color: var(--color-text-on-dark);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+/* Trait qui se dessine sous l'entrée au survol (même effet que la nav) */
+.site-footer__legal-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0.375rem;
+  height: 2px;
+  background-color: var(--terracotta);
+  border-radius: var(--radius-pill);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--transition-base);
+}
+
+.site-footer__legal-link:hover::after {
+  transform: scaleX(1);
+}

@@ -1,0 +1,104 @@
+/* ============================================================
+   BABCAT & THE WILD — FONTES (4 rôles, licences ✓)
+   ------------------------------------------------------------
+   Décision du 06/07/2026 (validation utilisateur) : Stellar,
+   fonte « luxury » mono-graisse, fatigue en paragraphe long.
+   Elle est recadrée sur son vrai talent — capitales courtes —
+   et la lecture passe à Alegreya Sans (OFL, libre commercial).
+
+     Titres     : Robelia Elegant Serif  (robelia.woff2, 25 Ko)
+     Étiquettes : Stellar — sur-titres, tags, boutons, nav
+                  (stellar.woff2, 17 Ko)
+     Lecture    : Alegreya Sans 400/500 + italique 400
+                  (alegreya-sans-*.woff2, 3 × 17 Ko, subset
+                  latin auto-hébergé — licence OFL dans
+                  licences/alegreya-sans-OFL.txt)
+     Signature  : Wanderlust (wanderlust.woff2, 65 Ko)
+
+   Licences : Robelia/Stellar/Wanderlust — Envato Elements
+   (certificats dans licences/) · Alegreya Sans — SIL OFL 1.1.
+
+   ⚠ COUVERTURE DE GLYPHES :
+   · Alegreya Sans : latin complet ✓ (accents, œ/Œ, « ») —
+     aucune contrainte sur les corps de texte.
+   · Robelia & Stellar : accents ✓, œ/Œ/« » manquants →
+     rendus par la fonte système suivante (quasi invisible).
+   · Wanderlust : ASCII UNIQUEMENT — rédiger les phrases
+     script sans accent (cf. PLAN.md §9), sinon la lettre
+     accentuée bascule sur la stack de secours.
+
+   Preload recommandé dans <head> (fontes critiques
+   au-dessus de la ligne de flottaison) :
+   <link rel="preload" href="assets/fonts/robelia.woff2"
+         as="font" type="font/woff2" crossorigin>
+   <link rel="preload" href="assets/fonts/alegreya-sans-regular-400.woff2"
+         as="font" type="font/woff2" crossorigin>
+   ============================================================ */
+
+@font-face {
+  font-family: "Robelia";
+  src: url("robelia.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stellar";
+  src: url("stellar.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("alegreya-sans-regular-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("alegreya-sans-medium-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("alegreya-sans-italic-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Wanderlust";
+  src: url("wanderlust.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ------------------------------------------------------------
+   VARIABLES DE FAMILLE — 4 rôles
+   · --font-label (Stellar) : TOUJOURS en capitales courtes
+     (sur-titres, tags, boutons, nav) — jamais en paragraphe.
+   · Stellar et Wanderlust sont mono-graisse (400) : ne pas
+     compter sur font-weight pour ces deux rôles.
+   ------------------------------------------------------------ */
+
+:root {
+  --font-title: "Robelia", Georgia, "Times New Roman", serif;
+  --font-body: "Alegreya Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-label: "Stellar", "Avenir Next Condensed", system-ui, sans-serif;
+  --font-script: "Wanderlust", "Segoe Script", "Bradley Hand", cursive;
+
+  /* Alias DA (checklist §8.1) */
+  --font-display: var(--font-title);
+
+  --font-body-stretch: 100%;
+}

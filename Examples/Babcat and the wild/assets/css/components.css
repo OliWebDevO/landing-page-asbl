@@ -1,0 +1,1026 @@
+/* ============================================================
+   BABCAT & THE WILD — COMPOSANTS (BEM)
+   ------------------------------------------------------------
+   Bibliothèque de composants réutilisables sur tout le site.
+   Aligné sur la DA : docs/direction-artistique.md (§3, §5).
+   Dépend de : tokens.css, base.css
+   Mobile-first, min-width uniquement.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   BOUTONS — DA §3.6
+   Pilule (radius 999px), hauteur min 48px, padding 16/32.
+   Contraste : fond primaire = --terracotta-text #A84E1E
+   (crème dessus = 4.96:1 ✓ AA à toute taille).
+   Hover : JAMAIS d'éclaircissement du fond — lift + ombre
+   chaude + flèche qui glisse.
+   ------------------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-height: 3rem;                       /* 48px (DA) */
+  padding: var(--space-2) var(--space-4); /* 16px 32px */
+  /* Robelia gras (demande client — Stellar peu lisible en bouton),
+     même technique de gras propre que les titres */
+  font-family: var(--font-title);
+  font-weight: var(--weight-title);
+  font-synthesis-weight: none;
+  -webkit-text-stroke: var(--title-stroke) currentColor;
+  font-size: var(--text-base);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  transition: transform var(--transition-fast),
+              box-shadow var(--transition-fast),
+              background-color var(--transition-fast),
+              color var(--transition-fast);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-warm);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Flèche qui glisse au hover (span aria-hidden dans le bouton) */
+.btn__arrow {
+  transition: transform var(--transition-fast);
+}
+
+.btn:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
+/* RÈGLE UNIQUE — TOUS les boutons sur fond crème (demande client
+   07/07/2026) : fond TERRACOTTA + texte crème, au hover le fond
+   passe en ANTHRACITE. Primaire et secondaire partagent ce style
+   (même apparence partout sur fond clair). */
+.btn--primary,
+.btn--secondary {
+  background-color: var(--terracotta-text);
+  border-color: var(--terracotta-text);
+  color: var(--sable);          /* texte sable (pas blanc) — demande client 07/07 */
+}
+
+.btn--primary:hover,
+.btn--secondary:hover {
+  background-color: var(--anthracite);
+  border-color: var(--anthracite);
+  color: var(--sable);          /* sable sur anthracite = 8.58:1 ✓ */
+}
+
+/* Bouton plein sur fond anthracite (DA §3.6) : fond SABLE #DAC294,
+   texte anthracite (demande client 07/07/2026 ; 8.58:1 ✓). */
+.btn--inverse {
+  background-color: var(--sable);
+  color: var(--anthracite);
+}
+
+/* Au hover, le bouton sable se transforme en TERRACOTTA (règle
+   client 07/07/2026 — boutons sur fond anthracite). */
+.btn--inverse:hover {
+  background-color: var(--terracotta-text);
+  color: var(--sable);
+}
+
+/* Fantôme sur fond sombre — outline SABLE (8.58:1 ✓) */
+.btn--on-dark {
+  background-color: transparent;
+  border-color: var(--sable);
+  color: var(--sable);
+}
+
+.btn--on-dark:hover {
+  background-color: var(--terracotta-text);
+  border-color: var(--terracotta-text);
+  color: var(--sable);
+}
+
+/* ------------------------------------------------------------
+   TAG CATÉGORIE — pastille MIEL (révision client 07/07/2026 :
+   plus de sauge sur les encarts). Fond --bois-miel-20, bordure
+   --bois-miel-40, texte anthracite (contraste élevé ✓), pilule.
+   État actif (filtres) : fond --bois-miel plein + texte anthracite
+   (4.87:1 ✓) + renfort non-couleur (coche + graisse).
+   ------------------------------------------------------------ */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 2rem;
+  padding: 0 var(--space-2);
+  /* Pastille MIEL PLEIN (demande client 07/07/2026 : le tint 20 %
+     virait au tan-olive terne = effet « sauge »). Fond --bois-miel
+     plein, texte anthracite (4.87:1 ✓). */
+  background-color: var(--bois-miel);
+  border: 1px solid var(--bois-miel);
+  border-radius: var(--radius-pill);
+  color: var(--anthracite);
+  font-family: var(--font-label);          /* Stellar — rôle étiquette */
+  /* Règle Stellar (client 06/07/2026) : jamais sous --text-label,
+     toujours épaissie au trait (--label-stroke) */
+  font-size: var(--text-label);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* Variante interactive (filtres Guides) — cible tactile 44px */
+.tag--filter {
+  min-height: var(--tap-target);
+  padding: 0 var(--space-3);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast),
+              color var(--transition-fast);
+}
+
+.tag--filter:hover {
+  filter: brightness(0.95);   /* léger assombrissement du miel plein */
+}
+
+.tag--filter[aria-pressed="true"] {
+  background-color: var(--bois-miel);          /* miel plein (plus de sauge) */
+  border-color: var(--bois-miel);
+  color: var(--anthracite);                    /* 4.87:1 sur miel ✓ */
+  font-weight: var(--weight-semibold);
+}
+
+/* Renfort non-couleur de l'état actif */
+.tag--filter[aria-pressed="true"]::before {
+  content: "\2713"; /* ✓ */
+}
+
+/* ------------------------------------------------------------
+   CARTE ÉDITORIALE (guides, teasers) — DA §3.4
+   (révision client 07/07/2026) : le crème-2 (tirant vers le
+   jaune) jurait sur le fond crème de la section (tirant vers le
+   gris). Fond CRÈME CHAUD #F0E6D2 — même famille que la section,
+   à peine plus profond : la carte se détache sans « dénoter ».
+   Filet grès + légère ombre au repos pour l'assise ; radius 8px.
+   Hover : lift 4px + ombre chaude.
+   Contraste ✓ : anthracite 12:1, anthracite-70 (résumé) 5.08:1.
+   ------------------------------------------------------------ */
+
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  /* Texture PAPIER KRAFT photographique (celle de l'herbier) —
+     demande client 07/07/2026, mêmes encarts que Consultations. */
+  background-color: #C9AE93;
+  background-image: url("../svg/HerbierBG-opt.avif");
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);   /* ombre projetée douce — effet « objet réel » */
+  overflow: hidden;
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+.guide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-warm);
+}
+
+.guide-card__media {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.guide-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.guide-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3);
+}
+
+.guide-card__title {
+  font-size: var(--text-lg);
+}
+
+.guide-card__summary {
+  /* Sur fond miel, le texte atténué serait illisible : brun plein
+     (4.59:1 sur miel ✓). */
+  color: var(--color-text);
+}
+
+/* Sur la carte guide (fond miel), la pastille miel serait invisible :
+   le tag devient une simple étiquette Stellar (comme le sur-titre des
+   cartes Consultations), texte anthracite (4.87:1 sur miel ✓). */
+.guide-card .tag {
+  min-height: auto;
+  padding-inline: 0;
+  background-color: transparent;
+  border: none;
+  color: var(--anthracite);
+}
+
+.guide-card__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  gap: var(--space-1);
+  font-weight: var(--weight-medium);
+  margin-block-start: auto;
+}
+
+/* ------------------------------------------------------------
+   CARTE CONSULTATION — DA §3.4 (révision client 07/07/2026)
+   Fond BOIS MIEL uniforme sur les 4 cartes (plus d'anthracite au
+   milieu, demande client), texture kraft en surimpression
+   (.texture-kraft en HTML), radius 6px, pas de bordure. Texte
+   ANTHRACITE UNIQUEMENT : 4.87:1 sur bois-miel ✓ (AA texte
+   normal ; ni terracotta ni sauge en texte).
+   ------------------------------------------------------------ */
+
+.consult-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  /* Texture PAPIER KRAFT photographique (la même que le fond de
+     l'herbier) — demande client 07/07/2026, encarts uniquement.
+     Couleur de secours = teinte moyenne du papier. */
+  background-color: #C9AE93;
+  background-image: url("../svg/HerbierBG-opt.avif");
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-kraft);
+  box-shadow: var(--shadow-md);   /* ombre projetée douce — effet « objet réel » */
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+@media (min-width: 768px) {
+  .consult-card {
+    padding: var(--space-4);
+  }
+}
+
+.consult-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-warm);
+}
+
+.consult-card__eyebrow {
+  font-family: var(--font-label);          /* Stellar — rôle étiquette */
+  /* Règle Stellar (client 06/07/2026) : jamais sous --text-label,
+     toujours épaissie au trait (--label-stroke) */
+  font-size: var(--text-label);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--anthracite);
+}
+
+.consult-card__title {
+  font-size: var(--text-xl);
+  color: var(--anthracite);
+  /* En 2 colonnes / cartes étroites, les mots longs (« Comportement »,
+     « Aménagement ») ne doivent jamais toucher le bord ni déborder. */
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.consult-card__text {
+  color: var(--anthracite);
+}
+
+.consult-card__cta {
+  margin-block-start: var(--space-1);
+}
+
+/* Lien éditorial de carte (alternative légère au bouton quand
+   plusieurs cartes cohabitent — cible tactile 44px) */
+.consult-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--tap-target);
+  margin-block-start: auto;
+  color: var(--anthracite);
+  font-weight: var(--weight-medium);
+}
+
+/* ------------------------------------------------------------
+   ENCADRÉ « LE CONSEIL DE BABETH » — DA §3.4 / §5.1
+   Carte kraft + amorce Wanderlust + coin de scotch
+   (l'usage « inattendu » du scotch hors images).
+   ------------------------------------------------------------ */
+
+.tip-card {
+  position: relative;
+  max-width: var(--measure);
+  margin-block-start: var(--space-4);
+  padding: var(--space-4);
+  background-color: var(--kraft);
+  border-radius: var(--radius-kraft);
+}
+
+/* Amorce en STELLAR (révision client 07/07/2026 : plus de
+   Wanderlust en phrase — réservée aux inscriptions courtes). */
+.tip-card__lead {
+  font-family: var(--font-label);
+  font-size: var(--text-md);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--anthracite);
+  margin-block-end: var(--space-2);
+  max-width: none;
+}
+
+.tip-card__text {
+  color: var(--anthracite);
+}
+
+.tip-card__tape {
+  position: absolute;
+  inset-block-start: -0.875rem;
+  inset-inline-start: var(--space-4);
+  z-index: 2;
+  width: 4.5rem;
+  height: auto;
+  fill: var(--jaune-scotch);
+  mix-blend-mode: multiply;
+  transform: rotate(-5deg);
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------
+   TÉMOIGNAGE LONG — blockquote, guillemets terracotta (DA §3.5)
+   ------------------------------------------------------------ */
+
+.testimonial {
+  position: relative;
+  padding-block-start: var(--space-6);
+  padding-inline-start: var(--space-3);
+}
+
+.testimonial::before {
+  content: "\00AB";                    /* « */
+  position: absolute;
+  inset-block-start: -0.35em;
+  inset-inline-start: 0;
+  font-family: var(--font-title);
+  font-size: var(--text-3xl);
+  line-height: 1;
+  color: var(--terracotta);            /* décoratif, taille géante */
+  pointer-events: none;
+}
+
+.testimonial__quote {
+  font-family: var(--font-title);
+  font-size: var(--text-md);
+  line-height: var(--leading-heading);
+  font-style: italic;
+}
+
+.testimonial__author {
+  display: block;
+  margin-block-start: var(--space-3);
+  font-style: normal;
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+}
+
+.testimonial__animal {
+  /* Jamais de texte en sauge (réservée au décoratif / SVG — règle
+     client 07/07/2026) : secondaire = anthracite atténué sur clair.
+     Sur fond sombre, .home-testimonial le passe en crème chaude. */
+  color: var(--anthracite-70);
+  font-weight: var(--weight-regular);
+}
+
+/* ------------------------------------------------------------
+   POLAROÏD TÉMOIGNAGE — DA §3.5
+   Cadre crème épais, grande marge basse, légende Wanderlust
+   dans la marge (prénom + nom de l'animal), scotch en coin.
+   ------------------------------------------------------------ */
+
+.polaroid {
+  position: relative;
+  display: inline-block;
+  max-width: 16rem;
+  padding: var(--space-2) var(--space-2) 0;
+  background-color: var(--creme);
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-tirage);
+  transform: rotate(2deg);
+}
+
+.polaroid--tilt-left {
+  transform: rotate(-2.5deg);
+}
+
+.polaroid__img {
+  border-radius: var(--radius-xs);
+}
+
+.polaroid__caption {
+  padding-block: var(--space-2);
+  font-family: var(--font-script);
+  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.125rem);
+  line-height: 1.1;
+  text-align: center;
+  color: var(--anthracite);
+}
+
+.polaroid__tape {
+  position: absolute;
+  inset-block-start: -0.875rem;
+  inset-inline-start: 50%;
+  z-index: 2;
+  width: 4.5rem;
+  height: auto;
+  fill: var(--jaune-scotch);
+  mix-blend-mode: multiply;
+  transform: translateX(-50%) rotate(-3deg);
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------
+   FORMULAIRES
+   Bordure --sauge-text #56644A : 5.64:1 sur crème ✓ (≥ 3:1 UI)
+   Erreur : couleur + icône + message (jamais couleur seule)
+   ------------------------------------------------------------ */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-width: var(--measure);
+}
+
+.field + .field {
+  margin-block-start: var(--space-3);
+}
+
+.field__label {
+  font-weight: var(--weight-medium);
+}
+
+.field__optional {
+  font-weight: var(--weight-regular);
+  color: var(--anthracite-70);
+  font-size: var(--text-sm);
+}
+
+.field__input,
+.field__select,
+.field__textarea {
+  width: 100%;
+  min-height: var(--tap-target);
+  padding: var(--space-1) var(--space-2);
+  background-color: var(--creme);
+  border: 1px solid var(--sauge-text);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+.field__textarea {
+  min-height: calc(var(--tap-target) * 3);
+  resize: vertical;
+}
+
+.field__input:hover,
+.field__select:hover,
+.field__textarea:hover {
+  border-color: var(--anthracite);
+}
+
+.field__input:focus-visible,
+.field__select:focus-visible,
+.field__textarea:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.field__hint {
+  font-size: var(--text-sm);
+  color: var(--anthracite-70);
+}
+
+/* État erreur */
+.field--error .field__input,
+.field--error .field__select,
+.field--error .field__textarea {
+  border: 2px solid var(--color-error);
+}
+
+.field__error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-error);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+.field__error-icon {
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+}
+
+/* ------------------------------------------------------------
+   SÉPARATEURS — DA §3.3
+   .sep : filet utilitaire droit (grès, sobre — l'utilitaire
+   ne joue pas à l'herbier).
+   .sep--sauge : trait décoratif sauge (la version « tracée
+   main » SVG animée arrive en Phase 3).
+   ------------------------------------------------------------ */
+
+.sep {
+  border: none;
+  border-block-start: 1px solid var(--gres);
+  width: 100%;
+  margin-block: var(--space-6);
+}
+
+.sep--sauge {
+  border-block-start: 2px solid var(--sauge);
+  width: var(--space-16);
+  margin-inline: auto;
+}
+
+.sep--left {
+  margin-inline: 0;
+}
+
+/* ------------------------------------------------------------
+   SIGNATURE MOVE 1 — PHOTO SCOTCHÉE (DA §3.1 famille 2, §5.1)
+   Tirage : support crème 12px + ombre chaude, photo coins 2px,
+   scotch jaune 76 % en multiply, rotations légères.
+   (Statique — pose animée GSAP en Phase 3.)
+   ------------------------------------------------------------ */
+
+.taped-photo {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  padding: 0.75rem;               /* 12px — tirage papier (DA : 10-14px) */
+  background-color: var(--creme);
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-tirage);
+  transform: rotate(-1.5deg);
+}
+
+.taped-photo--tilt-right {
+  transform: rotate(2deg);
+}
+
+.taped-photo__img {
+  border-radius: var(--radius-xs);
+}
+
+.taped-photo__tape {
+  position: absolute;
+  z-index: 2;
+  width: clamp(3.5rem, 20%, 5.5rem);
+  height: auto;
+  fill: var(--jaune-scotch);
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 1px 1px rgb(90 60 30 / 0.15));
+  pointer-events: none;
+}
+
+/* WASHI TAPE — les scotchs SVG du kit client (assets/svg/
+   Elements/Tape*.svg), utilisés sur TOUTES les photos du site
+   (demande client 08/07/2026 — remplacent le scotch jaune
+   générique). Bandes larges, rotations fortes en coin. */
+.washi {
+  position: absolute;
+  z-index: 2;
+  width: clamp(4rem, 38%, 7.5rem);
+  height: auto;
+  opacity: 0.9;
+  filter: drop-shadow(0 1px 1px rgb(90 60 30 / 0.18));
+  pointer-events: none;
+}
+
+/* Positions volontairement VARIÉES d'une photo à l'autre
+   (retour client 08/07) : parfois un seul scotch (tl, tr ou
+   top), parfois deux en diagonale (tl+br, tr+bl) ou sur le même
+   bord (tr+br) — jamais le duo tl+tr systématique. Règle : un
+   scotch SEUL se pose toujours en haut (une photo tenue
+   uniquement par le bas semblerait tomber). */
+.washi--tl { inset-block-start: -0.9rem; inset-inline-start: -1.6rem; transform: rotate(-38deg); }
+.washi--tr { inset-block-start: -0.9rem; inset-inline-end: -1.6rem; transform: rotate(36deg); }
+.washi--top { inset-block-start: -1rem; inset-inline-start: 50%; transform: translateX(-50%) rotate(-4deg); }
+.washi--bl { inset-block-end: -0.9rem; inset-inline-start: -1.5rem; transform: rotate(32deg); }
+.washi--br { inset-block-end: -0.9rem; inset-inline-end: -1.5rem; transform: rotate(-30deg); }
+
+.taped-photo__tape--tl {
+  inset-block-start: -0.75rem;
+  inset-inline-start: -1.25rem;
+  transform: rotate(-42deg);
+}
+
+.taped-photo__tape--tr {
+  inset-block-start: -0.75rem;
+  inset-inline-end: -1.25rem;
+  transform: rotate(40deg);
+}
+
+.taped-photo__caption {
+  margin-block-start: var(--space-1);
+  font-family: var(--font-script);
+  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.125rem); /* jamais < 1.75rem */
+  line-height: 1.1;
+  color: var(--anthracite);
+  text-align: center;
+  transform: rotate(1deg);
+}
+
+/* ------------------------------------------------------------
+   SIGNATURE MOVE 2 — ANNOTATION-BOUSSOLE (DA §5.2)
+   Phrase Wanderlust ≥ 1.75rem + trait/flèche tracé main qui
+   la relie à ce qu'elle commente. Anthracite sur crème ✓,
+   crème sur anthracite ✓, terracotta uniquement ≥ 1.75rem ✓.
+   (Le tracé s'animera en stroke-dashoffset en Phase 3.)
+   ------------------------------------------------------------ */
+
+.annotation {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  max-width: 20ch;
+}
+
+.annotation__text {
+  font-family: var(--font-script);
+  font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
+  line-height: 1.15;
+  color: var(--anthracite);
+  max-width: none;
+  transform: rotate(-2deg);
+}
+
+.annotation--terracotta .annotation__text {
+  color: var(--terracotta);      /* 3.72:1 — autorisé car ≥ 1.75rem */
+}
+
+.annotation__trait {
+  width: clamp(3.5rem, 30%, 6rem);
+  height: auto;
+  stroke: var(--anthracite-70);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ------------------------------------------------------------
+   SIGNATURE MOVE 3 — SURLIGNEUR D'HERBIER (DA §5.3)
+   <mark> restylé : coup de marqueur jaune pastel DERRIÈRE le
+   texte anthracite (le contraste du texte est intégralement
+   conservé — le jaune reste décor). 1-2 par page hors herbier.
+   (Reveal background-size 0→100 % en Phase 3.)
+   ------------------------------------------------------------ */
+
+.mark-herbier {
+  background-color: transparent;
+  /* Coup de marqueur, PAS surlignage de sélection (retour client
+     06/07/2026) : bande basse et fine (~40 % de l'em) qui chevauche
+     seulement la moitié inférieure des lettres, extrémités
+     biseautées par le dégradé incliné, fin de trait qui
+     s'éclaircit comme un feutre qui s'épuise. */
+  background-image: linear-gradient(100deg,
+    rgb(255 233 153 / 0) 0.5%,
+    var(--jaune-marker) 4%,
+    var(--jaune-marker) 82%,
+    rgb(255 233 153 / 0.5) 96%,
+    rgb(255 233 153 / 0) 99.5%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.42em;
+  background-position: 0 80%;
+  color: inherit;
+  padding-inline: 0.15em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* ------------------------------------------------------------
+   SIGNATURE MOVE 4 — SOLEIL PONCTUATION (DA §5.4)
+   Le pictogramme soleil, toujours seul, centré, entouré de
+   vide — le « point final » récurrent. Max 1 par page hors
+   Qui suis-je. (Version « qui se dessine » en SVG stroke :
+   Phase 3, après récupération des sources vectorielles.)
+   ------------------------------------------------------------ */
+
+.sun-mark {
+  display: grid;
+  justify-items: center;
+  margin-block: var(--space-8);
+}
+
+.sun-mark__img {
+  width: clamp(3rem, 8vw, 5rem);
+}
+
+.sun-mark--hero .sun-mark__img {
+  width: clamp(8rem, 20vw, 12.5rem);   /* héros 404 / états vides */
+}
+
+/* ------------------------------------------------------------
+   ENCART « PAGE » — SVG papier scotché (assets/svg/Elements/
+   Page*.svg) portant une citation courte. RÈGLE : le texte est
+   contraint DANS le papier (inset 18 %, overflow hidden,
+   taille plafonnée) — il ne doit JAMAIS déborder du dessin.
+   Citations ≤ 90 caractères.
+   ------------------------------------------------------------ */
+
+.note-page {
+  position: relative;
+  display: grid;
+  place-items: center;
+  max-width: 24rem;
+  margin-inline: auto;
+  transform: rotate(var(--rot, -1.5deg));
+}
+
+.note-page__bg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 6px 18px rgb(90 60 30 / 0.16));
+}
+
+.note-page__text {
+  position: absolute;
+  inset: 18% 16%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  text-align: center;
+  color: var(--brun-texte);
+  font-family: var(--font-title);
+  font-weight: var(--weight-title);
+  font-synthesis-weight: none;
+  -webkit-text-stroke: var(--title-stroke) currentColor;
+  font-size: clamp(0.95rem, 0.85rem + 0.5vw, 1.25rem);
+  line-height: var(--leading-heading);
+  max-width: none;
+}
+
+/* Variante témoignage — citation longue + auteur dans un grand Page.svg.
+   Encart agrandi et texte assoupli (police lecture, inset resserré) pour que
+   TOUT le témoignage tienne sans être coupé par l'overflow. */
+.note-page--testimonial {
+  width: 100%;
+  max-width: 34rem;
+  margin: 0;
+}
+
+.note-page__text--testimonial {
+  inset: 10% 5%;
+  align-content: center;
+  gap: var(--space-3);
+  padding-inline: var(--space-5);
+  font-family: var(--font-body);
+  font-weight: 400;
+  -webkit-text-stroke: 0;
+  font-size: clamp(0.95rem, 0.72rem + 0.8vw, 1.3rem);
+  line-height: 2;
+}
+
+.note-page__quote {
+  margin: 0;
+  font-style: italic;
+}
+
+.note-page__author {
+  font-family: var(--font-label);
+  font-style: normal;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  font-size: var(--text-label);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+}
+
+.note-page__animal {
+  display: block;
+  -webkit-text-stroke: 0;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--brun-texte-70, var(--brun-texte));
+}
+
+/* ------------------------------------------------------------
+   DÉROULÉ PAR ÉTAPES (consultations) — 1. échange → 2. visite
+   → 3. plan → 4. suivi. Numéro terracotta GRAND (≥ large text,
+   3.72:1 ✓ sur crème en décoratif), texte brun.
+   ------------------------------------------------------------ */
+
+.steps {
+  list-style: none;
+  display: grid;
+  gap: var(--space-3);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: etape;
+}
+
+@media (min-width: 768px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.steps__item {
+  counter-increment: etape;
+  margin: 0;
+  padding-block-start: var(--space-1);
+  border-block-start: 2px solid var(--bois-miel);
+}
+
+.steps__item::before {
+  content: counter(etape, decimal-leading-zero);
+  display: block;
+  margin-block-end: var(--space-1);
+  color: var(--terracotta);
+  font-family: var(--font-title);
+  font-weight: var(--weight-title);
+  font-synthesis-weight: none;
+  -webkit-text-stroke: var(--title-stroke) currentColor;
+  font-size: var(--text-xl);
+  line-height: 1;
+}
+
+.steps__title {
+  color: var(--anthracite);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+}
+
+.steps__text {
+  margin-block-start: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--brun-texte-70);
+}
+
+/* Variante sur fond anthracite (section signature) */
+.steps--on-dark .steps__item { border-block-start-color: var(--sable-70); }
+.steps--on-dark .steps__title { color: var(--sable); }
+.steps--on-dark .steps__text { color: var(--sable-70); }
+
+/* ------------------------------------------------------------
+   SUJETS ABORDÉS — liste visuelle à puce soleil (DA §3.8 :
+   puce dessinée, pas de bibliothèque d'icônes)
+   ------------------------------------------------------------ */
+
+.topics {
+  list-style: none;
+  display: grid;
+  gap: var(--space-1) var(--space-3);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .topics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.topics__item {
+  position: relative;
+  margin: 0;
+  padding-inline-start: 1.4em;
+  color: var(--brun-texte);
+}
+
+/* Puce : petit rayon de soleil tracé (rond + traits) */
+.topics__item::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0.42em;
+  inset-inline-start: 0;
+  width: 0.55em;
+  height: 0.55em;
+  border: 1.5px solid var(--bois-miel);
+  border-radius: 50%;
+}
+
+.topics--on-dark .topics__item { color: var(--sable); }
+.topics--on-dark .topics__item::before { border-color: var(--sable-70); }
+
+/* ------------------------------------------------------------
+   CARTE GUIDE « BIENTÔT » — pas encore d'article : pas de lien,
+   badge Stellar. (États non-couleur : texte explicite.)
+   ------------------------------------------------------------ */
+
+.guide-card--soon {
+  opacity: 0.88;
+}
+
+.guide-card__soon {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  gap: var(--space-1);
+  margin-block-start: auto;
+  color: var(--brun-texte-70);
+  font-family: var(--font-label);
+  font-size: var(--text-label);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* Carte masquée par le filtre (guides-filter.js) — transition
+   douce sans GSAP (régime sobre hors herbier) */
+.guide-card[data-filtered="out"] {
+  display: none;
+}
+
+/* ------------------------------------------------------------
+   PRAIRIE PRÉ-FOOTER (demande client 08/07/2026) — sur toutes
+   les pages SAUF l'herbier : une bande de plantes qui ÉMERGENT
+   du footer anthracite (la terre) et poussent vers le haut
+   (flora.js, data-specimen — croissance UNE seule fois).
+   La bande dédiée garantit un espace vide : la végétation ne
+   passe jamais sous un titre ou une photo. Hauteurs, espèces
+   et inclinaisons variées ; jamais deux silhouettes collées.
+   Les plantes sont ENRACINÉES (pas de data-lag / dérive).
+   ------------------------------------------------------------ */
+.meadow-strip {
+  position: relative;
+  height: clamp(7rem, 13vw, 12rem);
+  margin-block-start: var(--space-10);
+  pointer-events: none;
+}
+
+.meadow-strip__plant {
+  position: absolute;
+  inset-block-end: 0;
+  width: auto;
+  pointer-events: none;
+  transform: rotate(var(--rot, 0deg));
+  transform-origin: 50% 100%;
+}
+
+/* Emplacements — un par silhouette, respiration entre chaque.
+   Les pages n'utilisent qu'une PARTIE des slots (4 à 7) avec
+   des espèces différentes : disposition riche et variée. */
+.meadow-slot-a { inset-inline-start: 2%;  height: 68%; --rot: -5deg; }
+.meadow-slot-b { inset-inline-start: 13%; height: 44%; --rot: 4deg; }
+.meadow-slot-c { inset-inline-start: 29%; height: 86%; --rot: -2deg; }
+.meadow-slot-d { inset-inline-start: 46%; height: 55%; --rot: 6deg; }
+.meadow-slot-e { inset-inline-start: 63%; height: 96%; --rot: -4deg; }
+.meadow-slot-f { inset-inline-start: 79%; height: 50%; --rot: 3deg; }
+.meadow-slot-g { inset-inline-end: 2%;   height: 74%; --rot: 5deg; }
+
+/* Un papillon peut voleter au-dessus de la prairie (naissance
+   + dérive data-lag autorisée : lui n'est pas enraciné). */
+.meadow-slot-fly {
+  inset-inline-start: 54%;
+  inset-block-end: 66%;
+  height: 42%;
+  --rot: -8deg;
+}

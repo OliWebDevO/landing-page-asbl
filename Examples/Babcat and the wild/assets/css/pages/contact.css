@@ -1,0 +1,128 @@
+/* ============================================================
+   BABCAT & THE WILD — PAGE CONTACT
+   ------------------------------------------------------------
+   PLAN §4.5 : formulaire accessible (composants .field),
+   pré-remplissage de l'objet via ?service= (contact.js),
+   infos + zone d'intervention + soleil + phrase douce.
+   Dépend de : tokens, base, components, layout, pages/home.css.
+   ============================================================ */
+
+.contact-hero {
+  position: relative;
+  padding-block: var(--space-10) var(--space-6);
+  text-align: center;
+  overflow: clip;
+}
+
+.contact-hero > .container { position: relative; z-index: 1; }
+
+.contact-hero__title {
+  color: var(--anthracite);
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+}
+
+.contact-hero__lead {
+  margin-block-start: var(--space-3);
+  margin-inline: auto;
+  max-width: 48ch;
+  font-size: var(--text-md);
+  color: var(--brun-texte);
+}
+
+.dec-contact-plant { position: absolute; z-index: 0; inset-inline-start: 5%; inset-block-end: -14%;
+                     width: clamp(5.5rem, 9vw, 8.5rem); transform: rotate(-7deg); pointer-events: none; }
+.dec-contact-butterfly { position: absolute; z-index: 0; inset-inline-end: -4%; inset-block-start: 2%;
+                         width: clamp(13.5rem, 21vw, 19.5rem); transform: rotate(-72deg); pointer-events: none; }
+
+/* ÉPURATION MOBILE (< 768px) — le grand papillon (≈216px, débord à droite)
+   écraserait l'écran : on le masque et on garde la petite plante (bas gauche). */
+@media (max-width: 767.98px) {
+  .dec-contact-butterfly {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   GRILLE FORMULAIRE / INFOS
+   ------------------------------------------------------------ */
+
+.contact-grid {
+  display: grid;
+  gap: var(--space-8);
+  padding-block-end: var(--space-section);
+}
+
+@media (min-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--space-3);
+  }
+
+  .contact-form  { grid-column: 1 / span 7; }
+  .contact-aside { grid-column: 9 / span 4; }
+}
+
+.contact-form__actions {
+  margin-block-start: var(--space-4);
+}
+
+.contact-form__rgpd {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-1);
+  margin-block-start: var(--space-3);
+  max-width: var(--measure);
+  font-size: var(--text-sm);
+  color: var(--brun-texte-70);
+}
+
+.contact-form__rgpd input {
+  margin-block-start: 0.3em;
+  accent-color: var(--terracotta-text);
+}
+
+/* Message d'état (envoi) — annoncé aux lecteurs d'écran */
+.contact-form__status {
+  margin-block-start: var(--space-2);
+  font-weight: var(--weight-medium);
+  color: var(--brun-texte);
+}
+
+/* ------------------------------------------------------------
+   ASIDE — coordonnées, zone, encart papier
+   ------------------------------------------------------------ */
+
+.contact-aside__title {
+  color: var(--anthracite);
+  font-size: var(--text-lg);
+  margin-block-end: var(--space-2);
+}
+
+.contact-aside__list {
+  list-style: none;
+  max-width: none;
+  margin: 0 0 var(--space-5);
+  padding: 0;
+}
+
+.contact-aside__list li {
+  margin-block-start: var(--space-1);
+  color: var(--brun-texte);
+}
+
+.contact-aside__list a {
+  color: var(--brun-texte);
+}
+
+.contact-aside .note-page {
+  margin-block-start: var(--space-6);
+}
+
+.contact-aside__sun {
+  display: block;
+  width: clamp(4rem, 8vw, 6rem);
+  height: auto;
+  margin-inline: auto;
+  margin-block-start: var(--space-6);
+}

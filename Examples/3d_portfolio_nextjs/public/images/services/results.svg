@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+  <defs>
+    <linearGradient id="g-results" x1="28" y1="4" x2="28" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fbb4d0"/>
+      <stop offset="100%" stop-color="#e879a8"/>
+    </linearGradient>
+  </defs>
+  <!-- Axes (static) -->
+  <line x1="8" y1="48" x2="48" y2="48" stroke="url(#g-results)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="8" y1="8" x2="8" y2="48" stroke="url(#g-results)" stroke-width="2" stroke-linecap="round"/>
+  <!-- Curve line: draw up, stay, then erase from start (bottom to top) -->
+  <polyline points="8,42 18,32 26,36 34,22 44,12" stroke="url(#g-results)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60">
+    <animate attributeName="stroke-dashoffset" values="60;0;0;-60;-60" keyTimes="0;0.12;0.75;0.88;1" dur="7s" repeatCount="indefinite"/>
+  </polyline>
+  <!-- Arrow: fade in after curve drawn, fade out when curve erases -->
+  <polyline points="36,12 44,12 44,20" stroke="url(#g-results)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1;0.14;0.75;0.82;1" dur="7s" repeatCount="indefinite"/>
+  </polyline>
+</svg>

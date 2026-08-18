@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-labelledby="ph-portrait-title">
+  <title id="ph-portrait-title">Image provisoire — portrait aux tons terreux</title>
+  <rect width="600" height="800" fill="#C9B394"/>
+  <rect x="40" y="40" width="520" height="720" fill="#FAF6EF"/>
+  <circle cx="300" cy="330" r="120" fill="#B98A5A" opacity="0.85"/>
+  <path d="M140 760 Q 300 480 460 760 Z" fill="#8B9B7D"/>
+  <path d="M215 245 l 32 -52 26 44 Z" fill="#B98A5A"/>
+  <path d="M385 245 l -32 -52 -26 44 Z" fill="#B98A5A"/>
+  <circle cx="258" cy="320" r="10" fill="#272727"/>
+  <circle cx="342" cy="320" r="10" fill="#272727"/>
+  <path d="M282 368 q 18 16 36 0" stroke="#272727" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M120 620 q 40 -30 80 0" stroke="#C8622A" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.8"/>
+</svg>

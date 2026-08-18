@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact — Parlez-moi de votre animal | Babcat &amp; The Wild</title>
+  <meta name="description" content="Consultations à domicile à Bruxelles et alentours, ou en visio. Écrivez-moi : nutrition, comportement, aménagement animal-friendly, garde &amp; soins — on vous répond avec soin.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact — Babcat &amp; The Wild">
+  <meta property="og:description" content="Parlez-moi de votre animal — on vous répond avec soin.">
+  <meta property="og:locale" content="fr_BE">
+
+  <link rel="icon" type="image/png" href="assets/img/logos/favicon-64.png">
+
+  <link rel="preload" href="assets/fonts/robelia.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/alegreya-sans-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+  <link rel="stylesheet" href="assets/css/pages/contact.css">
+
+  <script src="assets/js/main.js" data-root="." defer></script>
+  <script src="assets/js/contact.js" defer></script>
+
+  <script src="assets/js/vendor/gsap.min.js" defer></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/vendor/SplitText.min.js" defer></script>
+  <script src="assets/js/animations/core.js" defer></script>
+  <script src="assets/js/animations/reveals.js" defer></script>
+  <script src="assets/js/animations/flora.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+  <header class="fallback-header" id="site-header-fallback">
+    <a class="fallback-header__brand" href="index.html" aria-label="Babcat &amp; The Wild — retour à l'accueil">
+      <img class="fallback-header__logo" src="assets/img/logos/monogramme-b-transparent.png" alt="" width="320" height="356">
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="fallback-header__list">
+        <li><a class="fallback-header__link" href="index.html">Accueil</a></li>
+        <li><a class="fallback-header__link" href="qui-suis-je.html">Qui suis-je</a></li>
+        <li><a class="fallback-header__link" href="consultations.html">Consultations</a></li>
+        <li><a class="fallback-header__link" href="guides-conseils.html">Guides &amp; conseils</a></li>
+        <li><a class="fallback-header__link" href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenu-principal">
+
+    <header class="contact-hero">
+      <img class="dec-contact-plant" src="assets/svg/Plants/Floral%20Illustrations%208.svg"
+           alt="" aria-hidden="true" width="114" height="236" data-specimen data-lag="0.9">
+      <img class="dec-contact-butterfly" src="assets/svg/Butterflies/Butterfly4.svg"
+           alt="" aria-hidden="true" width="373" height="394" data-butterfly data-lag="1.3">
+
+      <div class="container">
+        <p class="home-eyebrow">Contact</p>
+        <h1 class="contact-hero__title" data-reveal-text>On fait connaissance&nbsp;?</h1>
+        <p class="contact-hero__lead" data-reveal>
+          Parlez-moi de votre animal — son prénom, son histoire, ce qui vous
+          amène. Les consultations se font à domicile, à Bruxelles et
+          alentours, ou en visio selon la demande.
+        </p>
+      </div>
+    </header>
+
+    <div class="container contact-grid">
+
+      <!-- ====================================================
+           FORMULAIRE — envoi provisoire par mailto (backend
+           n8n / Web3Forms à choisir par la cliente, PLAN §9)
+           ==================================================== -->
+      <form class="contact-form" data-contact-form novalidate data-reveal>
+        <h2 class="visually-hidden">Formulaire de contact</h2>
+
+        <div class="field">
+          <label class="field__label" for="champ-nom">Votre nom</label>
+          <input class="field__input" id="champ-nom" name="nom" type="text"
+                 autocomplete="name" required>
+          <p class="field__error" hidden>
+            <svg class="field__error-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 4.5v4.2M8 11.2v.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            Dites-moi au moins comment vous appeler.
+          </p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="champ-email">Votre email</label>
+          <input class="field__input" id="champ-email" name="email" type="email"
+                 autocomplete="email" required>
+          <p class="field__error" hidden>
+            <svg class="field__error-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 4.5v4.2M8 11.2v.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            Il me faut une adresse valide pour vous répondre.
+          </p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="champ-objet">Objet</label>
+          <select class="field__select" id="champ-objet" name="objet">
+            <option>Comportement</option>
+            <option>Nutrition</option>
+            <option>Aménagement intérieur</option>
+            <option>Garde &amp; soins</option>
+            <option selected>Prise de contact</option>
+            <option>Proposition de partenariat</option>
+            <option>Question</option>
+            <option>Autre</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="champ-message">Votre message</label>
+          <textarea class="field__textarea" id="champ-message" name="message" required
+                    placeholder="Son prénom, son âge, ce qui vous amène…"></textarea>
+          <p class="field__hint">Plus vous m'en dites sur lui, mieux je vous réponds.</p>
+          <p class="field__error" hidden>
+            <svg class="field__error-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 4.5v4.2M8 11.2v.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            Racontez-moi au moins l'essentiel.
+          </p>
+        </div>
+
+        <label class="contact-form__rgpd">
+          <input type="checkbox" required>
+          <span>
+            J'accepte que ces informations soient utilisées uniquement pour
+            me répondre — voir les
+            <a href="mentions-legales.html#rgpd">mentions légales</a>.
+          </span>
+        </label>
+
+        <p class="contact-form__actions">
+          <button class="btn btn--primary" type="submit">
+            Envoyer mon message
+            <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+          </button>
+        </p>
+        <p class="contact-form__status" role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- ====================================================
+           ASIDE — coordonnées, réseaux, encart doux
+           ==================================================== -->
+      <aside class="contact-aside" data-reveal>
+        <h2 class="contact-aside__title">Me joindre</h2>
+        <ul class="contact-aside__list">
+          <li><a href="mailto:babcatandthewild@gmail.com">babcatandthewild@gmail.com</a></li>
+          <!-- ⚠ n° de téléphone à ajouter quand Elisabeth le fournit -->
+          <li><a href="https://www.instagram.com/babcatandthewild" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@babcatandthewild" rel="noopener">TikTok</a></li>
+          <li><a href="https://www.facebook.com/babcatandthewild" rel="noopener">Facebook</a></li>
+        </ul>
+
+        <h2 class="contact-aside__title">Zone d'intervention</h2>
+        <p>
+          À domicile, à Bruxelles et alentours — ou en visio selon la
+          demande.
+        </p>
+
+        <div class="note-page">
+          <img class="note-page__bg" src="assets/svg/Elements/Page%202.svg"
+               alt="" aria-hidden="true" width="277" height="312">
+          <p class="note-page__text">Prenez le temps. On vous répond avec soin.</p>
+        </div>
+
+        <img class="contact-aside__sun" src="assets/img/logos/pictogramme-soleil-transparent.png"
+             alt="" aria-hidden="true" width="640" height="610" loading="lazy">
+      </aside>
+
+    </div>
+
+  </main>
+
+
+  <!-- PRAIRIE PRÉ-FOOTER — la nature émerge du footer-terre
+       (anthracite) et pousse vers le haut. flora.js :
+       croissance UNE seule fois (demande client 08/07). -->
+  <div class="meadow-strip" aria-hidden="true">
+    <img class="meadow-strip__plant meadow-slot-a" src="assets/svg/Plants/Floral%20Illustrations%2012.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-c" src="assets/svg/Plants/Floral%20Illustrations%206.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-e" src="assets/svg/Plants/Floral%20Illustrations%2016.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-g" src="assets/svg/Plants/Floral%20Illustrations%209.svg" alt="" width="114" height="236" data-specimen>
+  </div>
+
+  <footer class="fallback-footer" id="site-footer-fallback">
+    <nav aria-label="Navigation de pied de page">
+      <ul class="fallback-footer__list">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="qui-suis-je.html">Qui suis-je</a></li>
+        <li><a href="consultations.html">Consultations</a></li>
+        <li><a href="guides-conseils.html">Guides &amp; conseils</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+      </ul>
+    </nav>
+    <p class="fallback-footer__legal">&copy; 2026 Babcat &amp; The Wild — Bruxelles</p>
+  </footer>
+
+</body>
+</html>

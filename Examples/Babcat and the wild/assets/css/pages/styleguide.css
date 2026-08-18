@@ -1,0 +1,520 @@
+/* ============================================================
+   BABCAT & THE WILD — STYLEGUIDE (page de démonstration)
+   ------------------------------------------------------------
+   Échafaudage de la page styleguide.html uniquement (.sg-*).
+   Les composants démontrés vivent dans components.css.
+   Mobile-first, min-width uniquement.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   STRUCTURE DE PAGE
+   ------------------------------------------------------------ */
+
+.sg-container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--container-gutter);
+}
+
+.sg-header {
+  padding-block: var(--space-8) var(--space-6);
+  border-block-end: 1px solid var(--gres);
+}
+
+.sg-header__kicker {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--sauge-text);
+}
+
+.sg-header__baseline {
+  margin-block-start: var(--space-2);
+  font-family: var(--font-script);
+  font-size: var(--text-script);
+  color: var(--terracotta-text);
+}
+
+.sg-section {
+  padding-block: var(--space-8);
+  border-block-end: 1px solid var(--gres);
+}
+
+.sg-section__title {
+  margin-block-end: var(--space-2);
+}
+
+.sg-section__intro {
+  margin-block-end: var(--space-5);
+  color: var(--anthracite-70);
+}
+
+.sg-subtitle {
+  margin-block: var(--space-6) var(--space-3);
+}
+
+.sg-note {
+  max-width: var(--measure);
+  margin-block-start: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--terracotta-10);
+  border-inline-start: 3px solid var(--terracotta);
+  border-radius: var(--radius-xs);
+  font-size: var(--text-sm);
+}
+
+/* ------------------------------------------------------------
+   NUANCIER
+   ------------------------------------------------------------ */
+
+.sg-palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: var(--space-3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sg-palette li + li {
+  margin-block-start: 0;
+}
+
+.sg-swatch {
+  border: 1px solid var(--gres);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--creme);
+}
+
+.sg-swatch__chip {
+  height: var(--space-10);
+}
+
+.sg-swatch__chip--terracotta { background-color: var(--terracotta); }
+.sg-swatch__chip--terracotta-text { background-color: var(--terracotta-text); }
+.sg-swatch__chip--sauge { background-color: var(--sauge); }
+.sg-swatch__chip--sauge-text { background-color: var(--sauge-text); }
+.sg-swatch__chip--jaune { background-color: var(--jaune-pastel); }
+.sg-swatch__chip--anthracite { background-color: var(--anthracite); }
+.sg-swatch__chip--creme { background-color: var(--creme); }
+.sg-swatch__chip--creme-2 { background-color: var(--creme-2); }
+.sg-swatch__chip--bois-miel { background-color: var(--bois-miel); }
+.sg-swatch__chip--kraft { background-color: var(--kraft); }
+.sg-swatch__chip--gres { background-color: var(--gres); }
+
+.sg-swatch__meta {
+  padding: var(--space-2);
+}
+
+.sg-swatch__name {
+  font-weight: var(--weight-semibold);
+}
+
+.sg-swatch__hex {
+  font-size: var(--text-sm);
+  color: var(--anthracite-70);
+}
+
+.sg-swatch__role {
+  margin-block-start: var(--space-1);
+  font-size: var(--text-sm);
+  line-height: var(--leading-loose);
+}
+
+/* Échantillons de matières (tuiles de grain, DA §3.2) */
+.sg-materials {
+  display: grid;
+  gap: var(--space-3);
+  margin-block-start: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .sg-materials {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sg-material {
+  display: grid;
+  place-items: center;
+  min-height: var(--space-16);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-size: var(--text-sm);
+}
+
+.sg-material--creme {
+  position: relative;
+  background-color: var(--creme);
+  border: 1px solid var(--gres);
+}
+
+.sg-material--creme::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../../img/textures/grain-anthracite.png");
+  background-repeat: repeat;
+  opacity: var(--grain-creme-opacity);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.sg-material--kraft {
+  background-color: var(--kraft);
+  color: var(--anthracite);
+}
+
+.sg-material--dark {
+  background-color: var(--anthracite);
+  color: var(--creme);
+}
+
+/* Barre 60-30-10 */
+.sg-ratio {
+  display: flex;
+  height: var(--space-6);
+  margin-block-start: var(--space-5);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--gres);
+}
+
+.sg-ratio__seg--60 {
+  flex: 60;
+  background-color: var(--creme-2);
+}
+
+.sg-ratio__seg--30 {
+  flex: 30;
+  background-color: var(--sauge);
+}
+
+.sg-ratio__seg--10 {
+  flex: 10;
+  background-color: var(--terracotta);
+}
+
+.sg-ratio-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-block-start: var(--space-2);
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+.sg-ratio-legend li + li {
+  margin-block-start: 0;
+}
+
+/* ------------------------------------------------------------
+   SPÉCIMEN TYPO
+   ------------------------------------------------------------ */
+
+.sg-type-row {
+  display: grid;
+  gap: var(--space-1);
+  padding-block: var(--space-3);
+  border-block-end: 1px dashed var(--gres);
+}
+
+.sg-type-row__meta {
+  font-size: var(--text-sm);
+  color: var(--anthracite-70);
+}
+
+/* Spécimens de titres — <p> stylés (pas de vrais h*, pour ne
+   pas casser la hiérarchie de titres de la page) */
+.sg-type-h1-demo,
+.sg-type-h2-demo,
+.sg-type-h3-demo,
+.sg-type-h4-demo,
+.sg-type-h5-demo {
+  font-family: var(--font-title);
+  /* Gras Robelia propre — même technique que base.css */
+  font-weight: var(--weight-title);
+  font-synthesis-weight: none;
+  -webkit-text-stroke: var(--title-stroke) currentColor;
+  line-height: var(--leading-heading);
+  max-width: none;
+}
+
+.sg-type-h1-demo {
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+}
+
+.sg-type-h2-demo {
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+}
+
+.sg-type-h3-demo {
+  font-size: var(--text-xl);
+}
+
+.sg-type-h4-demo {
+  font-size: var(--text-lg);
+}
+
+.sg-type-h5-demo {
+  font-size: var(--text-md);
+}
+
+.sg-type-h6-demo {
+  font-size: var(--text-base);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  max-width: none;
+}
+
+.sg-script-demo {
+  font-family: var(--font-script);
+  font-size: var(--text-script);
+  color: var(--terracotta-text);
+  max-width: none;
+}
+
+/* Panneau sombre (contrastes sur anthracite) */
+.sg-panel--dark {
+  margin-block-start: var(--space-5);
+  padding: var(--space-5);
+  background-color: var(--anthracite);
+  border-radius: var(--radius-md);
+  color: var(--creme);
+}
+
+.sg-panel--dark h3,
+.sg-panel--dark h4 {
+  color: var(--color-title-on-dark);   /* crème chaud — perçu crème, pas blanc */
+}
+
+.sg-panel--dark p {
+  color: var(--creme);                 /* le corps garde le crème clair (lisibilité) */
+}
+
+.sg-panel--dark .sg-type-row {
+  border-block-end-color: var(--anthracite-70);
+}
+
+.sg-panel--dark .sg-type-row__meta {
+  color: var(--creme);
+  opacity: 0.7;
+}
+
+.sg-panel--dark .sg-script-demo {
+  color: var(--creme);
+  /* Le jaune pastel ne porte JAMAIS de texte, même sur
+     anthracite — décor uniquement (scotch, soulignés, soleil) */
+}
+
+.sg-panel--dark a {
+  color: var(--creme); /* le terracotta ne passe pas sur anthracite
+                          en corps de texte (2.68:1) */
+  text-decoration-color: var(--creme-70);
+}
+
+/* Titre terracotta sur anthracite : 3.72:1 → grands titres only */
+.sg-panel--dark .sg-title-accent {
+  color: var(--terracotta);
+}
+
+/* ------------------------------------------------------------
+   DÉMOS DE COMPOSANTS
+   ------------------------------------------------------------ */
+
+.sg-demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.sg-demo-dark {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-block-start: var(--space-3);
+  padding: var(--space-4);
+  background-color: var(--anthracite);
+  border-radius: var(--radius-md);
+}
+
+.sg-grid-cards {
+  display: grid;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .sg-grid-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sg-grid-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sg-form-demo {
+  max-width: 36rem;
+}
+
+.sg-taped-demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-6);
+  padding-block: var(--space-4);
+}
+
+.sg-taped-demo .taped-photo {
+  max-width: 18rem;
+}
+
+/* Démo annotation-boussole : photo + annotation côte à côte */
+.sg-annotation-demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5);
+  padding-block: var(--space-3);
+}
+
+.sg-annotation-demo__photo {
+  max-width: 22rem;
+  border-radius: var(--radius-sm);
+}
+
+/* Démo surligneur : paragraphe de récit */
+.sg-marker-demo {
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+}
+
+/* ------------------------------------------------------------
+   EXEMPLE HERO
+   ------------------------------------------------------------ */
+
+.sg-hero {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+  padding: var(--space-8) var(--space-4);
+  margin-block-start: var(--space-5);
+  background-color: var(--creme-2);
+  border: 1px solid var(--gres);
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 1024px) {
+  .sg-hero {
+    grid-template-columns: 7fr 5fr;
+    padding: var(--space-10) var(--space-8);
+  }
+}
+
+.sg-hero__content {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+}
+
+.sg-hero__logo {
+  width: clamp(9rem, 22vw, 14rem);
+}
+
+.sg-hero__script {
+  font-family: var(--font-script);
+  font-size: var(--text-script);
+  color: var(--terracotta-text);
+  max-width: none;
+}
+
+.sg-hero__lead {
+  font-size: var(--text-md);
+  color: var(--anthracite-70);
+}
+
+.sg-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-block-start: var(--space-2);
+}
+
+.sg-hero__media {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ------------------------------------------------------------
+   EXEMPLE SECTION ANTHRACITE (signature)
+   ------------------------------------------------------------ */
+
+.sg-dark-section {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+  padding: var(--space-8) var(--space-4);
+  margin-block-start: var(--space-5);
+  background-color: var(--anthracite);
+  border-radius: var(--radius-md);
+  color: var(--creme);
+}
+
+@media (min-width: 1024px) {
+  .sg-dark-section {
+    grid-template-columns: 5fr 7fr;
+    padding: var(--space-10) var(--space-8);
+  }
+}
+
+.sg-dark-section__content {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+}
+
+.sg-dark-section__eyebrow {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--sauge);              /* 5.04:1 sur anthracite ✓ */
+}
+
+.sg-dark-section__title {
+  color: var(--creme);
+}
+
+.sg-dark-section__text {
+  color: var(--creme);
+  opacity: 0.85;
+}
+
+.sg-dark-section__media {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ------------------------------------------------------------
+   PIED DE PAGE STYLEGUIDE
+   ------------------------------------------------------------ */
+
+.sg-footer {
+  padding-block: var(--space-6);
+  font-size: var(--text-sm);
+  color: var(--anthracite-70);
+}

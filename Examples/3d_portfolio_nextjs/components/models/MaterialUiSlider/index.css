@@ -1,0 +1,223 @@
+
+#work {
+  height: 100%;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+.demo-nav {
+  height: 48px;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  font-family: monospace;
+  color: #fff;
+  gap: 16px;
+  box-sizing: border-box;
+  padding: 6px 16px;
+  z-index: 10;
+}
+.demo-nav {
+  font-size: 12px;
+  label {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0px 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.demo-slider {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 10;
+  min-height: 0;
+  position: relative;
+}
+
+.swiper {
+  position: relative;
+}
+
+.swiper-material {
+  height: 45svh;
+  width: calc(100% - 32px);
+  max-width: 88vw;
+}
+.demo-material-image {
+  position: absolute;
+  left: 0%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--swiper-material-slide-border-radius);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.demo-material-label {
+  position: absolute;
+  font-size: 24px;
+  color: #fff;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  box-sizing: border-box;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  justify-content: flex-end;
+  align-items: center;
+  white-space: nowrap;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.2) 50%
+  );
+}
+
+/* Mobile: label as button */
+@media (max-width: 768px) {
+  .demo-material-label {
+    height: auto;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24px;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    background-image: none;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .demo-material-label:active {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateX(-50%) scale(0.95);
+  }
+}
+
+/* Custom Navigation Arrows */
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.swiper-button-prev-custom {
+  left: 30px;
+}
+
+.swiper-button-next-custom {
+  right: 45px;
+}
+
+.arrow-nav-wrapper {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.arrow-nav-wrapper:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.arrow-nav-icon {
+  width: 20px;
+  height: 20px;
+  filter: invert(0);
+  transition: filter 0.3s ease;
+}
+
+.arrow-nav-wrapper:hover .arrow-nav-icon {
+  filter: invert(0) brightness(0.8);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .swiper-material {
+    height: 100svh;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .demo-slider {
+    contain: layout style;
+  }
+
+  .demo-material-image {
+    will-change: auto;
+    transform: translate3d(0, 0, 0);
+    object-fit: cover;
+  }
+
+  .swiper-button-prev-custom,
+  .swiper-button-next-custom {
+    display: flex;
+  }
+
+  .swiper-button-prev-custom {
+    left: 5px;
+  }
+
+  .swiper-button-next-custom {
+    right: 5px;
+  }
+
+  .arrow-nav-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .arrow-nav-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .arrow-nav-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .arrow-nav-icon {
+    width: 14px;
+    height: 14px;
+  }
+}

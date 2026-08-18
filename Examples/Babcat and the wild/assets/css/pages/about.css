@@ -1,0 +1,568 @@
+/* ============================================================
+   BABCAT & THE WILD — PAGE QUI SUIS-JE (l'herbier animé)
+   ------------------------------------------------------------
+   PLAN §4.2 — pièce maîtresse. Un carnet de voyage / herbier
+   qu'on feuillette en scrollant : planches (photos scotchées
+   au washi + prose + annotations), respirations quasi vides,
+   spécimens botaniques SVG, papillons, encarts papier.
+   Fond : papier kraft photographique (HerbierBG.avif) sur
+   toute la page (demande client 07/07/2026).
+
+   CONTRASTE SUR LE PAPIER KRAFT (~#C9AE93) :
+   texte = brun-texte #3E261C (≈5.7:1 ✓) ou anthracite (≈8:1 ✓)
+   UNIQUEMENT. Jamais terracotta en texte ici (2.5:1 ✗) — le
+   terracotta reste décor (traits, décors SVG).
+
+   Animations (about-story.js, agent GSAP — hooks data-*) :
+   data-print / data-washi / data-ink / data-specimen /
+   data-butterfly / data-note / data-draw. Sans JS : tout est
+   visible (aucun état caché ici — règle FOUC du projet).
+   Dépend de : tokens.css, base.css, components.css, layout.css
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   FOND PAPIER — remplace le grain global sur cette page
+   (le papier kraft photographique porte déjà son grain).
+   ------------------------------------------------------------ */
+
+/* Le papier défile AVEC le contenu (demande client 07/07/2026 :
+   pas de fond fixe derrière) : la tuile kraft est répétée sur
+   toute la hauteur du document — un seul long parchemin continu.
+   Tuile SEAMLESS v2 : éclairage APLATI (flat-field — le gradient
+   de lumière de la photo créait une bande claire/sombre à chaque
+   répétition) puis « offset & heal » (bords raccordés sans
+   couture). Résultat : AUCUNE coupe ni bande visible, quelle que
+   soit la hauteur de page. Le grain global (body::before, 4 %)
+   reste par-dessus. */
+body.page-herbier {
+  background-color: #C9AE93;        /* couleur moyenne du papier :
+                                       évite tout flash avant l'AVIF */
+  background-image: url("../../svg/HerbierBG-seamless-v2.avif");
+  background-size: 100% auto;       /* pleine largeur, hauteur au ratio */
+  background-repeat: repeat;        /* raccord seamless : répétable X et Y */
+}
+
+/* ------------------------------------------------------------
+   OUVERTURE — portrait scotché + boussole
+   ------------------------------------------------------------ */
+
+.about-hero {
+  padding-block: var(--space-10) var(--space-12);
+  overflow-x: clip;   /* vertical libre : les SVG traversent les sections */                    /* les spécimens débordants
+                                        ne créent pas de scroll X */
+}
+
+.about-hero__grid {
+  position: relative;
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .about-hero__grid {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--space-3);
+  }
+
+  .about-hero__body   { grid-column: 1 / span 6; }
+  .about-hero__figure { grid-column: 8 / span 5; }
+}
+
+.about-hero__title {
+  color: var(--anthracite);
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+}
+
+/* Signature de marque — STELLAR (jamais Wanderlust en phrase) */
+.about-hero__boussole {
+  max-width: none;
+  margin-block-start: var(--space-3);
+  color: var(--anthracite);
+  font-family: var(--font-label);
+  font-size: var(--text-md);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.about-hero__intro {
+  margin-block-start: var(--space-4);
+  max-width: 46ch;
+}
+
+/* ------------------------------------------------------------
+   TIRAGE D'HERBIER — photo sur support crème, washi par-dessus.
+   --rot : inclinaison propre à chaque tirage (DA §3.1 : ±2-4°).
+   ------------------------------------------------------------ */
+
+.print {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  padding: 0.75rem;
+  background-color: var(--creme);
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-tirage);
+  transform: rotate(var(--rot, -2deg));
+}
+
+.print__img {
+  border-radius: var(--radius-xs);
+  width: 100%;
+}
+
+/* Washi tape : composant GLOBAL désormais (components.css) —
+   utilisé sur toutes les photos du site (demande client 08/07). */
+
+/* Légende manuscrite sous un tirage — INSCRIPTION COURTE
+   uniquement (Wanderlust ASCII, jamais de phrase) */
+.print__label {
+  margin-block-start: var(--space-2);
+  font-family: var(--font-script);
+  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.125rem);
+  line-height: 1.1;
+  color: var(--anthracite);
+  text-align: center;
+  max-width: none;
+  transform: rotate(var(--rot-label, -1.5deg));
+}
+
+/* ------------------------------------------------------------
+   PLANCHES — une par chapitre. Grille 12, photo/texte alternés.
+   ------------------------------------------------------------ */
+
+.plate {
+  position: relative;
+  padding-block: var(--space-16);
+  overflow-x: clip;   /* vertical libre : les SVG traversent les sections */
+}
+
+.plate__grid {
+  position: relative;
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .plate__grid {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--space-3);
+  }
+
+  .plate__media { grid-column: 1 / span 6; }
+  .plate__body  { grid-column: 8 / span 5; }
+
+  .plate--reverse .plate__media { grid-column: 7 / span 6; grid-row: 1; }
+  .plate--reverse .plate__body  { grid-column: 1 / span 5; grid-row: 1; }
+}
+
+/* Numéro de chapitre — Stellar, anthracite (pas de terracotta
+   en petit texte sur le kraft) */
+.plate__eyebrow {
+  margin-block-end: var(--space-2);
+  color: var(--anthracite);
+  font-family: var(--font-label);
+  font-size: var(--text-label);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.plate__title {
+  color: var(--anthracite);
+  font-size: var(--text-2xl);
+}
+
+/* Prose du récit — « s'écrit » au scroll (data-ink, scrub par
+   ligne). Sans JS : pleinement lisible. */
+.plate__prose {
+  margin-block-start: var(--space-3);
+  max-width: 44ch;
+}
+
+.plate__prose p + p {
+  margin-block-start: var(--space-3);
+}
+
+/* Média composite : tirage principal + tirage secondaire qui
+   se chevauchent légèrement (planche vivante) */
+.plate__media {
+  position: relative;
+  display: grid;
+  justify-items: center;
+}
+
+.plate__print--secondary {
+  max-width: min(60%, 16rem);
+  margin-block-start: calc(var(--space-6) * -1);
+  justify-self: end;
+}
+
+@media (min-width: 1024px) {
+  .plate__print--secondary {
+    margin-block-start: calc(var(--space-10) * -1);
+    margin-inline-end: calc(var(--space-4) * -1);
+  }
+}
+
+/* ------------------------------------------------------------
+   SPÉCIMENS BOTANIQUES & PAPILLONS — décor SVG en marge,
+   parallaxe légère (data-lag). Jamais au-dessus du texte.
+   ------------------------------------------------------------ */
+
+/* Révision client 07/07/2026 : les SVG ne sont PAS des ornements
+   de marge — ils SONT l'expérience. Tailles majeures : la nature
+   reprend ses droits sur la planche. */
+.specimen {
+  position: absolute;
+  z-index: 0;
+  width: clamp(9rem, 18vw, 17rem);
+  height: auto;
+  pointer-events: none;
+  transform: rotate(var(--rot, 0deg));
+}
+
+.specimen--washi::after { content: none; }   /* réservé (fixation future) */
+
+.butterfly {
+  position: absolute;
+  z-index: 0;
+  width: clamp(8rem, 15vw, 14rem);
+  height: auto;
+  pointer-events: none;
+  transform: rotate(var(--rot, 0deg));
+}
+
+/* Le PROTAGONISTE : papillon ~80vh coupé par le bord GAUCHE de
+   l'écran, PILE sur l'axe de son corps (mesuré : l'axe est à
+   ~48 % de la largeur du dessin Butterfly3 — vue trois-quarts,
+   corps à gauche, ailes déployées vers la droite). Retour client
+   08/07 : décalé vers la droite (-59 % → -48 %) et incliné vers
+   la droite (8deg) — il entre davantage dans la page. */
+.butterfly--giant {
+  --rot: 35deg;
+  inset-inline-start: 0;
+  inset-block-start: 50%;
+  width: auto;
+  height: 80vh;
+  max-width: none;
+  transform: translate(-28%, -50%) rotate(var(--rot, 0deg));
+}
+
+/* Sur mobile, on allège : la moitié des décors disparaît */
+@media (max-width: 767.98px) {
+  .specimen--desktop,
+  .butterfly--desktop {
+    display: none;
+  }
+}
+
+/* Le contenu passe devant les décors */
+.plate__grid > *,
+.about-hero__grid > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ------------------------------------------------------------
+   RESPIRATIONS — 60-80 vh presque vides (le brouillard de
+   davidwhyte §4) : un spécimen, parfois un papillon, du vide.
+   ------------------------------------------------------------ */
+
+.breather {
+  position: relative;
+  min-height: 85vh;
+  overflow-x: clip;   /* vertical libre : les SVG traversent les sections */
+}
+
+.breather--short {
+  min-height: 60vh;
+}
+
+/* Zone du papillon géant : un plein écran pour lui seul */
+.breather--giant {
+  min-height: 110vh;
+}
+
+/* LA PRAIRIE — la nature reprend ses droits : les plantes sont
+   ancrées au sol (bord bas) et poussent vers le haut, en grand.
+   Une zone entière rien que pour elles. */
+.breather--meadow {
+  min-height: 95vh;
+}
+
+/* ÉPARPILLEMENT (retour client 07/07/2026 — pas un mur de plantes
+   alignées) : tailles très contrastées, positions irrégulières,
+   hauteurs d'ancrage décalées, profondeur par l'opacité. Une
+   lisière de prairie vivante, pas un papier peint. */
+.meadow-plant {
+  position: absolute;
+  z-index: 0;
+  height: auto;
+  pointer-events: none;
+  transform: rotate(var(--rot, 0deg));
+}
+
+/* Avant-plan gauche, moyenne */
+.meadow-plant--1 { inset-inline-start: 3%; inset-block-end: -7%;
+                   width: clamp(7rem, 13vw, 12rem); --rot: -4deg; }
+/* LA dominante, décentrée à gauche */
+.meadow-plant--2 { inset-inline-start: 15%; inset-block-end: -3%;
+                   width: clamp(11rem, 20vw, 18rem); --rot: 3deg; }
+/* Lointaine, petite et atténuée, dans le creux central */
+.meadow-plant--3 { inset-inline-start: 47%; inset-block-end: -12%;
+                   width: clamp(5.5rem, 9vw, 8.5rem); --rot: -2deg; opacity: 0.82; }
+/* Moyenne-grande à droite, plus haute */
+.meadow-plant--4 { inset-inline-end: 18%; inset-block-end: -5%;
+                   width: clamp(9rem, 16vw, 15rem); --rot: 5deg; }
+/* Bord droit, moyenne, penchée */
+.meadow-plant--5 { inset-inline-end: 2%; inset-block-end: -10%;
+                   width: clamp(6.5rem, 11vw, 10rem); --rot: -7deg; opacity: 0.9; }
+
+/* Le papillon plane dans le vide du creux central */
+.dec-meadow-butterfly { inset-inline-start: 56%; inset-block-start: 22%;
+                        width: clamp(6rem, 10vw, 9rem); --rot: -12deg; }
+
+/* (Scène d'encre retirée — retour client 08/07.) */
+
+/* ------------------------------------------------------------
+   ENCART PAPIER (SVG « Page » fournis) — citation mise en avant
+   posée sur la planche. Texte court (2-3 lignes max).
+   ------------------------------------------------------------ */
+
+.paper-note {
+  position: relative;
+  display: grid;
+  place-items: center;
+  max-width: 26rem;
+  margin-inline: auto;
+  transform: rotate(var(--rot, -1.5deg));
+}
+
+.paper-note__bg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 6px 18px rgb(90 60 30 / 0.16));
+}
+
+.paper-note__text {
+  position: absolute;
+  inset: 16% 13%;
+  /* PAS de display:grid ici (bug 08/07) : SplitText (data-write)
+     éclate le texte en spans — en grille, chaque mot devenait un
+     item empilé verticalement et débordait du papier. Un bloc
+     laisse les spans se comporter comme du texte qui se wrappe ;
+     align-content centre verticalement sans créer d'items. */
+  align-content: center;
+  overflow: hidden;                 /* jamais de débord hors papier */
+  text-align: center;
+  color: var(--brun-texte);
+  font-family: var(--font-title);
+  font-weight: var(--weight-title);
+  font-synthesis-weight: none;
+  -webkit-text-stroke: var(--title-stroke) currentColor;
+  font-size: clamp(1.05rem, 0.9rem + 0.7vw, 1.45rem);
+  line-height: var(--leading-heading);
+  max-width: none;
+}
+
+/* ------------------------------------------------------------
+   PLANCHE TÉMOIGNAGES — polaroïds scotchés au washi
+   ------------------------------------------------------------ */
+
+.about-voices {
+  padding-block: var(--space-12);
+  overflow-x: clip;   /* vertical libre : les SVG traversent les sections */
+}
+
+.about-voices__head {
+  text-align: center;
+  margin-block-end: var(--space-8);
+}
+
+.about-voices__title {
+  color: var(--anthracite);
+  font-size: var(--text-2xl);
+}
+
+.about-voices__grid {
+  display: grid;
+  gap: var(--space-8);
+  justify-items: center;
+}
+
+@media (min-width: 768px) {
+  .about-voices__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+.voice {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: center;
+  max-width: 24rem;
+}
+
+.voice__quote {
+  font-family: var(--font-title);
+  font-style: italic;
+  font-size: var(--text-md);
+  line-height: var(--leading-heading);
+  color: var(--brun-texte);
+  text-align: center;
+}
+
+.voice__author {
+  color: var(--anthracite);
+  font-weight: var(--weight-medium);
+  font-style: normal;
+}
+
+/* ------------------------------------------------------------
+   CTA FINAL — doux, sur le papier
+   ------------------------------------------------------------ */
+
+/* GRAND FINAL — plein écran : la nuée de papillons (SVG
+   « Final Butterfly », 2 arcs laissant le centre vide) entoure
+   le CTA. L'animation (naissance des papillons, traits de vol,
+   étincelles) vit dans about-story.js (data-finale). */
+.about-finale {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding-block: var(--space-10);
+  text-align: center;
+  overflow: clip;                 /* la nuée ne déborde pas du final */
+}
+
+.about-finale__svg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;              /* remplacé par preserveAspectRatio
+                                     "slice" quand le SVG est inliné */
+  pointer-events: none;
+  /* Fondu des bords haut/bas (retour client 08/07) : le cadre
+     de la nuée tranchait net les papillons à la frontière de la
+     section pendant le scroll d'arrivée. Les bords s'estompent
+     dans le papier au lieu de couper. */
+  -webkit-mask-image: linear-gradient(
+    180deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+  mask-image: linear-gradient(
+    180deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+}
+
+.about-finale__content {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  padding-inline: var(--container-gutter);
+}
+
+.about-cta {
+  position: relative;
+  padding-block: var(--space-12) var(--space-16);
+  text-align: center;
+  overflow-x: clip;   /* vertical libre : les SVG traversent les sections */
+}
+
+.about-cta__title {
+  color: var(--anthracite);
+  font-size: var(--text-2xl);
+}
+
+.about-cta__text {
+  margin-block: var(--space-3) var(--space-5);
+  margin-inline: auto;
+}
+
+.about-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+}
+
+/* ------------------------------------------------------------
+   POSITIONNEMENT DES DÉCORS (dec-*) — un nom unique par objet
+   posé sur la planche (pas de styles inline — discipline CSS).
+   Chaque objet porte sa rotation via --rot.
+   Les décors vivent aux marges, jamais derrière un paragraphe.
+   ------------------------------------------------------------ */
+
+/* Tailles par défaut des tirages dans les planches */
+.plate__media > .print {
+  max-width: min(100%, 22rem);
+}
+
+.plate__media > .plate__print--secondary {
+  max-width: min(60%, 16rem);
+}
+
+/* — Ouverture : AUCUN décor (premier écran vierge, la nature
+   arrive au scroll — demande client 07/07/2026) — */
+
+/* — Planche I : Australie — */
+.dec-aus-leaf        { inset-inline-end: -1%; inset-block-start: 2%; --rot: 14deg; }
+.dec-aus-branch      { inset-inline-start: -3%; inset-block-end: -5%; --rot: -10deg; }
+.dec-print-gorges    { --rot: -2deg; }
+.dec-print-veau      { --rot: 2.5deg; }
+
+/* — Respiration A — */
+.dec-brA-butterfly   { inset-inline-start: 18%; inset-block-start: 30%; --rot: -10deg; }
+.dec-brA-sprig       { inset-inline-end: 22%; inset-block-end: 14%; --rot: 6deg; }
+
+/* — Planche II : Balkans — */
+.dec-balk-branch     { inset-inline-end: -2%; inset-block-end: -5%; --rot: 10deg; }
+.dec-note-balkans    { --rot: -2deg; }
+
+/* — Planche III : dauphins — */
+.dec-sea-grass       { inset-inline-end: -2%; inset-block-end: -7%; --rot: 8deg; }
+.dec-print-ocean     { --rot: 2deg; }
+
+/* — Respiration B — */
+.dec-brB-butterfly   { inset-inline-end: 24%; inset-block-start: 32%; --rot: 8deg; }
+
+/* — Planche IV : la chèvre — */
+.dec-goat-flower     { inset-inline-end: -2%; inset-block-start: 1%; --rot: 10deg; }
+.dec-goat-sprig      { inset-inline-start: -3%; inset-block-end: -6%; --rot: -8deg; }
+.dec-print-chevre    { --rot: -2.5deg; }
+.dec-print-reflet    { --rot: 3deg; }
+
+/* — Planche V : le Fanal — */
+.dec-fanal-branch    { inset-inline-start: -2%; inset-block-start: -3%; --rot: -6deg; }
+.dec-fanal-leaf      { inset-inline-end: -2%; inset-block-end: -9%; --rot: 12deg; }
+.dec-note-fanal      { --rot: 1.5deg; }
+
+/* — Planche VI : aujourd'hui — */
+.dec-today-flower    { inset-inline-end: -2%; inset-block-end: -5%; --rot: 8deg; }
+.dec-today-butterfly { inset-inline-start: 42%; inset-block-start: -5%; --rot: -14deg; }
+.dec-print-chat1     { --rot: -2deg; }
+.dec-print-chat2     { --rot: 3deg; }
+
+/* — Témoignages — */
+.dec-polaroid-1      { --rot: -2.5deg; max-width: 15rem; }
+.dec-polaroid-2      { --rot: 2deg; max-width: 15rem; }
+
+.voice .print__label {
+  display: block;
+}
+
+/* — CTA — */
+.dec-cta-sun {
+  width: clamp(3.5rem, 8vw, 5.5rem);
+  height: auto;
+  margin-inline: auto;
+  margin-block-end: var(--space-4);
+}
+

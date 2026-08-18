@@ -1,0 +1,34 @@
+<!-- ============================================================
+     HEADER PARTAGÉ — injecté par assets/js/main.js
+     (futur header.php en v2 WordPress, cf. PLAN §7).
+     Les chemins sont relatifs à la racine du site : main.js les
+     préfixe avec data-root pour les pages imbriquées (guides/…).
+     Le lien actif reçoit aria-current="page" via main.js.
+     ============================================================ -->
+<header class="site-header">
+  <div class="container container--wide site-header__inner">
+    <a class="site-header__brand" href="index.html" aria-label="Babcat &amp; The Wild — retour à l'accueil">
+      <img class="site-header__logo"
+           src="assets/img/logos/monogramme-b-transparent.png"
+           alt="" width="320" height="356">
+    </a>
+
+    <button class="site-header__burger" type="button"
+            aria-expanded="false" aria-controls="navigation-principale">
+      <span class="site-header__burger-icon" aria-hidden="true"></span>
+      <span class="site-header__burger-label">Menu</span>
+    </button>
+
+    <nav class="site-header__nav" id="navigation-principale" aria-label="Navigation principale">
+      <ul class="site-header__list">
+        <li><a class="site-header__link" href="index.html">Accueil</a></li>
+        <li><a class="site-header__link" href="qui-suis-je.html">Qui suis-je</a></li>
+        <li><a class="site-header__link" href="consultations.html">Consultations</a></li>
+        <li><a class="site-header__link" href="guides-conseils.html">Guides &amp; conseils</a></li>
+        <li><a class="site-header__link" href="contact.html">Contact</a></li>
+      </ul>
+      <!-- Wanderlust : ASCII uniquement, jamais d'accents -->
+      <p class="site-header__nav-signature" aria-hidden="true">Same song, different species.</p>
+    </nav>
+  </div>
+</header>

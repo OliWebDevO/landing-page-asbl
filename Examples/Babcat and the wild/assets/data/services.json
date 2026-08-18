@@ -1,0 +1,37 @@
+{
+  "_commentaire": "Les 4 consultations (PLAN §4.1 s4 et §4.3). Le contenu est inliné dans le HTML (progressive enhancement, zéro rendu JS) — ce fichier est la source de vérité dupliquée pour la migration WordPress v2 : chaque entrée devient un CPT consultation / champs ACF (PLAN §7). Toute modification de contenu doit être faite aux deux endroits.",
+  "services": [
+    {
+      "id": "comportement",
+      "eyebrow": "Consultation",
+      "titre": "Comportement",
+      "resume": "Griffades, anxiété, malpropreté, cohabitation : écouter ce que votre chat ou votre chien essaie de dire — sans jugement, il n'y a pas de mauvais humain ici.",
+      "url": "consultations.html#comportement",
+      "signature": false
+    },
+    {
+      "id": "nutrition",
+      "eyebrow": "Consultation",
+      "titre": "Nutrition",
+      "resume": "Le chat est un carnivore strict, le chien un carnivore latent : bilan personnalisé, transition alimentaire et lecture des compositions, dans le respect de leur physiologie.",
+      "url": "consultations.html#nutrition",
+      "signature": false
+    },
+    {
+      "id": "amenagement",
+      "eyebrow": "★ Spécialité signature",
+      "titre": "Aménagement animal-friendly",
+      "resume": "Parcours muraux, hauteurs, points d'eau, plantes safe, cachettes : votre intérieur devient un territoire vivant, beau pour vous, juste pour eux.",
+      "url": "consultations.html#amenagement",
+      "signature": true
+    },
+    {
+      "id": "garde-soins",
+      "eyebrow": "Consultation",
+      "titre": "Garde & soins à domicile",
+      "resume": "Une garde professionnelle par une soigneuse animalière : visites quotidiennes, médicaments, suivi santé — avec compte rendu photos et vidéos chaque jour.",
+      "url": "consultations.html#garde-soins",
+      "signature": false
+    }
+  ]
+}

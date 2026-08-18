@@ -1,0 +1,212 @@
+/* ============================================================
+   BABCAT & THE WILD — PAGE CONSULTATIONS
+   ------------------------------------------------------------
+   PLAN §4.3 : page longue, 4 chapitres ancrés (sous-nav sticky),
+   chaque chapitre = grande image scotchée + intro incarnée +
+   sujets abordés + déroulé par étapes + CTA. La rubrique
+   Aménagement ★ = bande ANTHRACITE (signature — l'anthracite
+   reste ponctuel). Ponctuée de SVG (régime sobre : data-reveal).
+   Dépend de : tokens, base, components, layout.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   EN-TÊTE DE PAGE
+   ------------------------------------------------------------ */
+
+.consult-hero {
+  padding-block: var(--space-10) var(--space-6);
+  text-align: center;
+}
+
+.consult-hero__title {
+  color: var(--anthracite);
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+}
+
+.consult-hero__lead {
+  margin-block-start: var(--space-3);
+  margin-inline: auto;
+  max-width: 52ch;
+  font-size: var(--text-md);
+  color: var(--brun-texte);
+}
+
+/* ------------------------------------------------------------
+   SOUS-NAV ANCRES — sticky sous le header, Stellar
+   ------------------------------------------------------------ */
+
+.consult-nav {
+  position: sticky;
+  inset-block-start: var(--header-h-compact);
+  z-index: 30;
+  background-color: var(--creme-85);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-block: 1px solid var(--bois-miel-40);
+}
+
+.consult-nav__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-1) var(--space-4);
+  max-width: none;
+  margin: 0;
+  padding: var(--space-1) var(--container-gutter);
+}
+
+.consult-nav__list li { margin: 0; }
+
+.consult-nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  color: var(--anthracite);
+  font-family: var(--font-label);
+  font-size: var(--text-label);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.consult-nav__link:hover {
+  color: var(--terracotta-text);
+}
+
+/* ------------------------------------------------------------
+   CHAPITRES
+   ------------------------------------------------------------ */
+
+.consult-chapter {
+  position: relative;
+  padding-block: var(--space-section);
+  overflow: clip;
+}
+
+.consult-chapter__grid {
+  position: relative;
+  display: grid;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .consult-chapter__grid {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--space-3);
+  }
+
+  .consult-chapter__media { grid-column: 1 / span 5; }
+  .consult-chapter__body  { grid-column: 7 / span 6; }
+
+  .consult-chapter--reverse .consult-chapter__media { grid-column: 8 / span 5; grid-row: 1; }
+  .consult-chapter--reverse .consult-chapter__body  { grid-column: 1 / span 6; grid-row: 1; }
+}
+
+.consult-chapter__grid > * {
+  position: relative;
+  z-index: 1;
+}
+
+.consult-chapter__media {
+  display: grid;
+  justify-items: center;
+}
+
+.consult-chapter__media .taped-photo {
+  max-width: min(100%, 24rem);
+}
+
+.consult-chapter__intro {
+  margin-block-start: var(--space-3);
+  max-width: 52ch;
+}
+
+.consult-chapter__subtitle {
+  margin-block: var(--space-5) var(--space-2);
+  color: var(--anthracite);
+  font-size: var(--text-lg);
+}
+
+.consult-chapter__cta {
+  margin-block-start: var(--space-5);
+}
+
+/* Le déroulé occupe toute la largeur sous la grille */
+.consult-chapter__steps {
+  margin-block-start: var(--space-8);
+}
+
+/* ------------------------------------------------------------
+   CHAPITRE SIGNATURE — Aménagement ★ : bande anthracite.
+   Sur sombre : sur-titre JAUNE, titre TERRACOTTA, corps SABLE
+   (règles client 07/07/2026).
+   ------------------------------------------------------------ */
+
+.consult-chapter--signature {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+.consult-chapter--signature .home-eyebrow {
+  color: var(--jaune-pastel);
+}
+
+.consult-chapter--signature .consult-chapter__title,
+.consult-chapter--signature .consult-chapter__subtitle {
+  color: var(--terracotta);
+}
+
+.consult-chapter--signature .consult-chapter__intro {
+  color: var(--sable);
+}
+
+/* Titres de chapitre (clair) */
+.consult-chapter__title {
+  color: var(--anthracite);
+  font-size: var(--text-2xl);
+}
+
+/* ------------------------------------------------------------
+   DÉCORS SVG — régime sobre (data-reveal), positions uniques
+   ------------------------------------------------------------ */
+
+.dec-consult-plant-a { position: absolute; z-index: 0; inset-inline-end: -8%; inset-block-start: 2%;
+                       width: clamp(7rem, 12vw, 11rem); transform: rotate(9deg); pointer-events: none; }
+.dec-consult-plant-b { position: absolute; z-index: 0; inset-inline-start: -2%; inset-block-end: -22%;
+                       width: clamp(6rem, 10vw, 9rem); transform: rotate(-7deg); pointer-events: none; }
+.dec-consult-butterfly { position: absolute; z-index: 0; inset-inline-end: 6%; inset-block-end: 4%;
+                         width: clamp(5rem, 8vw, 7.5rem); transform: rotate(-10deg); pointer-events: none; }
+.dec-consult-plant-dark { position: absolute; z-index: 0; inset-inline-end: -10%; inset-block-end: 28%; rotate: 8deg;
+                          width: clamp(7rem, 12vw, 11rem); transform: rotate(6deg); pointer-events: none; }
+
+/* ÉPURATION MOBILE (< 768px) — on garde le papillon (dans le cadre) et la
+   plante b (bas gauche, dans un espace libre) ; on masque les deux plantes
+   qui débordent franchement à droite (plant-a et plant-dark, inset -8/-10%). */
+@media (max-width: 767.98px) {
+  .dec-consult-plant-a,
+  .dec-consult-plant-dark {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   PRÉ-FOOTER CTA
+   ------------------------------------------------------------ */
+
+.consult-outro {
+  padding-block: var(--space-section);
+  text-align: center;
+}
+
+.consult-outro__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin-block-start: var(--space-4);
+}

@@ -1,0 +1,577 @@
+/* ============================================================
+   BABCAT & THE WILD — PAGE D'ACCUEIL
+   ------------------------------------------------------------
+   Les 8 sections du PLAN §4.1 : hero, axes, teaser qui-suis-je,
+   consultations, signature aménagement, guides, témoignage,
+   pré-footer contact.
+   Dépend de : tokens.css, base.css, components.css, layout.css
+   Mobile-first, min-width uniquement (768 / 1024 / 1280).
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   EYEBROW DE SECTION — sur-titre Stellar au-dessus des h2
+   ------------------------------------------------------------ */
+
+.home-eyebrow {
+  margin-block-end: var(--space-2);
+  color: var(--terracotta-text);
+  font-family: var(--font-label);
+  /* Stellar est une police d'affichage (grands éléments en gras) :
+     elle ne tient qu'en grand hors des petites étiquettes de nav.
+     Sur-titres de section agrandis (demande client 07/07/2026),
+     tout en restant subordonnés au h2 Robelia qui suit.
+     Règle Stellar : épaissie au trait. */
+  font-size: var(--text-xl);
+  line-height: 1.1;
+  -webkit-text-stroke: 0.02em currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  white-space: nowrap;          /* sur-titre toujours sur une seule ligne */
+}
+
+.home-eyebrow--on-dark {
+  /* Alternance des 2 titres empilés (demande client 07/07/2026) : le
+     titre principal (h2) est terracotta → le sur-titre passe en JAUNE
+     PASTEL pour ne pas avoir deux terracotta qui se suivent.
+     #FFE999 sur anthracite = 12.3:1 ✓. */
+  color: var(--jaune-pastel);
+}
+
+/* « ★ La spécialité signature » est long et vit dans une demi-colonne :
+   taille réduite (mais > étiquette d'origine) pour tenir sur UNE ligne
+   (white-space: nowrap posé sur .home-eyebrow). */
+.home-signature .home-eyebrow {
+  font-size: var(--text-md);
+}
+
+/* ------------------------------------------------------------
+   1. HERO PLEIN ÉCRAN — la porte du sanctuaire
+   Éditorial en deux volets : contenu sur crème, photo
+   signature pleine hauteur (jamais de texte sur la photo :
+   contraste maîtrisé, photo intouchée).
+   ------------------------------------------------------------ */
+
+.hero {
+  display: grid;
+  grid-template-areas:
+    "media"
+    "content";
+  grid-template-rows: auto 1fr;
+  min-height: calc(100svh - var(--header-h));
+}
+
+.hero__content {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-3);
+  padding-block: var(--space-6);
+  padding-inline: var(--container-gutter);
+}
+
+.hero__title {
+  line-height: 1;               /* le h1 porte le logo image */
+}
+
+.hero__logo {
+  width: clamp(15rem, 38vw, 24rem);
+  height: auto;
+}
+
+/* « Les animaux sont ma boussole. » — signature de marque en
+   STELLAR (rôle étiquette). La police script Wanderlust est
+   réservée aux inscriptions courtes (Bio, Fair trade… — futur
+   e-shop), jamais aux sous-titres (demande client 07/07/2026).
+   Règle Stellar : jamais sous --text-label, épaissie au trait. */
+.hero__script {
+  max-width: none;
+  color: var(--terracotta-text); /* 4.96:1 sur crème ✓ (AA texte) */
+  font-family: var(--font-label);
+  font-size: var(--text-md);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.hero__lead {
+  max-width: 42ch;
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-block-start: var(--space-1);
+}
+
+/* Photo signature « scotchée » (même famille que la section
+   Qui suis-je) : tirage cadré et centré, jamais de cover plein
+   cadre. Le débord du scotch (insets négatifs) reste visible —
+   aucun overflow:hidden ici. */
+.hero__media {
+  grid-area: media;
+  display: grid;
+  place-items: center;
+  padding: var(--space-6) var(--container-gutter);
+}
+
+.hero__figure {
+  max-width: min(88%, 28rem);
+}
+
+.hero__figure .taped-photo__img {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    grid-template-areas: "content media";
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 1fr;
+  }
+
+  .hero__content {
+    gap: var(--space-4);
+    padding-block: var(--space-10);
+    /* Aligne le contenu sur le conteneur global */
+    padding-inline: max(var(--container-gutter), calc((100vw - var(--container)) / 2)) var(--space-8);
+  }
+}
+
+/* ------------------------------------------------------------
+   2. BANDEAU DES GRANDS AXES — filets sauge, Stellar
+   ------------------------------------------------------------ */
+
+.home-axes {
+  padding-block: var(--space-4);
+  border-block: 1px solid var(--sauge-40);
+}
+
+.home-axes__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1) var(--space-2);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-axes__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block-start: 0;
+  font-family: var(--font-label);
+  /* Règle Stellar (client 06/07/2026) : jamais sous --text-label,
+     toujours épaissie au trait (--label-stroke) */
+  font-size: var(--text-label);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* Puce terracotta entre les axes (décorative, texte alternatif vide) */
+.home-axes__item + .home-axes__item::before {
+  content: "\2022" / "";
+  color: var(--terracotta);
+}
+
+/* ------------------------------------------------------------
+   3. TEASER « QUI SUIS-JE » — photo scotchée + annotation,
+   avant-goût de l'herbier
+   ------------------------------------------------------------ */
+
+.home-about {
+  padding-block: var(--space-section);
+}
+
+.home-about__grid {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .home-about__grid {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--space-3);
+  }
+
+  .home-about__figure {
+    grid-column: 1 / span 6;
+  }
+
+  .home-about__body {
+    grid-column: 8 / span 5;
+  }
+}
+
+.home-about__figure {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+}
+
+.home-about__text {
+  margin-block-start: var(--space-3);
+}
+
+/* Signature de section en STELLAR (plus de Wanderlust : réservée
+   aux inscriptions courtes e-shop — demande client 07/07/2026). */
+.home-about__script {
+  max-width: none;
+  margin-block: var(--space-4);
+  color: var(--color-text);
+  font-family: var(--font-label);
+  font-size: var(--text-md);
+  -webkit-text-stroke: var(--label-stroke) currentColor;
+  font-synthesis-weight: none;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------
+   4. LES 4 CONSULTATIONS — cartes bois miel uniformes
+   ------------------------------------------------------------ */
+
+.home-consult {
+  padding-block: var(--space-section);
+  background-color: var(--color-bg-alt);
+}
+
+.home-consult__head {
+  margin-block-end: var(--space-6);
+}
+
+.home-consult__intro {
+  margin-block-start: var(--space-2);
+  color: var(--brun-texte-70);
+  font-size: var(--text-md);
+}
+
+.home-consult__grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .home-consult__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Rangée de 4 réservée aux grands écrans (≥ 1536px) : sur un
+   portable ~14" (viewport ≈ 1280-1512px) les cartes restent en
+   2×2, plus lisibles — les titres ne sont plus à l'étroit. */
+@media (min-width: 1536px) {
+  .home-consult__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ------------------------------------------------------------
+   5. SIGNATURE — l'aménagement animal-friendly, fond anthracite
+   (classe .texture-grain-dark en HTML)
+   ------------------------------------------------------------ */
+
+.home-signature {
+  padding-block: var(--space-section);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+.home-signature__grid {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .home-signature__grid {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--space-3);
+  }
+
+  .home-signature__body {
+    grid-column: 1 / span 6;
+  }
+
+  .home-signature__figure {
+    grid-column: 8 / span 5;
+  }
+}
+
+.home-signature__title {
+  color: var(--color-title-on-dark);
+}
+
+.home-signature__text {
+  margin-block-start: var(--space-3);
+  color: var(--color-text-on-dark);   /* crème chaude, jamais blanc */
+}
+
+.home-signature__actions {
+  margin-block-start: var(--space-4);
+}
+
+/* Photo « scotchée » (même famille que la section Qui suis-je)
+   posée sur le fond anthracite : tirage crème centré, taille
+   maîtrisée par rapport à la section. Aucune légende dessous. */
+.home-signature__figure {
+  margin: 0;
+  justify-self: center;
+  max-width: min(100%, 20rem);
+}
+
+.home-signature__figure .taped-photo__img {
+  width: 100%;
+  /* La source est un portrait très haut (9:16) : on la recadre en
+     format polaroïd (presque carré) en rognant le BAS de l'image
+     (object-position: top) — le chat, en haut, est préservé. */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Sur fond sombre, le scotch garderait mal sa lisibilité en
+   multiply (le débord s'éteindrait sur l'anthracite) : fondu
+   normal, le jaune translucide reste visible sur le cadre ET
+   sur le fond. */
+.home-signature .taped-photo__tape {
+  mix-blend-mode: normal;
+}
+
+/* ------------------------------------------------------------
+   6. DERNIERS GUIDES — grille magazine (cartes éditoriales)
+   ------------------------------------------------------------ */
+
+.home-guides {
+  padding-block: var(--space-section);
+}
+
+.home-guides__head {
+  margin-block-end: var(--space-6);
+}
+
+.home-guides__grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+
+.home-guides__more {
+  display: flex;
+  justify-content: center;
+  margin-block-start: var(--space-6);
+}
+
+/* ------------------------------------------------------------
+   7. TÉMOIGNAGE — bande ANTHRACITE ponctuelle (rythme sombre
+   avec la Signature ; l'anthracite reste ponctuel — demande
+   client 07/07/2026). .texture-grain-dark en HTML.
+   ------------------------------------------------------------ */
+
+.home-testimonial {
+  padding-block: var(--space-section);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+.home-testimonial__grid {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+  justify-items: center;
+}
+
+@media (min-width: 768px) {
+  .home-testimonial__grid {
+    grid-template-columns: minmax(0, 1fr) auto;
+    justify-items: start;
+  }
+}
+
+/* Groupe de flèches DANS la feuille — centré sous le nom du témoin.
+   Petit filet d'encre au-dessus pour séparer de l'auteur (esprit
+   papier écrit). */
+.testimonial-nav-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4);
+  margin-block-start: var(--space-3);
+  padding-block-start: var(--space-3);
+  border-block-start: 1px solid var(--brun-texte-30, rgb(62 38 28 / 0.22));
+}
+
+/* Flèches façon encre sur papier — pas de pastille : glyphe brun,
+   souligné fin qui se dessine au survol (comme un trait de plume).
+   Masquées aux extrémités via [hidden] (hors flux + hors tab order). */
+.testimonial-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-target);
+  min-height: var(--tap-target);
+  padding: 0 var(--space-1);
+  background: transparent;
+  border: 0;
+  color: var(--brun-texte);
+  cursor: pointer;
+  transition: color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.testimonial-nav:hover {
+  color: var(--terracotta-text);
+}
+
+/* Le balancement horizontal (indice « cliquez-moi ») est géré en GSAP sur
+   l'élément .testimonial-nav__arrow (voir testimonials.js) — pas de transform
+   horizontal ici pour ne pas entrer en conflit. */
+
+.testimonial-nav[hidden] {
+  display: none;
+}
+
+.testimonial-nav:focus-visible {
+  outline: 2px solid var(--terracotta-text);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* Flèche = Arrow.svg (tracé plume dessiné main, très allongé ~7:1) posé
+   en masque : la couleur vient de background-color (currentColor), donc
+   elle suit le brun→terracotta du bouton. Le SVG pointe à GAUCHE (prev) ;
+   « suivant » le retourne à l'horizontale. */
+.testimonial-nav__arrow {
+  display: block;
+  width: 6rem;
+  aspect-ratio: 2000 / 289;
+  background-color: currentColor;
+  -webkit-mask: url("../../svg/Elements/Arrow.svg") center / contain no-repeat;
+  mask: url("../../svg/Elements/Arrow.svg") center / contain no-repeat;
+}
+
+.testimonial-nav--next .testimonial-nav__arrow {
+  transform: scaleX(-1);
+}
+
+.home-testimonial__head {
+  margin-block-end: var(--space-4);
+}
+
+/* Titre + accents revalidés sur fond sombre */
+.home-testimonial #temoignage-titre {
+  color: var(--color-title-on-dark);   /* crème chaud, perçu crème */
+}
+
+.home-testimonial .testimonial__animal {
+  color: var(--color-text-on-dark);    /* crème chaude (distinction par la
+                                          graisse régulière vs medium) */
+}
+
+/* Scotch du polaroïd lisible sur l'anthracite (comme la Signature) :
+   fondu normal plutôt que multiply. */
+.home-testimonial .polaroid__tape {
+  mix-blend-mode: normal;
+}
+
+/* ------------------------------------------------------------
+   8. PRÉ-FOOTER CONTACT — soleil, crème-2, CTA
+   ------------------------------------------------------------ */
+
+.home-contact {
+  padding-block: var(--space-section);
+  background-color: var(--color-bg-alt);
+  text-align: center;
+}
+
+.home-contact__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.home-contact__sun {
+  width: clamp(6rem, 14vw, 9rem);
+  height: auto;
+}
+
+.home-contact__text {
+  font-size: var(--text-md);
+}
+
+.home-contact__note {
+  color: var(--brun-texte-70);
+}
+
+.home-contact__actions {
+  margin-block-start: var(--space-2);
+}
+
+/* ------------------------------------------------------------
+   DÉCORS SVG DE L'ACCUEIL (08/07/2026) — plantes & papillons
+   du kit, régime SOBRE (data-reveal + dérive data-parallax).
+   Aux marges, jamais derrière un paragraphe. Sur les bandes
+   anthracite : plantes de la famille sauge uniquement.
+   ------------------------------------------------------------ */
+
+.home-about,
+.home-consult,
+.home-signature,
+.home-guides,
+.home-testimonial,
+.home-contact {
+  position: relative;
+  overflow-x: clip;              /* débords latéraux sans scrollbar */
+}
+
+.home-about > .container,
+.home-consult > .container,
+.home-signature > .container,
+.home-guides > .container,
+.home-testimonial > .container,
+.home-contact > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.dec-home-about-leaf { position: absolute; z-index: 0; inset-inline-start: 4%; inset-block-end: -5%;
+                       width: clamp(6rem, 10vw, 9.5rem); transform: rotate(12deg); pointer-events: none; }
+.dec-home-consult-sprig { position: absolute; z-index: 0; inset-inline-end: -0.3%; inset-block-end: -4%;
+                          width: clamp(6rem, 10vw, 9rem); transform: rotate(-8deg); pointer-events: none; }
+.dec-home-signature-branch { display: none; position: absolute; z-index: 0; inset-inline-end: 42%; inset-block-end: -6%;
+                             width: clamp(6.5rem, 11vw, 10rem); transform: rotate(7deg); pointer-events: none; }
+.dec-home-guides-butterfly { position: absolute; z-index: 0; inset-inline-end: 7%; inset-block-start: 4%;
+                             width: clamp(4.5rem, 7vw, 6.5rem); transform: rotate(-11deg); pointer-events: none; }
+.dec-home-guides-plant { position: absolute; z-index: 0; inset-inline-start: -1%; inset-block-end: -7%;
+                         width: clamp(5.5rem, 9vw, 8.5rem); transform: rotate(-5deg); pointer-events: none; }
+.dec-home-contact-plant { position: absolute; z-index: 0; inset-inline-start: 6%; inset-block-end: -8%;
+                          width: clamp(5.5rem, 9vw, 8.5rem); transform: rotate(-6deg); pointer-events: none; }
+
+/* ÉPURATION MOBILE (< 768px) — un décor par écran suffit : on masque
+   presque tous les SVG (trop nombreux/serrés sur un smartphone) et on
+   garde UNIQUEMENT la plante des guides, posée dans un vrai espace
+   (émerge du bas de la bande, aucune image à chevaucher). */
+@media (max-width: 767.98px) {
+  .dec-home-about-leaf,
+  .dec-home-consult-sprig,
+  .dec-home-guides-butterfly,
+  .dec-home-contact-plant {
+    display: none;
+  }
+}

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Consultations — Comportement, nutrition, aménagement, garde | Babcat &amp; The Wild</title>
+  <meta name="description" content="Quatre accompagnements pour chats et chiens à Bruxelles et alentours ou en visio : comportement, nutrition, aménagement intérieur animal-friendly et garde &amp; soins à domicile par une soigneuse animalière.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Consultations — Babcat &amp; The Wild">
+  <meta property="og:description" content="Comportement, nutrition, aménagement animal-friendly, garde &amp; soins : chaque accompagnement commence par une écoute.">
+  <meta property="og:image" content="assets/img/photos/chat-noir-blanc-profil-feuillage.jpeg">
+  <meta property="og:locale" content="fr_BE">
+
+  <link rel="icon" type="image/png" href="assets/img/logos/favicon-64.png">
+
+  <link rel="preload" href="assets/fonts/robelia.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/alegreya-sans-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+  <link rel="stylesheet" href="assets/css/pages/consultations.css">
+
+  <script src="assets/js/main.js" data-root="." defer></script>
+
+  <!-- GSAP auto-hébergé — régime SOBRE (reveals uniquement, PLAN §5) -->
+  <script src="assets/js/vendor/gsap.min.js" defer></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/vendor/SplitText.min.js" defer></script>
+  <script src="assets/js/animations/core.js" defer></script>
+  <script src="assets/js/animations/reveals.js" defer></script>
+  <script src="assets/js/animations/flora.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+  <header class="fallback-header" id="site-header-fallback">
+    <a class="fallback-header__brand" href="index.html" aria-label="Babcat &amp; The Wild — retour à l'accueil">
+      <img class="fallback-header__logo" src="assets/img/logos/monogramme-b-transparent.png" alt="" width="320" height="356">
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="fallback-header__list">
+        <li><a class="fallback-header__link" href="index.html">Accueil</a></li>
+        <li><a class="fallback-header__link" href="qui-suis-je.html">Qui suis-je</a></li>
+        <li><a class="fallback-header__link" href="consultations.html" aria-current="page">Consultations</a></li>
+        <li><a class="fallback-header__link" href="guides-conseils.html">Guides &amp; conseils</a></li>
+        <li><a class="fallback-header__link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenu-principal">
+
+    <!-- ======================================================
+         EN-TÊTE + SOUS-NAV ANCRES
+         ====================================================== -->
+    <header class="consult-hero">
+      <div class="container">
+        <p class="home-eyebrow">Consultations</p>
+        <h1 class="consult-hero__title" data-reveal-text>Quatre façons de vous accompagner</h1>
+        <p class="consult-hero__lead" data-reveal>
+          Chaque accompagnement commence par une écoute&nbsp;: votre animal
+          d'abord, vous avec. À domicile, à Bruxelles et alentours, ou en
+          visio selon la demande.
+        </p>
+      </div>
+    </header>
+
+    <nav class="consult-nav" aria-label="Les quatre consultations">
+      <ul class="consult-nav__list">
+        <li><a class="consult-nav__link" href="#comportement">Comportement</a></li>
+        <li><a class="consult-nav__link" href="#nutrition">Nutrition</a></li>
+        <li><a class="consult-nav__link" href="#amenagement">Aménagement ★</a></li>
+        <li><a class="consult-nav__link" href="#garde-soins">Garde &amp; soins</a></li>
+      </ul>
+    </nav>
+
+    <!-- ======================================================
+         1. COMPORTEMENT
+         ====================================================== -->
+    <section class="consult-chapter" id="comportement" aria-labelledby="titre-comportement">
+      <div class="container consult-chapter__grid">
+
+        <img class="dec-consult-plant-a" src="assets/svg/Plants/Floral%20Illustrations%2014.svg"
+             alt="" aria-hidden="true" width="114" height="236" data-specimen data-lag="0.7">
+
+        <div class="consult-chapter__media" data-reveal>
+          <figure class="taped-photo">
+            <img class="washi washi--tl" src="assets/svg/Elements/Tape%203.svg"
+                 alt="" aria-hidden="true" width="322" height="97">
+            <img class="washi washi--tr" src="assets/svg/Elements/Tape6.svg"
+                 alt="" aria-hidden="true" width="322" height="97">
+            <img class="taped-photo__img" src="assets/img/photos/chat-noir-blanc-profil-feuillage.jpeg"
+                 alt="Chat noir et blanc de profil, à l'affût dans le feuillage"
+                 width="1080" height="1918" loading="lazy" decoding="async">
+          </figure>
+        </div>
+
+        <div class="consult-chapter__body">
+          <p class="home-eyebrow">Consultation</p>
+          <h2 class="consult-chapter__title" id="titre-comportement" data-reveal-text>Comportement</h2>
+          <div class="consult-chapter__intro" data-reveal>
+            <p>
+              Griffades, agressivité, anxiété, malpropreté, cohabitation
+              difficile, arrivée d'un nouvel animal&nbsp;: derrière chaque
+              «&nbsp;problème&nbsp;», il y a un animal qui essaie de dire quelque
+              chose. Mon travail, c'est de le traduire — et de vous donner
+              des clés concrètes, adaptées à votre quotidien.
+            </p>
+            <p>
+              Le ton est posé une fois pour toutes&nbsp;: <strong>il n'y a pas
+              de mauvais humain ici</strong>, et pas de mauvais animal non plus.
+            </p>
+          </div>
+
+          <h3 class="consult-chapter__subtitle">Sujets abordés</h3>
+          <ul class="topics" data-reveal-stagger>
+            <li class="topics__item">Griffades &amp; marquage</li>
+            <li class="topics__item">Anxiété, peurs, stress</li>
+            <li class="topics__item">Malpropreté</li>
+            <li class="topics__item">Cohabitation multi-chats / chiens</li>
+            <li class="topics__item">Intégration d'un nouvel animal</li>
+            <li class="topics__item">Signaux &amp; langage de l'animal</li>
+            <li class="topics__item">Promenades &amp; quotidien du chien</li>
+            <li class="topics__item">Difficultés du quotidien</li>
+          </ul>
+
+          <p class="consult-chapter__cta">
+            <a class="btn btn--primary" href="contact.html?service=comportement">
+              Réserver une consultation
+              <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="container consult-chapter__steps">
+        <h3 class="consult-chapter__subtitle" data-reveal>Comment ça se passe</h3>
+        <ol class="steps" data-reveal-stagger>
+          <li class="steps__item">
+            <p class="steps__title">L'échange</p>
+            <p class="steps__text">On se parle&nbsp;: votre animal, son histoire, ce qui coince, ce que vous avez déjà tenté.</p>
+          </li>
+          <li class="steps__item">
+            <p class="steps__title">L'observation</p>
+            <p class="steps__text">À domicile ou en visio&nbsp;: je regarde l'animal vivre dans son territoire, sans le brusquer.</p>
+          </li>
+          <li class="steps__item">
+            <p class="steps__title">Le plan</p>
+            <p class="steps__text">Des ajustements concrets et réalistes, expliqués — vous comprenez le pourquoi de chaque geste.</p>
+          </li>
+          <li class="steps__item">
+            <p class="steps__title">Le suivi</p>
+            <p class="steps__text">On garde le lien&nbsp;: on ajuste ensemble jusqu'à ce que ça aille mieux, pour lui et pour vous.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         2. NUTRITION
+         ====================================================== -->
+    <section class="consult-chapter consult-chapter--reverse" id="nutrition" aria-labelledby="titre-nutrition">
+      <div class="container consult-chapter__grid">
+
+        <img class="dec-consult-plant-b" src="assets/svg/Plants/Floral%20Illustrations%206.svg"
+             alt="" aria-hidden="true" width="114" height="236" data-specimen data-lag="1.1">
+
+        <div class="consult-chapter__media" data-reveal>
+          <figure class="taped-photo taped-photo--tilt-right">
+            <img class="washi washi--tl" src="assets/svg/Elements/Tape%205.svg"
+                 alt="" aria-hidden="true" width="322" height="97">
+            <img class="washi washi--br" src="assets/svg/Elements/Tape%204.svg"
+                 alt="" aria-hidden="true" width="322" height="97">
+            <img class="taped-photo__img" src="assets/img/photos/chat-blanc-noir-hautes-herbes.jpeg"
+                 alt="Chat blanc et noir à poil mi-long, concentré dans les hautes herbes"
+                 width="1078" height="1916" loading="lazy" decoding="async">
+          </figure>
+        </div>
+
+        <div class="consult-chapter__body">
+          <p class="home-eyebrow">Consultation</p>
+          <h2 class="consult-chapter__title" id="titre-nutrition" data-reveal-text>Nutrition</h2>
+          <div class="consult-chapter__intro" data-reveal>
+            <p>
+              Le chat est un carnivore strict, le chien un carnivore
+              latent&nbsp;: tout part de là. Bilan personnalisé, transition
+              alimentaire en douceur, lecture des compositions et des
+              étiquettes — dans le respect de leur physiologie, sans dogme
+              et sans culpabilisation.
+            </p>
+          </div>
+
+          <h3 class="consult-chapter__subtitle">Sujets abordés</h3>
+          <ul class="topics" data-reveal-stagger>
+            <li class="topics__item">Bilan alimentaire personnalisé</li>
+            <li class="topics__item">Transition alimentaire</li>
+            <li class="topics__item">Lecture des compositions</li>
+            <li class="topics__item">Recettes maison &amp; BARF</li>
+            <li class="topics__item">Compléments naturels</li>
+            <li class="topics__item">Hydratation &amp; alimentation humide</li>
+          </ul>
+
+          <p class="consult-chapter__cta">
+            <a class="btn btn--primary" href="contact.html?service=nutrition">
+              Réserver une consultation
+              <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         3. AMÉNAGEMENT ANIMAL-FRIENDLY ★ — bande anthracite
+         ====================================================== -->
+    <section class="consult-chapter consult-chapter--signature texture-grain-dark" id="amenagement" aria-labelledby="titre-amenagement">
+      <div class="container consult-chapter__grid">
+
+        <!-- SVG sur fond anthracite : sauge (règle client) -->
+        <img class="dec-consult-plant-dark" src="assets/svg/Plants/Floral%20Illustrations%2011.svg"
+             alt="" aria-hidden="true" width="114" height="236" data-specimen data-lag="0.8">
+
+        <div class="consult-chapter__media" data-reveal>
+          <figure class="taped-photo">
+            <img class="washi washi--tr" src="assets/svg/Elements/Tape%205.svg"
+                 alt="" aria-hidden="true" width="322" height="97">
+            <img class="taped-photo__img" src="assets/img/photos/chat-tigre-repos-herbe.jpeg"
+                 alt="Chat tigré allongé dans l'herbe, parfaitement détendu"
+                 width="1080" height="1918" loading="lazy" decoding="async">
+          </figure>
+        </div>
+
+        <div class="consult-chapter__body">
+          <p class="home-eyebrow">★ Spécialité signature</p>
+          <h2 class="consult-chapter__title" id="titre-amenagement" data-reveal-text>Aménagement animal-friendly</h2>
+          <div class="consult-chapter__intro" data-reveal>
+            <p>
+              Un chat d'intérieur ne vit pas dans votre salon&nbsp;: il vit
+              dans son territoire. Formée à l'architecture d'intérieur,
+              je conçois des espaces beaux pour vous et justes pour eux —
+              sans transformer votre maison en arbre à chat géant.
+            </p>
+            <p>
+              L'intérieur devient un territoire vivant&nbsp;: hauteurs,
+              parcours, cachettes, points d'eau, zones de repos. Chaque
+              proposition respecte votre style et votre budget.
+            </p>
+          </div>
+
+          <h3 class="consult-chapter__subtitle">Sujets abordés</h3>
+          <ul class="topics topics--on-dark" data-reveal-stagger>
+            <li class="topics__item">Parcours muraux &amp; hauteurs</li>
+            <li class="topics__item">Cachettes &amp; zones de repos</li>
+            <li class="topics__item">Points d'eau &amp; fontaines</li>
+            <li class="topics__item">Zone d'alimentation &amp; litières</li>
+            <li class="topics__item">Plantes sans danger</li>
+            <li class="topics__item">Enrichissement du chat d'intérieur</li>
+            <li class="topics__item">Cohabitation multi-chats</li>
+            <li class="topics__item">Choix de mobilier</li>
+          </ul>
+
+          <p class="consult-chapter__cta">
+            <a class="btn btn--inverse" href="contact.html?service=amenagement">
+              Réserver une consultation
+              <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="container consult-chapter__steps">
+        <h3 class="consult-chapter__subtitle" data-reveal>Comment ça se passe</h3>
+        <ol class="steps steps--on-dark" data-reveal-stagger>
+          <li class="steps__item">
+            <p class="steps__title">L'échange</p>
+            <p class="steps__text">Vos animaux, vos contraintes, vos envies déco — tout compte.</p>
+          </li>
+          <li class="steps__item">
+            <p class="steps__title">La visite</p>
+            <p class="steps__text">Je lis votre intérieur comme un territoire&nbsp;: passages, tensions, ressources.</p>
+          </li>
+          <li class="steps__item">
+            <p class="steps__title">Le plan</p>
+            <p class="steps__text">Des propositions dessinées et concrètes, du réaménagement léger au projet complet.</p>
+          </li>
+          <li class="steps__item">
+            <p class="steps__title">Le suivi</p>
+            <p class="steps__text">On observe comment vos animaux adoptent les lieux, et on affine.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         4. GARDE & SOINS À DOMICILE
+         ====================================================== -->
+    <section class="consult-chapter consult-chapter--reverse" id="garde-soins" aria-labelledby="titre-garde">
+      <div class="container consult-chapter__grid">
+
+        <img class="dec-consult-butterfly" src="assets/svg/Butterflies/Butterfly2.svg"
+             alt="" aria-hidden="true" width="373" height="394" data-butterfly data-lag="0.6">
+
+        <div class="consult-chapter__media" data-reveal>
+          <figure class="taped-photo taped-photo--tilt-right">
+            <img class="washi washi--bl" src="assets/svg/Elements/Tape%209.svg"
+                 alt="" aria-hidden="true" width="322" height="97">
+            <img class="washi washi--tr" src="assets/svg/Elements/Tape%204.svg"
+                 alt="" aria-hidden="true" width="322" height="97">
+            <img class="taped-photo__img" src="assets/img/photos/chat-tigre-paquerette.jpeg"
+                 alt="Chat tigré avec une pâquerette posée sur la tête"
+                 width="1078" height="1916" loading="lazy" decoding="async">
+          </figure>
+        </div>
+
+        <div class="consult-chapter__body">
+          <p class="home-eyebrow">Consultation</p>
+          <h2 class="consult-chapter__title" id="titre-garde" data-reveal-text>Garde &amp; soins à domicile</h2>
+          <div class="consult-chapter__intro" data-reveal>
+            <p>
+              Partir l'esprit tranquille&nbsp;: vos animaux restent chez eux,
+              dans leurs repères, gardés par une soigneuse animalière
+              professionnelle. Visites quotidiennes ou biquotidiennes,
+              alimentation respectée à la lettre, médicaments, suivi santé
+              et comportement.
+            </p>
+            <p>
+              Et chaque jour&nbsp;: un <strong>compte rendu photos et
+              vidéos</strong> — vous les voyez vivre, vous partez vraiment.
+            </p>
+          </div>
+
+          <h3 class="consult-chapter__subtitle">Ce qui est inclus</h3>
+          <ul class="topics" data-reveal-stagger>
+            <li class="topics__item">Visites 1× ou 2× par jour</li>
+            <li class="topics__item">Alimentation &amp; eau fraîche</li>
+            <li class="topics__item">Médicaments &amp; soins</li>
+            <li class="topics__item">Litières &amp; entretien</li>
+            <li class="topics__item">Jeu, présence, câlins</li>
+            <li class="topics__item">Compte rendu quotidien photos/vidéos</li>
+          </ul>
+
+          <p class="consult-chapter__cta">
+            <a class="btn btn--primary" href="contact.html?service=garde-soins">
+              Demander une garde
+              <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         OUTRO — encart papier + CTA doux
+         ====================================================== -->
+    <section class="consult-outro" aria-label="Nous contacter">
+      <div class="container" data-reveal-stagger>
+        <div class="note-page">
+          <img class="note-page__bg" src="assets/svg/Elements/Page%206.svg"
+               alt="" aria-hidden="true" width="277" height="312">
+          <p class="note-page__text">Votre animal d'abord, vous avec.</p>
+        </div>
+        <p class="home-contact__note">Une question, un doute sur la formule qu'il vous faut&nbsp;? Écrivez-moi.</p>
+        <div class="consult-outro__actions">
+          <a class="btn btn--secondary" href="contact.html">
+            Me contacter
+            <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- PRAIRIE PRÉ-FOOTER — la nature émerge du footer-terre
+       (anthracite) et pousse vers le haut. flora.js :
+       croissance UNE seule fois (demande client 08/07). -->
+  <div class="meadow-strip" aria-hidden="true">
+    <img class="meadow-strip__plant meadow-slot-a" src="assets/svg/Plants/Floral%20Illustrations%2014.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-c" src="assets/svg/Plants/Floral%20Illustrations%208.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-d" src="assets/svg/Plants/Floral%20Illustrations%202.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-f" src="assets/svg/Plants/Floral%20Illustrations%2017.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-g" src="assets/svg/Plants/Floral%20Illustrations%205.svg" alt="" width="114" height="236" data-specimen>
+  </div>
+
+  <footer class="fallback-footer" id="site-footer-fallback">
+    <nav aria-label="Navigation de pied de page">
+      <ul class="fallback-footer__list">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="qui-suis-je.html">Qui suis-je</a></li>
+        <li><a href="consultations.html">Consultations</a></li>
+        <li><a href="guides-conseils.html">Guides &amp; conseils</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+      </ul>
+    </nav>
+    <p class="fallback-footer__legal">&copy; 2026 Babcat &amp; The Wild — Bruxelles</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "_commentaire": "Derniers guides affichés sur l'accueil (PLAN §4.1 s6, sujets de lancement §4.4). Le contenu est inliné dans le HTML (progressive enhancement) — ce fichier est la source de vérité dupliquée pour la migration WordPress v2 : chaque entrée devient un post natif + catégorie (PLAN §7). Toute modification de contenu doit être faite aux deux endroits.",
+  "guides": [
+    {
+      "id": "propylene-glycol-croquettes",
+      "titre": "Le propylène glycol dans les croquettes",
+      "categorie": "Nutrition animale",
+      "resume": "Cet additif humectant se cache dans beaucoup de gammes « semi-humides », alors qu'il est interdit dans l'alimentation des chats en Europe. Comment le repérer sur une étiquette, et par quoi remplacer ces produits.",
+      "url": "guides/propylene-glycol-croquettes.html",
+      "image": {
+        "src": "assets/img/photos/chat-blanc-noir-hautes-herbes.jpeg",
+        "alt": "Chat blanc et noir à poil mi-long, concentré dans les hautes herbes",
+        "largeur": 1078,
+        "hauteur": 1916
+      }
+    },
+    {
+      "id": "emplacement-litiere",
+      "titre": "Où placer la litière ? Le point de vue du chat",
+      "categorie": "Aménagement animal-friendly",
+      "resume": "Ni à côté de la gamelle, ni dans un passage, ni au fond d'un placard fermé : l'emplacement compte autant que le bac. Les règles de territoire qui évitent la plupart des accidents de malpropreté.",
+      "url": "guides/emplacement-litiere.html",
+      "image": {
+        "src": "assets/img/photos/chat-noir-blanc-profil-feuillage.jpeg",
+        "alt": "Chat noir et blanc de profil, à l'affût dans le feuillage",
+        "largeur": 1080,
+        "hauteur": 1918
+      }
+    },
+    {
+      "id": "plantes-toxiques-ou-safe",
+      "titre": "Plantes toxiques ou safe : le tri complet",
+      "categorie": "Bien-être",
+      "resume": "Lys, philodendron, ficus : certaines plantes très courantes sont dangereuses pour les chats et les chiens. La liste de celles qu'on garde, celles qu'on éloigne — et de belles alternatives sans risque.",
+      "url": "guides/plantes-toxiques-ou-safe.html",
+      "image": {
+        "src": "assets/img/photos/chat-tigre-jardin-fleuri.jpeg",
+        "alt": "Chat tigré assis dans un jardin fleuri",
+        "largeur": 1080,
+        "hauteur": 1918
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "_commentaire": "Témoignages (PLAN §4.1 s7 — exemples plausibles inventés, À REMPLACER par les vrais témoignages d'Elisabeth, cf. PLAN §9.7). Alimente le carrousel de l'accueil (assets/js/animations/testimonials.js). Le premier témoignage est aussi inliné en dur dans index.html (fallback sans JS). Champs photo + tape : visuels PROVISOIRES pour donner le ton (photos random de la banque, à remplacer par les vraies). Source de vérité dupliquée pour la migration WordPress v2 : CPT temoignage (PLAN §7).",
+  "temoignages": [
+    {
+      "id": "camille-ziggy",
+      "prenom": "Camille",
+      "animal": "Ziggy, chat européen",
+      "citation": "Ziggy urinait hors de sa litière depuis des mois, et on avait tout essayé. Babeth a observé notre appartement une heure, déplacé trois choses, expliqué pourquoi — deux semaines plus tard, plus un seul accident. Elle ne juge jamais : elle traduit.",
+      "photo": {
+        "src": "assets/img/photos/chat-tigre-paquerette.jpeg",
+        "alt": "Chat tigré avec une pâquerette posée sur la tête",
+        "largeur": 1078,
+        "hauteur": 1916
+      },
+      "tape": "assets/svg/Elements/Tape 1.svg"
+    },
+    {
+      "id": "thomas-pippa",
+      "prenom": "Thomas",
+      "animal": "Pippa, border collie",
+      "citation": "Partir dix jours en laissant Pippa, c'était impensable. Avec Babeth, on recevait chaque soir des photos, des vidéos et un vrai compte rendu : ce qu'elle avait mangé, comment elle allait. On est partis tranquilles, elle nous a à peine boudés au retour.",
+      "photo": {
+        "src": "assets/img/photos/chat-tigre-jardin-fleuri.jpeg",
+        "alt": "Chat tigré assis dans un jardin fleuri",
+        "largeur": 1078,
+        "hauteur": 1916
+      },
+      "tape": "assets/svg/Elements/Tape 5.svg"
+    },
+    {
+      "id": "sara-mochi",
+      "prenom": "Sara",
+      "animal": "Mochi, chat d'intérieur",
+      "citation": "Je pensais devoir choisir entre un bel appartement et un chat heureux. Babeth a dessiné un parcours mural qui se fond dans notre salon : Mochi grimpe, observe, dort en hauteur — et tout le monde nous demande où on a trouvé ces étagères.",
+      "photo": {
+        "src": "assets/img/photos/chat-noir-blanc-profil-feuillage.jpeg",
+        "alt": "Chat noir et blanc de profil dans un feuillage",
+        "largeur": 1078,
+        "hauteur": 1916
+      },
+      "tape": "assets/svg/Elements/Tape 7.svg"
+    }
+  ]
+}

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Babcat &amp; The Wild — Nutrition, comportement &amp; aménagement animal-friendly à Bruxelles</title>
+  <meta name="description" content="Nutrition, comportement, garde &amp; soins et aménagement intérieur animal-friendly pour chats et chiens — à domicile à Bruxelles et alentours, ou en visio. Les animaux sont ma boussole.">
+
+  <!-- Open Graph (baseline — affinage en Phase 4 par l'agent SEO) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Babcat &amp; The Wild — Les animaux sont ma boussole">
+  <meta property="og:description" content="Nutrition, comportement, garde &amp; soins et aménagement animal-friendly pour chats et chiens, à Bruxelles et alentours.">
+  <meta property="og:image" content="assets/img/main-photos/elisabeth-veau-ukulele-australie.jpeg">
+  <meta property="og:locale" content="fr_BE">
+
+  <link rel="icon" type="image/png" href="assets/img/logos/favicon-64.png">
+
+  <!-- Fontes critiques (cf. assets/fonts/fonts.css) -->
+  <link rel="preload" href="assets/fonts/robelia.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/alegreya-sans-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+
+  <script src="assets/js/main.js" data-root="." defer></script>
+
+  <!-- GSAP auto-hébergé (aucun CDN) + système d'animation (PLAN §5).
+       Ordre de dépendances : core (gsap → plugins) puis modules.
+       Tout en defer : s'exécute dans l'ordre du document, avant
+       DOMContentLoaded ; sans JS la page reste complète (aucun
+       état initial caché en CSS). -->
+  <script src="assets/js/vendor/gsap.min.js" defer></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/vendor/SplitText.min.js" defer></script>
+  <script src="assets/js/animations/core.js" defer></script>
+  <script src="assets/js/animations/reveals.js" defer></script>
+  <script src="assets/js/animations/flora.js" defer></script>
+  <script src="assets/js/animations/testimonials.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+  <!-- ==========================================================
+       HEADER FALLBACK (sans JS) — remplacé au chargement par
+       partials/header.html via main.js. Nav complète, utilisable
+       au clavier ; le burger, qui exige JS, n'existe que dans
+       le partial.
+       ========================================================== -->
+  <header class="fallback-header" id="site-header-fallback">
+    <a class="fallback-header__brand" href="index.html" aria-label="Babcat &amp; The Wild — retour à l'accueil">
+      <img class="fallback-header__logo" src="assets/img/logos/monogramme-b-transparent.png" alt="" width="320" height="356">
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="fallback-header__list">
+        <li><a class="fallback-header__link" href="index.html" aria-current="page">Accueil</a></li>
+        <li><a class="fallback-header__link" href="qui-suis-je.html">Qui suis-je</a></li>
+        <li><a class="fallback-header__link" href="consultations.html">Consultations</a></li>
+        <li><a class="fallback-header__link" href="guides-conseils.html">Guides &amp; conseils</a></li>
+        <li><a class="fallback-header__link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenu-principal">
+
+    <!-- ========================================================
+         1. HERO PLEIN ÉCRAN — la porte du sanctuaire
+         Photo signature + logo typographique + phrase-boussole
+         (Wanderlust, SANS accents) + positionnement + CTA.
+         ======================================================== -->
+    <section class="hero" aria-labelledby="hero-titre">
+      <div class="hero__content" data-reveal-stagger>
+        <h1 class="hero__title" id="hero-titre">
+          <img class="hero__logo" src="assets/img/logos/logo-typo-fond-clair.png"
+               alt="Babcat &amp; The Wild" width="720" height="295" fetchpriority="high">
+        </h1>
+        <p class="hero__script">Les animaux sont ma boussole.</p>
+        <p class="hero__lead">
+          J'accompagne les humains à mieux comprendre, nourrir, soigner et installer
+          leurs chats et chiens dans un environnement fonctionnel, beau et
+          profondément respectueux de leur nature.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="consultations.html">
+            Découvrir les consultations
+            <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero__media" data-reveal>
+        <figure class="taped-photo taped-photo--tilt-right hero__figure">
+          <img class="washi washi--tl" src="assets/svg/Elements/Tape%205.svg"
+                 alt="" aria-hidden="true" width="322" height="97">
+          <img class="washi washi--br" src="assets/svg/Elements/Tape%209.svg"
+                 alt="" aria-hidden="true" width="322" height="97">
+          <picture>
+            <!-- Sources AVIF/WebP responsive : phase perf (PLAN §6) -->
+            <img class="taped-photo__img" src="assets/img/main-photos/elisabeth-veau-ukulele-australie.jpeg"
+                 alt="Elisabeth joue de l'ukulélé, joue contre joue avec un jeune veau, au bord d'une rivière australienne"
+                 width="1254" height="1254" fetchpriority="high" decoding="async">
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         2. BANDEAU DES GRANDS AXES
+         ======================================================== -->
+    <section class="home-axes" aria-label="Les grands axes d'accompagnement">
+      <div class="container">
+        <ul class="home-axes__list" data-reveal-stagger>
+          <li class="home-axes__item">Nutrition</li>
+          <li class="home-axes__item">Comportement</li>
+          <li class="home-axes__item">Garde</li>
+          <li class="home-axes__item">Soins</li>
+          <li class="home-axes__item">Aménagement intérieur animal-friendly</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         3. TEASER « QUI SUIS-JE » — photo scotchée, avant-goût
+         de l'herbier (page qui-suis-je.html)
+         ======================================================== -->
+    <section class="home-about" aria-labelledby="about-titre">
+      <img class="dec-home-about-leaf" src="assets/svg/Plants/Floral%20Illustrations%2017.svg" alt="" aria-hidden="true" width="114" height="236" data-specimen data-lag="0.8">
+      <div class="container home-about__grid">
+        <div class="home-about__figure" data-reveal>
+          <figure class="taped-photo">
+            <img class="washi washi--tr" src="assets/svg/Elements/Tape%207.svg"
+                 alt="" aria-hidden="true" width="322" height="97">
+            <picture>
+              <img class="taped-photo__img" src="assets/img/main-photos/elisabeth-portrait-gorge-ocre.jpeg"
+                   alt="Elisabeth de profil, sac au dos, devant une falaise ocre striée dans une gorge australienne"
+                   width="2048" height="1365" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+        </div>
+
+        <div class="home-about__body">
+          <p class="home-eyebrow">Qui suis-je</p>
+          <h2 id="about-titre" data-reveal-text>Les animaux m'ont appris le monde</h2>
+          <div class="home-about__text" data-reveal>
+            <p>
+              Je suis Elisabeth — Babeth pour les animaux et leurs humains. Soigneuse
+              animalière et conseillère en nutrition et comportement, j'ai appris mon
+              métier au contact du vivant&nbsp;: les cattle stations australiennes, les
+              refuges des Balkans, deux ans auprès des chats d'un refuge bruxellois.
+            </p>
+            <p>
+              Diplômée en architecture d'intérieur, j'ai fait de nos maisons mon
+              terrain&nbsp;: des lieux beaux pour les humains, justes pour les animaux.
+            </p>
+          </div>
+          <!-- Phrase-boussole — Wanderlust, SANS accents -->
+          <p class="home-about__script" data-reveal>Avec les animaux, je suis partout chez moi.</p>
+          <a class="btn btn--secondary" href="qui-suis-je.html" data-reveal>
+            Découvrir mon histoire
+            <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         4. LES 4 CONSULTATIONS — cartes bois miel uniformes
+         (la carte Aménagement reste « ★ signature » par son
+         sur-titre, mais même couleur que les autres).
+         Contenu inliné (page complète sans JS) ; dupliqué dans
+         assets/data/services.json pour la migration WordPress.
+         ======================================================== -->
+    <section class="home-consult" aria-labelledby="consult-titre">
+      <img class="dec-home-consult-sprig" src="assets/svg/Plants/Floral%20Illustrations%207.svg" alt="" aria-hidden="true" width="114" height="236" data-specimen data-lag="1.1">
+      <div class="container">
+        <header class="home-consult__head">
+          <p class="home-eyebrow">Consultations</p>
+          <h2 id="consult-titre" data-reveal-text>Quatre façons de vous accompagner</h2>
+          <p class="home-consult__intro">
+            Chaque accompagnement commence par une écoute&nbsp;: votre animal d'abord,
+            vous avec.
+          </p>
+        </header>
+
+        <div class="home-consult__grid" data-reveal-stagger>
+          <article class="consult-card">
+            <p class="consult-card__eyebrow">Consultation</p>
+            <h3 class="consult-card__title">Comportement</h3>
+            <p class="consult-card__text">
+              Griffades, anxiété, malpropreté, cohabitation&nbsp;: écouter ce que votre
+              chat ou votre chien essaie de dire — sans jugement, il n'y a pas de
+              mauvais humain ici.
+            </p>
+            <a class="consult-card__link" href="consultations.html#comportement">
+              Découvrir<span aria-hidden="true">&nbsp;&rarr;</span>
+              <span class="visually-hidden">la consultation comportement</span>
+            </a>
+          </article>
+
+          <article class="consult-card">
+            <p class="consult-card__eyebrow">Consultation</p>
+            <h3 class="consult-card__title">Nutrition</h3>
+            <p class="consult-card__text">
+              Le chat est un carnivore strict, le
+              chien un carnivore latent&nbsp;: bilan personnalisé, transition
+              alimentaire et lecture des compositions, dans le respect de leur
+              physiologie.
+            </p>
+            <a class="consult-card__link" href="consultations.html#nutrition">
+              Découvrir<span aria-hidden="true">&nbsp;&rarr;</span>
+              <span class="visually-hidden">la consultation nutrition</span>
+            </a>
+          </article>
+
+          <article class="consult-card">
+            <p class="consult-card__eyebrow">★ Spécialité signature</p>
+            <h3 class="consult-card__title">Aménagement animal-friendly</h3>
+            <p class="consult-card__text">
+              Parcours muraux, hauteurs, points d'eau, plantes safe, cachettes&nbsp;:
+              votre intérieur devient un territoire vivant, beau pour vous, juste
+              pour eux.
+            </p>
+            <a class="consult-card__link" href="consultations.html#amenagement">
+              Découvrir<span aria-hidden="true">&nbsp;&rarr;</span>
+              <span class="visually-hidden">la consultation aménagement animal-friendly</span>
+            </a>
+          </article>
+
+          <article class="consult-card">
+            <p class="consult-card__eyebrow">Consultation</p>
+            <h3 class="consult-card__title">Garde &amp; soins à domicile</h3>
+            <p class="consult-card__text">
+              Une garde professionnelle par une soigneuse animalière&nbsp;: visites
+              quotidiennes, médicaments, suivi santé — avec compte rendu photos et
+              vidéos chaque jour.
+            </p>
+            <a class="consult-card__link" href="consultations.html#garde-soins">
+              Découvrir<span aria-hidden="true">&nbsp;&rarr;</span>
+              <span class="visually-hidden">la garde et les soins à domicile</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         5. SIGNATURE — l'aménagement animal-friendly
+         ======================================================== -->
+    <section class="home-signature texture-grain-dark" aria-labelledby="signature-titre">
+      <img class="dec-home-signature-branch" src="assets/svg/Plants/Floral%20Illustrations%2011.svg" alt="" aria-hidden="true" width="114" height="236" data-specimen data-lag="0.7">
+      <div class="container home-signature__grid">
+        <div class="home-signature__body" data-reveal>
+          <p class="home-eyebrow home-eyebrow--on-dark">★ La spécialité signature</p>
+          <h2 class="home-signature__title" id="signature-titre" data-reveal-text>
+            Un intérieur beau pour l'humain, juste pour l'animal.
+          </h2>
+          <p class="home-signature__text">
+            Un chat d'intérieur ne vit pas dans votre salon&nbsp;: il vit dans son
+            territoire. L'aménagement animal-friendly unit architecture d'intérieur et
+            bien-être animal — parcours muraux, hauteurs et cachettes, points d'eau,
+            zones de repos, plantes sans danger. Sans transformer votre maison en
+            arbre à chat géant.
+          </p>
+          <div class="home-signature__actions">
+            <a class="btn btn--inverse" href="consultations.html#amenagement">
+              Découvrir l'aménagement animal-friendly
+              <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </div>
+        <figure class="taped-photo home-signature__figure" data-reveal>
+          <img class="washi washi--bl" src="assets/svg/Elements/Tape%20250.svg"
+                 alt="" aria-hidden="true" width="322" height="97">
+          <img class="washi washi--tr" src="assets/svg/Elements/Tape2.svg"
+                 alt="" aria-hidden="true" width="322" height="97">
+          <picture>
+            <img class="taped-photo__img" src="assets/img/photos/chat-tigre-repos-herbe.jpeg"
+                 alt="Chat tigré allongé dans l'herbe, parfaitement détendu"
+                 width="1080" height="1918" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         6. DERNIERS GUIDES — grille magazine.
+         Contenu inliné (page complète sans JS) ; dupliqué dans
+         assets/data/guides.json pour la migration WordPress.
+         ======================================================== -->
+    <section class="home-guides" aria-labelledby="guides-titre">
+      <img class="dec-home-guides-butterfly" src="assets/svg/Butterflies/Butterfly4.svg" alt="" aria-hidden="true" width="373" height="394" data-butterfly data-lag="1.3">
+      <img class="dec-home-guides-plant" src="assets/svg/Plants/Floral%20Illustrations%2015.svg" alt="" aria-hidden="true" width="114" height="236" data-specimen data-lag="0.6">
+      <div class="container">
+        <header class="home-guides__head">
+          <p class="home-eyebrow">Guides &amp; conseils</p>
+          <h2 id="guides-titre" data-reveal-text>Les derniers guides de la bibliothèque</h2>
+        </header>
+
+        <div class="home-guides__grid" data-reveal-stagger>
+          <article class="guide-card">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-blanc-noir-hautes-herbes.jpeg"
+                   alt="Chat blanc et noir à poil mi-long, concentré dans les hautes herbes"
+                   width="1078" height="1916" loading="lazy" decoding="async">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Nutrition animale</span>
+              <h3 class="guide-card__title">Le propylène glycol dans les croquettes</h3>
+              <p class="guide-card__summary">
+                Cet additif humectant se cache dans beaucoup de gammes
+                «&nbsp;semi-humides&nbsp;», alors qu'il est interdit dans l'alimentation
+                des chats en Europe. Comment le repérer sur une étiquette, et par quoi
+                remplacer ces produits.
+              </p>
+              <a class="guide-card__link" href="guides/propylene-glycol-croquettes.html">
+                Lire la suite<span aria-hidden="true">&nbsp;&rarr;</span>
+                <span class="visually-hidden">&nbsp;: le propylène glycol dans les croquettes</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-noir-blanc-profil-feuillage.jpeg"
+                   alt="Chat noir et blanc de profil, à l'affût dans le feuillage"
+                   width="1080" height="1918" loading="lazy" decoding="async">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Aménagement animal-friendly</span>
+              <h3 class="guide-card__title">Où placer la litière&nbsp;? Le point de vue du chat</h3>
+              <p class="guide-card__summary">
+                Ni à côté de la gamelle, ni dans un passage, ni au fond d'un placard
+                fermé&nbsp;: l'emplacement compte autant que le bac. Les règles de
+                territoire qui évitent la plupart des accidents de malpropreté.
+              </p>
+              <a class="guide-card__link" href="guides/emplacement-litiere.html">
+                Lire la suite<span aria-hidden="true">&nbsp;&rarr;</span>
+                <span class="visually-hidden">&nbsp;: où placer la litière</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-tigre-jardin-fleuri.jpeg"
+                   alt="Chat tigré assis dans un jardin fleuri"
+                   width="1080" height="1918" loading="lazy" decoding="async">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Bien-être</span>
+              <h3 class="guide-card__title">Plantes toxiques ou safe&nbsp;: le tri complet</h3>
+              <p class="guide-card__summary">
+                Lys, philodendron, ficus&nbsp;: certaines plantes très courantes sont
+                dangereuses pour les chats et les chiens. La liste de celles qu'on
+                garde, celles qu'on éloigne — et de belles alternatives sans risque.
+              </p>
+              <a class="guide-card__link" href="guides/plantes-toxiques-ou-safe.html">
+                Lire la suite<span aria-hidden="true">&nbsp;&rarr;</span>
+                <span class="visually-hidden">&nbsp;: plantes toxiques ou safe</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="home-guides__more">
+          <a class="btn btn--secondary" href="guides-conseils.html">
+            Explorer tous les guides
+            <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         7. TÉMOIGNAGE — citation en grand + polaroïd scotché.
+         Exemple plausible (à remplacer par les vrais, PLAN §9.7),
+         dupliqué dans assets/data/testimonials.json.
+         ======================================================== -->
+    <section class="home-testimonial texture-grain-dark" aria-labelledby="temoignage-titre">
+      <div class="container">
+        <header class="home-testimonial__head">
+          <p class="home-eyebrow home-eyebrow--on-dark">Témoignage</p>
+          <h2 id="temoignage-titre" data-reveal-text>Ils en parlent mieux que moi</h2>
+        </header>
+
+        <!-- Carrousel de témoignages — piloté par assets/js/animations/
+             testimonials.js (données : assets/data/testimonials.json).
+             Sans JS : seul le 1er témoignage (inliné) s'affiche, flèches
+             masquées. Avec JS : fade out/in du texte ET de la photo, tape
+             qui se recolle (différent à chaque témoignage). -->
+        <div class="home-testimonial__carousel" data-testimonials>
+          <div class="home-testimonial__grid">
+            <figure class="note-page note-page--testimonial" data-reveal>
+              <img class="note-page__bg" src="assets/svg/Elements/Page.svg"
+                   alt="" aria-hidden="true" width="277" height="312">
+              <blockquote class="note-page__text note-page__text--testimonial" data-testimonial-text aria-live="polite">
+                <p class="note-page__quote" data-testimonial-quote>
+                  Ziggy urinait hors de sa litière depuis des mois, et on avait tout
+                  essayé. Babeth a observé notre appartement une heure, déplacé trois
+                  choses, expliqué pourquoi — deux semaines plus tard, plus un seul
+                  accident. Elle ne juge jamais&nbsp;: elle traduit.
+                </p>
+                <figcaption class="note-page__author">
+                  <span data-testimonial-prenom>Camille</span>
+                  <span class="note-page__animal" data-testimonial-animal>&amp; Ziggy, chat européen</span>
+                </figcaption>
+                <!-- Flèches DANS la feuille, centrées sous l'auteur -->
+                <div class="testimonial-nav-group">
+                  <button type="button" class="testimonial-nav testimonial-nav--prev" data-testimonial-prev aria-label="Témoignage précédent" hidden>
+                    <span class="testimonial-nav__arrow" aria-hidden="true"></span>
+                  </button>
+                  <button type="button" class="testimonial-nav testimonial-nav--next" data-testimonial-next aria-label="Témoignage suivant">
+                    <span class="testimonial-nav__arrow" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </blockquote>
+            </figure>
+
+            <figure class="polaroid" data-reveal>
+              <img class="washi washi--top" src="assets/svg/Elements/Tape%201.svg"
+                   alt="" aria-hidden="true" width="322" height="97" data-testimonial-tape>
+              <img class="polaroid__img" src="assets/img/photos/chat-tigre-paquerette.jpeg"
+                   alt="Chat tigré avec une pâquerette posée sur la tête"
+                   width="1078" height="1916" loading="lazy" decoding="async" data-testimonial-photo>
+              <!-- Légende Wanderlust : ASCII uniquement -->
+              <figcaption class="polaroid__caption" data-testimonial-caption>Camille &amp; Ziggy</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         8. PRÉ-FOOTER CONTACT — soleil, crème-2, CTA.
+         Le pictogramme soleil est un PNG : il recevra data-draw
+         (tracé SVG au scroll) quand la source vectorielle sera
+         récupérée (PLAN §9.2) — d'ici là, simple data-reveal.
+         ======================================================== -->
+    <section class="home-contact" aria-labelledby="contact-titre">
+      <img class="dec-home-contact-plant" src="assets/svg/Plants/Floral%20Illustrations%205.svg" alt="" aria-hidden="true" width="114" height="236" data-specimen data-lag="1.0">
+      <div class="container home-contact__inner" data-reveal-stagger>
+        <img class="home-contact__sun" src="assets/img/logos/pictogramme-soleil-transparent.png"
+             alt="" width="640" height="610" loading="lazy" aria-hidden="true">
+        <h2 id="contact-titre" data-reveal-text>On fait connaissance&nbsp;?</h2>
+        <p class="home-contact__text">
+          Les consultations se font à domicile, à Bruxelles et alentours, ou en visio
+          selon la demande.
+        </p>
+        <p class="home-contact__note">
+          Parlez-moi de votre animal — on vous répond avec soin.
+        </p>
+        <div class="home-contact__actions">
+          <a class="btn btn--primary" href="contact.html">
+            Me contacter
+            <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================
+       FOOTER FALLBACK (sans JS) — remplacé au chargement par
+       partials/footer.html via main.js.
+       ========================================================== -->
+
+  <!-- PRAIRIE PRÉ-FOOTER — la nature émerge du footer-terre
+       (anthracite) et pousse vers le haut. flora.js :
+       croissance UNE seule fois (demande client 08/07). -->
+  <div class="meadow-strip" aria-hidden="true">
+    <img class="meadow-strip__plant meadow-slot-a" src="assets/svg/Plants/Floral%20Illustrations%2016.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-b" src="assets/svg/Plants/Floral%20Illustrations%203.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-c" src="assets/svg/Plants/Floral%20Illustrations%209.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-d" src="assets/svg/Plants/Floral%20Illustrations%2012.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-e" src="assets/svg/Plants/Floral%20Illustrations%2018.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-f" src="assets/svg/Plants/Floral%20Illustrations%206.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-g" src="assets/svg/Plants/Floral%20Illustrations%2010.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-fly" src="assets/svg/Butterflies/Butterfly.svg" alt="" width="373" height="394" data-butterfly data-lag="0.6">
+  </div>
+
+  <footer class="fallback-footer" id="site-footer-fallback">
+    <nav aria-label="Navigation de pied de page">
+      <ul class="fallback-footer__list">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="qui-suis-je.html">Qui suis-je</a></li>
+        <li><a href="consultations.html">Consultations</a></li>
+        <li><a href="guides-conseils.html">Guides &amp; conseils</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+      </ul>
+    </nav>
+    <p class="fallback-footer__legal">&copy; 2026 Babcat &amp; The Wild — Bruxelles</p>
+  </footer>
+
+</body>
+</html>

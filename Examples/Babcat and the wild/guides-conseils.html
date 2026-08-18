@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Guides &amp; conseils — La bibliothèque | Babcat &amp; The Wild</title>
+  <meta name="description" content="Nutrition, comportement, aménagement animal-friendly, soins et bien-être : des guides fondés sur l'expérience réelle d'une soigneuse animalière — pas du contenu froid.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="La bibliothèque Babcat &amp; The Wild">
+  <meta property="og:description" content="Du vrai partage d'expertise : lire une étiquette, placer une litière, choisir des plantes sans danger…">
+  <meta property="og:image" content="assets/img/photos/chat-tigre-jardin-fleuri.jpeg">
+  <meta property="og:locale" content="fr_BE">
+
+  <link rel="icon" type="image/png" href="assets/img/logos/favicon-64.png">
+
+  <link rel="preload" href="assets/fonts/robelia.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/alegreya-sans-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+  <link rel="stylesheet" href="assets/css/pages/guides.css">
+
+  <script src="assets/js/main.js" data-root="." defer></script>
+  <script src="assets/js/guides-filter.js" defer></script>
+
+  <script src="assets/js/vendor/gsap.min.js" defer></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/vendor/SplitText.min.js" defer></script>
+  <script src="assets/js/animations/core.js" defer></script>
+  <script src="assets/js/animations/reveals.js" defer></script>
+  <script src="assets/js/animations/flora.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+  <header class="fallback-header" id="site-header-fallback">
+    <a class="fallback-header__brand" href="index.html" aria-label="Babcat &amp; The Wild — retour à l'accueil">
+      <img class="fallback-header__logo" src="assets/img/logos/monogramme-b-transparent.png" alt="" width="320" height="356">
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="fallback-header__list">
+        <li><a class="fallback-header__link" href="index.html">Accueil</a></li>
+        <li><a class="fallback-header__link" href="qui-suis-je.html">Qui suis-je</a></li>
+        <li><a class="fallback-header__link" href="consultations.html">Consultations</a></li>
+        <li><a class="fallback-header__link" href="guides-conseils.html" aria-current="page">Guides &amp; conseils</a></li>
+        <li><a class="fallback-header__link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenu-principal">
+
+    <!-- ======================================================
+         EN-TÊTE DE LA BIBLIOTHÈQUE
+         ====================================================== -->
+    <header class="guides-hero">
+      <img class="dec-guides-plant-a" src="assets/svg/Plants/Floral%20Illustration%201.svg"
+           alt="" aria-hidden="true" width="114" height="236" data-specimen data-lag="0.8">
+      <img class="dec-guides-plant-b" src="assets/svg/Plants/Floral%20Illustrations%2013.svg"
+           alt="" aria-hidden="true" width="114" height="236" data-specimen data-lag="1.2">
+
+      <div class="container">
+        <p class="home-eyebrow">Guides &amp; conseils</p>
+        <h1 class="guides-hero__title" data-reveal-text>La bibliothèque Babcat &amp; The Wild</h1>
+        <p class="guides-hero__lead" data-reveal>
+          Du vrai partage d'expertise, fondé sur le terrain — pas du contenu
+          froid écrit pour les moteurs de recherche. Prenez ce qui vous sert,
+          revenez quand vous voulez.
+        </p>
+      </div>
+    </header>
+
+    <!-- ======================================================
+         FILTRES + GRILLE MAGAZINE
+         ====================================================== -->
+    <section class="guides-list" aria-labelledby="guides-list-titre">
+      <div class="container">
+        <h2 class="visually-hidden" id="guides-list-titre">Tous les guides</h2>
+
+        <!-- Révélés par guides-filter.js (inutilisables sans JS) -->
+        <div class="guides-filters" data-guides-filters hidden role="group" aria-label="Filtrer par catégorie">
+          <button class="tag tag--filter" type="button" data-filter="tous" aria-pressed="true">Tous</button>
+          <button class="tag tag--filter" type="button" data-filter="nutrition" aria-pressed="false">Nutrition animale</button>
+          <button class="tag tag--filter" type="button" data-filter="comportement" aria-pressed="false">Comportement</button>
+          <button class="tag tag--filter" type="button" data-filter="amenagement" aria-pressed="false">Aménagement</button>
+          <button class="tag tag--filter" type="button" data-filter="soins" aria-pressed="false">Soins &amp; prévention</button>
+          <button class="tag tag--filter" type="button" data-filter="bien-etre" aria-pressed="false">Bien-être</button>
+        </div>
+
+        <div class="guides-list__grid" data-reveal-stagger>
+
+          <!-- ⚠ Photos provisoires (réutilisées) — à remplacer quand
+               Elisabeth fournira des visuels par article. -->
+
+          <article class="guide-card" data-category="nutrition">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-blanc-noir-hautes-herbes.jpeg"
+                   alt="" width="1078" height="1916" loading="lazy" decoding="async">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Nutrition animale</span>
+              <h3 class="guide-card__title">Le propylène glycol dans les croquettes</h3>
+              <p class="guide-card__summary">
+                Interdit dans l'alimentation des chats en Europe, il se cache
+                pourtant dans beaucoup de gammes «&nbsp;semi-humides&nbsp;».
+                Comment le repérer, par quoi remplacer.
+              </p>
+              <a class="guide-card__link" href="guides/propylene-glycol-croquettes.html">
+                Lire la suite<span aria-hidden="true">&nbsp;&rarr;</span>
+                <span class="visually-hidden">&nbsp;: le propylène glycol dans les croquettes</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="guide-card" data-category="amenagement">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-noir-blanc-profil-feuillage.jpeg"
+                   alt="" width="1080" height="1918" loading="lazy" decoding="async">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Aménagement</span>
+              <h3 class="guide-card__title">Où placer la litière&nbsp;? Le point de vue du chat</h3>
+              <p class="guide-card__summary">
+                Ni à côté de la gamelle, ni dans un passage&nbsp;:
+                l'emplacement compte autant que le bac. Les règles de
+                territoire qui évitent la plupart des accidents.
+              </p>
+              <a class="guide-card__link" href="guides/emplacement-litiere.html">
+                Lire la suite<span aria-hidden="true">&nbsp;&rarr;</span>
+                <span class="visually-hidden">&nbsp;: où placer la litière</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="guide-card" data-category="bien-etre">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-tigre-jardin-fleuri.jpeg"
+                   alt="" width="1080" height="1918" loading="lazy" decoding="async">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Bien-être</span>
+              <h3 class="guide-card__title">Plantes toxiques ou safe&nbsp;: le tri complet</h3>
+              <p class="guide-card__summary">
+                Lys, philodendron, ficus&nbsp;: certaines plantes très
+                courantes sont dangereuses. Celles qu'on garde, celles
+                qu'on éloigne — et de belles alternatives.
+              </p>
+              <a class="guide-card__link" href="guides/plantes-toxiques-ou-safe.html">
+                Lire la suite<span aria-hidden="true">&nbsp;&rarr;</span>
+                <span class="visually-hidden">&nbsp;: plantes toxiques ou safe</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="guide-card guide-card--soon" data-category="nutrition">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-tigre-paquerette.jpeg"
+                   alt="" width="1078" height="1916" loading="lazy" decoding="async">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Nutrition animale</span>
+              <h3 class="guide-card__title">L'humidité dans l'alimentation du chat</h3>
+              <p class="guide-card__summary">
+                Le chat descend d'un chasseur du désert qui buvait peu et
+                mangeait humide. Pourquoi la gamelle d'eau ne suffit pas.
+              </p>
+              <span class="guide-card__soon">À paraître</span>
+            </div>
+          </article>
+
+          <article class="guide-card guide-card--soon" data-category="nutrition">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-tigre-repos-herbe.jpeg"
+                   alt="" width="1080" height="1918" loading="lazy" decoding="async">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Nutrition animale</span>
+              <h3 class="guide-card__title">Lire une étiquette de croquettes</h3>
+              <p class="guide-card__summary">
+                «&nbsp;Sous-produits animaux&nbsp;», «&nbsp;protéines
+                déshydratées&nbsp;»… Décoder la composition en cinq minutes,
+                sans se faire avoir par le marketing.
+              </p>
+              <span class="guide-card__soon">À paraître</span>
+            </div>
+          </article>
+
+          <article class="guide-card guide-card--soon" data-category="comportement">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-noir-blanc-profil-feuillage.jpeg"
+                   alt="" width="1080" height="1918" loading="lazy" decoding="async">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Comportement</span>
+              <h3 class="guide-card__title">Malpropreté&nbsp;: comprendre avant d'agir</h3>
+              <p class="guide-card__summary">
+                Un chat propre qui ne l'est plus n'est jamais
+                «&nbsp;vengeur&nbsp;». Santé, territoire, stress&nbsp;: la
+                méthode pour trouver la vraie cause.
+              </p>
+              <span class="guide-card__soon">À paraître</span>
+            </div>
+          </article>
+
+          <article class="guide-card guide-card--soon" data-category="soins">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-tigre-paquerette.jpeg"
+                   alt="" width="1078" height="1916" loading="lazy" decoding="async">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Soins &amp; prévention</span>
+              <h3 class="guide-card__title">Observer son animal au quotidien</h3>
+              <p class="guide-card__summary">
+                Poids, poil, appétit, habitudes&nbsp;: les petits signaux qui
+                permettent d'agir tôt — le réflexe de soigneuse à adopter
+                chez soi.
+              </p>
+              <span class="guide-card__soon">À paraître</span>
+            </div>
+          </article>
+
+          <article class="guide-card guide-card--soon" data-category="amenagement">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-tigre-jardin-fleuri.jpeg"
+                   alt="" width="1080" height="1918" loading="lazy" decoding="async">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Aménagement</span>
+              <h3 class="guide-card__title">Enrichir le territoire d'un chat d'intérieur</h3>
+              <p class="guide-card__summary">
+                Hauteurs, observatoires, cachettes, chasse simulée&nbsp;:
+                offrir une vraie vie de chat entre quatre murs, sans
+                sacrifier votre déco.
+              </p>
+              <span class="guide-card__soon">À paraître</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- État vide du filtre (révélé par guides-filter.js) -->
+        <div class="guides-empty" hidden>
+          <div class="sun-mark">
+            <img class="sun-mark__img" src="assets/img/logos/pictogramme-soleil-transparent.png"
+                 alt="" aria-hidden="true" width="640" height="610" loading="lazy">
+          </div>
+          <p>Rien dans cette catégorie pour l'instant — ça pousse, revenez bientôt.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- PRAIRIE PRÉ-FOOTER — la nature émerge du footer-terre
+       (anthracite) et pousse vers le haut. flora.js :
+       croissance UNE seule fois (demande client 08/07). -->
+  <div class="meadow-strip" aria-hidden="true">
+    <img class="meadow-strip__plant meadow-slot-b" src="assets/svg/Plants/Floral%20Illustrations%204.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-c" src="assets/svg/Plants/Floral%20Illustrations%2011.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-e" src="assets/svg/Plants/Floral%20Illustrations%2013.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-g" src="assets/svg/Plants/Floral%20Illustrations%207.svg" alt="" width="114" height="236" data-specimen>
+  </div>
+
+  <footer class="fallback-footer" id="site-footer-fallback">
+    <nav aria-label="Navigation de pied de page">
+      <ul class="fallback-footer__list">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="qui-suis-je.html">Qui suis-je</a></li>
+        <li><a href="consultations.html">Consultations</a></li>
+        <li><a href="guides-conseils.html">Guides &amp; conseils</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+      </ul>
+    </nav>
+    <p class="fallback-footer__legal">&copy; 2026 Babcat &amp; The Wild — Bruxelles</p>
+  </footer>
+
+</body>
+</html>

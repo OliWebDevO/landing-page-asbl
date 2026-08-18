@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Page introuvable | Babcat &amp; The Wild</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" type="image/png" href="assets/img/logos/favicon-64.png">
+
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+  <link rel="stylesheet" href="assets/css/pages/misc.css">
+
+  <script src="assets/js/main.js" data-root="." defer></script>
+  <script src="assets/js/vendor/gsap.min.js" defer></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/vendor/SplitText.min.js" defer></script>
+  <script src="assets/js/animations/core.js" defer></script>
+  <script src="assets/js/animations/flora.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+  <header class="fallback-header" id="site-header-fallback">
+    <a class="fallback-header__brand" href="index.html" aria-label="Babcat &amp; The Wild — retour à l'accueil">
+      <img class="fallback-header__logo" src="assets/img/logos/monogramme-b-transparent.png" alt="" width="320" height="356">
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="fallback-header__list">
+        <li><a class="fallback-header__link" href="index.html">Accueil</a></li>
+        <li><a class="fallback-header__link" href="qui-suis-je.html">Qui suis-je</a></li>
+        <li><a class="fallback-header__link" href="consultations.html">Consultations</a></li>
+        <li><a class="fallback-header__link" href="guides-conseils.html">Guides &amp; conseils</a></li>
+        <li><a class="fallback-header__link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenu-principal">
+    <div class="container notfound">
+      <div>
+        <div class="sun-mark sun-mark--hero">
+          <img class="sun-mark__img" src="assets/img/logos/pictogramme-soleil-transparent.png"
+               alt="" aria-hidden="true" width="640" height="610">
+        </div>
+        <h1 class="notfound__title">Ce sentier ne mène nulle part…</h1>
+        <p class="notfound__text">
+          La page que vous cherchez n'existe pas — ou a suivi un chat
+          quelque part où nous ne pouvons pas la suivre.
+        </p>
+        <p class="notfound__actions">
+          <a class="btn btn--primary" href="index.html">
+            Revenir à l'accueil
+            <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- PRAIRIE PRÉ-FOOTER — la nature émerge du footer-terre
+       (anthracite) et pousse vers le haut. flora.js :
+       croissance UNE seule fois (demande client 08/07). -->
+  <div class="meadow-strip" aria-hidden="true">
+    <img class="meadow-strip__plant meadow-slot-a" src="assets/svg/Plants/Floral%20Illustrations%207.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-c" src="assets/svg/Plants/Floral%20Illustrations%203.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-e" src="assets/svg/Plants/Floral%20Illustrations%2014.svg" alt="" width="114" height="236" data-specimen>
+    <img class="meadow-strip__plant meadow-slot-g" src="assets/svg/Plants/Floral%20Illustrations%2011.svg" alt="" width="114" height="236" data-specimen>
+  </div>
+
+  <footer class="fallback-footer" id="site-footer-fallback">
+    <nav aria-label="Navigation de pied de page">
+      <ul class="fallback-footer__list">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="qui-suis-je.html">Qui suis-je</a></li>
+        <li><a href="consultations.html">Consultations</a></li>
+        <li><a href="guides-conseils.html">Guides &amp; conseils</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+      </ul>
+    </nav>
+    <p class="fallback-footer__legal">&copy; 2026 Babcat &amp; The Wild — Bruxelles</p>
+  </footer>
+
+</body>
+</html>

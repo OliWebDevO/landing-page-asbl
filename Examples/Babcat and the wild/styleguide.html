@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Design system — Babcat &amp; The Wild</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/styleguide.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <header class="sg-header">
+    <div class="sg-container">
+      <p class="sg-header__kicker">Babcat &amp; The Wild — fondations du design system, réconciliées avec la DA</p>
+      <h1>Design system</h1>
+      <p class="sg-header__baseline">Les animaux sont ma boussole.</p>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ==================== COULEURS & MATIÈRES ==================== -->
+    <section class="sg-section" aria-labelledby="sg-titre-couleurs">
+      <div class="sg-container">
+        <h2 class="sg-section__title" id="sg-titre-couleurs">Couleurs &amp; matières</h2>
+        <p class="sg-section__intro">
+          Jamais de blanc pur, jamais de gris froid, jamais de noir #000 — même dans
+          les ombres (teintées brun chaud). Répartition 60-30-10 : 60&nbsp;% crème,
+          30&nbsp;% anthracite et sauge, 10&nbsp;% terracotta.
+        </p>
+
+        <ul class="sg-palette">
+          <li class="sg-swatch">
+            <div class="sg-swatch__chip sg-swatch__chip--terracotta"></div>
+            <div class="sg-swatch__meta">
+              <p class="sg-swatch__name">Terracotta</p>
+              <p class="sg-swatch__hex">#C8622A</p>
+              <p class="sg-swatch__role">Accents forts, grands titres (18px+), focus. 3.57:1 sur crème — jamais en texte courant.</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch__chip sg-swatch__chip--terracotta-text"></div>
+            <div class="sg-swatch__meta">
+              <p class="sg-swatch__name">Terracotta texte</p>
+              <p class="sg-swatch__hex">#A84E1E</p>
+              <p class="sg-swatch__role">Texte courant terracotta et fond des CTA primaires. 4.96:1 sur crème ✓ AA.</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch__chip sg-swatch__chip--sauge"></div>
+            <div class="sg-swatch__meta">
+              <p class="sg-swatch__name">Sauge</p>
+              <p class="sg-swatch__hex">#8B9B7D</p>
+              <p class="sg-swatch__role">Filets, bordures, fonds de tags, décor. 2.64:1 sur crème — jamais en texte.</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch__chip sg-swatch__chip--sauge-text"></div>
+            <div class="sg-swatch__meta">
+              <p class="sg-swatch__name">Sauge texte</p>
+              <p class="sg-swatch__hex">#56644A</p>
+              <p class="sg-swatch__role">Bordures de formulaire, fond du tag actif. 5.64:1 sur crème ✓ AA.</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch__chip sg-swatch__chip--jaune"></div>
+            <div class="sg-swatch__meta">
+              <p class="sg-swatch__name">Jaune pastel</p>
+              <p class="sg-swatch__hex">#FFE999</p>
+              <p class="sg-swatch__role">Décor uniquement : scotch (76&nbsp;%), surligneur (75&nbsp;%), soleil, sélection. Ne porte jamais de texte.</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch__chip sg-swatch__chip--anthracite"></div>
+            <div class="sg-swatch__meta">
+              <p class="sg-swatch__name">Anthracite</p>
+              <p class="sg-swatch__hex">#272727</p>
+              <p class="sg-swatch__role">Texte courant, fonds sombres, bandeaux. 13.3:1 avec la crème ✓.</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch__chip sg-swatch__chip--creme"></div>
+            <div class="sg-swatch__meta">
+              <p class="sg-swatch__name">Crème</p>
+              <p class="sg-swatch__hex">#F7EEE6</p>
+              <p class="sg-swatch__role">Fond clair principal — le canvas (60&nbsp;%), grain papier 4&nbsp;%.</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch__chip sg-swatch__chip--creme-2"></div>
+            <div class="sg-swatch__meta">
+              <p class="sg-swatch__name">Crème 2</p>
+              <p class="sg-swatch__hex">#FFE9CF</p>
+              <p class="sg-swatch__role">Fond alterné des sections, cartes éditoriales.</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch__chip sg-swatch__chip--bois-miel"></div>
+            <div class="sg-swatch__meta">
+              <p class="sg-swatch__name">Bois miel</p>
+              <p class="sg-swatch__hex">#B98A5A</p>
+              <p class="sg-swatch__role">Accents organiques, illustrations. Décor seul sur fonds clairs (2.74:1).</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch__chip sg-swatch__chip--kraft"></div>
+            <div class="sg-swatch__meta">
+              <p class="sg-swatch__name">Kraft</p>
+              <p class="sg-swatch__hex">#C9B394</p>
+              <p class="sg-swatch__role">Cartes et encadrés texturés — texte anthracite uniquement (7.37:1 ✓).</p>
+            </div>
+          </li>
+          <li class="sg-swatch">
+            <div class="sg-swatch__chip sg-swatch__chip--gres"></div>
+            <div class="sg-swatch__meta">
+              <p class="sg-swatch__name">Grès</p>
+              <p class="sg-swatch__hex">#D8CBB8</p>
+              <p class="sg-swatch__role">Filets utilitaires et bordures douces décoratives.</p>
+            </div>
+          </li>
+        </ul>
+
+        <h3 class="sg-subtitle">Répartition 60-30-10</h3>
+        <div class="sg-ratio" role="img" aria-label="Barre de proportions : 60 pour cent crème, 30 pour cent sauge et anthracite, 10 pour cent terracotta">
+          <div class="sg-ratio__seg--60"></div>
+          <div class="sg-ratio__seg--30"></div>
+          <div class="sg-ratio__seg--10"></div>
+        </div>
+        <ul class="sg-ratio-legend">
+          <li>60&nbsp;% — crème, fonds clairs</li>
+          <li>30&nbsp;% — sauge, anthracite</li>
+          <li>10&nbsp;% — terracotta (CTA, accents)</li>
+        </ul>
+
+        <h3 class="sg-subtitle">Matières — grain papier (tuiles pré-cuites)</h3>
+        <p class="sg-section__intro">
+          Trois tuiles PNG ≤ 30&nbsp;Ko (<code>assets/img/textures/</code>), jamais de
+          feTurbulence live. La texture se sent, ne se voit pas&nbsp;: plissez les yeux,
+          seules les couleurs restent.
+        </p>
+        <div class="sg-materials">
+          <div class="sg-material sg-material--creme">
+            <p>Crème + grain anthracite 4&nbsp;%<br><small>fond global (body)</small></p>
+          </div>
+          <div class="sg-material sg-material--kraft texture-kraft">
+            <p>Kraft + fibre 9&nbsp;%<br><small>cartes &amp; encadrés</small></p>
+          </div>
+          <div class="sg-material sg-material--dark texture-grain-dark">
+            <p>Anthracite + grain crème 3&nbsp;%<br><small>footer, sections signature</small></p>
+          </div>
+        </div>
+
+        <p class="sg-note">
+          <strong>Règles de contraste vérifiées</strong> (calculs documentés dans
+          <code>tokens.css</code>) : terracotta brut réservé aux grands titres et au
+          décor&nbsp;; texte terracotta courant en #A84E1E&nbsp;; sauge et bois miel jamais
+          en texte sur fonds clairs&nbsp;; sur kraft, texte anthracite uniquement&nbsp;;
+          le jaune pastel ne porte jamais de texte, nulle part.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== TYPOGRAPHIE ==================== -->
+    <section class="sg-section" aria-labelledby="sg-titre-typo">
+      <div class="sg-container">
+        <h2 class="sg-section__title" id="sg-titre-typo">Typographie</h2>
+        <p class="sg-section__intro">
+          Échelle modulaire fluide (ratio 1.125 mobile → 1.333 desktop, base 16 → 18px).
+          Polices auto-hébergées&nbsp;: Robelia (titres), Alegreya Sans (lecture),
+          Stellar (étiquettes&nbsp;: sur-titres, tags, boutons — capitales courtes
+          uniquement), Wanderlust (script). Licences Envato&nbsp;✓ + OFL&nbsp;✓.
+        </p>
+
+        <div class="sg-type-row">
+          <p class="sg-type-row__meta">h1 — var(--text-3xl) · 1.802 → 4.735rem · Robelia</p>
+          <p class="sg-type-h1-demo">Les animaux sont ma boussole</p>
+        </div>
+        <div class="sg-type-row">
+          <p class="sg-type-row__meta">h2 — var(--text-2xl) · 1.602 → 3.553rem</p>
+          <p class="sg-type-h2-demo">Comprendre l’animal, respecter sa nature</p>
+        </div>
+        <div class="sg-type-row">
+          <p class="sg-type-row__meta">h3 — var(--text-xl) · 1.424 → 2.665rem</p>
+          <p class="sg-type-h3-demo">Aménager son monde</p>
+        </div>
+        <div class="sg-type-row">
+          <p class="sg-type-row__meta">h4 — var(--text-lg) · 1.266 → 2rem</p>
+          <p class="sg-type-h4-demo">Nutrition, comportement, garde &amp; soins</p>
+        </div>
+        <div class="sg-type-row">
+          <p class="sg-type-row__meta">h5 — var(--text-md) · 1.125 → 1.5rem</p>
+          <p class="sg-type-h5-demo">Une maison-refuge à Bruxelles</p>
+        </div>
+        <div class="sg-type-row">
+          <p class="sg-type-row__meta">h6 — var(--text-base) · capitales espacées</p>
+          <p class="sg-type-h6-demo">Same song, different species</p>
+        </div>
+        <div class="sg-type-row">
+          <p class="sg-type-row__meta">Corps — var(--text-base) · 1 → 1.125rem · Alegreya Sans · interligne 1.6 · max 65ch</p>
+          <p>
+            Le chat est un carnivore strict, le chien un carnivore latent. Respecter leur
+            physiologie, c’est déjà prendre soin d’eux. Chaque consultation commence par
+            une écoute&nbsp;: l’animal d’abord, l’humain avec — il n’y a pas de mauvais
+            humain ici, seulement des questions qui n’ont pas encore trouvé leur réponse.
+          </p>
+        </div>
+        <div class="sg-type-row">
+          <p class="sg-type-row__meta">Petit texte — var(--text-sm) · légendes, méta</p>
+          <p><small>Consultations à domicile, à Bruxelles et alentours, ou en visio selon la demande.</small></p>
+        </div>
+        <div class="sg-type-row">
+          <p class="sg-type-row__meta">Script — var(--text-script) · Wanderlust · jamais sous 1.75rem, 1-2 apparitions par écran</p>
+          <p class="sg-script-demo">Les animaux sont ma boussole.</p>
+        </div>
+
+        <h3 class="sg-subtitle">Combinaisons sur fond anthracite</h3>
+        <div class="sg-panel--dark texture-grain-dark">
+          <div class="sg-type-row">
+            <p class="sg-type-row__meta">Titre crème chaud sur anthracite — 12.3:1 ✓</p>
+            <p class="sg-type-h2-demo">Un intérieur beau pour l’humain, juste pour l’animal</p>
+          </div>
+          <div class="sg-type-row">
+            <p class="sg-type-row__meta">Grand titre terracotta sur anthracite — 3.72:1 · grands titres uniquement</p>
+            <p class="sg-type-h3-demo sg-title-accent">L’aménagement animal-friendly</p>
+          </div>
+          <div class="sg-type-row">
+            <p class="sg-type-row__meta">Corps crème sur anthracite · liens en crème (le terracotta ne passe pas sur fond sombre en petit corps)</p>
+            <p>
+              La spécialité signature&nbsp;: parcours muraux, hauteurs, points d’eau, plantes
+              safe, cachettes. L’intérieur est un territoire vivant —
+              <a href="#contenu">découvrir la consultation</a>.
+            </p>
+          </div>
+          <div class="sg-type-row">
+            <p class="sg-type-row__meta">Script crème sur anthracite</p>
+            <p class="sg-script-demo">Avec les animaux, je suis partout chez moi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== COMPOSANTS ==================== -->
+    <section class="sg-section" aria-labelledby="sg-titre-composants">
+      <div class="sg-container">
+        <h2 class="sg-section__title" id="sg-titre-composants">Composants</h2>
+        <p class="sg-section__intro">
+          Bibliothèque BEM réutilisable (<code>components.css</code>). Cibles tactiles
+          ≥ 44px, focus visible terracotta sur tous les éléments interactifs.
+        </p>
+
+        <h3 class="sg-subtitle">Boutons — pilule, hover sans éclaircissement (lift + flèche)</h3>
+        <div class="sg-demo-row">
+          <a class="btn btn--primary" href="#contenu">Découvrir les consultations <span class="btn__arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--secondary" href="#contenu">Me contacter</a>
+          <button class="btn btn--primary" type="button" disabled>Envoi en cours…</button>
+        </div>
+        <div class="sg-demo-dark texture-grain-dark">
+          <a class="btn btn--inverse" href="#contenu">Réserver une consultation <span class="btn__arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--on-dark" href="#contenu">En savoir plus</a>
+        </div>
+
+        <h3 class="sg-subtitle">Tags catégorie</h3>
+        <div class="sg-demo-row">
+          <span class="tag">Nutrition animale</span>
+          <span class="tag">Comportement</span>
+          <span class="tag">Aménagement animal-friendly</span>
+          <button class="tag tag--filter" type="button" aria-pressed="true">Bien-être</button>
+          <button class="tag tag--filter" type="button" aria-pressed="false">Soins &amp; prévention</button>
+        </div>
+
+        <h3 class="sg-subtitle">Carte éditoriale (guides)</h3>
+        <div class="sg-grid-cards">
+          <article class="guide-card">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-blanc-noir-hautes-herbes.jpeg" alt="Chat blanc et noir à poil mi-long, concentré dans les hautes herbes" width="1078" height="1916">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Nutrition animale</span>
+              <h4 class="guide-card__title">Le propylène glycol dans les croquettes</h4>
+              <p class="guide-card__summary">
+                Cet additif se cache dans beaucoup de gammes «&nbsp;semi-humides&nbsp;».
+                Comment le repérer sur une étiquette, et pourquoi l’éviter.
+              </p>
+              <a class="guide-card__link" href="#contenu">Lire la suite<span aria-hidden="true">&nbsp;→</span></a>
+            </div>
+          </article>
+          <article class="guide-card">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-noir-blanc-profil-feuillage.jpeg" alt="Chat noir et blanc de profil, à l’affût dans le feuillage" width="1080" height="1918">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Comportement</span>
+              <h4 class="guide-card__title">Malpropreté&nbsp;: écouter avant de gronder</h4>
+              <p class="guide-card__summary">
+                Un chat qui urine hors de sa litière ne se «&nbsp;venge&nbsp;» pas&nbsp;:
+                il parle. Les causes les plus fréquentes, et par où commencer.
+              </p>
+              <a class="guide-card__link" href="#contenu">Lire la suite<span aria-hidden="true">&nbsp;→</span></a>
+            </div>
+          </article>
+          <article class="guide-card">
+            <div class="guide-card__media">
+              <img class="guide-card__img" src="assets/img/photos/chat-tigre-jardin-fleuri.jpeg" alt="Chat tigré assis dans un jardin fleuri" width="1080" height="1918">
+            </div>
+            <div class="guide-card__body">
+              <span class="tag">Bien-être</span>
+              <h4 class="guide-card__title">Plantes safe pour un jardin partagé</h4>
+              <p class="guide-card__summary">
+                Toxiques, irritantes ou parfaitement sûres&nbsp;: le tri complet des
+                plantes d’intérieur et de jardin quand on vit avec un chat.
+              </p>
+              <a class="guide-card__link" href="#contenu">Lire la suite<span aria-hidden="true">&nbsp;→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="sg-subtitle">Cartes kraft (consultations)</h3>
+        <div class="sg-grid-cards">
+          <article class="consult-card texture-kraft">
+            <p class="consult-card__eyebrow">Consultation</p>
+            <h4 class="consult-card__title">Nutrition</h4>
+            <p class="consult-card__text">
+              Bilan personnalisé, transition alimentaire, lecture des compositions —
+              respecter la physiologie de votre animal.
+            </p>
+            <a class="btn btn--secondary consult-card__cta" href="#contenu">Réserver une consultation</a>
+          </article>
+          <article class="consult-card consult-card--signature texture-grain-dark">
+            <p class="consult-card__eyebrow">★ Spécialité signature</p>
+            <h4 class="consult-card__title">Aménagement animal-friendly</h4>
+            <p class="consult-card__text">
+              Créer un intérieur beau pour l’humain, juste pour l’animal. Parcours,
+              hauteurs, litières, plantes safe&nbsp;: le territoire est vivant.
+            </p>
+            <a class="btn btn--on-dark consult-card__cta" href="#contenu">Découvrir</a>
+          </article>
+        </div>
+
+        <h3 class="sg-subtitle">Encadré « le conseil de Babeth »</h3>
+        <aside class="tip-card texture-kraft" aria-label="Le conseil de Babeth">
+          <svg class="tip-card__tape" viewBox="0 0 96 40" aria-hidden="true" focusable="false">
+            <polygon points="0,9 8,4 6,0 94,3 90,12 96,32 88,36 91,40 2,37 6,28"/>
+          </svg>
+          <p class="tip-card__lead">Le conseil de Babeth</p>
+          <p class="tip-card__text">
+            Éloignez la fontaine à eau de la gamelle&nbsp;: dans la nature, un chat ne
+            boit jamais là où il mange. Quelques mètres suffisent souvent à relancer
+            l’hydratation.
+          </p>
+        </aside>
+
+        <h3 class="sg-subtitle">Témoignages — citation longue et polaroïd</h3>
+        <div class="sg-demo-row">
+          <figure class="testimonial">
+            <blockquote class="testimonial__quote">
+              <p>
+                Babeth a compris Musca en une visite. Trois semaines plus tard, plus une
+                seule griffade sur le canapé — et un chat visiblement plus apaisé.
+              </p>
+            </blockquote>
+            <figcaption class="testimonial__author">
+              Claire <span class="testimonial__animal">&amp; Musca, chat européen</span>
+            </figcaption>
+          </figure>
+          <figure class="polaroid">
+            <svg class="polaroid__tape" viewBox="0 0 96 40" aria-hidden="true" focusable="false">
+              <polygon points="2,6 10,2 8,8 92,0 96,10 90,31 94,38 86,36 4,40 8,30"/>
+            </svg>
+            <img class="polaroid__img" src="assets/img/photos/chat-tigre-paquerette.jpeg" alt="Chat tigré avec une pâquerette posée sur la tête" width="1078" height="1916">
+            <figcaption class="polaroid__caption">Claire &amp; Musca</figcaption>
+          </figure>
+        </div>
+
+        <h3 class="sg-subtitle">Formulaire</h3>
+        <form class="sg-form-demo" action="#" method="post">
+          <div class="field">
+            <label class="field__label" for="sg-nom">Nom</label>
+            <input class="field__input" type="text" id="sg-nom" name="nom" autocomplete="name" aria-required="true">
+          </div>
+          <div class="field field--error">
+            <label class="field__label" for="sg-email">Email</label>
+            <input class="field__input" type="email" id="sg-email" name="email" autocomplete="email" aria-required="true" aria-invalid="true" aria-describedby="sg-email-erreur" value="babeth@exemple">
+            <p class="field__error" id="sg-email-erreur">
+              <svg class="field__error-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 4.5v4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="8" cy="11.5" r="1" fill="currentColor"/>
+              </svg>
+              Cette adresse email semble incomplète — il manque le domaine (ex.&nbsp;: .com).
+            </p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="sg-objet">Objet</label>
+            <select class="field__select" id="sg-objet" name="objet" aria-required="true">
+              <option>Comportement</option>
+              <option>Nutrition</option>
+              <option>Aménagement intérieur</option>
+              <option>Garde &amp; soins</option>
+              <option>Prise de contact</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="sg-message">Message <span class="field__optional">(facultatif)</span></label>
+            <textarea class="field__textarea" id="sg-message" name="message"></textarea>
+            <p class="field__hint">Parlez-nous de votre animal&nbsp;: espèce, âge, et ce qui vous amène.</p>
+          </div>
+          <button class="btn btn--primary" type="submit">Envoyer mon message</button>
+        </form>
+
+        <h3 class="sg-subtitle">Séparateurs — utilitaire grès, décoratif sauge</h3>
+        <hr class="sep">
+        <hr class="sep sep--sauge">
+      </div>
+    </section>
+
+    <!-- ==================== SIGNATURE MOVES ==================== -->
+    <section class="sg-section" aria-labelledby="sg-titre-moves">
+      <div class="sg-container">
+        <h2 class="sg-section__title" id="sg-titre-moves">Signature moves</h2>
+        <p class="sg-section__intro">
+          Les 4 gestes de l’herbier (DA §5)&nbsp;: scotch (fixer), annotation (commenter),
+          surligneur (souligner), soleil (ponctuer). Versions statiques — les poses et
+          tracés s’animeront en Phase 3 (GSAP), avec état final identique en
+          <code>prefers-reduced-motion</code>.
+        </p>
+
+        <h3 class="sg-subtitle">1 — La photo scotchée (tirage crème + scotch jaune 76&nbsp;% multiply)</h3>
+        <div class="sg-taped-demo">
+          <figure class="taped-photo">
+            <svg class="taped-photo__tape taped-photo__tape--tl" viewBox="0 0 96 40" aria-hidden="true" focusable="false">
+              <polygon points="0,9 8,4 6,0 94,3 90,12 96,32 88,36 91,40 2,37 6,28"/>
+            </svg>
+            <svg class="taped-photo__tape taped-photo__tape--tr" viewBox="0 0 96 40" aria-hidden="true" focusable="false">
+              <polygon points="2,6 10,2 8,8 92,0 96,10 90,31 94,38 86,36 4,40 8,30"/>
+            </svg>
+            <img class="taped-photo__img" src="assets/img/main-photos/elisabeth-equilibre-gorges.jpeg" alt="Elisabeth en équilibre, bras écartés, sur les rochers d’une gorge étroite en Australie" width="1365" height="2048">
+            <figcaption class="taped-photo__caption">Australie, les gorges</figcaption>
+          </figure>
+          <figure class="taped-photo taped-photo--tilt-right">
+            <svg class="taped-photo__tape taped-photo__tape--tl" viewBox="0 0 96 40" aria-hidden="true" focusable="false">
+              <polygon points="0,9 8,4 6,0 94,3 90,12 96,32 88,36 91,40 2,37 6,28"/>
+            </svg>
+            <svg class="taped-photo__tape taped-photo__tape--tr" viewBox="0 0 96 40" aria-hidden="true" focusable="false">
+              <polygon points="2,6 10,2 8,8 92,0 96,10 90,31 94,38 86,36 4,40 8,30"/>
+            </svg>
+            <img class="taped-photo__img" src="assets/img/main-photos/chevre-anglo-nubienne-de-dos-paysage.jpeg" alt="Une chèvre anglo-nubienne de dos sur un rocher, face à la forêt australienne" width="1365" height="2048">
+            <figcaption class="taped-photo__caption">La chèvre, de dos</figcaption>
+          </figure>
+        </div>
+
+        <h3 class="sg-subtitle">2 — L’annotation-boussole (script ≥ 1.75rem + trait dessiné)</h3>
+        <div class="sg-annotation-demo">
+          <img class="sg-annotation-demo__photo" src="assets/img/main-photos/bush-australien-rochers-chevre.jpeg" alt="Elisabeth et sa chèvre marchent sur des rochers granitiques dans le bush australien" width="2048" height="1365">
+          <p class="annotation">
+            <span class="annotation__text">Humpty Doo, 2018</span>
+            <svg class="annotation__trait" viewBox="0 0 100 60" aria-hidden="true" focusable="false">
+              <path d="M88 8 C 66 36, 38 48, 10 42"/>
+              <path d="M20 34 L 10 42 L 22 48"/>
+            </svg>
+          </p>
+        </div>
+
+        <h3 class="sg-subtitle">3 — Le surligneur d’herbier (jaune derrière texte anthracite, 1-2 par page)</h3>
+        <p class="sg-marker-demo">
+          Le chat est un <mark class="mark-herbier">carnivore strict</mark>&nbsp;: son
+          intérieur n’est pas un décor, c’est un
+          <mark class="mark-herbier">territoire vivant</mark> — hauteurs, cachettes,
+          points d’eau, chemins.
+        </p>
+
+        <h3 class="sg-subtitle">4 — Le soleil qui se dessine (ponctuation, max 1 par page)</h3>
+        <div class="sun-mark">
+          <img class="sun-mark__img" src="assets/img/logos/pictogramme-soleil.png" alt="" width="1254" height="1254">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EXEMPLES DE SECTIONS ==================== -->
+    <section class="sg-section" aria-labelledby="sg-titre-sections">
+      <div class="sg-container">
+        <h2 class="sg-section__title" id="sg-titre-sections">Exemples de sections</h2>
+        <p class="sg-section__intro">
+          Deux ambiances types pour juger les contrastes en situation&nbsp;: un hero sur
+          fond clair avec le logo typographique, et une section signature sur fond
+          anthracite texturé.
+        </p>
+
+        <h3 class="visually-hidden">Exemple de hero</h3>
+        <div class="sg-hero">
+          <div class="sg-hero__content">
+            <img class="sg-hero__logo" src="assets/img/logos/logo-typographique.png" alt="Babcat &amp; The Wild" width="1448" height="1086">
+            <p class="sg-hero__script">Les animaux sont ma boussole.</p>
+            <p class="sg-type-h2-demo">Comprendre l’animal, respecter sa nature, aménager son monde.</p>
+            <p class="sg-hero__lead">
+              Nutrition, comportement, garde et aménagement animal-friendly — à domicile
+              à Bruxelles et alentours, ou en visio.
+            </p>
+            <div class="sg-hero__actions">
+              <a class="btn btn--primary" href="#contenu">Découvrir les consultations <span class="btn__arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--secondary" href="#contenu">Qui suis-je</a>
+            </div>
+          </div>
+          <div class="sg-hero__media">
+            <img src="assets/img/main-photos/elisabeth-veau-ukulele-australie.jpeg" alt="Elisabeth joue de l’ukulélé, joue contre joue avec un jeune veau, au bord d’une rivière australienne" width="1254" height="1254">
+          </div>
+        </div>
+
+        <h3 class="visually-hidden">Exemple de section anthracite</h3>
+        <div class="sg-dark-section texture-grain-dark">
+          <div class="sg-dark-section__content">
+            <p class="sg-dark-section__eyebrow">★ Spécialité signature</p>
+            <p class="sg-type-h2-demo sg-dark-section__title">Un intérieur beau pour l’humain, juste pour l’animal.</p>
+            <p class="sg-dark-section__text">
+              L’aménagement animal-friendly unit architecture d’intérieur et bien-être
+              animal&nbsp;: parcours muraux, hauteurs, points d’eau, plantes safe,
+              cachettes. Votre intérieur devient un territoire vivant.
+            </p>
+            <a class="btn btn--inverse" href="#contenu">Découvrir l’aménagement <span class="btn__arrow" aria-hidden="true">→</span></a>
+          </div>
+          <div class="sg-dark-section__media">
+            <img src="assets/img/main-photos/elisabeth-portrait-gorge-ocre.jpeg" alt="Elisabeth de profil, sac au dos, devant une falaise ocre striée dans une gorge australienne" width="2048" height="1365">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sg-footer">
+    <div class="sg-container">
+      <p>
+        Babcat &amp; The Wild — design system v1.2 · fondations réconciliées avec la DA
+        (docs/direction-artistique.md). Typo de marque auto-hébergée&nbsp;: Robelia ·
+        Stellar · Wanderlust (licences commerciales Envato&nbsp;✓, certificats dans
+        assets/fonts/licences/). Contrastes WCAG 2.2 AA documentés dans <code>tokens.css</code>.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* ============================================================
+   BABCAT & THE WILD — PAGE GUIDES & CONSEILS (la bibliothèque)
+   ------------------------------------------------------------
+   PLAN §4.4 : header d'intention, filtres par catégorie (tags
+   miel, filtrage JS sobre — assets/js/guides-filter.js), grille
+   magazine de cartes kraft. Ponctuée de SVG (régime sobre).
+   Dépend de : tokens, base, components, layout, pages/home.css
+   (guide-card / home-eyebrow réutilisés).
+   ============================================================ */
+
+.guides-hero {
+  position: relative;
+  padding-block: var(--space-10) var(--space-8);
+  text-align: center;
+  overflow: clip;
+}
+
+.guides-hero__title {
+  color: var(--anthracite);
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+}
+
+.guides-hero__lead {
+  margin-block-start: var(--space-3);
+  margin-inline: auto;
+  max-width: 52ch;
+  font-size: var(--text-md);
+  color: var(--brun-texte);
+}
+
+/* Décors du header — sobres, aux marges */
+.dec-guides-plant-a { position: absolute; z-index: 0; inset-inline-start: 4%; inset-block-end: -12%;
+                      width: clamp(6rem, 10vw, 9.5rem); transform: rotate(-6deg); pointer-events: none; }
+.dec-guides-plant-b { position: absolute; z-index: 0; inset-inline-end: 5%; inset-block-start: 14%;
+                      width: clamp(5rem, 8vw, 8rem); transform: rotate(10deg); pointer-events: none; }
+
+/* ÉPURATION MOBILE (< 768px) — on garde la plante a (bas gauche, espace
+   libre) et on masque la plante b (haut droite, gênerait le titre). */
+@media (max-width: 767.98px) {
+  .dec-guides-plant-b {
+    display: none;
+  }
+}
+
+.guides-hero > .container { position: relative; z-index: 1; }
+
+/* ------------------------------------------------------------
+   FILTRES — rangée de tags interactifs (composant .tag--filter)
+   ------------------------------------------------------------ */
+
+.guides-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-1);
+  margin-block-end: var(--space-6);
+}
+
+/* ------------------------------------------------------------
+   GRILLE + ÉTAT VIDE
+   ------------------------------------------------------------ */
+
+.guides-list {
+  padding-block-end: var(--space-section);
+}
+
+.guides-list__grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+
+/* État vide du filtre : soleil + phrase (DA §5.4) */
+.guides-empty[hidden] { display: none; }
+
+.guides-empty {
+  padding-block: var(--space-8);
+  text-align: center;
+  color: var(--brun-texte-70);
+}

@@ -1,0 +1,54 @@
+/* ============================================================
+   BABCAT & THE WILD — PAGES ANNEXES (mentions légales, 404)
+   ============================================================ */
+
+/* --- Mentions légales : colonne de lecture sobre ------------ */
+
+.legal {
+  padding-block: var(--space-10) var(--space-section);
+}
+
+.legal__inner {
+  margin-inline: auto;
+  max-width: var(--measure);
+}
+
+.legal__title {
+  color: var(--anthracite);
+  font-size: var(--text-2xl);
+  margin-block-end: var(--space-4);
+}
+
+.legal h2 {
+  margin-block: var(--space-6) var(--space-2);
+  color: var(--anthracite);
+  font-size: var(--text-lg);
+}
+
+.legal p + p { margin-block-start: var(--space-2); }
+
+/* --- 404 : le soleil, le vide, le retour --------------------- */
+
+.notfound {
+  min-height: calc(100svh - var(--header-h));
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding-block: var(--space-10);
+}
+
+.notfound__title {
+  color: var(--anthracite);
+  font-size: var(--text-2xl);
+  margin-block: var(--space-4) var(--space-2);
+}
+
+.notfound__text {
+  margin-inline: auto;
+  max-width: 40ch;
+  color: var(--brun-texte-70);
+}
+
+.notfound__actions {
+  margin-block-start: var(--space-5);
+}

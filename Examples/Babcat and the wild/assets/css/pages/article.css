@@ -1,0 +1,114 @@
+/* ============================================================
+   BABCAT & THE WILD — GABARIT ARTICLE (guides/…)
+   ------------------------------------------------------------
+   PLAN §4.4 : hero éditorial, chapô, corps 65ch, encadré
+   « le conseil de Babeth » (kraft + scotch), articles liés.
+   Régime sobre. Dépend de : tokens, base, components, layout,
+   pages/home.css (guide-card, home-eyebrow).
+   ============================================================ */
+
+.article-hero {
+  padding-block: var(--space-10) var(--space-6);
+  text-align: center;
+}
+
+.article-hero__title {
+  margin-inline: auto;
+  max-width: 22ch;
+  color: var(--anthracite);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+}
+
+.article-hero__meta {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-block-end: var(--space-2);
+}
+
+.article-hero__chapo {
+  margin-block-start: var(--space-3);
+  margin-inline: auto;
+  max-width: 52ch;
+  font-size: var(--text-md);
+  color: var(--brun-texte);
+}
+
+/* Visuel d'entête — tirage scotché centré */
+.article-figure {
+  display: grid;
+  justify-items: center;
+  padding-block: var(--space-4) var(--space-8);
+}
+
+.article-figure .taped-photo {
+  max-width: min(100%, 26rem);
+}
+
+/* ------------------------------------------------------------
+   CORPS — colonne de lecture 65ch
+   ------------------------------------------------------------ */
+
+.article-body {
+  padding-block-end: var(--space-8);
+}
+
+.article-body__inner {
+  margin-inline: auto;
+  max-width: var(--measure);
+}
+
+.article-body h2 {
+  margin-block: var(--space-6) var(--space-2);
+  color: var(--anthracite);
+  font-size: var(--text-lg);
+}
+
+.article-body p + p {
+  margin-block-start: var(--space-2);
+}
+
+.article-body ul {
+  margin-block: var(--space-2);
+  padding-inline-start: 1.2em;
+}
+
+.article-body li {
+  margin-block-start: var(--space-1);
+  color: var(--brun-texte);
+}
+
+.article-body .tip-card {
+  margin-block: var(--space-6);
+}
+
+/* ------------------------------------------------------------
+   ARTICLES LIÉS
+   ------------------------------------------------------------ */
+
+.article-related {
+  padding-block: var(--space-8) var(--space-section);
+}
+
+.article-related__title {
+  margin-block-end: var(--space-4);
+  color: var(--anthracite);
+  font-size: var(--text-lg);
+  text-align: center;
+}
+
+.article-related__grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  max-width: 60rem;
+  margin-inline: auto;
+}
+
+/* Décor discret */
+.article-hero { position: relative; overflow: clip; }
+.article-hero > .container { position: relative; z-index: 1; }
+
+.dec-article-plant { position: absolute; z-index: 0; inset-inline-end: 6%; inset-block-end: -14%;
+                     width: clamp(5rem, 8vw, 8rem); transform: rotate(8deg); pointer-events: none; }

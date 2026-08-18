@@ -1,0 +1,282 @@
+/* ============================================================
+   BABCAT & THE WILD — DESIGN TOKENS
+   ------------------------------------------------------------
+   Source de vérité unique du design system.
+   Réf. PLAN.md §2 — palette, typo fluide, 8pt, matières.
+
+   Breakpoints (mobile-first, min-width uniquement) :
+     - 768px   tablette
+     - 1024px  desktop
+     - 1280px  desktop large
+     - 1536px  très grand écran
+   ============================================================ */
+
+:root {
+
+  /* ----------------------------------------------------------
+     COULEURS — MARQUE
+     Règle 60-30-10 :
+       60 % crème / fonds clairs
+       30 % anthracite / sauge
+       10 % terracotta (accent, CTA)
+     ---------------------------------------------------------- */
+
+  --terracotta: #C8622A;        /* accents forts, GRANDS titres, focus, décor
+                                   ⚠ contraste sur crème #F7EEE6 : 3.57:1
+                                   → texte 18px+ (ou 14px+ bold) UNIQUEMENT
+                                   ⚠ sur crème-2 : 3.47:1 → idem grands titres
+                                   ✓ composant UI / focus : ≥ 3:1 sur crème
+                                     (3.57:1) ET sur anthracite (3.72:1) */
+
+  --terracotta-text: #A84E1E;   /* terracotta « texte » — VÉRIFIÉ WCAG :
+                                   ✓ 4.96:1 sur crème  #F7EEE6 (AA texte normal)
+                                   ✓ 4.82:1 sur crème-2 #FFE9CF (AA texte normal)
+                                   ✓ 4.96:1 en fond avec texte crème
+                                     → sert aussi de fond aux boutons primaires */
+
+  --sauge: #8B9B7D;             /* apaisant : filets, bordures, tags, décor
+                                   ⚠ 2.64:1 sur crème → JAMAIS en texte
+                                   ✓ 5.04:1 sur anthracite (grands titres ok) */
+
+  --sauge-text: #56644A;        /* sauge « texte » — VÉRIFIÉ WCAG :
+                                   ✓ 5.64:1 sur crème (AA texte normal)
+                                   ✓ 4.78:1 sur fond --sauge-20 posé sur crème */
+
+  --jaune-pastel: #FFE999;      /* décor UNIQUEMENT : scotch, soulignés, soleil.
+                                   NE PORTE JAMAIS DE TEXTE.
+                                   (en fond de sélection : texte anthracite
+                                   = 12.6:1 ✓) */
+
+  --anthracite: #272727;        /* fonds sombres, bordures, UI
+                                   ✓ 13.3:1 avec crème #F7EEE6
+                                   ✓ 12.9:1 avec crème-2 */
+  --brun-texte: #3E261C;        /* CORPS DE TEXTE sur crème — brun chaud
+                                   (demande client 07/07/2026 : plus de
+                                   quasi-noir sur clair). ✓ 11.9:1 sur crème-2 */
+
+  /* ----------------------------------------------------------
+     COULEURS — STRUCTURE
+     Jamais de blanc pur, jamais de gris froid.
+     ---------------------------------------------------------- */
+
+  --creme: #F7EEE6;             /* fond clair principal */
+  --creme-2: #FFE9CF;           /* fond alterné, sections */
+  --creme-warm: #F0E6D2;        /* titres sur fonds anthracite — assez chaud
+                                   pour être PERÇU crème (le #F7EEE6 paraît
+                                   blanc sur sombre). ✓ ≈ 12.3:1 sur anthracite */
+  --bois-miel: #B98A5A;         /* accents organiques — décor seul sur clair
+                                   (2.74:1) ; ✓ 4.87:1 sur anthracite */
+  --sable: #DAC294;             /* sable clair — corps de texte & boutons
+                                   sur fond anthracite (demande client
+                                   07/07/2026). ✓ 8.58:1 sur anthracite */
+  --kraft: #C9B394;             /* textures papier, cartes
+                                   (texte anthracite dessus : 7.37:1 ✓) */
+  --gres: #D8CBB8;              /* filets, bordures douces
+                                   (texte anthracite dessus : 9.36:1 ✓) */
+
+  /* ----------------------------------------------------------
+     COULEURS — VARIANTES D'OPACITÉ
+     (plutôt que de nouvelles couleurs)
+     ---------------------------------------------------------- */
+
+  --sauge-20: rgb(139 155 125 / 0.2);
+  --sauge-40: rgb(139 155 125 / 0.4);
+  --terracotta-10: rgb(200 98 42 / 0.1);
+  --terracotta-20: rgb(200 98 42 / 0.2);
+  --anthracite-70: rgb(39 39 39 / 0.7);
+  --anthracite-40: rgb(39 39 39 / 0.4);
+  --brun-texte-70: rgb(62 38 28 / 0.7);     /* corps de texte atténué sur crème
+                                               (intros, résumés) — 4.99:1 ✓ */
+  --creme-85: rgb(255 233 207 / 0.85);      /* header translucide — crème CHAUDE
+                                               #FFE9CF (même crème que la page,
+                                               demande client 07/07/2026) */
+  --creme-70: rgb(247 238 230 / 0.7);       /* (déprécié sur sombre : paraît blanc) */
+  --creme-warm-70: rgb(240 230 210 / 0.7);  /* (crème chaude atténuée) */
+  --sable-70: rgb(218 194 148 / 0.7);       /* texte secondaire sur anthracite —
+                                               sable atténué, cohérent avec le
+                                               corps de texte --sable */
+  --bois-miel-20: rgb(185 138 90 / 0.2);    /* pastille miel (tags) sur clair */
+  --bois-miel-40: rgb(185 138 90 / 0.4);    /* bordure/hover pastille miel */
+  --jaune-scotch: rgb(255 233 153 / 0.76);  /* scotch — DA §5.1 : 72-80 % + multiply */
+  --jaune-marker: rgb(255 233 153 / 0.75);  /* surligneur d'herbier — DA §5.3 */
+  --kraft-30: rgb(201 179 148 / 0.3);
+
+  /* ----------------------------------------------------------
+     MATIÈRES — tuiles de grain pré-cuites (DA §3.2)
+     Fichiers : assets/img/textures/ (PNG ≤ 30 Ko chacune,
+     jamais de feTurbulence live). Les url() sont écrites
+     directement dans base.css / components.css (résolution
+     de chemin fiable) ; ici, les doses d'opacité — seules
+     valeurs à ajuster.
+       grain-anthracite.png → fonds clairs (crème, crème-2)
+       grain-creme.png      → fonds anthracite
+       kraft.png            → cartes et encadrés kraft
+     Règle d'or DA : la texture se sent, ne se voit pas.
+     ---------------------------------------------------------- */
+
+  --grain-creme-opacity: 0.04;     /* fond crème global : 3-4 %   */
+  --grain-dark-opacity: 0.03;      /* fonds anthracite : 3 %      */
+  --kraft-fibre-opacity: 0.09;     /* cartes kraft : 8-10 %       */
+
+  /* ----------------------------------------------------------
+     COULEURS — RÔLES SÉMANTIQUES
+     ---------------------------------------------------------- */
+
+  /* Fond de page unique = crème chaude #FFE9CF (celle de la
+     section Consultations). Le crème froid #F7EEE6 n'est plus
+     un fond de section (demande client 07/07/2026 : uniquement
+     crème chaude OU anthracite, l'anthracite ponctuel) — il ne
+     sert plus qu'aux tirages photo (cadres crème). */
+  --color-bg: var(--creme-2);
+  --color-bg-alt: var(--creme-2);
+  --color-bg-dark: var(--anthracite);
+  --color-text: var(--brun-texte);      /* corps de texte sur crème = brun chaud
+                                           #3E261C (plus de quasi-noir) */
+  --color-text-on-dark: var(--sable);        /* corps de texte sur anthracite :
+                                                sable #DAC294 (demande client
+                                                07/07/2026 ; 8.58:1 ✓). Jamais
+                                                le crème froid qui paraît blanc */
+  --color-title-on-dark: var(--terracotta);  /* titres sur anthracite :
+                                                TERRACOTTA (demande client
+                                                07/07/2026). ✓ 3.72:1 sur
+                                                anthracite → réservé aux GRANDS
+                                                titres (≥ grand texte, ≥ 3:1) */
+  --color-accent: var(--terracotta);
+  --color-accent-text: var(--terracotta-text);
+  --color-link: var(--brun-texte);      /* lien éditorial DA §3.6 : brun texte
+                                           souligné, soulignement terracotta au
+                                           hover — sur fond sombre : sable */
+  --color-focus: var(--terracotta);
+  --color-error: var(--terracotta-text);   /* + icône/texte, jamais couleur seule */
+  --color-border-soft: var(--gres);
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHIE — FAMILLES
+     Définies dans assets/fonts/fonts.css (licences ✓) :
+       --font-title  (Robelia Elegant Serif)
+       --font-body   (Alegreya Sans — lecture, OFL)
+       --font-label  (Stellar — capitales courtes : sur-titres,
+                      tags, boutons, nav. Jamais en paragraphe)
+       --font-script (Wanderlust — ASCII only, pas d'accents)
+     ---------------------------------------------------------- */
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHIE — ÉCHELLE FLUIDE
+     Ratio modulaire : 1.125 (mobile) → 1.333 (desktop).
+     Interpolation linéaire entre 375px et 1280px de viewport.
+     Base : 1rem (16px) mobile → 1.125rem (18px) desktop.
+     Jamais de px.
+     ---------------------------------------------------------- */
+
+  --text-sm:   clamp(0.889rem, 0.82rem + 0.2vw, 1rem);       /* légendes, meta   */
+  --text-base: clamp(1rem, 0.95rem + 0.22vw, 1.125rem);      /* corps            */
+  --text-md:   clamp(1.125rem, 0.97rem + 0.66vw, 1.5rem);    /* h5, intro, lead  */
+  --text-lg:   clamp(1.266rem, 0.96rem + 1.3vw, 2rem);       /* h4               */
+  --text-xl:   clamp(1.424rem, 0.91rem + 2.19vw, 2.665rem);  /* h3               */
+  --text-2xl:  clamp(1.602rem, 0.79rem + 3.45vw, 3.553rem);  /* h2               */
+  --text-3xl:  clamp(1.802rem, 0.59rem + 5.19vw, 4.735rem);  /* h1, hero         */
+  --text-script: clamp(1.75rem, 1.1rem + 2.8vw, 3.25rem);    /* Wanderlust —
+                                                                 toujours généreux,
+                                                                 illisible en petit */
+
+  /* Hauteurs de ligne */
+  --leading-tight: 1.1;    /* très grands titres */
+  --leading-heading: 1.25; /* titres courants    */
+  --leading-body: 1.6;     /* corps de texte     */
+  --leading-loose: 1.75;   /* petits caractères  */
+
+  /* Graisses */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-title: 700;     /* Robelia en gras (demande client 06/07/2026).
+                              Robelia n'a qu'une graisse native (400) et le
+                              faux-gras navigateur déforme les jonctions
+                              (u, n, m) → on désactive la synthèse
+                              (font-synthesis-weight: none) et on épaissit
+                              au trait : -webkit-text-stroke (--title-stroke),
+                              qui suit le dessin original sans le déformer.
+                              Ne s'applique JAMAIS à Stellar ni Wanderlust. */
+  --title-stroke: 0.019em; /* épaisseur du « gras » Robelia — ajuster ici */
+
+  /* RÈGLE STELLAR (lisibilité — décision client 06/07/2026) :
+     Stellar jamais sous --text-label, toujours avec
+     --label-stroke. Stellar est mono-graisse (pas de vrai
+     gras) : on l'épaissit au trait, même technique que
+     --title-stroke, et on relève sa taille plancher. */
+  --label-stroke: 0.014em; /* épaississement Stellar (mono-graisse, pas de vrai gras) */
+  --text-label: clamp(0.9375rem, 0.88rem + 0.25vw, 1.0625rem); /* taille plancher des
+                              étiquettes Stellar — jamais moins */
+
+  /* Interlettrage */
+  --tracking-wide: 0.08em; /* labels, tags, nav en capitales */
+
+  /* ----------------------------------------------------------
+     ESPACEMENTS — ÉCHELLE 8PT
+     Tout espacement est un multiple de 8px (0.5rem).
+     ---------------------------------------------------------- */
+
+  --space-1:  0.5rem;   /*   8px — resserré : icônes, gaps inline   */
+  --space-2:  1rem;     /*  16px — défaut : padding inputs, cartes  */
+  --space-3:  1.5rem;   /*  24px — confortable : champs, listes     */
+  --space-4:  2rem;     /*  32px — blocs de contenu                 */
+  --space-5:  2.5rem;   /*  40px — généreux                         */
+  --space-6:  3rem;     /*  48px — écarts de sections               */
+  --space-8:  4rem;     /*  64px — grands séparateurs               */
+  --space-10: 5rem;     /*  80px — rythme vertical majeur           */
+  --space-12: 6rem;     /*  96px — respiration hero/section         */
+  --space-16: 8rem;     /* 128px — respiration desktop              */
+  --space-20: 10rem;    /* 160px — respiration maximale (desktop)   */
+
+  /* Respiration de section fluide (96 → 160px) */
+  --space-section: clamp(var(--space-12), 8vw, var(--space-20));
+
+  /* ----------------------------------------------------------
+     MISE EN PAGE
+     ---------------------------------------------------------- */
+
+  --measure: 65ch;                 /* largeur de lecture maximale       */
+  --container: 75rem;              /* 1200px — conteneur principal      */
+  --container-wide: 90rem;         /* 1440px — sections pleine largeur  */
+  --container-gutter: clamp(var(--space-2), 4vw, var(--space-6));
+
+  /* ----------------------------------------------------------
+     RAYONS — coins à peine adoucis, jamais de « pilule »
+     sur les photos (2-4px max)
+     ---------------------------------------------------------- */
+
+  --radius-xs: 0.125rem;   /* 2px — photos mobile, scotch          */
+  --radius-sm: 0.25rem;    /* 4px — photos desktop, inputs         */
+  --radius-kraft: 0.375rem;/* 6px — cartes kraft (DA §3.4)         */
+  --radius-md: 0.5rem;     /* 8px — cartes éditoriales (DA §3.4)   */
+  --radius-pill: 999px;    /* pilule — CTA et tags (DA §3.6)       */
+
+  /* ----------------------------------------------------------
+     OMBRES — chaudes, teintées brun rgb(90 60 30).
+     Jamais de noir pur (DA §3.4, §4.7).
+     ---------------------------------------------------------- */
+
+  --shadow-sm: 0 1px 3px rgb(90 60 30 / 0.1);
+  --shadow-md: 0 4px 12px rgb(90 60 30 / 0.12);
+  --shadow-lg: 0 12px 32px rgb(90 60 30 / 0.16);
+  --shadow-warm: 0 8px 24px rgb(90 60 30 / 0.12);   /* hover cartes (DA §3.4)   */
+  --shadow-tirage: 0 6px 24px rgb(90 60 30 / 0.14); /* tirages d'herbier (§3.1) */
+
+  /* ----------------------------------------------------------
+     TRANSITIONS
+     ease-out pour les entrées, ease-in pour les sorties,
+     ease-in-out pour les changements d'état. Jamais linear.
+     ---------------------------------------------------------- */
+
+  --transition-fast: 150ms ease-out;    /* micro-interactions            */
+  --transition-base: 250ms ease-out;    /* hover, focus, états           */
+  --transition-slow: 400ms ease-in-out; /* transitions de blocs          */
+
+  /* ----------------------------------------------------------
+     DIVERS
+     ---------------------------------------------------------- */
+
+  --tap-target: 2.75rem;   /* 44px — cible tactile minimale */
+  --focus-ring: 2px solid var(--color-focus);
+  --focus-offset: 3px;
+}

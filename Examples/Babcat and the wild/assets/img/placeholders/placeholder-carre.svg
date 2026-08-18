@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="ph-carre-title">
+  <title id="ph-carre-title">Image provisoire — motif patte aux tons terreux</title>
+  <rect width="800" height="800" fill="#F3EDE2"/>
+  <circle cx="400" cy="400" r="280" fill="#8B9B7D" opacity="0.35"/>
+  <ellipse cx="400" cy="470" rx="105" ry="90" fill="#C8622A"/>
+  <ellipse cx="280" cy="345" rx="48" ry="62" fill="#C8622A" transform="rotate(-18 280 345)"/>
+  <ellipse cx="360" cy="290" rx="48" ry="62" fill="#C8622A" transform="rotate(-6 360 290)"/>
+  <ellipse cx="445" cy="290" rx="48" ry="62" fill="#C8622A" transform="rotate(6 445 290)"/>
+  <ellipse cx="525" cy="345" rx="48" ry="62" fill="#C8622A" transform="rotate(18 525 345)"/>
+  <path d="M160 660 q 60 -40 120 0" stroke="#B98A5A" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M520 660 q 60 -40 120 0" stroke="#B98A5A" stroke-width="10" fill="none" stroke-linecap="round"/>
+</svg>
