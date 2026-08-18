@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Stratégie tarifaire — sites web — Oliver Van Droogenbroeck</title>
+<style>
+  @page { size: A4; margin: 14mm 13mm 13mm 13mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: #1a2a33; font-size: 9.6pt; line-height: 1.42; margin: 0; }
+  h1 { font-size: 17pt; color: #14504a; margin: 0 0 1.5mm 0; line-height: 1.1; }
+  .sub { color: #6a7b82; font-size: 9pt; margin: 0 0 4mm 0; }
+  h2 { font-size: 12pt; color: #14504a; border-bottom: 1.5px solid #14504a; padding-bottom: 1.1mm; margin: 6mm 0 2.5mm 0; page-break-after: avoid; }
+  h3 { font-size: 10.3pt; color: #14504a; margin: 3.5mm 0 1.5mm 0; page-break-after: avoid; }
+  p { margin: 0 0 2mm 0; }
+  ul { margin: 0 0 2.5mm 0; padding-left: 4.5mm; } li { margin-bottom: 1mm; }
+  strong { color: #10403b; }
+  .intro { font-size: 8.8pt; color: #445; background: #f2f6f5; border: 1px solid #d7e2df; border-radius: 3px; padding: 2.5mm 3mm; margin: 0 0 3mm 0; }
+  .intro b { color: #14504a; }
+  table { width: 100%; border-collapse: collapse; margin: 2mm 0 3mm 0; font-size: 8.7pt; page-break-inside: avoid; }
+  caption { caption-side: top; text-align: left; font-weight: 700; color: #14504a; font-size: 10pt; padding: 1.5mm 0 1.5mm 0; }
+  th, td { border: 1px solid #cfdad8; padding: 1.5mm 2mm; vertical-align: top; text-align: left; }
+  thead th { background: #14504a; color: #fff; font-weight: 600; text-align: right; }
+  thead th:first-child, th.lbl { text-align: left; }
+  td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  td.c { text-align: center; }
+  tr:nth-child(even) td { background: #f7faf9; }
+  tr.sec td { background: #e3ede9 !important; font-weight: 700; color: #10403b; }
+  tr.tot td { background: #14504a !important; color: #fff; font-weight: 700; }
+  .tag { font-size: 7.6pt; color: #7a8a90; }
+  .pos { color: #14504a; font-weight: 700; } .neg { color: #9a3226; font-weight:700; }
+  .warnc { color: #a8730f; font-weight: 700; }
+  .callout { border-left: 4px solid #c98a1b; background: #fdf6e9; padding: 2.3mm 3.2mm; margin: 2.5mm 0; page-break-inside: avoid; font-size: 8.9pt; }
+  .callout.key { border-left-color: #14504a; background: #eef4f1; }
+  .callout.warn { border-left-color: #b23a2e; background: #fbeceb; }
+  .callout p:last-child { margin-bottom: 0; }
+  .foot { margin-top: 5mm; padding-top: 2.5mm; border-top: 1px solid #cfdad8; font-size: 7.7pt; color: #6a7b82; }
+  .pb { page-break-before: always; }
+  .kpi { display:flex; gap:3mm; margin:2mm 0 3mm 0; }
+  .kpi > div { flex:1; border:1px solid #cfdad8; border-radius:4px; padding:2mm 2.5mm; text-align:center; background:#f7faf9; }
+  .kpi .v { font-size:12.5pt; font-weight:700; color:#14504a; display:block; line-height:1.2; }
+  .kpi .l { font-size:7.6pt; color:#6a7b82; }
+  .bar { display:inline-block; height:7px; background:#14504a; border-radius:2px; vertical-align:middle; }
+  .hl { background:#e3ede9 !important; }
+</style>
+</head>
+<body>
+
+  <h1>Stratégie tarifaire — le site web ASBL</h1>
+  <p class="sub">Analyse isolée du produit principal · Phase test JobYourself (TVA 21 %) · Oliver Van Droogenbroeck · Module 6 · juillet 2026</p>
+
+  <div class="intro">
+    <b>Périmètre.</b> Ce document analyse <b>uniquement le site web ASBL</b>, produit qui porte l'essentiel du chiffre d'affaires — isolé des apps
+    et des hébergements pour comparer les scénarios de prix sans effet de mélange. Base : <b>11 sites/an</b>, phase test JYS (TVA 21 %),
+    frais généraux 3 289 €/an et amortissement 496 €/an imputés en totalité au produit. Le net tient compte des cotisations INASTI (20,5 % + 3,05 %)
+    et de l'impôt au taux marginal réel (mi-temps pris en compte).
+  </div>
+
+  <h2>1. Comparatif des scénarios de prix</h2>
+  <table>
+    <caption>Du prix affiché au net en poche — 11 sites par an</caption>
+    <thead>
+      <tr>
+        <th class="lbl">Scénario</th>
+        <th>Client paie</th>
+        <th>Tu encaisses<br><span class="tag">HTVA / site</span></th>
+        <th>TVA / site</th>
+        <th>CA HTVA<br><span class="tag">annuel</span></th>
+        <th>TVA reversée</th>
+        <th>Résultat</th>
+        <th>NET / an</th>
+        <th>NET / mois</th>
+        <th>Net par site</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1 500 € TVAC <span class="tag">absorbé (actuel)</span></td>
+        <td class="num">1 500 €</td><td class="num">1 239,67 €</td><td class="num neg">260,33 €</td>
+        <td class="num">13 636 €</td><td class="num neg">2 864 €</td><td class="num">9 851 €</td>
+        <td class="num">4 993 €</td><td class="num neg">416 €</td><td class="num neg">454 €</td>
+      </tr>
+      <tr class="hl">
+        <td>1 500 € HTVA <span class="tag">répercuté</span></td>
+        <td class="num">1 815 €</td><td class="num">1 500,00 €</td><td class="num">315,00 €</td>
+        <td class="num">16 500 €</td><td class="num">3 465 €</td><td class="num">12 715 €</td>
+        <td class="num">6 285 €</td><td class="num">524 €</td><td class="num">571 €</td>
+      </tr>
+      <tr>
+        <td>2 000 € TVAC <span class="tag">absorbé</span></td>
+        <td class="num">2 000 €</td><td class="num">1 652,89 €</td><td class="num">347,11 €</td>
+        <td class="num">18 182 €</td><td class="num">3 818 €</td><td class="num">14 397 €</td>
+        <td class="num">7 044 €</td><td class="num">587 €</td><td class="num">640 €</td>
+      </tr>
+      <tr>
+        <td>2 200 € TVAC <span class="tag">absorbé</span></td>
+        <td class="num">2 200 €</td><td class="num">1 818,18 €</td><td class="num">381,82 €</td>
+        <td class="num">20 000 €</td><td class="num">4 200 €</td><td class="num">16 215 €</td>
+        <td class="num">7 865 €</td><td class="num pos">655 €</td><td class="num pos">715 €</td>
+      </tr>
+      <tr class="tot">
+        <td>2 500 € TVAC <span class="tag" style="color:#b9d4cd">absorbé</span></td>
+        <td class="num">2 500 €</td><td class="num">2 066,12 €</td><td class="num">433,88 €</td>
+        <td class="num">22 727 €</td><td class="num">4 773 €</td><td class="num">18 942 €</td>
+        <td class="num">9 095 €</td><td class="num">758 €</td><td class="num">827 €</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="kpi">
+    <div><span class="v">454 €</span><span class="l">Net/site à 1 500 € TVAC</span></div>
+    <div><span class="v">571 €</span><span class="l">Net/site à 1 500 € HTVA</span></div>
+    <div><span class="v">827 €</span><span class="l">Net/site à 2 500 € TVAC</span></div>
+    <div><span class="v">+82 %</span><span class="l">Gain net entre 1 500 TVAC et 2 500 TVAC</span></div>
+  </div>
+
+  <div class="callout key">
+    <p><strong>Lecture.</strong> Le passage de <strong>1 500 € TVAC absorbé</strong> à <strong>1 500 € HTVA répercuté</strong> — c'est-à-dire simplement facturer la TVA en plus au lieu de l'absorber — fait passer le net par site de <strong>454 € à 571 €</strong> (<strong>+26 %</strong>), sans changer ton prix affiché. C'est le geste le moins coûteux commercialement.</p>
+  </div>
+
+  <h2>2. Net horaire selon le temps réellement passé</h2>
+  <p>L'hypothèse du plan est de <strong>40 h par site</strong> (forfait site + formation + 3 mois de support). En pratique, les premiers projets dépassent souvent — allers-retours de validation, contenus qui tardent, demandes hors périmètre.</p>
+  <table>
+    <caption>Net horaire par scénario et par charge de travail</caption>
+    <thead>
+      <tr><th class="lbl">Scénario</th><th>Net par site</th><th>40 h <span class="tag">(hypothèse)</span></th><th>50 h <span class="tag">(réaliste)</span></th><th>60 h <span class="tag">(dérapage)</span></th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1 500 € TVAC <span class="tag">absorbé</span></td><td class="num">454 €</td><td class="num neg">11,35 €</td><td class="num neg">9,08 €</td><td class="num neg">7,57 €</td></tr>
+      <tr class="hl"><td>1 500 € HTVA <span class="tag">répercuté</span></td><td class="num">571 €</td><td class="num">14,29 €</td><td class="num">11,43 €</td><td class="num neg">9,52 €</td></tr>
+      <tr><td>2 000 € TVAC <span class="tag">absorbé</span></td><td class="num">640 €</td><td class="num pos">16,01 €</td><td class="num">12,81 €</td><td class="num neg">10,67 €</td></tr>
+      <tr><td>2 200 € TVAC <span class="tag">absorbé</span></td><td class="num">715 €</td><td class="num pos">17,87 €</td><td class="num">14,30 €</td><td class="num">11,92 €</td></tr>
+      <tr class="tot"><td>2 500 € TVAC <span class="tag" style="color:#b9d4cd">absorbé</span></td><td class="num">827 €</td><td class="num">20,67 €</td><td class="num">16,54 €</td><td class="num">13,78 €</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <p><strong>Le seuil du salaire minimum.</strong> Le salaire minimum belge correspond à environ <strong>11–12 €/h net</strong> pour un salarié. À <strong>1 500 € TVAC</strong>, tu es <em>en dessous</em> dès 50 h par site. Il faut atteindre <strong>2 000 € TVAC</strong> (ou 1 500 € HTVA) pour rester au-dessus jusqu'à 50 h, et <strong>2 500 €</strong> pour tenir même à 60 h.</p>
+  </div>
+
+  <h2>3. Combien de sites pour atteindre 25 000 € de CA ?</h2>
+  <p>Le seuil de <strong>25 000 €</strong> est la limite de la franchise TVA — et donc le repère de dimensionnement de l'activité. Voici le nombre de sites nécessaires pour y arriver <strong>avec les sites seuls</strong>, selon le prix pratiqué.</p>
+
+  <table>
+    <caption>Nombre de sites nécessaires pour un CA HTVA de 25 000 €</caption>
+    <thead>
+      <tr><th class="lbl">Scénario</th><th>CA HTVA par site</th><th>Sites nécessaires<br><span class="tag">calcul exact</span></th><th>Sites à vendre<br><span class="tag">arrondi</span></th><th>Heures/an <span class="tag">(40 h/site)</span></th><th>Heures/mois</th><th class="lbl">Charge</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1 500 € TVAC <span class="tag">absorbé</span></td>
+        <td class="num">1 239,67 €</td><td class="num">20,17</td><td class="num neg">21 sites</td>
+        <td class="num neg">840 h</td><td class="num neg">70,0 h</td>
+        <td><span class="neg">Irréaliste</span> — dépasse les 100 h/mois disponibles une fois le temps non facturable déduit</td>
+      </tr>
+      <tr class="hl">
+        <td>1 500 € HTVA <span class="tag">répercuté</span></td>
+        <td class="num">1 500,00 €</td><td class="num">16,67</td><td class="num">17 sites</td>
+        <td class="num">680 h</td><td class="num">56,7 h</td>
+        <td><span class="warnc">Tendu</span> — 1,4 site/mois en continu</td>
+      </tr>
+      <tr>
+        <td>2 000 € TVAC <span class="tag">absorbé</span></td>
+        <td class="num">1 652,89 €</td><td class="num">15,12</td><td class="num">16 sites</td>
+        <td class="num">640 h</td><td class="num">53,3 h</td>
+        <td><span class="warnc">Tendu</span> — 1,3 site/mois</td>
+      </tr>
+      <tr>
+        <td>2 200 € TVAC <span class="tag">absorbé</span></td>
+        <td class="num">1 818,18 €</td><td class="num">13,75</td><td class="num pos">14 sites</td>
+        <td class="num">560 h</td><td class="num">46,7 h</td>
+        <td><span class="pos">Atteignable</span> — ~1,2 site/mois</td>
+      </tr>
+      <tr class="tot">
+        <td>2 500 € TVAC <span class="tag" style="color:#b9d4cd">absorbé</span></td>
+        <td class="num">2 066,12 €</td><td class="num">12,10</td><td class="num">13 sites</td>
+        <td class="num">520 h</td><td class="num">43,3 h</td>
+        <td>Le plus confortable — ~1,1 site/mois</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <p><strong>Le point critique.</strong> À <strong>1 500 € TVAC</strong>, atteindre 25 000 € de CA avec les seuls sites demanderait <strong>21 sites par an</strong>, soit <strong>70 h/mois</strong> de production pure. En ajoutant le temps non facturable (admin, prospection, communication : ~40 h/mois selon le plan), on arrive à <strong>110 h/mois</strong> — <strong>au-delà des 100 h disponibles</strong> à côté d'un mi-temps. <strong>Ce scénario n'est pas soutenable.</strong></p>
+  </div>
+
+  <div class="callout key">
+    <p><strong>À l'inverse, à 2 200–2 500 €</strong>, il suffit de <strong>13 à 14 sites/an</strong> (~1,1 site/mois, 43–47 h/mois). En ajoutant les 40 h non facturables, on reste autour de <strong>85–90 h/mois</strong> — <strong>compatible avec les 100 h disponibles</strong>. Le prix ne détermine donc pas seulement le revenu : il conditionne la <strong>faisabilité même du plan</strong>.</p>
+  </div>
+
+  <h2>4. Synthèse — quel prix choisir ?</h2>
+  <table>
+    <thead>
+      <tr><th class="lbl">Scénario</th><th>Net/site</th><th>Net €/h <span class="tag">(40 h)</span></th><th>Sites pour 25 k€</th><th>h/mois</th><th class="lbl">Verdict</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1 500 € TVAC</td><td class="num">454 €</td><td class="num neg">11,35 €</td><td class="num neg">21</td><td class="num neg">70 h</td><td><span class="neg">À éviter</span> — sous le salaire minimum, volume irréaliste</td></tr>
+      <tr class="hl"><td>1 500 € HTVA</td><td class="num">571 €</td><td class="num">14,29 €</td><td class="num">17</td><td class="num">57 h</td><td><span class="warnc">Amélioration immédiate</span> — même prix affiché, +26 % de net</td></tr>
+      <tr><td>2 000 € TVAC</td><td class="num">640 €</td><td class="num pos">16,01 €</td><td class="num">16</td><td class="num">53 h</td><td><span class="pos">Bon compromis</span> — prix rond, sous la barre des 2 500 €</td></tr>
+      <tr><td>2 200 € TVAC</td><td class="num">715 €</td><td class="num pos">17,87 €</td><td class="num pos">14</td><td class="num pos">47 h</td><td><span class="pos">Recommandé</span> — équilibre revenu / charge de travail</td></tr>
+      <tr class="tot"><td>2 500 € TVAC</td><td class="num">827 €</td><td class="num">20,67 €</td><td class="num">13</td><td class="num">43 h</td><td>Optimal financièrement — à valider commercialement</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout key">
+    <p><strong>Recommandation.</strong> Viser <strong>2 000 à 2 200 € TVAC</strong> pour le site web ASBL. Ce niveau&nbsp;: (1) place le net horaire à <strong>16–18 €/h</strong>, au-dessus du salaire minimum même à 50 h par projet&nbsp;; (2) ramène le volume nécessaire à <strong>14–16 sites/an</strong>, compatible avec les 100 h/mois disponibles&nbsp;; (3) reste dans la <strong>fourchette basse du marché</strong> (1 500–5 000 € pour un site vitrine) et donc défendable auprès d'une ASBL.</p>
+  </div>
+
+  <div class="callout">
+    <p><strong>Mesure immédiate, sans négociation.</strong> Si augmenter le prix affiché paraît difficile à court terme, <strong>facturer 1 500 € HTVA au lieu de 1 500 € TVAC</strong> (le client paie 1 815 €) apporte déjà <strong>+117 € net par site</strong> et ramène le volume nécessaire de 21 à 17 sites. C'est le changement le plus simple à mettre en œuvre dès le prochain devis.</p>
+  </div>
+
+  <h2 class="pb">5. Détail complet — toutes les charges, scénario par scénario</h2>
+  <p>Les tableaux précédents affichent le résultat et le net. Voici <strong>l'intégralité de la cascade</strong> pour chaque scénario : TVA, coûts directs, frais généraux, amortissement, cotisations sociales et impôt. Base : <strong>11 sites/an</strong>.</p>
+
+  <h3>A. Site à 1 500 € TVAC <span class="tag">— prix affiché tout compris, TVA absorbée (situation actuelle)</span></h3>
+  <table>
+    <thead><tr><th class="lbl">Poste</th><th>Annuel <span class="tag">(11 sites)</span></th><th>Par site</th><th>Par mois</th><th class="lbl">Détail</th></tr></thead>
+    <tbody>
+      <tr class="sec"><td>Montant facturé aux clients</td><td class="num">16 500 €</td><td class="num">1 500 €</td><td class="num">1 375 €</td><td>Ce que paie le client, tout compris</td></tr>
+      <tr><td>− TVA reversée (21 %)</td><td class="num neg">− 2 864 €</td><td class="num neg">− 260 €</td><td class="num neg">− 239 €</td><td>Reversée à l'État via la coopérative</td></tr>
+      <tr class="sec"><td>= CA HTVA encaissé</td><td class="num">13 636 €</td><td class="num">1 240 €</td><td class="num">1 136 €</td><td>Ton vrai chiffre d'affaires</td></tr>
+      <tr><td>− Coûts directs</td><td class="num">0 €</td><td class="num">0 €</td><td class="num">0 €</td><td>Aucun sur les sites (activité de service)</td></tr>
+      <tr><td>− Frais généraux</td><td class="num neg">− 3 289 €</td><td class="num neg">− 299 €</td><td class="num neg">− 274 €</td><td>Comptable, licences, RC pro, télécom…</td></tr>
+      <tr><td>− Amortissement ordinateur</td><td class="num neg">− 496 €</td><td class="num neg">− 45 €</td><td class="num neg">− 41 €</td><td>1 800 € sur 3 ans</td></tr>
+      <tr class="sec"><td>= Résultat d'exploitation</td><td class="num">9 851 €</td><td class="num">896 €</td><td class="num">821 €</td><td>Base de calcul des charges</td></tr>
+      <tr><td>− Cotisations sociales INASTI</td><td class="num neg">− 2 081 €</td><td class="num neg">− 189 €</td><td class="num neg">− 173 €</td><td>20,5 % + 3,05 % de frais de gestion</td></tr>
+      <tr class="sec"><td>= Base imposable</td><td class="num">7 770 €</td><td class="num">706 €</td><td class="num">648 €</td><td>Soumis à l'impôt</td></tr>
+      <tr><td>− Impôt (IPP)</td><td class="num neg">− 2 777 €</td><td class="num neg">− 252 €</td><td class="num neg">− 231 €</td><td>Taux marginal (empilé sur le mi-temps)</td></tr>
+      <tr class="tot"><td>= NET EN POCHE</td><td class="num">4 993 €</td><td class="num">454 €</td><td class="num">416 €</td><td>11,35 €/h à 40 h par site</td></tr>
+    </tbody>
+  </table>
+
+  <h3>B. Site à 1 500 € HTVA <span class="tag">— TVA répercutée, le client paie 1 815 €</span></h3>
+  <table>
+    <thead><tr><th class="lbl">Poste</th><th>Annuel <span class="tag">(11 sites)</span></th><th>Par site</th><th>Par mois</th><th class="lbl">Détail</th></tr></thead>
+    <tbody>
+      <tr class="sec"><td>Montant facturé aux clients</td><td class="num">19 965 €</td><td class="num">1 815 €</td><td class="num">1 664 €</td><td>1 500 € HTVA + 315 € de TVA</td></tr>
+      <tr><td>− TVA reversée (21 %)</td><td class="num neg">− 3 465 €</td><td class="num neg">− 315 €</td><td class="num neg">− 289 €</td><td>Payée par le client, pas par toi</td></tr>
+      <tr class="sec"><td>= CA HTVA encaissé</td><td class="num">16 500 €</td><td class="num">1 500 €</td><td class="num">1 375 €</td><td>Tu conserves ton prix intégral</td></tr>
+      <tr><td>− Coûts directs</td><td class="num">0 €</td><td class="num">0 €</td><td class="num">0 €</td><td>Aucun sur les sites</td></tr>
+      <tr><td>− Frais généraux</td><td class="num neg">− 3 289 €</td><td class="num neg">− 299 €</td><td class="num neg">− 274 €</td><td>Identiques quel que soit le prix</td></tr>
+      <tr><td>− Amortissement ordinateur</td><td class="num neg">− 496 €</td><td class="num neg">− 45 €</td><td class="num neg">− 41 €</td><td>1 800 € sur 3 ans</td></tr>
+      <tr class="sec"><td>= Résultat d'exploitation</td><td class="num">12 715 €</td><td class="num">1 156 €</td><td class="num">1 060 €</td><td>+ 2 864 € vs scénario A</td></tr>
+      <tr><td>− Cotisations sociales INASTI</td><td class="num neg">− 2 686 €</td><td class="num neg">− 244 €</td><td class="num neg">− 224 €</td><td>20,5 % + 3,05 %</td></tr>
+      <tr class="sec"><td>= Base imposable</td><td class="num">10 029 €</td><td class="num">912 €</td><td class="num">836 €</td><td></td></tr>
+      <tr><td>− Impôt (IPP)</td><td class="num neg">− 3 743 €</td><td class="num neg">− 340 €</td><td class="num neg">− 312 €</td><td>Taux marginal</td></tr>
+      <tr class="tot"><td>= NET EN POCHE</td><td class="num">6 285 €</td><td class="num">571 €</td><td class="num">524 €</td><td>14,29 €/h à 40 h par site</td></tr>
+    </tbody>
+  </table>
+
+  <h3>C. Site à 2 000 € TVAC <span class="tag">— TVA absorbée</span></h3>
+  <table>
+    <thead><tr><th class="lbl">Poste</th><th>Annuel <span class="tag">(11 sites)</span></th><th>Par site</th><th>Par mois</th><th class="lbl">Détail</th></tr></thead>
+    <tbody>
+      <tr class="sec"><td>Montant facturé aux clients</td><td class="num">22 000 €</td><td class="num">2 000 €</td><td class="num">1 833 €</td><td>Prix affiché tout compris</td></tr>
+      <tr><td>− TVA reversée (21 %)</td><td class="num neg">− 3 818 €</td><td class="num neg">− 347 €</td><td class="num neg">− 318 €</td><td></td></tr>
+      <tr class="sec"><td>= CA HTVA encaissé</td><td class="num">18 182 €</td><td class="num">1 653 €</td><td class="num">1 515 €</td><td></td></tr>
+      <tr><td>− Coûts directs</td><td class="num">0 €</td><td class="num">0 €</td><td class="num">0 €</td><td>Aucun sur les sites</td></tr>
+      <tr><td>− Frais généraux</td><td class="num neg">− 3 289 €</td><td class="num neg">− 299 €</td><td class="num neg">− 274 €</td><td>Identiques quel que soit le prix</td></tr>
+      <tr><td>− Amortissement ordinateur</td><td class="num neg">− 496 €</td><td class="num neg">− 45 €</td><td class="num neg">− 41 €</td><td></td></tr>
+      <tr class="sec"><td>= Résultat d'exploitation</td><td class="num">14 397 €</td><td class="num">1 309 €</td><td class="num">1 200 €</td><td></td></tr>
+      <tr><td>− Cotisations sociales INASTI</td><td class="num neg">− 3 041 €</td><td class="num neg">− 276 €</td><td class="num neg">− 253 €</td><td>20,5 % + 3,05 %</td></tr>
+      <tr class="sec"><td>= Base imposable</td><td class="num">11 355 €</td><td class="num">1 032 €</td><td class="num">946 €</td><td></td></tr>
+      <tr><td>− Impôt (IPP)</td><td class="num neg">− 4 311 €</td><td class="num neg">− 392 €</td><td class="num neg">− 359 €</td><td>Taux marginal</td></tr>
+      <tr class="tot"><td>= NET EN POCHE</td><td class="num">7 044 €</td><td class="num">640 €</td><td class="num">587 €</td><td>16,01 €/h à 40 h par site</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="pb">D. Site à 2 200 € TVAC <span class="tag">— TVA absorbée (recommandé)</span></h3>
+  <table>
+    <thead><tr><th class="lbl">Poste</th><th>Annuel <span class="tag">(11 sites)</span></th><th>Par site</th><th>Par mois</th><th class="lbl">Détail</th></tr></thead>
+    <tbody>
+      <tr class="sec"><td>Montant facturé aux clients</td><td class="num">24 200 €</td><td class="num">2 200 €</td><td class="num">2 017 €</td><td>Prix affiché tout compris</td></tr>
+      <tr><td>− TVA reversée (21 %)</td><td class="num neg">− 4 200 €</td><td class="num neg">− 382 €</td><td class="num neg">− 350 €</td><td></td></tr>
+      <tr class="sec"><td>= CA HTVA encaissé</td><td class="num">20 000 €</td><td class="num">1 818 €</td><td class="num">1 667 €</td><td></td></tr>
+      <tr><td>− Coûts directs</td><td class="num">0 €</td><td class="num">0 €</td><td class="num">0 €</td><td>Aucun sur les sites</td></tr>
+      <tr><td>− Frais généraux</td><td class="num neg">− 3 289 €</td><td class="num neg">− 299 €</td><td class="num neg">− 274 €</td><td>Identiques quel que soit le prix</td></tr>
+      <tr><td>− Amortissement ordinateur</td><td class="num neg">− 496 €</td><td class="num neg">− 45 €</td><td class="num neg">− 41 €</td><td></td></tr>
+      <tr class="sec"><td>= Résultat d'exploitation</td><td class="num">16 215 €</td><td class="num">1 474 €</td><td class="num">1 351 €</td><td></td></tr>
+      <tr><td>− Cotisations sociales INASTI</td><td class="num neg">− 3 425 €</td><td class="num neg">− 311 €</td><td class="num neg">− 285 €</td><td>20,5 % + 3,05 %</td></tr>
+      <tr class="sec"><td>= Base imposable</td><td class="num">12 790 €</td><td class="num">1 163 €</td><td class="num">1 066 €</td><td></td></tr>
+      <tr><td>− Impôt (IPP)</td><td class="num neg">− 4 925 €</td><td class="num neg">− 448 €</td><td class="num neg">− 410 €</td><td>Taux marginal</td></tr>
+      <tr class="tot"><td>= NET EN POCHE</td><td class="num">7 865 €</td><td class="num">715 €</td><td class="num">655 €</td><td>17,87 €/h à 40 h par site</td></tr>
+    </tbody>
+  </table>
+
+  <h3>E. Site à 2 500 € TVAC <span class="tag">— TVA absorbée</span></h3>
+  <table>
+    <thead><tr><th class="lbl">Poste</th><th>Annuel <span class="tag">(11 sites)</span></th><th>Par site</th><th>Par mois</th><th class="lbl">Détail</th></tr></thead>
+    <tbody>
+      <tr class="sec"><td>Montant facturé aux clients</td><td class="num">27 500 €</td><td class="num">2 500 €</td><td class="num">2 292 €</td><td>Prix affiché tout compris</td></tr>
+      <tr><td>− TVA reversée (21 %)</td><td class="num neg">− 4 773 €</td><td class="num neg">− 434 €</td><td class="num neg">− 398 €</td><td></td></tr>
+      <tr class="sec"><td>= CA HTVA encaissé</td><td class="num">22 727 €</td><td class="num">2 066 €</td><td class="num">1 894 €</td><td></td></tr>
+      <tr><td>− Coûts directs</td><td class="num">0 €</td><td class="num">0 €</td><td class="num">0 €</td><td>Aucun sur les sites</td></tr>
+      <tr><td>− Frais généraux</td><td class="num neg">− 3 289 €</td><td class="num neg">− 299 €</td><td class="num neg">− 274 €</td><td>Identiques quel que soit le prix</td></tr>
+      <tr><td>− Amortissement ordinateur</td><td class="num neg">− 496 €</td><td class="num neg">− 45 €</td><td class="num neg">− 41 €</td><td></td></tr>
+      <tr class="sec"><td>= Résultat d'exploitation</td><td class="num">18 942 €</td><td class="num">1 722 €</td><td class="num">1 579 €</td><td></td></tr>
+      <tr><td>− Cotisations sociales INASTI</td><td class="num neg">− 4 002 €</td><td class="num neg">− 364 €</td><td class="num neg">− 334 €</td><td>20,5 % + 3,05 %</td></tr>
+      <tr class="sec"><td>= Base imposable</td><td class="num">14 941 €</td><td class="num">1 358 €</td><td class="num">1 245 €</td><td></td></tr>
+      <tr><td>− Impôt (IPP)</td><td class="num neg">− 5 846 €</td><td class="num neg">− 531 €</td><td class="num neg">− 487 €</td><td>Taux marginal</td></tr>
+      <tr class="tot"><td>= NET EN POCHE</td><td class="num">9 095 €</td><td class="num">827 €</td><td class="num">758 €</td><td>20,67 €/h à 40 h par site</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="pb">6. Vue d'ensemble — les 5 scénarios côte à côte</h2>
+  <p>Le même détail que ci-dessus, mais en <strong>vue comparative</strong> : chaque colonne est un scénario de prix, chaque ligne un poste de la cascade. Montants <strong>annuels</strong> sur la base de 11 sites vendus.</p>
+  <table>
+    <caption>Cascade complète comparée — annuel, 11 sites</caption>
+    <thead>
+      <tr>
+        <th class="lbl">Poste (annuel)</th>
+        <th>1 500 € TVAC<br><span class="tag">absorbé — actuel</span></th>
+        <th>1 500 € HTVA<br><span class="tag">répercuté</span></th>
+        <th>2 000 € TVAC<br><span class="tag">absorbé</span></th>
+        <th>2 200 € TVAC<br><span class="tag">absorbé — recommandé</span></th>
+        <th>2 500 € TVAC<br><span class="tag">absorbé</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Prix payé par le client <span class="tag">(par site)</span></td><td class="num">1 500 €</td><td class="num">1 815 €</td><td class="num">2 000 €</td><td class="num">2 200 €</td><td class="num">2 500 €</td></tr>
+      <tr class="sec"><td>Montant facturé aux clients</td><td class="num">16 500 €</td><td class="num">19 965 €</td><td class="num">22 000 €</td><td class="num">24 200 €</td><td class="num">27 500 €</td></tr>
+      <tr><td>− TVA reversée à l'État <span class="tag">(21 %)</span></td><td class="num neg">− 2 864 €</td><td class="num neg">− 3 465 €</td><td class="num neg">− 3 818 €</td><td class="num neg">− 4 200 €</td><td class="num neg">− 4 773 €</td></tr>
+      <tr class="sec"><td>= CA HTVA encaissé</td><td class="num">13 636 €</td><td class="num">16 500 €</td><td class="num">18 182 €</td><td class="num">20 000 €</td><td class="num">22 727 €</td></tr>
+      <tr><td>− Coûts directs <span class="tag">(aucun sur les sites)</span></td><td class="num">0 €</td><td class="num">0 €</td><td class="num">0 €</td><td class="num">0 €</td><td class="num">0 €</td></tr>
+      <tr class="sec"><td>= Marge brute</td><td class="num">13 636 €</td><td class="num">16 500 €</td><td class="num">18 182 €</td><td class="num">20 000 €</td><td class="num">22 727 €</td></tr>
+      <tr><td>− Frais généraux <span class="tag">(compta, licences, RC…)</span></td><td class="num neg">− 3 289 €</td><td class="num neg">− 3 289 €</td><td class="num neg">− 3 289 €</td><td class="num neg">− 3 289 €</td><td class="num neg">− 3 289 €</td></tr>
+      <tr><td>− Amortissement ordinateur</td><td class="num neg">− 496 €</td><td class="num neg">− 496 €</td><td class="num neg">− 496 €</td><td class="num neg">− 496 €</td><td class="num neg">− 496 €</td></tr>
+      <tr class="sec"><td>= Résultat d'exploitation</td><td class="num">9 851 €</td><td class="num">12 715 €</td><td class="num">14 397 €</td><td class="num">16 215 €</td><td class="num">18 942 €</td></tr>
+      <tr><td>− Cotisations sociales INASTI <span class="tag">(20,5 % + 3,05 %)</span></td><td class="num neg">− 2 081 €</td><td class="num neg">− 2 686 €</td><td class="num neg">− 3 041 €</td><td class="num neg">− 3 425 €</td><td class="num neg">− 4 002 €</td></tr>
+      <tr class="sec"><td>= Base imposable</td><td class="num">7 770 €</td><td class="num">10 029 €</td><td class="num">11 355 €</td><td class="num">12 790 €</td><td class="num">14 941 €</td></tr>
+      <tr><td>− Impôt IPP <span class="tag">(marginal, empilé sur le mi-temps)</span></td><td class="num neg">− 2 777 €</td><td class="num neg">− 3 743 €</td><td class="num neg">− 4 311 €</td><td class="num neg">− 4 925 €</td><td class="num neg">− 5 846 €</td></tr>
+      <tr class="tot"><td>= NET ANNUEL</td><td class="num">4 993 €</td><td class="num">6 285 €</td><td class="num">7 044 €</td><td class="num">7 865 €</td><td class="num">9 095 €</td></tr>
+      <tr class="tot"><td>= NET MENSUEL</td><td class="num">416 €</td><td class="num">524 €</td><td class="num">587 €</td><td class="num">655 €</td><td class="num">758 €</td></tr>
+      <tr class="tot"><td>= NET PAR SITE</td><td class="num">454 €</td><td class="num">571 €</td><td class="num">640 €</td><td class="num">715 €</td><td class="num">827 €</td></tr>
+      <tr><td>Net horaire <span class="tag">(40 h/site)</span></td><td class="num neg">11,35 €</td><td class="num">14,29 €</td><td class="num pos">16,01 €</td><td class="num pos">17,87 €</td><td class="num pos">20,67 €</td></tr>
+      <tr><td>Sites nécessaires pour 25 000 € de CA</td><td class="num neg">21</td><td class="num">17</td><td class="num">16</td><td class="num pos">14</td><td class="num pos">13</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Où part l'argent ? — répartition en % du montant facturé</h3>
+  <p>Chaque ligne indique la part d'un poste dans <strong>ce que le client paie</strong> (montant TVAC). Le total de chaque colonne fait donc 100 %.</p>
+  <table>
+    <thead>
+      <tr><th class="lbl">Destination</th><th>1 500 € TVAC</th><th>1 500 € HTVA</th><th>2 000 € TVAC</th><th>2 200 € TVAC</th><th>2 500 € TVAC</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>TVA <span class="tag">(État) — 21 % du HTVA, soit 17,4 % du facturé</span></td><td class="num">17,4 %</td><td class="num">17,4 %</td><td class="num">17,4 %</td><td class="num">17,4 %</td><td class="num">17,4 %</td></tr>
+      <tr><td>Frais généraux + amortissement</td><td class="num neg">22,9 %</td><td class="num">19,0 %</td><td class="num">17,2 %</td><td class="num">15,6 %</td><td class="num pos">13,8 %</td></tr>
+      <tr><td>Cotisations sociales <span class="tag">(INASTI)</span></td><td class="num">12,6 %</td><td class="num">13,5 %</td><td class="num">13,8 %</td><td class="num">14,2 %</td><td class="num">14,6 %</td></tr>
+      <tr><td>Impôt <span class="tag">(IPP)</span></td><td class="num">16,8 %</td><td class="num">18,8 %</td><td class="num">19,6 %</td><td class="num">20,4 %</td><td class="num">21,3 %</td></tr>
+      <tr class="tot"><td>NET pour toi</td><td class="num">30,3 %</td><td class="num">31,5 %</td><td class="num">32,0 %</td><td class="num">32,5 %</td><td class="num">33,1 %</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>Pourquoi 17,4 % et non 21 % ?</strong> Ce sont <strong>deux façons d'exprimer le même montant</strong>. Le taux légal de <strong>21 % se calcule sur le prix HTVA</strong> ; les <strong>17,4 % expriment la part de la TVA dans le prix TVAC</strong> (ce que paie le client). Exemple sur un site à 1 500 € TVAC : prix HTVA 1 239,67 € + TVA 21 % (260,33 €) = 1 500 €. Or 260,33 ÷ 1 500 = <strong>17,4 %</strong>. La formule est <strong>21 / 121 = 17,4 %</strong>. Ce tableau raisonnant en pourcentage du <em>montant facturé</em>, c'est bien 17,4 % qu'il faut lire pour que les colonnes totalisent 100 %.</p>
+  </div>
+
+  <div class="callout key">
+    <p><strong>Lecture de la répartition.</strong> Sur 100 € facturés, tu conserves entre <strong>30 et 33 €</strong> selon le scénario. La <strong>TVA (17,4 % du facturé)</strong> est identique partout — c'est une constante en phase test. Ce qui varie, c'est le <strong>poids relatif des frais fixes</strong> : à 1 500 € TVAC ils absorbent <strong>22,9 %</strong> du facturé, contre <strong>13,8 %</strong> à 2 500 €. C'est précisément l'effet de levier du prix : les frais généraux (3 289 €/an) ne bougent pas, donc plus le CA monte, moins ils pèsent proportionnellement.</p>
+  </div>
+
+  <div class="callout warn">
+    <p><strong>Le paradoxe apparent des cotisations et de l'impôt.</strong> Leur part <em>augmente</em> avec le prix (de 29,4 % à 35,9 % cumulés) — c'est normal : ils portent sur le bénéfice, qui grandit plus vite que le chiffre d'affaires une fois les frais fixes couverts. Malgré cela, <strong>le net progresse aussi</strong> (30,3 % → 33,1 %) : payer plus d'impôt sur un revenu plus élevé reste préférable à payer moins d'impôt sur un revenu faible.</p>
+  </div>
+
+  <div class="foot">
+    <p>Analyse isolée du produit « site web ASBL » (11 sites/an sauf mention contraire), phase test JobYourself avec TVA 21 % — taux standard belge applicable aux prestations de développement web. Frais généraux (3 289 €/an) et amortissement ordinateur (496 €/an) imputés en totalité à ce produit ; en réalité ils se répartissent aussi sur les apps et hébergements, ce qui améliorerait légèrement les nets présentés. Cotisations INASTI 20,5 % + frais de gestion 3,05 % (Xerius). Impôt calculé au taux marginal réel, en tenant compte du mi-temps (barème revenus 2026 : quotité 11 180 €, tranches 16 720 / 29 510 / 51 070 €, + ~7 % additionnels communaux). Le seuil de 25 000 € correspond au plafond de la franchise TVA (art. 56bis) applicable une fois en statut indépendant. Hypothèse de charge : 40 h par site (forfait site + formation + 3 mois de support) ; repères marché : 20–40 h pour un vitrine simple, TJM freelance web 280–400 €/jour. Montants = ordres de grandeur, à confirmer.</p>
+  </div>
+
+</body>
+</html>

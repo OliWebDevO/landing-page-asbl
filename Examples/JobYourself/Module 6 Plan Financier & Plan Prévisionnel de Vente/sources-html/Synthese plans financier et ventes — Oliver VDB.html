@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Synthèse — Plan financier &amp; Plan prévisionnel de vente — Oliver Van Droogenbroeck</title>
+<style>
+  @page { size: A4; margin: 14mm 13mm 13mm 13mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: #1a2a33; font-size: 9.6pt; line-height: 1.42; margin: 0; }
+  h1 { font-size: 17pt; color: #14504a; margin: 0 0 1.5mm 0; line-height: 1.1; }
+  .sub { color: #6a7b82; font-size: 9pt; margin: 0 0 4mm 0; }
+  h2 { font-size: 12pt; color: #14504a; border-bottom: 1.5px solid #14504a; padding-bottom: 1.1mm; margin: 6mm 0 2.5mm 0; page-break-after: avoid; }
+  h3 { font-size: 10.3pt; color: #10403b; margin: 3.5mm 0 1.5mm 0; page-break-after: avoid; }
+  p { margin: 0 0 2mm 0; }
+  ul { margin: 0 0 2.5mm 0; padding-left: 4.5mm; } li { margin-bottom: 1mm; }
+  strong { color: #10403b; }
+  .intro { font-size: 8.8pt; color: #445; background: #f2f6f5; border: 1px solid #d7e2df; border-radius: 3px; padding: 2.5mm 3mm; margin: 0 0 3mm 0; }
+  .intro b { color: #10403b; }
+  table { width: 100%; border-collapse: collapse; margin: 2mm 0 3mm 0; font-size: 8.7pt; page-break-inside: avoid; }
+  caption { caption-side: top; text-align: left; font-weight: 700; color: #10403b; font-size: 10pt; padding: 1.5mm 0 1.5mm 0; }
+  th, td { border: 1px solid #cfdad8; padding: 1.5mm 2mm; vertical-align: top; text-align: left; }
+  thead th { background: #14504a; color: #fff; font-weight: 600; text-align: right; }
+  thead th:first-child, th.lbl { text-align: left; }
+  td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  td.c { text-align: center; }
+  tr:nth-child(even) td { background: #f7faf9; }
+  tr.sec td { background: #e3ede9 !important; font-weight: 700; color: #10403b; }
+  tr.tot td { background: #14504a !important; color: #fff; font-weight: 700; }
+  .tag { font-size: 7.6pt; color: #7a8a90; }
+  .pos { color: #14504a; font-weight: 700; } .neg { color: #9a3226; }
+  .callout { border-left: 4px solid #c98a1b; background: #fdf6e9; padding: 2.3mm 3.2mm; margin: 2.5mm 0; page-break-inside: avoid; font-size: 8.9pt; }
+  .callout.key { border-left-color: #14504a; background: #eef4f1; }
+  .callout p:last-child { margin-bottom: 0; }
+  .foot { margin-top: 5mm; padding-top: 2.5mm; border-top: 1px solid #cfdad8; font-size: 7.7pt; color: #6a7b82; }
+  .pb { page-break-before: always; }
+  /* mini bar chart */
+  .bar { display:inline-block; height:7px; background:#14504a; border-radius:2px; vertical-align:middle; }
+  .barcell { width:38%; }
+  .kpi { display:flex; gap:3mm; margin:2mm 0 3mm 0; }
+  .kpi > div { flex:1; border:1px solid #cfdad8; border-radius:4px; padding:2mm 2.5mm; text-align:center; background:#f7faf9; }
+  .kpi .v { font-size:13pt; font-weight:700; color:#14504a; display:block; line-height:1.2; }
+  .kpi .l { font-size:7.8pt; color:#6a7b82; }
+</style>
+</head>
+<body>
+
+  <h1>Synthèse — Plan financier &amp; Prévisionnel de vente</h1>
+  <p class="sub">Oliver Van Droogenbroeck · Développement web &amp; outils numériques pour le non-marchand · Module 6 JobYourself · juillet 2026</p>
+
+  <div class="intro">
+    <b>Objet.</b> Vue d'ensemble des deux livrables complétés : le <b>plan financier</b> (structure de coûts, rentabilité annuelle)
+    et le <b>plan prévisionnel de vente sur 18 mois</b> (montée en charge). Les deux fichiers sont paramétrés en
+    <b>franchise TVA 0 %</b> — hypothèse valable <b>uniquement en statut indépendant</b> (CA &lt; 25 000 €).
+    Les nets d'impôt affinés figurent dans le dossier <i>« Statut, charges &amp; caisse »</i>.
+  </div>
+
+  <div class="callout warn" style="border-left:4px solid #b23a2e;background:#fbeceb;padding:2.3mm 3.2mm;margin:0 0 3mm 0;font-size:8.9pt">
+    <p><strong>⚠ Lecture indispensable — la TVA dépend de la phase.</strong> Tous les montants de ce document supposent la
+    <strong>franchise TVA (0 %)</strong>, c'est-à-dire le <strong>statut indépendant</strong>. En <strong>phase test JobYourself</strong>
+    (comme chez Smart), c'est <strong>la structure qui facture</strong> → les prestations sortent <strong>avec 21 % de TVA</strong> et la franchise
+    ne s'applique pas. À prix affichés identiques, le CA réel encaissé chute alors de ~17 % (voir §5).</p>
+  </div>
+
+  <div class="kpi">
+    <div><span class="v">24 486 €</span><span class="l">CA HTVA annuel visé</span></div>
+    <div><span class="v">23 954 €</span><span class="l">Marge brute annuelle</span></div>
+    <div><span class="v">38 010 €</span><span class="l">MB cumulée 18 mois</span></div>
+    <div><span class="v">100 h</span><span class="l">Disponibles / mois</span></div>
+  </div>
+
+  <h2>L'essentiel — ce que tu mets réellement en poche</h2>
+  <table>
+    <caption>Du prix payé par le client à ton net mensuel (indépendant complémentaire, franchise 0 %)</caption>
+    <thead><tr><th class="lbl">Étape</th><th>Par an</th><th>Par mois</th><th class="lbl">Explication</th></tr></thead>
+    <tbody>
+      <tr><td>Ce que les clients te paient</td><td class="num">24 486 €</td><td class="num">2 041 €</td><td>30 prestations vendues</td></tr>
+      <tr><td>− TVA reversée à l'État</td><td class="num">0 €</td><td class="num">0 €</td><td><strong>Franchise</strong> — tu ne factures pas de TVA</td></tr>
+      <tr><td>− Frais professionnels</td><td class="num neg">− 4 317 €</td><td class="num neg">− 360 €</td><td>Comptable, licences, RC, télécom, amortissement…</td></tr>
+      <tr class="sec"><td>= Résultat de l'activité</td><td class="num">20 170 €</td><td class="num">1 681 €</td><td><em>Ce n'est pas encore ton net</em></td></tr>
+      <tr><td>− Cotisations sociales (INASTI)</td><td class="num neg">− 4 261 €</td><td class="num neg">− 355 €</td><td>~20,5 % + frais de gestion 3,05 %</td></tr>
+      <tr><td>− Impôt (empilé sur le mi-temps)</td><td class="num neg">− 6 260 €</td><td class="num neg">− 522 €</td><td>Taux moyen ~38 % sur cette part</td></tr>
+      <tr class="tot"><td>= TON NET EN POCHE</td><td class="num">9 649 €</td><td class="num">804 €</td><td>Ce qui te revient réellement</td></tr>
+    </tbody>
+  </table>
+
+  <div class="kpi">
+    <div><span class="v">804 €</span><span class="l">Net/mois de l'activité</span></div>
+    <div><span class="v">1 100 €</span><span class="l">Net/mois du mi-temps</span></div>
+    <div><span class="v">1 904 €</span><span class="l">TOTAL net mensuel</span></div>
+    <div><span class="v">+160 €</span><span class="l">Gain vs phase test JYS</span></div>
+  </div>
+
+  <div class="callout key">
+    <p><strong>À ne pas confondre.</strong> Le <strong>résultat</strong> (1 681 €/mois) est ce que dégage l'activité <em>avant</em> cotisations sociales et impôt. Ton <strong>net réel</strong> est de <strong>804 €/mois</strong>, soit <strong>+160 €/mois</strong> par rapport à la phase test JYS (où 21 % de TVA partent à l'État).</p>
+  </div>
+
+  <h3>Pourquoi le fichier Excel affiche 991 €/mois et non 804 €</h3>
+  <p>L'onglet <i>« Calcul rém indépendant »</i> du plan financier calcule bien les cotisations et l'impôt jusqu'au net. Mais il est conçu pour un indépendant <strong>à titre principal</strong> — il suppose que l'activité est ton <strong>seul revenu</strong>. Trois écarts en résultent :</p>
+  <table>
+    <thead><tr><th class="lbl">Paramètre</th><th class="lbl">Dans l'Excel JYS</th><th class="lbl">Ta réalité (complémentaire)</th><th>Effet</th></tr></thead>
+    <tbody>
+      <tr><td>Tranche d'imposition</td><td>25 % <span class="tag">(1re tranche)</span></td><td>~40 % <span class="tag">— le mi-temps occupe déjà la tranche basse</span></td><td class="num neg">− 2 285 €/an</td></tr>
+      <tr><td>Barème fiscal</td><td>15 820 / 27 920 € <span class="tag">(revenus 2024)</span></td><td>16 720 / 29 510 € <span class="tag">(revenus 2026)</span></td><td class="num">mineur</td></tr>
+      <tr><td>Frais de gestion caisse</td><td>4 % <span class="tag">(générique)</span></td><td>3,05 % <span class="tag">(Xerius)</span></td><td class="num pos">+ 39 €/an</td></tr>
+      <tr class="tot"><td>Net mensuel affiché</td><td>991 €</td><td>804 €</td><td class="num">− 187 €/mois</td></tr>
+    </tbody>
+  </table>
+  <div class="callout" style="border-left-color:#b23a2e;background:#fbeceb">
+    <p><strong>Conclusion.</strong> Le fichier Excel reste le <strong>livrable conforme au modèle JobYourself</strong> et ses chiffres de CA, marges, frais et résultat sont exacts. En revanche, <strong>le net qu'il affiche (991 €/mois) est optimiste</strong> dans ta situation de cumul&nbsp;: il ignore que ton mi-temps pousse les revenus de l'activité dans la tranche à 40 %. <strong>Le chiffre à retenir pour tes décisions est 804 €/mois.</strong></p>
+  </div>
+
+  <h2 class="pb">1. L'offre — produits, prix et marges</h2>
+  <table>
+    <caption>Catalogue et marge unitaire (TVA 0 % — régime de franchise)</caption>
+    <thead>
+      <tr><th class="lbl">Produit / service</th><th>Prix</th><th>Coût direct</th><th>Marge brute u.</th><th>Volume/an</th><th>CA annuel</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Site web ASBL</strong><span class="tag"> — forfait site + formation + 3 mois de support</span></td><td class="num">1 500 €</td><td class="num">0 €</td><td class="num pos">1 500 €</td><td class="num">11</td><td class="num">16 560 €</td></tr>
+      <tr><td><strong>App / outil de gestion sur mesure</strong><span class="tag"> — CRM, subsides, inscriptions</span></td><td class="num">3 000 €</td><td class="num">0 €</td><td class="num pos">3 000 €</td><td class="num">2</td><td class="num">6 120 €</td></tr>
+      <tr><td><strong>Hébergement + domaine</strong><span class="tag"> — forfait annuel / site du parc</span></td><td class="num">100 €</td><td class="num">30 €</td><td class="num">70 €</td><td class="num">15</td><td class="num">1 500 €</td></tr>
+      <tr><td><strong>Hébergement app de gestion</strong><span class="tag"> — forfait annuel / app</span></td><td class="num">150 €</td><td class="num">40 €</td><td class="num">110 €</td><td class="num">2</td><td class="num">306 €</td></tr>
+      <tr class="tot"><td>TOTAL</td><td class="num">—</td><td class="num">530 €/an</td><td class="num">—</td><td class="num">30</td><td class="num">24 486 €</td></tr>
+    </tbody>
+  </table>
+  <div class="callout key">
+    <p><strong>Lecture.</strong> Le <strong>site web</strong> porte l'essentiel du chiffre (68 % du CA), l'<strong>app sur mesure</strong> apporte 25 % avec seulement 2 ventes/an. Les <strong>hébergements</strong> ne pèsent que 7 % du CA mais constituent le <strong>revenu récurrent</strong> qui sécurise la base — et il croît avec le parc installé.</p>
+  </div>
+
+  <h2>2. La structure de coûts</h2>
+  <table>
+    <caption>Frais généraux annuels (3 289 €/an ≈ 274 €/mois)</caption>
+    <thead><tr><th class="lbl">Poste</th><th>€/mois</th><th>€/an</th><th class="lbl">Nature</th></tr></thead>
+    <tbody>
+      <tr><td>Comptable</td><td class="num">91,67</td><td class="num">1 100</td><td>Prestataire</td></tr>
+      <tr><td>Licences (Adobe, Canva, IA…)</td><td class="num">50,00</td><td class="num">600</td><td>Outils</td></tr>
+      <tr><td>RC professionnelle + juridique</td><td class="num">35,42</td><td class="num">425</td><td>Assurance</td></tr>
+      <tr><td>Déplacements</td><td class="num">25,00</td><td class="num">300</td><td>Mobilité</td></tr>
+      <tr><td>Formations</td><td class="num">16,67</td><td class="num">200</td><td>Compétences</td></tr>
+      <tr><td>GSM (part pro)</td><td class="num">15,00</td><td class="num">180</td><td>Télécom</td></tr>
+      <tr><td>Internet</td><td class="num">10,00</td><td class="num">120</td><td>Télécom</td></tr>
+      <tr><td>Énergie (part pro)</td><td class="num">10,00</td><td class="num">120</td><td>Local</td></tr>
+      <tr><td>Cartes de visite</td><td class="num">8,33</td><td class="num">100</td><td>Com</td></tr>
+      <tr><td>Hébergement + domaine (propres)</td><td class="num">7,00</td><td class="num">84</td><td>Web</td></tr>
+      <tr><td>Fournitures de bureau</td><td class="num">5,00</td><td class="num">60</td><td>Divers</td></tr>
+      <tr class="tot"><td>TOTAL frais généraux</td><td class="num">274,08</td><td class="num">3 289</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <table>
+    <caption>Investissement &amp; amortissement</caption>
+    <thead><tr><th class="lbl">Élément</th><th>Prix TVAC</th><th>Durée</th><th>Amortissement/an</th></tr></thead>
+    <tbody>
+      <tr><td>Ordinateur (outil de production principal)</td><td class="num">1 800 €</td><td class="num">3 ans</td><td class="num">496 €</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="pb">3. Le temps — capacité de production</h2>
+  <table>
+    <caption>Charge horaire par prestation et temps non facturable</caption>
+    <thead><tr><th class="lbl">Activité</th><th>Heures</th><th class="lbl">Commentaire</th></tr></thead>
+    <tbody>
+      <tr><td>Site web ASBL</td><td class="num">40 h</td><td>par site livré</td></tr>
+      <tr><td>App / outil de gestion</td><td class="num">100 h</td><td>par app livrée</td></tr>
+      <tr><td>Hébergement site</td><td class="num">2 h</td><td>par site / an</td></tr>
+      <tr><td>Hébergement app</td><td class="num">3 h</td><td>par app / an</td></tr>
+      <tr class="sec"><td colspan="3">Temps non facturable (structurel)</td></tr>
+      <tr><td>Administratif</td><td class="num">15 h</td><td>/ mois</td></tr>
+      <tr><td>Prospection</td><td class="num">15 h</td><td>/ mois</td></tr>
+      <tr><td>Communication</td><td class="num">10 h</td><td>/ mois</td></tr>
+      <tr class="tot"><td>Capacité disponible</td><td class="num">100 h</td><td>/ mois (compatible avec le mi-temps)</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <p><strong>Point de vigilance.</strong> <strong>40 h</strong> de temps non facturable par mois (admin + prospection + com) sur les 100 h disponibles, soit <strong>40 % du temps qui ne produit pas de CA</strong>. C'est normal en lancement, mais c'est le principal levier d'amélioration : industrialiser la production de sites (templates, composants réutilisables) libère du temps facturable.</p>
+  </div>
+
+  <h2>4. Le prévisionnel de vente sur 18 mois</h2>
+  <table>
+    <caption>Montée en charge mois par mois (marge brute)</caption>
+    <thead>
+      <tr><th class="lbl">Mois</th><th>Sites</th><th>Héberg.</th><th>Apps</th><th>Héb. app</th><th>MB du mois</th><th>MB cumulée</th><th class="lbl barcell">Profil</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0 €</td><td class="num">0 €</td><td></td></tr>
+      <tr><td>2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0 €</td><td class="num">0 €</td><td></td></tr>
+      <tr><td>3</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">1 500 €</td><td class="num">1 500 €</td><td><span class="bar" style="width:24%"></span></td></tr>
+      <tr><td>4</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">1 570 €</td><td class="num">3 070 €</td><td><span class="bar" style="width:25%"></span></td></tr>
+      <tr><td>5</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">1 570 €</td><td class="num">4 640 €</td><td><span class="bar" style="width:25%"></span></td></tr>
+      <tr><td>6</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">1 570 €</td><td class="num">6 210 €</td><td><span class="bar" style="width:25%"></span></td></tr>
+      <tr><td>7</td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">4 570 €</td><td class="num">10 780 €</td><td><span class="bar" style="width:74%"></span></td></tr>
+      <tr><td>8</td><td class="num">1</td><td class="num">2</td><td class="num">0</td><td class="num">1</td><td class="num">1 750 €</td><td class="num">12 530 €</td><td><span class="bar" style="width:28%"></span></td></tr>
+      <tr><td>9</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">1 570 €</td><td class="num">14 100 €</td><td><span class="bar" style="width:25%"></span></td></tr>
+      <tr><td>10</td><td class="num">2</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">3 140 €</td><td class="num">17 240 €</td><td><span class="bar" style="width:51%"></span></td></tr>
+      <tr><td>11</td><td class="num">1</td><td class="num">2</td><td class="num">1</td><td class="num">0</td><td class="num">4 640 €</td><td class="num">21 880 €</td><td><span class="bar" style="width:76%"></span></td></tr>
+      <tr><td>12</td><td class="num">1</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">1 640 €</td><td class="num">23 520 €</td><td><span class="bar" style="width:27%"></span></td></tr>
+      <tr><td>13</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">1</td><td class="num">1 680 €</td><td class="num">25 200 €</td><td><span class="bar" style="width:27%"></span></td></tr>
+      <tr><td>14</td><td class="num">1</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">1 640 €</td><td class="num">26 840 €</td><td><span class="bar" style="width:27%"></span></td></tr>
+      <tr><td>15</td><td class="num">2</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">3 140 €</td><td class="num">29 980 €</td><td><span class="bar" style="width:51%"></span></td></tr>
+      <tr><td>16</td><td class="num">1</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">1 640 €</td><td class="num">31 620 €</td><td><span class="bar" style="width:27%"></span></td></tr>
+      <tr><td>17</td><td class="num">1</td><td class="num">2</td><td class="num">1</td><td class="num">0</td><td class="num">4 640 €</td><td class="num">36 260 €</td><td><span class="bar" style="width:76%"></span></td></tr>
+      <tr><td>18</td><td class="num">1</td><td class="num">2</td><td class="num">0</td><td class="num">1</td><td class="num">1 750 €</td><td class="num">38 010 €</td><td><span class="bar" style="width:28%"></span></td></tr>
+      <tr class="tot"><td>TOTAL</td><td class="num">18</td><td class="num">24</td><td class="num">3</td><td class="num">3</td><td class="num">38 010 €</td><td class="num">—</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Lecture par semestre</h3>
+  <table>
+    <thead><tr><th class="lbl">Période</th><th>Marge brute</th><th>Moyenne/mois</th><th class="lbl">Phase</th></tr></thead>
+    <tbody>
+      <tr><td>Mois 1–6</td><td class="num">6 210 €</td><td class="num">1 035 €</td><td>Amorçage — 2 mois de prospection sans vente, puis 1 site/mois</td></tr>
+      <tr><td>Mois 7–12</td><td class="num">17 310 €</td><td class="num">2 885 €</td><td>Accélération — 2 apps livrées, le parc d'hébergements grossit</td></tr>
+      <tr><td>Mois 13–18</td><td class="num">14 490 €</td><td class="num">2 415 €</td><td>Régime de croisière — récurrent installé</td></tr>
+      <tr class="tot"><td>18 mois</td><td class="num">38 010 €</td><td class="num">2 112 €</td><td>≈ 25 340 €/an annualisé</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout key">
+    <p><strong>Cohérence des deux plans.</strong> Le prévisionnel (25 340 €/an annualisé) recoupe le plan financier (24 486 €/an) — écart de 3 %, dû à une montée en charge un peu plus rapide au-delà du 12<sup>e</sup> mois. <strong>Les deux restent sous le seuil de franchise TVA de 25 000 €</strong>, ce qui préserve l'avantage prix pour les clients ASBL. À surveiller : au rythme du 2<sup>e</sup> semestre, le seuil peut être franchi — d'où l'intérêt de piloter le calendrier de facturation en fin d'année.</p>
+  </div>
+
+  <h2 class="pb">5. L'impact de la TVA selon la phase — point critique</h2>
+  <p>Les deux plans sont paramétrés en <strong>franchise TVA 0 %</strong>. Cette hypothèse n'est valable que si <strong>c'est toi qui factures</strong> (statut indépendant, CA &lt; 25 000 €). En <strong>phase test JobYourself</strong> — comme chez Smart — c'est <strong>la structure qui facture</strong>, avec <strong>21 % de TVA</strong> obligatoire.</p>
+
+  <table>
+    <caption>Même prix affiché, deux réalités : ce que tu encaisses vraiment</caption>
+    <thead>
+      <tr><th class="lbl">Produit</th><th>Prix affiché</th><th>Indépendant<br><span class="tag">franchise 0 %</span></th><th>JYS / Smart<br><span class="tag">TVA 21 %</span></th><th>Perte /unité</th><th>Volume</th><th>Perte /an</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Site web ASBL</td><td class="num">1 500 €</td><td class="num pos">1 500 €</td><td class="num neg">1 240 €</td><td class="num neg">− 260 €</td><td class="num">11</td><td class="num neg">− 2 864 €</td></tr>
+      <tr><td>App / outil de gestion</td><td class="num">3 000 €</td><td class="num pos">3 000 €</td><td class="num neg">2 479 €</td><td class="num neg">− 521 €</td><td class="num">2</td><td class="num neg">− 1 041 €</td></tr>
+      <tr><td>Hébergement site</td><td class="num">100 €</td><td class="num pos">100 €</td><td class="num neg">83 €</td><td class="num neg">− 17 €</td><td class="num">15</td><td class="num neg">− 260 €</td></tr>
+      <tr><td>Hébergement app</td><td class="num">150 €</td><td class="num pos">150 €</td><td class="num neg">124 €</td><td class="num neg">− 26 €</td><td class="num">2</td><td class="num neg">− 52 €</td></tr>
+      <tr class="tot"><td>CA réel encaissé (HTVA)</td><td class="num">—</td><td class="num">24 300 €</td><td class="num">20 083 €</td><td class="num">—</td><td class="num">30</td><td class="num">− 4 217 €</td></tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead><tr><th class="lbl">Indicateur</th><th>Indépendant (franchise)</th><th>Phase test JYS / Smart</th><th>Écart</th></tr></thead>
+    <tbody>
+      <tr><td>CA réel (HTVA)</td><td class="num pos">24 300 €</td><td class="num">20 083 €</td><td class="num neg">− 4 217 € (−17 %)</td></tr>
+      <tr><td>Marge brute annuelle</td><td class="num pos">23 770 €</td><td class="num">19 553 €</td><td class="num neg">− 4 217 €</td></tr>
+      <tr><td>TVA reversée à l'État</td><td class="num">0 €</td><td class="num neg">4 217 €</td><td class="num">—</td></tr>
+      <tr><td>Prix payé par le client ASBL</td><td class="num pos">1 500 € (site)</td><td class="num">1 500 € TVAC<span class="tag"> (si tu absorbes)</span><br>ou 1 815 € <span class="tag">(si tu répercutes)</span></td><td class="num">—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn" style="border-left-color:#b23a2e;background:#fbeceb">
+    <p><strong>Conséquence concrète pour ta trajectoire.</strong> En <strong>phase test JobYourself</strong>, à prix inchangés, tu encaisses
+    <strong>~4 200 €/an de moins</strong> que ce qu'annoncent les plans. Deux options à ce moment-là&nbsp;: <strong>répercuter la TVA</strong>
+    (le client ASBL paie 1 815 € au lieu de 1 500 € — mais il ne la récupère pas, donc c'est +21 % pour lui) ou <strong>l'absorber</strong>
+    (tu gardes 1 500 € affichés et perds les 17 %). Les chiffres des plans ne redeviennent exacts qu'une fois <strong>passé en indépendant sous franchise</strong>.</p>
+  </div>
+
+  <div class="callout key">
+    <p><strong>Pourquoi les plans sont quand même corrects.</strong> Ils modélisent la <strong>cible</strong> — le régime de croisière en indépendant complémentaire sous franchise, qui est la trajectoire décidée. La phase test JYS est <strong>transitoire</strong> (durée du test) et sert à valider le marché, pas à optimiser le revenu. Il faut simplement garder en tête que <strong>pendant le test, le net réel sera inférieur</strong> à ce que montre le plan financier.</p>
+  </div>
+
+  <h2 class="pb">6. Synthèse de rentabilité</h2>
+  <table>
+    <caption>Du chiffre d'affaires au résultat — scénario <u>indépendant sous franchise</u> (année type, hors impôt et cotisations)</caption>
+    <thead><tr><th class="lbl">Poste</th><th>Montant annuel</th><th>Par mois</th><th class="lbl">Commentaire</th></tr></thead>
+    <tbody>
+      <tr class="sec"><td>CA HTVA (franchise, 0 % TVA)</td><td class="num">24 486 €</td><td class="num">2 041 €</td><td>30 unités vendues</td></tr>
+      <tr><td>− Coûts directs (hébergements)</td><td class="num neg">− 530 €</td><td class="num">− 44 €</td><td>Seul poste variable</td></tr>
+      <tr class="sec"><td>= Marge brute</td><td class="num">23 954 €</td><td class="num">1 996 €</td><td><strong>98 % du CA</strong> — activité de service</td></tr>
+      <tr><td>− Frais généraux</td><td class="num neg">− 3 289 €</td><td class="num">− 274 €</td><td>Comptable, licences, RC, télécom…</td></tr>
+      <tr><td>− Amortissement ordinateur</td><td class="num neg">− 496 €</td><td class="num">− 41 €</td><td>1 800 € sur 3 ans</td></tr>
+      <tr class="tot"><td>= Résultat avant cotisations &amp; impôt</td><td class="num">20 169 €</td><td class="num">1 681 €</td><td>Base de calcul INASTI / IPP</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>Et après ?</strong> De ce résultat se déduisent les <strong>cotisations sociales INASTI</strong> (~20,5 % + frais de gestion) puis l'<strong>impôt</strong> (empilé sur le mi-temps). Le net final ressort autour de <strong>~600–820 €/mois</strong> selon le CA réalisé (13 k€ → 25 k€) — détail complet dans le dossier <i>« Statut, charges &amp; caisse »</i>.</p>
+  </div>
+
+  <h3>Points forts &amp; points de vigilance</h3>
+  <table>
+    <thead><tr><th class="lbl">✔ Points forts</th><th class="lbl">⚠ Points de vigilance</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>
+          <ul style="margin:0">
+            <li><strong>Marge brute de 98 %</strong> — quasi aucun coût variable (activité de service)</li>
+            <li><strong>Revenu récurrent</strong> via les hébergements, qui croît avec le parc</li>
+            <li><strong>Structure de coûts légère</strong> (274 €/mois) — seuil de rentabilité vite atteint</li>
+            <li><strong>Franchise TVA</strong> préservée → avantage prix de 21 % pour les ASBL</li>
+          </ul>
+        </td>
+        <td>
+          <ul style="margin:0">
+            <li><strong>Dépendance au produit « site »</strong> (68 % du CA) — diversifier via l'app</li>
+            <li><strong>40 % de temps non facturable</strong> — industrialiser la production</li>
+            <li><strong>Plafond de 25 000 €</strong> proche — piloter le calendrier de facturation</li>
+            <li><strong>2 mois sans revenu</strong> au démarrage — prévoir la trésorerie</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="foot">
+    <p>Source : « Plan financier — Oliver VDB (sans frais d'appro) — REMPLI.xlsx » et « Plan prévisionnel de vente 18 mois — Oliver VDB — REMPLI.xlsx » (versions complétées, Module 6). Hypothèse TVA 0 % (franchise art. 56bis, CA &lt; 25 000 €) — <strong>valable en statut indépendant uniquement</strong> ; en phase test JobYourself ou chez Smart, la structure facture avec 21 % de TVA (voir §5). Note de forme : le prévisionnel de vente n'ayant pas de colonne « 0 % », les prix ont été saisis directement en « PV HTVA » — la marge brute calculée (1 500 / 70 / 3 000 / 110 €) est correcte, même si la valeur apparaît visuellement sous l'en-tête « PV tvaC 21 % ». Le plan financier calcule le CA annuel sur 11 mois d'activité ; les montants ci-dessus sont exprimés sur 12 mois pour la lisibilité. Les taux de cotisations et d'impôt du fichier Excel suivent les valeurs par défaut de l'outil JobYourself (25 % d'impôt, 4 % de frais de gestion) ; les nets affinés (taux réels Xerius 3,05 % et imposition marginale) figurent dans le dossier « Statut, charges &amp; caisse — Oliver VDB ».</p>
+  </div>
+
+</body>
+</html>

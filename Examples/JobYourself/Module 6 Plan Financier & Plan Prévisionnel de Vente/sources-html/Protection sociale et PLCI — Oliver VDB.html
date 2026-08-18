@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Protection sociale du complémentaire &amp; PLCI — Oliver Van Droogenbroeck</title>
+<style>
+  @page { size: A4; margin: 14mm 13mm 13mm 13mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: #1a2a33; font-size: 9.7pt; line-height: 1.43; margin: 0; }
+  h1 { font-size: 17pt; color: #14504a; margin: 0 0 1.5mm 0; line-height: 1.1; }
+  .sub { color: #6a7b82; font-size: 9pt; margin: 0 0 4mm 0; }
+  h2 { font-size: 12pt; color: #14504a; border-bottom: 1.5px solid #14504a; padding-bottom: 1.1mm; margin: 6mm 0 2.5mm 0; page-break-after: avoid; }
+  h3 { font-size: 10.3pt; color: #10403b; margin: 3.5mm 0 1.5mm 0; page-break-after: avoid; }
+  p { margin: 0 0 2mm 0; }
+  ul { margin: 0 0 2.5mm 0; padding-left: 4.5mm; } li { margin-bottom: 1.1mm; }
+  strong { color: #10403b; }
+  .intro { font-size: 8.9pt; color: #445; background: #f2f6f5; border: 1px solid #d7e2df; border-radius: 3px; padding: 2.5mm 3mm; margin: 0 0 3mm 0; }
+  .intro b { color: #10403b; }
+  table { width: 100%; border-collapse: collapse; margin: 2mm 0 3mm 0; font-size: 8.8pt; page-break-inside: avoid; }
+  caption { caption-side: top; text-align: left; font-weight: 700; color: #10403b; font-size: 10pt; padding: 1.5mm 0 1.5mm 0; }
+  th, td { border: 1px solid #cfdad8; padding: 1.6mm 2.1mm; vertical-align: top; text-align: left; }
+  thead th { background: #14504a; color: #fff; font-weight: 600; }
+  thead th.num, td.num { text-align: right; white-space: nowrap; }
+  td.c { text-align: center; }
+  tr:nth-child(even) td { background: #f7faf9; }
+  tr.tot td { background: #14504a !important; color: #fff; font-weight: 700; }
+  .tag { font-size: 7.7pt; color: #7a8a90; }
+  .ok { color:#14504a; font-weight:700; } .ko { color:#b23a2e; font-weight:700; } .mid { color:#a8730f; font-weight:700; }
+  .callout { border-left: 4px solid #c98a1b; background: #fdf6e9; padding: 2.3mm 3.2mm; margin: 2.5mm 0; page-break-inside: avoid; font-size: 9pt; }
+  .callout.key { border-left-color: #14504a; background: #eef4f1; }
+  .callout.warn { border-left-color: #b23a2e; background: #fbeceb; }
+  .callout p:last-child { margin-bottom: 0; }
+  .foot { margin-top: 5mm; padding-top: 2.5mm; border-top: 1px solid #cfdad8; font-size: 7.7pt; color: #6a7b82; }
+  .pb { page-break-before: always; }
+  .badge { display:inline-block; background:#14504a; color:#fff; font-size:7.7pt; padding:0.4mm 1.6mm; border-radius:3px; vertical-align:middle; }
+  .new { background:#0d6b3f; }
+</style>
+</head>
+<body>
+
+  <h1>Protection sociale de l'indépendant complémentaire &amp; PLCI</h1>
+  <p class="sub">Oliver Van Droogenbroeck · Bruxelles · Module 6 JobYourself · juillet 2026</p>
+
+  <div class="intro">
+    <b>Question de départ.</b> « Si je vais au chômage je ne gagnerai quasi rien, basé sur mon mi-temps ; pareil pour ma pension. »
+    Réponse courte&nbsp;: <b>vrai pour le chômage</b>, <b>partiellement faux pour la pension</b> (les cotisations INASTI construisent bien des droits).
+    Ce document fait le point sur les 4 risques sociaux et sur le principal levier de compensation, la <b>PLCI</b>.
+  </div>
+
+  <h2>1. Les 4 risques sociaux — qui te couvre pour quoi ?</h2>
+  <table>
+    <thead><tr><th>Risque</th><th>Couvert par le mi-temps (ONSS)</th><th>Couvert par l'activité (INASTI)</th><th class="c">Verdict</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Chômage</strong></td>
+        <td>Oui — allocation calculée sur le <strong>salaire mi-temps uniquement</strong></td>
+        <td><strong>Non</strong> — les cotisations INASTI n'ouvrent aucun droit au chômage</td>
+        <td class="c ko">Point faible</td>
+      </tr>
+      <tr>
+        <td><strong>Pension</strong></td>
+        <td>Oui — carrière salariée (partielle, car mi-temps)</td>
+        <td><strong>Oui</strong> — carrière d'indépendant qui <strong>s'ajoute</strong> (système de carrière mixte)</td>
+        <td class="c mid">Cumulé, mais base faible</td>
+      </tr>
+      <tr>
+        <td><strong>Soins de santé</strong></td>
+        <td>Oui — mutuelle via le statut salarié</td>
+        <td>Déjà ouvert par le mi-temps</td>
+        <td class="c ok">Couvert</td>
+      </tr>
+      <tr>
+        <td><strong>Incapacité de travail</strong></td>
+        <td>Oui — indemnités sur base du mi-temps</td>
+        <td>Faible ; l'activité s'arrête sans compensation</td>
+        <td class="c mid">Partiel</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout key">
+    <p><strong>Bonne nouvelle sur la pension.</strong> Tes cotisations INASTI ne sont <em>pas perdues</em>. La Belgique calcule une <strong>carrière mixte</strong>&nbsp;: tes années de salarié et tes années d'indépendant sont <strong>additionnées</strong>. Tu auras donc une pension de salarié <em>plus</em> une pension d'indépendant. La limite n'est pas le principe, mais le <strong>montant des bases</strong> (mi-temps + bénéfices modestes au démarrage).</p>
+  </div>
+
+  <div class="callout warn">
+    <p><strong>Vrai point faible : le chômage.</strong> L'allocation ne se calcule que sur le mi-temps, et en cas de perte de celui-ci, le cumul chômage + activité indépendante est <strong>très encadré</strong> (déclaration obligatoire, allocation réduite). Ton mi-temps n'est donc pas qu'un revenu&nbsp;: c'est <strong>ton filet de sécurité</strong>. Un dispositif existe pour ce cas précis — voir le document <i>« Tremplin-indépendants »</i>.</p>
+  </div>
+
+  <h2>2. La PLCI — le levier n°1 pour compenser la pension</h2>
+  <p>La <strong>Pension Libre Complémentaire pour Indépendants</strong> est une épargne-pension dont les primes sont <strong>déductibles</strong> de tes revenus professionnels. C'est le meilleur rapport avantage/coût pour corriger exactement la faiblesse identifiée.</p>
+
+  <h3>Réforme 2026 <span class="badge new">nouveau</span> — la PLCI devient accessible aux complémentaires</h3>
+  <table>
+    <thead><tr><th>Condition</th><th>Avant (jusqu'en 2025)</th><th>Depuis 2026</th></tr></thead>
+    <tbody>
+      <tr><td>Ancienneté</td><td class="ko">3 années civiles complètes en complémentaire</td><td class="ok">Supprimée</td></tr>
+      <tr><td>Revenu minimum</td><td class="ko">Cotiser autant qu'un indépendant principal (~17 374 €)</td><td class="ok">Supprimé — <strong>quel que soit le revenu</strong></td></tr>
+      <tr><td>Condition restante</td><td colspan="2" class="ok">Être indépendant complémentaire et <strong>payer des cotisations sociales</strong> (pas d'exemption)</td></tr>
+    </tbody>
+  </table>
+  <div class="callout key">
+    <p><strong>Ce que ça change pour toi.</strong> Avant la réforme, tu aurais dû attendre 3 ans <em>et</em> avoir des revenus élevés. <strong>Depuis 2026, tu peux souscrire une PLCI dès que tu paies tes cotisations INASTI</strong>, quel que soit ton bénéfice. C'est un changement majeur, directement favorable à ta situation.</p>
+  </div>
+
+  <h3>Plafonds 2026</h3>
+  <table>
+    <thead><tr><th>Formule</th><th class="num">% du revenu</th><th class="num">Plafond annuel</th><th>Particularité</th></tr></thead>
+    <tbody>
+      <tr><td><strong>PLCI ordinaire</strong></td><td class="num">8,50 %</td><td class="num">4 251,39 €</td><td>La formule standard</td></tr>
+      <tr><td><strong>PLCI sociale</strong></td><td class="num">9,78 %</td><td class="num">4 891,60 €</td><td>Plafond plus élevé ; inclut des garanties de solidarité (incapacité, décès)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Le double avantage fiscal — chiffré sur ton cas</h3>
+  <table>
+    <caption>Exemple : bénéfice d'activité ~14 700 € (CA 19 k€), prime PLCI de 1 250 €</caption>
+    <thead><tr><th>Effet</th><th class="num">Calcul</th><th class="num">Gain</th></tr></thead>
+    <tbody>
+      <tr><td>Réduction d'impôt (taux marginal ~40 %)</td><td class="num">1 250 × 40 %</td><td class="num ok">≈ 500 €</td></tr>
+      <tr><td>Économie de cotisations sociales (20,5 %)</td><td class="num">1 250 × 20,5 %</td><td class="num ok">≈ 256 €</td></tr>
+      <tr class="tot"><td>Coût réel de 1 250 € épargnés</td><td class="num">1 250 − 756</td><td class="num">≈ 494 €</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <p><strong>Autrement dit</strong>&nbsp;: pour <strong>~494 € réellement sortis de ta poche</strong>, tu places <strong>1 250 €</strong> sur ta pension. L'État finance ~60 % de l'effort, précisément parce que ton taux marginal est élevé (le « défaut » du cumul devient ici un avantage). C'est le meilleur levier disponible pour compenser la faiblesse de pension du mi-temps.</p>
+  </div>
+
+  <h2 class="pb">3. Plan d'action — dans quel ordre ?</h2>
+  <table>
+    <thead><tr><th>Priorité</th><th>Action</th><th>Quand</th><th class="num">Coût / effet</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge">1</span></td><td><strong>Sécuriser le mi-temps</strong> — c'est ton filet chômage + soins de santé + base de pension</td><td>En continu</td><td class="num">—</td></tr>
+      <tr><td><span class="badge">2</span></td><td><strong>RC professionnelle</strong> (voir document dédié)</td><td>Au lancement</td><td class="num">~350–450 €/an</td></tr>
+      <tr><td><span class="badge">3</span></td><td><strong>PLCI</strong> — dès que les cotisations INASTI sont payées</td><td>Dès l'activité lancée</td><td class="num">jusqu'à 4 251 €/an<br><span class="tag">coût réel ~40 %</span></td></tr>
+      <tr><td><span class="badge">4</span></td><td><strong>Revenu garanti</strong> (incapacité) — si l'activité devient significative</td><td>Plus tard</td><td class="num">variable</td></tr>
+      <tr><td><span class="badge">5</span></td><td><strong>Passage en principal</strong> → droit passerelle, meilleure pension</td><td>Quand l'activité porte seule</td><td class="num">cotisations pleines</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout key">
+    <p><strong>Le raisonnement d'ensemble.</strong> Le statut complémentaire est un <strong>statut de transition</strong>&nbsp;: il te donne la sécurité du salariat pendant que tu construis l'activité, au prix d'une protection sociale d'indépendant limitée (pas de chômage sur l'activité, pension modeste). Les deux leviers pour compenser sont la <strong>PLCI</strong> (dès maintenant, très rentable fiscalement) et, à terme, le <strong>passage en principal</strong> qui ouvre le droit passerelle et une pension pleine.</p>
+  </div>
+
+  <h2>4. Ce qu'il reste à vérifier</h2>
+  <ul>
+    <li><strong>Montant exact de ta future pension</strong> — simulateur officiel <strong>mypension.be</strong> (gratuit, avec ta carte d'identité) : il intègre déjà la carrière mixte salarié + indépendant.</li>
+    <li><strong>PLCI ordinaire ou sociale</strong> — la sociale coûte un peu plus mais inclut des garanties (incapacité, décès) : à arbitrer avec ta caisse (Xerius) ou un courtier.</li>
+    <li><strong>Date d'entrée en vigueur exacte</strong> de la réforme PLCI 2026 et modalités pratiques — à confirmer auprès de la caisse.</li>
+    <li><strong>Impact du chômage</strong> si tu perdais le mi-temps → voir le document <i>« Tremplin-indépendants »</i> (dispositif ONEM, démarches via ton organisme de paiement).</li>
+  </ul>
+
+  <div class="foot">
+    <p>Informations = ordres de grandeur pédagogiques, à confirmer auprès de la caisse d'assurances sociales (Xerius), de l'ONEM et de mypension.be. Plafonds PLCI 2026 : ordinaire 8,50 % / 4 251,39 € ; sociale 9,78 % / 4 891,60 € (2025 : 8,17 % / 4 000,44 € et 9,40 % / 4 602,72 €). Réforme 2026 : suppression de la condition de 3 années civiles et du seuil de revenu minimum pour les indépendants complémentaires — entrée en vigueur début 2026, modalités à confirmer. La déduction PLCI se fait au taux marginal d'imposition. Sources : liantis.be (réforme PLCI), yago.be, securex.be, degandpartners.com, abc-cgg.be, onem.be, mypension.be.</p>
+  </div>
+
+</body>
+</html>

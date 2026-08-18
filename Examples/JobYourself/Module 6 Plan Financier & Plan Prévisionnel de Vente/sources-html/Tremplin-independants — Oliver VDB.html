@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Tremplin-indépendants — Oliver Van Droogenbroeck</title>
+<style>
+  @page { size: A4; margin: 14mm 13mm 13mm 13mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: #1a2a33; font-size: 9.7pt; line-height: 1.43; margin: 0; }
+  h1 { font-size: 17pt; color: #14504a; margin: 0 0 1.5mm 0; line-height: 1.1; }
+  .sub { color: #6a7b82; font-size: 9pt; margin: 0 0 4mm 0; }
+  h2 { font-size: 12pt; color: #14504a; border-bottom: 1.5px solid #14504a; padding-bottom: 1.1mm; margin: 6mm 0 2.5mm 0; page-break-after: avoid; }
+  h3 { font-size: 10.3pt; color: #10403b; margin: 3.5mm 0 1.5mm 0; page-break-after: avoid; }
+  p { margin: 0 0 2mm 0; }
+  ul { margin: 0 0 2.5mm 0; padding-left: 4.5mm; } li { margin-bottom: 1.1mm; }
+  strong { color: #10403b; }
+  .intro { font-size: 8.9pt; color: #445; background: #f2f6f5; border: 1px solid #d7e2df; border-radius: 3px; padding: 2.5mm 3mm; margin: 0 0 3mm 0; }
+  .intro b { color: #10403b; }
+  table { width: 100%; border-collapse: collapse; margin: 2mm 0 3mm 0; font-size: 8.8pt; page-break-inside: avoid; }
+  caption { caption-side: top; text-align: left; font-weight: 700; color: #10403b; font-size: 10pt; padding: 1.5mm 0 1.5mm 0; }
+  th, td { border: 1px solid #cfdad8; padding: 1.6mm 2.1mm; vertical-align: top; text-align: left; }
+  thead th { background: #14504a; color: #fff; font-weight: 600; }
+  thead th.num, td.num { text-align: right; white-space: nowrap; }
+  td.c { text-align: center; }
+  tr:nth-child(even) td { background: #f7faf9; }
+  tr.tot td { background: #14504a !important; color: #fff; font-weight: 700; }
+  .tag { font-size: 7.7pt; color: #7a8a90; }
+  .ok { color:#14504a; font-weight:700; } .ko { color:#b23a2e; font-weight:700; }
+  .callout { border-left: 4px solid #c98a1b; background: #fdf6e9; padding: 2.3mm 3.2mm; margin: 2.5mm 0; page-break-inside: avoid; font-size: 9pt; }
+  .callout.key { border-left-color: #14504a; background: #eef4f1; }
+  .callout.warn { border-left-color: #b23a2e; background: #fbeceb; }
+  .callout p:last-child { margin-bottom: 0; }
+  .foot { margin-top: 5mm; padding-top: 2.5mm; border-top: 1px solid #cfdad8; font-size: 7.7pt; color: #6a7b82; }
+  .pb { page-break-before: always; }
+  .step { border-left: 3px solid #14504a; padding-left: 3mm; margin: 0 0 2.5mm 0; page-break-inside: avoid; }
+  .step h3 { margin: 0 0 0.8mm 0; }
+  .who { font-size: 8.3pt; color: #6a7b82; }
+  .badge { display:inline-block; background:#14504a; color:#fff; font-size:7.7pt; padding:0.4mm 1.6mm; border-radius:3px; vertical-align:middle; }
+</style>
+</head>
+<body>
+
+  <h1>Le « Tremplin-indépendants » — dispositif ONEM</h1>
+  <p class="sub">Cumuler allocations de chômage et activité indépendante · Oliver Van Droogenbroeck · Bruxelles · Module 6 JobYourself · juillet 2026</p>
+
+  <div class="intro">
+    <b>À quoi ça sert ?</b> Normalement, exercer une activité indépendante pendant le chômage <b>supprime ou réduit fortement</b> tes allocations.
+    Le <b>Tremplin-indépendants</b> est une exception&nbsp;: il permet de <b>cumuler chômage et activité indépendante complémentaire pendant 12 mois</b>,
+    le temps de lancer son projet. <b>Scénario concerné pour toi</b>&nbsp;: si tu perdais ton mi-temps alors que ton activité est lancée.
+  </div>
+
+  <h2>1. Le principe en bref</h2>
+  <table>
+    <thead><tr><th>Élément</th><th>Règle</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Durée</strong></td><td><strong>12 mois maximum</strong>, <span class="ko">non prolongeable</span></td></tr>
+      <tr><td><strong>Ce que tu gardes</strong></td><td>Tes allocations de chômage, <em>réduites</em> uniquement si tes revenus d'activité dépassent le seuil</td></tr>
+      <tr><td><strong>Seuil de revenus</strong></td><td>Bénéfice net journalier ≤ <strong>~18,08 €/jour</strong> <span class="tag">(indice 03/2026 ; ~17,72 € en 2025)</span> — au-delà, l'allocation baisse du surplus</td></tr>
+      <tr><td><strong>Réutilisation</strong></td><td>Pas d'accès si tu en as déjà bénéficié dans les <strong>6 dernières années</strong></td></tr>
+      <tr><td><strong>Statut de l'activité</strong></td><td>Indépendant <strong>à titre complémentaire</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout key">
+    <p><strong>Le seuil en clair.</strong> ~18,08 €/jour ≈ <strong>~470 €/mois</strong> de bénéfice net toléré sans réduction d'allocation. Au-delà, ton allocation journalière est diminuée du montant qui dépasse. Ce n'est donc <em>pas</em> un cumul illimité&nbsp;: c'est un coup de pouce au démarrage, pas un revenu d'appoint durable.</p>
+  </div>
+
+  <h2>2. Les conditions d'accès</h2>
+  <table>
+    <thead><tr><th class="c">✔</th><th>Condition</th><th>Précision pour ton cas</th></tr></thead>
+    <tbody>
+      <tr><td class="c ok">1</td><td><strong>Être au chômage</strong> (bénéficier d'allocations)</td><td>Y compris si tu exerçais déjà l'activité complémentaire <em>avant</em> de perdre ton emploi</td></tr>
+      <tr><td class="c ok">2</td><td><strong>Prouver ses compétences en gestion</strong></td><td>Par diplôme ou expérience professionnelle</td></tr>
+      <tr><td class="c ok">3</td><td><strong>Exercer personnellement l'activité</strong></td><td>Sans salarié ni sous-traitant</td></tr>
+      <tr><td class="c ok">4</td><td><strong>Aucune activité salariée ou artistique</strong> pendant la période</td><td>Le Tremplin est exclusif</td></tr>
+      <tr><td class="c ok">5</td><td><strong>Pas de Tremplin dans les 6 dernières années</strong></td><td>Une seule fois par période de 6 ans</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <p><strong>Attention — condition 4.</strong> Pendant le Tremplin, tu ne peux <strong>pas</strong> exercer d'activité salariée. Ce dispositif ne sert donc <em>pas</em> à cumuler mi-temps + activité + chômage&nbsp;: il s'active <strong>uniquement si tu es en chômage complet</strong>, sans emploi salarié à côté.</p>
+  </div>
+
+  <h2>3. La procédure — étape par étape</h2>
+
+  <div class="step">
+    <h3>Étape 1 — Anticiper la demande <span class="badge">jusqu'à 3 mois avant</span></h3>
+    <p class="who">Quand : au plus tôt 3 mois avant le début (ou la poursuite) de l'activité.</p>
+    Ne commence pas l'activité sans avoir introduit la demande — l'antériorité compte.
+  </div>
+
+  <div class="step">
+    <h3>Étape 2 — Remplir les formulaires C1 et C1C</h3>
+    <p class="who">Où : auprès de ton <strong>organisme de paiement</strong> — à Bruxelles : FGTB, CSC, CGSLB (syndicats) ou <strong>CAPAC</strong> (si tu n'es pas syndiqué).</p>
+    Le <strong>C1</strong> déclare ta situation ; le <strong>C1C</strong> déclare spécifiquement l'activité indépendante accessoire.
+  </div>
+
+  <div class="step">
+    <h3>Étape 3 — Décision de l'ONEM</h3>
+    <p class="who">Qui : l'ONEM statue sur ta demande via ton organisme de paiement.</p>
+    Une fois accordé, le compteur des <strong>12 mois</strong> démarre.
+  </div>
+
+  <div class="step">
+    <h3>Étape 4 — Déclarer tes revenus</h3>
+    <p class="who">En continu, pendant toute la durée du dispositif.</p>
+    Tes bénéfices nets sont contrôlés&nbsp;: au-delà de ~18,08 €/jour, l'allocation est réduite d'autant.
+  </div>
+
+  <div class="callout">
+    <p><strong>Spécificité bruxelloise.</strong> L'<strong>ONEM</strong> gère le dispositif (compétence fédérale) et le paiement passe par ton organisme de paiement. À Bruxelles, <strong>Actiris</strong> reste ton service régional d'emploi (inscription comme demandeur d'emploi, accompagnement) — il ne gère pas le Tremplin lui-même mais tu dois rester en règle avec lui. À Bruxelles, des structures d'accompagnement (dont <strong>JobYourself</strong>, hub.brussels, 1819.brussels) peuvent aider à monter le dossier.</p>
+  </div>
+
+  <h2 class="pb">4. Est-ce pertinent pour toi ? — analyse</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>Le Tremplin s'applique&nbsp;?</th><th>Commentaire</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Aujourd'hui</strong> : mi-temps + activité complémentaire</td><td class="c ko">Non</td><td>Tu n'es pas au chômage ; la condition 4 exclut l'activité salariée</td></tr>
+      <tr><td><strong>Si tu perds ton mi-temps</strong>, activité déjà lancée</td><td class="c ok">Oui</td><td>Cas typique&nbsp;: tu passes au chômage et gardes l'activité 12 mois avec allocations</td></tr>
+      <tr><td><strong>Si tu quittes volontairement</strong> ton mi-temps</td><td class="c">Sous conditions</td><td>Une démission peut entraîner des sanctions ONEM — à vérifier avant tout</td></tr>
+      <tr><td><strong>Après 12 mois de Tremplin</strong></td><td class="c ko">Fin</td><td>Il faut soit vivre de l'activité (passage en principal), soit retrouver un emploi</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout key">
+    <p><strong>À retenir.</strong> Le Tremplin est un <strong>filet de sécurité à connaître, pas une stratégie active</strong> dans ta situation actuelle. Il devient très utile <em>si</em> ton mi-temps disparaît&nbsp;: il t'offrirait <strong>12 mois</strong> pour faire décoller l'activité tout en gardant un revenu de base. Le connaître à l'avance permet de réagir vite (la demande doit être introduite <em>avant</em> ou au début de la période).</p>
+  </div>
+
+  <h2>5. Comparaison avec les autres filets</h2>
+  <table>
+    <thead><tr><th>Dispositif</th><th>Pour qui</th><th>Durée</th><th>Ce qu'il apporte</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Tremplin-indépendants</strong></td><td>Chômeur qui lance/poursuit une activité indépendante</td><td>12 mois</td><td>Cumul chômage + activité (sous seuil)</td></tr>
+      <tr><td><strong>Droit passerelle</strong></td><td>Indépendant <strong>à titre principal</strong> en cessation ou difficulté</td><td>variable</td><td>Revenu de remplacement + maintien des droits sociaux</td></tr>
+      <tr><td><strong>Phase test JobYourself</strong></td><td>Porteur de projet accompagné</td><td>durée du test</td><td>Facturer via la coopérative sans créer d'entreprise</td></tr>
+      <tr><td><strong>Statut complémentaire</strong> <span class="tag">(ta situation)</span></td><td>Salarié ≥ mi-temps qui a une activité à côté</td><td>illimité</td><td>Sécurité du salariat + cotisations réduites</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>Logique d'ensemble.</strong> Ces dispositifs se relaient selon ta trajectoire&nbsp;: <em>phase test JYS</em> → <em>complémentaire</em> (aujourd'hui) → si perte du mi-temps&nbsp;: <em>Tremplin 12 mois</em> → si l'activité décolle&nbsp;: <em>indépendant principal</em> (protégé par le <em>droit passerelle</em>). Chaque étape a son filet.</p>
+  </div>
+
+  <h2>6. Contacts utiles (Bruxelles)</h2>
+  <table>
+    <thead><tr><th>Organisme</th><th>Rôle</th><th>Contact</th></tr></thead>
+    <tbody>
+      <tr><td><strong>ONEM</strong></td><td>Décide du Tremplin (feuilles info T41, T158)</td><td>onem.be</td></tr>
+      <tr><td><strong>Organisme de paiement</strong></td><td>Dépôt des formulaires C1 / C1C</td><td>FGTB, CSC, CGSLB ou CAPAC</td></tr>
+      <tr><td><strong>Actiris</strong></td><td>Service régional emploi bruxellois (inscription, accompagnement)</td><td>actiris.brussels</td></tr>
+      <tr><td><strong>1819 / hub.brussels</strong></td><td>Info entrepreneurs à Bruxelles</td><td>1819.brussels</td></tr>
+      <tr><td><strong>JobYourself</strong></td><td>Accompagnement au lancement (ton parcours actuel)</td><td>jyb.brussels</td></tr>
+    </tbody>
+  </table>
+
+  <div class="foot">
+    <p>Informations = synthèse pédagogique, à confirmer auprès de l'ONEM et de ton organisme de paiement avant toute démarche. Durée 12 mois non prolongeable ; seuil de revenu ~18,08 €/jour (indice au 01.03.2026 ; ~17,72 €/jour en 2025), montants indexés. Conditions : être au chômage, compétences en gestion, activité exercée personnellement sans salarié ni sous-traitant, aucune activité salariée ou artistique pendant la période, pas de Tremplin dans les 6 dernières années. Formulaires C1 et C1C à introduire au plus tôt 3 mois avant le début de l'activité. Une démission volontaire peut entraîner des sanctions ONEM. Sources : onem.be (feuilles info T41 et T158), hvw-capac.fgov.be, dbaccounting.be, billy.tech, myfid.be, avixi.be.</p>
+  </div>
+
+</body>
+</html>

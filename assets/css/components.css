@@ -1,0 +1,999 @@
+/* ============================================================
+   MON SITE ASBL — COMPOSANTS
+   Hero, douleurs, offres, timeline « boules + fil », preuves,
+   tarifs, FAQ, CTA final, prairie pré-footer, formulaire.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   HERO
+   ------------------------------------------------------------ */
+
+.hero {
+  position: relative;
+  padding-block: calc(var(--header-h) + var(--space-7)) var(--space-8);
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .hero { padding-block: calc(var(--header-h) + var(--space-9)) var(--space-9); }
+}
+
+/* Halos pastel — décor pur, sous le contenu */
+.hero__halo {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.hero__halo--orange {
+  inset-block-start: -6rem;
+  inset-inline-end: -8rem;
+  width: 28rem;
+  height: 28rem;
+  background-color: var(--orange-soft);
+}
+
+.hero__halo--vert {
+  inset-block-end: -12rem;
+  inset-inline-start: -10rem;
+  width: 30rem;
+  height: 30rem;
+  background-color: var(--vert-soft);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: var(--space-7);
+  }
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-block-end: var(--space-3);
+  padding: 0.375rem 0.875rem;
+  border: 1px solid var(--border-fort);
+  border-radius: var(--radius-pill);
+  background-color: var(--creme-3);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--brun-doux);
+}
+
+.hero__badge-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--vert);
+  flex: none;
+}
+
+.hero__title { margin-block-end: var(--space-3); }
+
+/* Le mot mis en avant : souligné organique orange */
+.hero__accent {
+  position: relative;
+  color: var(--orange-text);
+  white-space: nowrap;
+}
+
+.hero__underline {
+  position: absolute;
+  inset-inline: -2%;
+  inset-block-end: -0.15em;
+  width: 104%;
+  height: 0.28em;
+  z-index: -1;
+  color: var(--orange-soft);
+  overflow: visible;
+}
+
+.hero__underline path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.hero__lead {
+  max-width: 46ch;
+  margin-block-end: var(--space-4);
+  font-size: var(--text-md);
+  color: var(--brun-doux);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-block-end: var(--space-5);
+}
+
+.hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+
+.hero__trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm);
+  color: var(--brun-doux);
+}
+
+.hero__trust-icon { color: var(--vert-text); flex: none; }
+
+/* --- Carte « pitch » à droite du hero --- */
+
+.hero__card {
+  position: relative;
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--creme-3);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 1024px) { .hero__card { padding: var(--space-5); } }
+
+.hero__card-label {
+  display: block;
+  margin-block-end: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange-text);
+}
+
+.hero__card-quote {
+  font-family: var(--font-titre);
+  font-size: var(--text-lg);
+  line-height: 1.45;
+  color: var(--brun-fonce);
+}
+
+.hero__card-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-block-start: var(--space-3);
+  padding-block-start: var(--space-3);
+  border-block-start: 1px solid var(--border);
+}
+
+.hero__card-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.hero__card-check {
+  flex: none;
+  width: 1.375rem;
+  height: 1.375rem;
+  margin-block-start: 0.1rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--vert-soft);
+  color: var(--vert-text);
+  display: grid;
+  place-items: center;
+}
+
+.hero__card-sign {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block-start: var(--space-3);
+  padding-block-start: var(--space-3);
+  border-block-start: 1px solid var(--border);
+}
+
+.hero__card-avatar {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: none;
+  border-radius: 50%;
+  background: linear-gradient(140deg, var(--orange-soft), var(--vert-soft));
+  display: grid;
+  place-items: center;
+  font-family: var(--font-titre);
+  font-weight: 700;
+  color: var(--brun-fonce);
+}
+
+.hero__card-name {
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--brun-fonce);
+}
+
+.hero__card-role {
+  font-size: var(--text-xs);
+  color: var(--brun-doux);
+}
+
+/* ------------------------------------------------------------
+   BANDEAU DE CHIFFRES
+   ------------------------------------------------------------ */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--creme-3);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 768px) {
+  .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.stats__item { text-align: center; }
+
+.stats__value {
+  display: block;
+  font-family: var(--font-titre);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--orange-text);
+  line-height: 1.1;
+}
+
+.stats__label {
+  display: block;
+  margin-block-start: 0.25rem;
+  font-size: var(--text-xs);
+  color: var(--brun-doux);
+}
+
+/* ------------------------------------------------------------
+   DOULEURS (le constat)
+   ------------------------------------------------------------ */
+
+.pains {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) { .pains { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .pains { grid-template-columns: repeat(4, 1fr); } }
+
+.pain {
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--creme-3);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur) var(--ease-out),
+              box-shadow var(--dur) var(--ease-out);
+}
+
+.pain:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+@media (prefers-reduced-motion: reduce) { .pain:hover { transform: none; } }
+
+.pain__icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-block-end: var(--space-2);
+  border-radius: var(--radius-sm);
+  background-color: var(--creme-2);
+  color: var(--orange-text);
+  display: grid;
+  place-items: center;
+}
+
+.pain__title { margin-block-end: 0.5rem; font-size: var(--text-md); }
+
+.pain__text { font-size: var(--text-sm); color: var(--brun-doux); }
+
+/* ------------------------------------------------------------
+   OFFRES
+   ------------------------------------------------------------ */
+
+.offers {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+/* Deux colonnes en tablette (la 3e carte passe dessous, pleine
+   largeur), trois seulement en desktop : à 768px, trois cartes
+   côte à côte tombent sous ~220px et le texte se hache sur
+   3 mots par ligne. */
+@media (min-width: 768px) {
+  .offers { grid-template-columns: repeat(2, 1fr); }
+  /* Trois cartes sur deux colonnes : la dernière serait
+     orpheline — elle prend toute la ligne. */
+  .offers > :last-child { grid-column: 1 / -1; }
+}
+
+@media (min-width: 1024px) {
+  .offers { grid-template-columns: repeat(3, 1fr); }
+  .offers > :last-child { grid-column: auto; }
+}
+
+.offer {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--creme-3);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur) var(--ease-out),
+              box-shadow var(--dur) var(--ease-out),
+              border-color var(--dur) var(--ease-out);
+}
+
+.offer:hover {
+  transform: translateY(-6px);
+  border-color: var(--orange-soft);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (prefers-reduced-motion: reduce) { .offer:hover { transform: none; } }
+
+.offer__icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-block-end: var(--space-3);
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  color: var(--brun-fonce);
+}
+
+.offer__icon--a { background-color: var(--orange-soft); }
+.offer__icon--b { background-color: var(--vert-soft); }
+.offer__icon--c { background-color: var(--sable); }
+
+.offer__title { margin-block-end: var(--space-1); }
+
+.offer__text {
+  margin-block-end: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--brun-doux);
+}
+
+.offer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-block-end: var(--space-3);
+}
+
+.offer__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: var(--text-sm);
+}
+
+.offer__tick {
+  flex: none;
+  margin-block-start: 0.28rem;
+  color: var(--vert-text);
+}
+
+.offer__price {
+  margin-block-start: auto;
+  padding-block-start: var(--space-2);
+  border-block-start: 1px solid var(--border);
+  font-size: var(--text-sm);
+  color: var(--brun-doux);
+}
+
+.offer__price strong {
+  display: block;
+  font-family: var(--font-titre);
+  font-size: var(--text-lg);
+  color: var(--orange-text);
+}
+
+/* ------------------------------------------------------------
+   PROCESS — timeline « boules + fil qui les traverse »
+   Reprise de la mécanique du portfolio (StepsSection) :
+   un fil dégradé vertical, un overlay couleur-fond qui se
+   rétracte au scroll (scrub) pour révéler le fil, et une boule
+   par étape posée sur le fil.
+   ------------------------------------------------------------ */
+
+/* Les cartes entrent latéralement (process.js les décale de
+   ±60px avant leur arrivée) : sans ce clip, ce décalage crée
+   une barre de défilement horizontale de quelques pixels. */
+.process { position: relative; overflow-x: clip; }
+
+.process__track { position: relative; }
+
+/* --- Le fil (desktop : centré · mobile : à gauche) --- */
+
+.process__line {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 1.375rem;
+  width: 3px;
+  height: 100%;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .process__line {
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.process__thread {
+  width: 3px;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--gradient-fil);
+}
+
+/* Masque qui se rétracte vers le bas → le fil « se dessine » */
+.process__mask {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  width: 9px;
+  height: 100%;
+  z-index: 1;
+  background-color: var(--creme);
+}
+
+.section--alt .process__mask { background-color: var(--creme-2); }
+
+/* --- Les étapes --- */
+
+.process__steps {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+@media (min-width: 1024px) {
+  .process__steps { gap: var(--space-8); }
+}
+
+.step {
+  position: relative;
+  padding-inline-start: 4.5rem;
+}
+
+@media (min-width: 1024px) {
+  .step {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--space-9);
+    padding-inline-start: 0;
+  }
+}
+
+/* La « boule » sur le fil */
+.step__bullet {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: 2;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 2px solid var(--border-fort);
+  background-color: var(--creme-3);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-titre);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--brun-fonce);
+}
+
+@media (min-width: 1024px) {
+  .step__bullet {
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    width: 4.5rem;
+    height: 4.5rem;
+    font-size: var(--text-xl);
+    transform: translate(-50%, -50%);
+    border-width: 3px;
+  }
+}
+
+/* Halo pulsant quand l'étape est atteinte */
+.step__bullet::after {
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--orange);
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.step.is-active .step__bullet {
+  border-color: var(--orange);
+  background-color: var(--orange-soft);
+}
+
+.step__card {
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--creme-3);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 1024px) {
+  .step__card { padding: var(--space-4); }
+  /* Alternance gauche / droite autour du fil */
+  .step:nth-child(odd) .step__card  { grid-column: 1; }
+  .step:nth-child(odd) .step__body  { grid-column: 2; }
+  .step:nth-child(even) .step__card { grid-column: 2; grid-row: 1; }
+  .step:nth-child(even) .step__body { grid-column: 1; grid-row: 1; }
+}
+
+.step__meta {
+  display: block;
+  margin-block-end: 0.375rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vert-text);
+}
+
+.step__title { margin-block-end: var(--space-1); }
+
+.step__text { font-size: var(--text-sm); color: var(--brun-doux); }
+
+.step__body { margin-block-start: var(--space-2); }
+
+@media (min-width: 1024px) { .step__body { margin-block-start: 0; } }
+
+.step__points { display: flex; flex-direction: column; gap: 0.625rem; }
+
+.step__point {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: var(--text-sm);
+  color: var(--brun-doux);
+}
+
+.step__tick { flex: none; margin-block-start: 0.28rem; color: var(--orange-text); }
+
+/* ------------------------------------------------------------
+   PREUVES / RÉALISATIONS
+   ------------------------------------------------------------ */
+
+.works {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+/* Même logique que .offers : deux colonnes en tablette, la
+   troisième carte prenant la ligne entière. */
+@media (min-width: 768px) {
+  .works { grid-template-columns: repeat(2, 1fr); }
+  /* Étalée sur deux colonnes, la 3e carte doublerait la hauteur
+     de son visuel en gardant le 16/10 : on la passe en rangée,
+     image à gauche et contenu à côté. */
+  .works > :last-child { grid-column: 1 / -1; flex-direction: row; }
+  .works > :last-child .work__visual { flex: 0 0 45%; aspect-ratio: auto; }
+  .works > :last-child .work__body { flex: 1; justify-content: center; }
+}
+
+@media (min-width: 1024px) {
+  .works { grid-template-columns: repeat(3, 1fr); }
+  .works > :last-child { grid-column: auto; flex-direction: column; }
+  .works > :last-child .work__visual { flex: none; aspect-ratio: 16 / 10; }
+  .works > :last-child .work__body { justify-content: flex-start; }
+}
+
+.work {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--creme-3);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur) var(--ease-out),
+              box-shadow var(--dur) var(--ease-out);
+}
+
+.work:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+@media (prefers-reduced-motion: reduce) { .work:hover { transform: none; } }
+
+.work__visual {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.work__visual--a { background: linear-gradient(140deg, #F5C89E, #E8A97A); }
+.work__visual--b { background: linear-gradient(140deg, #C9DBBE, #A3BE95); }
+.work__visual--c { background: linear-gradient(140deg, #E8D9C3, #CDBBA3); }
+
+.work__initials {
+  font-family: var(--font-titre);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: var(--brun-fonce);
+  opacity: 0.75;
+}
+
+.work__tag {
+  position: absolute;
+  inset-block-start: var(--space-2);
+  inset-inline-start: var(--space-2);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--creme-3);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--brun-texte);
+}
+
+.work__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-3);
+}
+
+.work__title { margin-block-end: 0.375rem; }
+
+.work__text {
+  font-size: var(--text-sm);
+  color: var(--brun-doux);
+  margin-block-end: var(--space-2);
+}
+
+.work__result {
+  margin-block-start: auto;
+  padding-block-start: var(--space-2);
+  border-block-start: 1px solid var(--border);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--vert-text);
+}
+
+/* ------------------------------------------------------------
+   TÉMOIGNAGE / CITATION
+   ------------------------------------------------------------ */
+
+.quote {
+  max-width: 52rem;
+  margin-inline: auto;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background-color: var(--creme-3);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.quote__mark {
+  font-family: var(--font-titre);
+  font-size: var(--text-4xl);
+  line-height: 0.6;
+  color: var(--orange-soft);
+}
+
+.quote__text {
+  margin-block: var(--space-2) var(--space-3);
+  font-family: var(--font-titre);
+  font-size: var(--text-lg);
+  line-height: 1.5;
+  color: var(--brun-fonce);
+}
+
+.quote__author { font-size: var(--text-sm); color: var(--brun-doux); }
+
+/* ------------------------------------------------------------
+   FAQ — <details> natif, enrichi par GSAP
+   ------------------------------------------------------------ */
+
+.faq {
+  max-width: 48rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.faq__item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--creme-3);
+  overflow: hidden;
+}
+
+.faq__item[open] { border-color: var(--orange-soft); }
+
+.faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  min-height: 3.25rem;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-titre);
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--brun-fonce);
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq__q::-webkit-details-marker { display: none; }
+
+.faq__q:hover { color: var(--orange-text); }
+
+.faq__icon {
+  flex: none;
+  color: var(--orange-text);
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.faq__item[open] .faq__icon { transform: rotate(45deg); }
+
+.faq__a {
+  padding: 0 var(--space-3) var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--brun-doux);
+  max-width: var(--measure);
+}
+
+/* ------------------------------------------------------------
+   CTA FINAL + FORMULAIRE
+   ------------------------------------------------------------ */
+
+.cta {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(150deg, #F6EADC 0%, #F5DCC4 55%, #DCE7D2 100%);
+  border: 1px solid var(--border);
+  padding: var(--space-5) var(--space-4);
+}
+
+@media (min-width: 1024px) { .cta { padding: var(--space-8) var(--space-7); } }
+
+.cta__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .cta__inner { grid-template-columns: 1fr 1fr; gap: var(--space-7); }
+}
+
+.cta__title { margin-block-end: var(--space-2); }
+
+.cta__text {
+  max-width: 44ch;
+  margin-block-end: var(--space-3);
+  font-size: var(--text-md);
+  color: var(--brun-texte);
+}
+
+.cta__list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.cta__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: var(--text-sm);
+}
+
+.cta__tick { flex: none; margin-block-start: 0.28rem; color: var(--vert-text); }
+
+.form {
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  background-color: var(--creme-3);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.form__row { margin-block-end: var(--space-2); }
+
+.form__label {
+  display: block;
+  margin-block-end: 0.375rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--brun-fonce);
+}
+
+.form__hint {
+  font-weight: 400;
+  color: var(--brun-doux);
+}
+
+.form__input,
+.form__select,
+.form__textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.625rem var(--space-2);
+  border: 1.5px solid var(--border-fort);
+  border-radius: var(--radius-sm);
+  background-color: var(--creme);
+  font-size: var(--text-base);
+  transition: border-color var(--dur) var(--ease-out),
+              box-shadow var(--dur) var(--ease-out);
+}
+
+.form__input::placeholder,
+.form__textarea::placeholder { color: #8A7A6B; }
+
+.form__input:focus,
+.form__select:focus,
+.form__textarea:focus {
+  outline: none;
+  border-color: var(--orange-text);
+  box-shadow: 0 0 0 3px rgba(180, 82, 28, 0.18);
+}
+
+.form__textarea { min-height: 7rem; resize: vertical; }
+
+.form__error {
+  display: none;
+  margin-block-start: 0.375rem;
+  font-size: var(--text-sm);
+  color: var(--erreur);
+}
+
+.form__row.is-invalid .form__error { display: block; }
+
+.form__row.is-invalid .form__input,
+.form__row.is-invalid .form__select,
+.form__row.is-invalid .form__textarea { border-color: var(--erreur); }
+
+.form__actions { margin-block-start: var(--space-3); }
+
+.form__submit { width: 100%; }
+
+.form__legal {
+  margin-block-start: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--brun-doux);
+}
+
+.form__honey {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.form__success {
+  display: none;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background-color: var(--vert-soft);
+  color: var(--vert-text);
+  font-weight: 600;
+  text-align: center;
+}
+
+.form.is-sent .form__success { display: block; }
+.form.is-sent .form__body { display: none; }
+
+/* ------------------------------------------------------------
+   PRAIRIE PRÉ-FOOTER
+   Les plantes émergent du footer brun (la terre) et poussent
+   vers le haut. Bande dédiée : la végétation ne passe jamais
+   sous un titre. flora.js les fait pousser path par path.
+   ------------------------------------------------------------ */
+
+.meadow {
+  position: relative;
+  height: clamp(8rem, 16vw, 15rem);
+  /* La prairie touche le footer : les plantes s'enracinent
+     dans le brun et poussent vers le haut. Marge négative : la
+     dernière section apporte déjà son padding-bottom, sans quoi
+     un large vide sépare le CTA des herbes. */
+  margin-block-start: calc(var(--section-y) * -0.5);
+  pointer-events: none;
+}
+
+/* Chaque slot fixe SA hauteur (variété des silhouettes) ; la
+   largeur suit le ratio du viewBox. Les <img> d'origine comme
+   les <svg> inlinés par flora.js obéissent à la même règle. */
+.meadow__plant {
+  position: absolute;
+  inset-block-end: 0;
+  width: auto;
+  pointer-events: none;
+  transform: rotate(var(--rot, 0deg));
+  transform-origin: 50% 100%;
+  color: var(--vert-text);
+}
+
+/* Emplacements — une silhouette par slot, respiration entre
+   chaque ; hauteurs et inclinaisons variées. */
+.meadow__slot--a { inset-inline-start: 3%;  height: 66%; --rot: -5deg; }
+.meadow__slot--b { inset-inline-start: 15%; height: 44%; --rot: 4deg; }
+.meadow__slot--c { inset-inline-start: 30%; height: 84%; --rot: -2deg; }
+.meadow__slot--d { inset-inline-start: 47%; height: 54%; --rot: 6deg; }
+.meadow__slot--e { inset-inline-start: 64%; height: 94%; --rot: -4deg; }
+.meadow__slot--f { inset-inline-start: 80%; height: 50%; --rot: 3deg; }
+.meadow__slot--g { inset-inline-end: 3%;    height: 72%; --rot: 5deg; }
+
+/* Sur mobile, on allège : trois silhouettes suffisent. */
+@media (max-width: 767px) {
+  .meadow__slot--b,
+  .meadow__slot--d,
+  .meadow__slot--f { display: none; }
+}
+
+/* Au-delà de ~1500px, les slots en % s'écartent tellement que
+   la prairie devient une file d'herbes isolées. On borne sa
+   largeur : les silhouettes se regroupent, centrées, et gagnent
+   en hauteur pour rester à l'échelle du footer. */
+@media (min-width: 1500px) {
+  .meadow {
+    max-width: 1500px;
+    margin-inline: auto;
+    height: clamp(11rem, 13vw, 17rem);
+  }
+}
+
+/* Plantes décoratives ponctuelles dans le corps de page */
+.decor-plant {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.decor-plant--cta {
+  inset-block-end: 0;
+  inset-inline-end: 4%;
+  height: clamp(6rem, 12vw, 11rem);
+}
+
+@media (max-width: 767px) { .decor-plant--cta { display: none; } }

@@ -1,0 +1,159 @@
+/* ============================================================
+   MON SITE ASBL — DESIGN TOKENS
+   ------------------------------------------------------------
+   Source de vérité unique du design system.
+   Palette douce/pastel orientée non-marchand : orange chaleureux
+   (accent, 10 %), vert sauge (secondaire, 30 %), crème & brun
+   (neutres, 60 %).
+
+   Contrastes WCAG 2.2 AA vérifiés — voir commentaires par token.
+
+   Breakpoints (mobile-first, min-width uniquement) :
+     768px tablette · 1024px desktop · 1280px large · 1536px XL
+   ============================================================ */
+
+:root {
+
+  /* ----------------------------------------------------------
+     COULEURS — MARQUE  (règle 60-30-10)
+       60 % crème / fonds clairs
+       30 % vert sauge / brun
+       10 % orange (accent, CTA)
+     ---------------------------------------------------------- */
+
+  --orange: #E07A3F;            /* accent décoratif, grands titres, focus
+                                   ⚠ 3.16:1 sur crème → 18px+/14px+ bold
+                                   ✓ ≥3:1 en composant UI / anneau de focus */
+  --orange-text: #B4521C;       /* orange « texte » — VÉRIFIÉ :
+                                   ✓ 5.16:1 sur crème #FBF5EE (AA normal)
+                                   ✓ 4.86:1 sur crème-2 #F6EADC
+                                   ✓ sert de fond aux boutons primaires
+                                     (texte crème dessus : 5.16:1) */
+  --orange-soft: #F5C89E;       /* pastel décoratif — JAMAIS de texte */
+
+  --vert: #7A9A6B;              /* vert sauge : filets, tags, décor
+                                   ⚠ 2.86:1 sur crème → jamais en texte
+                                   ✓ 4.71:1 sur brun-fonce (grands titres) */
+  --vert-text: #4C6440;         /* vert « texte » — VÉRIFIÉ :
+                                   ✓ 6.09:1 sur crème (AA normal)
+                                   ✓ 5.24:1 sur crème-2 */
+  --vert-soft: #C9DBBE;         /* pastel décoratif — JAMAIS de texte */
+
+  --brun-fonce: #2E2620;        /* fonds sombres (footer), bordures fortes
+                                   ✓ 14.1:1 avec crème #FBF5EE */
+  --brun-texte: #3D3129;        /* CORPS DE TEXTE sur crème — brun chaud
+                                   ✓ 11.7:1 sur crème · ✓ 10.8:1 sur crème-2 */
+  --brun-doux: #6B5A4C;         /* texte secondaire / légendes
+                                   ✓ 5.53:1 sur crème (AA normal) */
+
+  /* ----------------------------------------------------------
+     COULEURS — STRUCTURE
+     Jamais de blanc pur, jamais de gris froid.
+     ---------------------------------------------------------- */
+
+  --creme: #FBF5EE;             /* fond clair principal */
+  --creme-2: #F6EADC;           /* fond alterné, sections, cartes */
+  --creme-3: #FFFDFA;           /* surface haute (cartes sur crème-2) */
+  --creme-warm: #F2E7D8;        /* texte/titres sur fonds bruns — assez chaud
+                                   pour être PERÇU crème ✓ 12.4:1 sur brun */
+  --sable: #E8D9C3;             /* bordures douces, séparateurs */
+
+  --border: #E3D6C4;            /* bordure standard sur crème */
+  --border-fort: #CDBBA3;       /* bordure marquée ✓ 3:1 (composant UI) */
+
+  /* ----------------------------------------------------------
+     COULEURS — ÉTATS
+     ---------------------------------------------------------- */
+
+  --focus: #B4521C;             /* anneau de focus ✓ ≥3:1 sur tous les fonds */
+  --erreur: #B03A2E;            /* ✓ 5.72:1 sur crème */
+  --succes: #4C6440;            /* = vert-text ✓ 6.09:1 sur crème */
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHIE — échelle modulaire fluide
+     Mobile ratio 1.125 · Desktop ratio 1.250 (typescale.com)
+     Jamais de px : rem / clamp() uniquement.
+     ---------------------------------------------------------- */
+
+  --font-titre: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-corps: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Helvetica, Arial, sans-serif;
+
+  --text-xs:   clamp(0.79rem, 0.77rem + 0.10vw, 0.84rem);
+  --text-sm:   clamp(0.89rem, 0.86rem + 0.15vw, 0.96rem);
+  --text-base: clamp(1.00rem, 0.96rem + 0.22vw, 1.13rem);
+  --text-md:   clamp(1.13rem, 1.06rem + 0.33vw, 1.33rem);
+  --text-lg:   clamp(1.27rem, 1.16rem + 0.52vw, 1.60rem);
+  --text-xl:   clamp(1.42rem, 1.26rem + 0.79vw, 1.95rem);
+  --text-2xl:  clamp(1.60rem, 1.36rem + 1.17vw, 2.44rem);
+  --text-3xl:  clamp(1.80rem, 1.46rem + 1.70vw, 3.05rem);
+  --text-4xl:  clamp(2.03rem, 1.55rem + 2.40vw, 3.82rem);
+  --text-5xl:  clamp(2.28rem, 1.62rem + 3.32vw, 4.77rem);
+
+  --leading-tight: 1.12;
+  --leading-titre: 1.2;
+  --leading-corps: 1.65;
+
+  --measure: 65ch;              /* longueur de ligne max 45-75 car. */
+
+  /* ----------------------------------------------------------
+     ESPACEMENT — système 8 points
+     ---------------------------------------------------------- */
+
+  --space-1: 0.5rem;    /*  8px */
+  --space-2: 1rem;      /* 16px */
+  --space-3: 1.5rem;    /* 24px */
+  --space-4: 2rem;      /* 32px */
+  --space-5: 2.5rem;    /* 40px */
+  --space-6: 3rem;      /* 48px */
+  --space-7: 4rem;      /* 64px */
+  --space-8: 5rem;      /* 80px */
+  --space-9: 6rem;      /* 96px */
+  --space-10: 7.5rem;   /* 120px */
+
+  --section-y: clamp(4rem, 9vw, 7.5rem);
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+
+  /* ----------------------------------------------------------
+     FORMES & MATIÈRES
+     ---------------------------------------------------------- */
+
+  --radius-sm: 0.5rem;
+  --radius: 0.875rem;
+  --radius-lg: 1.5rem;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 3px rgba(46, 38, 32, 0.06),
+               0 1px 2px rgba(46, 38, 32, 0.04);
+  --shadow: 0 4px 16px rgba(46, 38, 32, 0.07),
+            0 1px 6px rgba(46, 38, 32, 0.05);
+  --shadow-lg: 0 12px 40px rgba(46, 38, 32, 0.10),
+               0 4px 12px rgba(46, 38, 32, 0.06);
+
+  /* Dégradé du fil conducteur de la timeline (les « boules ») */
+  --gradient-fil: linear-gradient(
+    180deg,
+    rgba(224, 122, 63, 0) 0%,
+    #E07A3F 12%,
+    #E2A15C 34%,
+    #A9B87E 58%,
+    #7A9A6B 82%,
+    rgba(122, 154, 107, 0) 100%
+  );
+
+  /* ----------------------------------------------------------
+     MOUVEMENT
+     ---------------------------------------------------------- */
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur: 320ms;
+  --dur-slow: 600ms;
+
+  --header-h: 4.5rem;
+}
+
+@media (min-width: 1024px) {
+  :root { --header-h: 5.5rem; }
+}

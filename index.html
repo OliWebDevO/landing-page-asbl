@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Site web pour ASBL — création de sites & outils de gestion | Oliver VDB</title>
+  <meta name="description" content="Sites web modernes et outils de gestion sur mesure pour les ASBL belges. Plus de crédibilité auprès des bailleurs, plus de dons, des semaines de travail administratif gagnées. Devis gratuit.">
+  <meta name="author" content="Oliver Van Droogenbroeck">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mon-site-asbl.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_BE">
+  <meta property="og:site_name" content="Mon Site ASBL">
+  <meta property="og:title" content="Site web pour ASBL — création de sites & outils de gestion">
+  <meta property="og:description" content="Sites web modernes et outils de gestion sur mesure pour les ASBL belges. Un partenaire issu du secteur associatif, pas un prestataire jetable.">
+  <meta property="og:url" content="https://mon-site-asbl.com/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🌱</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Mon Site ASBL — Oliver Van Droogenbroeck",
+    "description": "Création de sites web et d'outils de gestion sur mesure pour les ASBL et organisations du non-marchand en Belgique.",
+    "url": "https://mon-site-asbl.com/",
+    "areaServed": { "@type": "Country", "name": "Belgique" },
+    "founder": { "@type": "Person", "name": "Oliver Van Droogenbroeck" },
+    "sameAs": ["https://olivervdb.com/"],
+    "priceRange": "€€",
+    "knowsAbout": ["Site web ASBL", "Outil de gestion associative", "RGPD", "Accessibilité web", "Subsides transition numérique"]
+  }
+  </script>
+
+  <script src="assets/js/vendor/gsap.min.js" defer></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/vendor/lenis.min.js" defer></script>
+  <script src="assets/js/animations/core.js" defer></script>
+  <script src="assets/js/animations/reveals.js" defer></script>
+  <script src="assets/js/animations/process.js" defer></script>
+  <script src="assets/js/animations/flora.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/form.js" defer></script>
+</head>
+
+<body>
+
+<a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header" id="site-header">
+  <div class="header__inner">
+
+    <a class="header__logo" href="#top">
+      <svg class="header__logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <circle cx="16" cy="16" r="15" fill="#C9DBBE"/>
+        <path d="M16 25V13" stroke="#4C6440" stroke-width="2" stroke-linecap="round"/>
+        <path d="M16 16c0-3.3 2.7-6 6-6 0 3.3-2.7 6-6 6Z" fill="#7A9A6B"/>
+        <path d="M16 20c0-2.8-2.2-5-5-5 0 2.8 2.2 5 5 5Z" fill="#E07A3F"/>
+      </svg>
+      <span>Mon&nbsp;Site&nbsp;ASBL</span>
+    </a>
+
+    <nav class="header__nav" aria-label="Navigation principale">
+      <ul class="header__list">
+        <li><a class="header__link" href="#constat">Le constat</a></li>
+        <li><a class="header__link" href="#solutions">Solutions</a></li>
+        <li><a class="header__link" href="#methode">Méthode</a></li>
+        <li><a class="header__link" href="#realisations">Réalisations</a></li>
+        <li><a class="header__link" href="#questions">Questions</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn--primary header__cta" href="#contact">
+      Prendre un café
+      <svg class="btn__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <button class="burger" id="burger" type="button"
+            aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navpanel">
+      <span class="burger__line" data-line="1"></span>
+      <span class="burger__line" data-line="2"></span>
+      <span class="burger__line" data-line="3"></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- Panneau de navigation mobile -->
+<div class="navpanel" id="navpanel" hidden>
+  <nav aria-label="Navigation mobile">
+    <ul class="navpanel__list">
+      <li><a class="navpanel__link" href="#constat">Le constat</a></li>
+      <li><a class="navpanel__link" href="#solutions">Solutions</a></li>
+      <li><a class="navpanel__link" href="#methode">Méthode</a></li>
+      <li><a class="navpanel__link" href="#realisations">Réalisations</a></li>
+      <li><a class="navpanel__link" href="#questions">Questions</a></li>
+    </ul>
+  </nav>
+  <div class="navpanel__footer">
+    <a class="btn btn--primary" href="#contact">Prendre un café</a>
+    <p class="navpanel__meta">Bruxelles · réponse sous 48&nbsp;h</p>
+  </div>
+</div>
+
+<main id="contenu">
+
+  <!-- ==========================================================
+       HERO — accroche issue de l'elevator pitch
+       ========================================================== -->
+  <section class="hero" id="top">
+    <div class="hero__halo hero__halo--orange" aria-hidden="true"></div>
+    <div class="hero__halo hero__halo--vert" aria-hidden="true"></div>
+
+    <div class="shell hero__inner">
+
+      <div class="hero__content">
+        <p class="hero__badge" data-reveal>
+          <span class="hero__badge-dot" aria-hidden="true"></span>
+          Pour les ASBL, AMO, fédérations &amp; collectifs
+        </p>
+
+        <h1 class="hero__title" data-reveal>
+          Votre ASBL mérite un site
+          <span class="hero__accent">à son image<svg class="hero__underline" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M4 8C40 3 90 2 130 5c25 2 45 3 66 1" data-underline/></svg></span>
+        </h1>
+
+        <p class="hero__lead" data-reveal>
+          Je crée des sites web modernes qui donnent de la visibilité aux organisations
+          du non-marchand. Et si besoin, des outils de gestion sur mesure pour centraliser
+          vos dons, inscriptions et subsides.
+        </p>
+
+        <div class="hero__actions" data-reveal>
+          <a class="btn btn--primary btn--lg" href="#contact">
+            Demander un devis gratuit
+            <svg class="btn__arrow" width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="btn btn--ghost btn--lg" href="#realisations">Voir mes réalisations</a>
+        </div>
+
+        <ul class="hero__trust" data-reveal>
+          <li class="hero__trust-item">
+            <svg class="hero__trust-icon" width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Souvent finançable par subside
+          </li>
+          <li class="hero__trust-item">
+            <svg class="hero__trust-icon" width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            RGPD &amp; accessibilité inclus
+          </li>
+          <li class="hero__trust-item">
+            <svg class="hero__trust-icon" width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Formation à l'autonomie
+          </li>
+        </ul>
+      </div>
+
+      <aside class="hero__card" data-reveal aria-label="Ma promesse">
+        <span class="hero__card-label">Ce que je vends vraiment</span>
+        <p class="hero__card-quote">
+          « Du temps rendu à votre mission sociale, de la crédibilité auprès des bailleurs,
+          et la sérénité d'être bien géré et en règle. »
+        </p>
+
+        <ul class="hero__card-list">
+          <li class="hero__card-row">
+            <span class="hero__card-check" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span>Un site que <strong>votre équipe met à jour elle-même</strong></span>
+          </li>
+          <li class="hero__card-row">
+            <span class="hero__card-check" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span>Fini la triple saisie : <strong>tout est centralisé</strong></span>
+          </li>
+          <li class="hero__card-row">
+            <span class="hero__card-check" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span>Rapports de subsides <strong>en 2 clics</strong></span>
+          </li>
+        </ul>
+
+        <div class="hero__card-sign">
+          <span class="hero__card-avatar" aria-hidden="true">OV</span>
+          <span>
+            <span class="hero__card-name">Oliver Van Droogenbroeck</span><br>
+            <span class="hero__card-role">Animation socio-culturelle, puis développement web</span>
+          </span>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       CONSTAT — la double douleur du pitch
+       ========================================================== -->
+  <section class="section section--alt" id="constat">
+    <div class="shell">
+
+      <div class="section__intro">
+        <p class="section__eyebrow" data-reveal>Le constat</p>
+        <h2 data-reveal>Un site qui ne vous ressemble plus, un quotidien noyé dans l'administratif</h2>
+        <p class="section__lead" data-reveal>
+          Un site à la hauteur inspire confiance aux donateurs et aux partenaires.
+          Pourtant beaucoup d'ASBL n'ont pas les moyens d'y arriver — et voient leur
+          énergie absorbée par la gestion.
+        </p>
+      </div>
+
+      <div class="pains">
+
+        <article class="pain" data-reveal>
+          <div class="pain__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 5h16v12H4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M4 9h16M9 21h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="pain__title">Un site daté</h3>
+          <p class="pain__text">
+            Illisible sur mobile, impossible à modifier sans appeler quelqu'un.
+            Il dessert votre image auprès des bailleurs.
+          </p>
+        </article>
+
+        <article class="pain" data-reveal>
+          <div class="pain__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M6 3h9l4 4v14H6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M9 12h7M9 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="pain__title">La triple saisie</h3>
+          <p class="pain__text">
+            Membres dans un tableur, dons dans un autre, inscriptions par mail.
+            Les données sont éparpillées, les erreurs s'accumulent.
+          </p>
+        </article>
+
+        <article class="pain" data-reveal>
+          <div class="pain__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="pain__title">Les rapports de subsides</h3>
+          <p class="pain__text">
+            Des jours entiers à reconstituer des chiffres, chaque année,
+            au lieu de les générer en quelques minutes.
+          </p>
+        </article>
+
+        <article class="pain" data-reveal>
+          <div class="pain__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3 3 7.5v5c0 4.6 3.7 7.9 9 8.5 5.3-.6 9-3.9 9-8.5v-5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="pain__title">Le mauvais choix</h3>
+          <p class="pain__text">
+            Des agences web trop chères qui ne connaissent pas le secteur,
+            ou des outils standards pensés pour les PME.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SOLUTIONS — les 3 offres (CAP : caractéristiques)
+       ========================================================== -->
+  <section class="section" id="solutions">
+    <div class="shell">
+
+      <div class="section__intro">
+        <p class="section__eyebrow" data-reveal>Les solutions</p>
+        <h2 data-reveal>Le site d'abord, l'outil en complément</h2>
+        <p class="section__lead" data-reveal>
+          Chaque projet démarre par ce dont vous avez réellement besoin.
+          Pas de sur-mesure inutile, pas de fonctionnalité que personne n'utilisera.
+        </p>
+      </div>
+
+      <div class="offers">
+
+        <article class="offer" data-reveal>
+          <div class="offer__icon offer__icon--a" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <path d="M3 6h18v13H3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M3 10h18" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="6" cy="8" r="0.9" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="offer__title">Site vitrine</h3>
+          <p class="offer__text">
+            Une présence en ligne professionnelle, écoconçue, que votre équipe édite
+            en autonomie.
+          </p>
+          <ul class="offer__list">
+            <li class="offer__row">
+              <svg class="offer__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Administration simple, sans jargon
+            </li>
+            <li class="offer__row">
+              <svg class="offer__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Dons et inscriptions en ligne
+            </li>
+            <li class="offer__row">
+              <svg class="offer__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Formation + 3 mois de support inclus
+            </li>
+          </ul>
+          <p class="offer__price">
+            <strong>1&nbsp;500 – 2&nbsp;500 €</strong>
+            hébergement 100&nbsp;€/an
+          </p>
+        </article>
+
+        <article class="offer" data-reveal>
+          <div class="offer__icon offer__icon--b" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="17" cy="10" r="2.4" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M3.5 19c.6-3 3-4.6 5.5-4.6S14 16 14.6 19M16 14.6c2 .3 3.7 1.8 4.2 4.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="offer__title">Plateforme membres</h3>
+          <p class="offer__text">
+            Pour les fédérations et réseaux : un espace privé qui fait vivre votre
+            communauté toute l'année.
+          </p>
+          <ul class="offer__list">
+            <li class="offer__row">
+              <svg class="offer__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Espace privé &amp; annuaire des membres
+            </li>
+            <li class="offer__row">
+              <svg class="offer__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Ressources partagées, billetterie
+            </li>
+            <li class="offer__row">
+              <svg class="offer__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Inscriptions aux événements
+            </li>
+          </ul>
+          <p class="offer__price">
+            <strong>Sur devis</strong>
+            selon les modules retenus
+          </p>
+        </article>
+
+        <article class="offer" data-reveal>
+          <div class="offer__icon offer__icon--c" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M8 16v-4M12 16V8M16 16v-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="offer__title">Outil de gestion</h3>
+          <p class="offer__text">
+            Membres, dons, inscriptions, suivi des subsides, tableau de bord :
+            tout au même endroit.
+          </p>
+          <ul class="offer__list">
+            <li class="offer__row">
+              <svg class="offer__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Rapports de subsides en 2 clics
+            </li>
+            <li class="offer__row">
+              <svg class="offer__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Comptabilité associative adaptée
+            </li>
+            <li class="offer__row">
+              <svg class="offer__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Briques réutilisables : moins cher
+            </li>
+          </ul>
+          <p class="offer__price">
+            <strong>à partir de 3&nbsp;000 €</strong>
+            ou en abonnement
+          </p>
+        </article>
+
+      </div>
+
+      <div class="section__intro" data-reveal>
+        <p class="section__lead">
+          Vous ne savez pas par où commencer&nbsp;?
+          <strong>C'est exactement le sujet du premier café.</strong>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       MÉTHODE — timeline « boules + fil » (comme le portfolio)
+       ========================================================== -->
+  <section class="section section--alt process" id="methode">
+    <div class="shell">
+
+      <div class="section__intro">
+        <p class="section__eyebrow" data-reveal>La méthode</p>
+        <h2 data-reveal>Du premier café à votre autonomie</h2>
+        <p class="section__lead" data-reveal>
+          Une co-construction pas-à-pas, en langage clair. Vous savez toujours
+          où en est votre projet — sans surprise, sans jargon.
+        </p>
+      </div>
+
+      <div class="process__track" id="process-track">
+
+        <div class="process__line" aria-hidden="true">
+          <div class="process__thread"></div>
+          <div class="process__mask" id="process-mask"></div>
+        </div>
+
+        <ol class="process__steps">
+
+          <li class="step" data-step>
+            <span class="step__bullet" aria-hidden="true">1</span>
+            <div class="step__card">
+              <span class="step__meta">Étape 1 · gratuit</span>
+              <h3 class="step__title">On prend un café</h3>
+              <p class="step__text">
+                On parle de votre mission, de vos irritants quotidiens et de vos
+                objectifs. Aucun engagement, aucun jargon.
+              </p>
+            </div>
+            <div class="step__body">
+              <ul class="step__points">
+                <li class="step__point">
+                  <svg class="step__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Écoute de vos besoins réels
+                </li>
+                <li class="step__point">
+                  <svg class="step__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Identification du subside mobilisable
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="step" data-step>
+            <span class="step__bullet" aria-hidden="true">2</span>
+            <div class="step__card">
+              <span class="step__meta">Étape 2 · sous 7 jours</span>
+              <h3 class="step__title">Proposition &amp; devis clair</h3>
+              <p class="step__text">
+                Un périmètre écrit noir sur blanc, un prix ferme, un calendrier.
+                Vous décidez en connaissance de cause.
+              </p>
+            </div>
+            <div class="step__body">
+              <ul class="step__points">
+                <li class="step__point">
+                  <svg class="step__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Prix ferme, pas de coût caché
+                </li>
+                <li class="step__point">
+                  <svg class="step__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Aide au montage du dossier de subside
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="step" data-step>
+            <span class="step__bullet" aria-hidden="true">3</span>
+            <div class="step__card">
+              <span class="step__meta">Étape 3</span>
+              <h3 class="step__title">Design &amp; maquette</h3>
+              <p class="step__text">
+                Vous voyez votre futur site avant qu'une ligne de code ne soit
+                écrite. On ajuste ensemble jusqu'à ce que ce soit juste.
+              </p>
+            </div>
+            <div class="step__body">
+              <ul class="step__points">
+                <li class="step__point">
+                  <svg class="step__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Maquettes desktop et mobile
+                </li>
+                <li class="step__point">
+                  <svg class="step__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Allers-retours inclus
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="step" data-step>
+            <span class="step__bullet" aria-hidden="true">4</span>
+            <div class="step__card">
+              <span class="step__meta">Étape 4</span>
+              <h3 class="step__title">Développement</h3>
+              <p class="step__text">
+                Code moderne, rapide et écoconçu. RGPD et accessibilité traités
+                dès la conception — jamais en option.
+              </p>
+            </div>
+            <div class="step__body">
+              <ul class="step__points">
+                <li class="step__point">
+                  <svg class="step__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Points d'étape réguliers
+                </li>
+                <li class="step__point">
+                  <svg class="step__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Conformité RGPD &amp; WCAG intégrée
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="step" data-step>
+            <span class="step__bullet" aria-hidden="true">5</span>
+            <div class="step__card">
+              <span class="step__meta">Étape 5</span>
+              <h3 class="step__title">Formation de l'équipe</h3>
+              <p class="step__text">
+                Conçu pour des non-techniciens. Après la formation, vous modifiez
+                vos contenus sans dépendre de personne.
+              </p>
+            </div>
+            <div class="step__body">
+              <ul class="step__points">
+                <li class="step__point">
+                  <svg class="step__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Session pratique avec votre équipe
+                </li>
+                <li class="step__point">
+                  <svg class="step__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Documentation écrite fournie
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="step" data-step>
+            <span class="step__bullet" aria-hidden="true">6</span>
+            <div class="step__card">
+              <span class="step__meta">Étape 6 · dans la durée</span>
+              <h3 class="step__title">Suivi &amp; évolutions</h3>
+              <p class="step__text">
+                3 mois de support inclus, puis une maintenance si vous le souhaitez.
+                Votre outil évolue avec votre structure.
+              </p>
+            </div>
+            <div class="step__body">
+              <ul class="step__points">
+                <li class="step__point">
+                  <svg class="step__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Documentation de continuité
+                </li>
+                <li class="step__point">
+                  <svg class="step__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Aucun verrouillage technologique
+                </li>
+              </ul>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       RÉALISATIONS — les preuves du CAP
+       ========================================================== -->
+  <section class="section" id="realisations">
+    <div class="shell">
+
+      <div class="section__intro">
+        <p class="section__eyebrow" data-reveal>Les preuves</p>
+        <h2 data-reveal>Des structures qui m'ont fait confiance</h2>
+        <p class="section__lead" data-reveal>
+          Des projets réels, livrés et toujours en service — pas des maquettes.
+        </p>
+      </div>
+
+      <div class="works">
+
+        <article class="work" data-reveal>
+          <div class="work__visual work__visual--a">
+            <span class="work__initials" aria-hidden="true">OVNI</span>
+            <span class="work__tag">Outil de gestion</span>
+          </div>
+          <div class="work__body">
+            <h3 class="work__title">OVNI — comptabilité associative</h3>
+            <p class="work__text">
+              Une application sur mesure pour gérer les finances, les membres et les
+              projets d'un collectif d'artistes bruxellois.
+            </p>
+            <p class="work__result">Bilans et rapports générés automatiquement</p>
+          </div>
+        </article>
+
+        <article class="work" data-reveal>
+          <div class="work__visual work__visual--b">
+            <span class="work__initials" aria-hidden="true">FANAL</span>
+            <span class="work__tag">Plateforme</span>
+          </div>
+          <div class="work__body">
+            <h3 class="work__title">Le Fanal des Chats — refuge animalier</h3>
+            <p class="work__text">
+              Une plateforme complète : quiz d'adoption, formulaires multi-étapes,
+              blog et dons en ligne.
+            </p>
+            <p class="work__result">Dons en ligne &amp; adoptions centralisées</p>
+          </div>
+        </article>
+
+        <article class="work" data-reveal>
+          <div class="work__visual work__visual--c">
+            <span class="work__initials" aria-hidden="true">NOYER</span>
+            <span class="work__tag">Site vitrine</span>
+          </div>
+          <div class="work__body">
+            <h3 class="work__title">Le Noyer — centre médical</h3>
+            <p class="work__text">
+              Un site conçu pour inspirer confiance, informer les patients et
+              laisser l'équipe gérer ses contenus seule.
+            </p>
+            <p class="work__result">Équipe autonome sur ses mises à jour</p>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="section__intro" data-reveal>
+        <a class="btn btn--ghost" href="https://olivervdb.com/" target="_blank" rel="noopener">
+          Voir le portfolio complet sur olivervdb.com
+          <svg class="btn__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="quote" data-reveal>
+        <p class="quote__mark" aria-hidden="true">“</p>
+        <blockquote class="quote__text">
+          Formé à l'animation socio-culturelle avant le développement web,
+          je comprends votre mission et je partage vos valeurs.
+          Un partenaire — pas un prestataire jetable.
+        </blockquote>
+        <p class="quote__author">Oliver Van Droogenbroeck · Bruxelles</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       QUESTIONS — les freins de l'argumentaire
+       ========================================================== -->
+  <section class="section section--alt" id="questions">
+    <div class="shell">
+
+      <div class="section__intro">
+        <p class="section__eyebrow" data-reveal>Vos questions</p>
+        <h2 data-reveal>Les objections qu'on me pose le plus</h2>
+      </div>
+
+      <div class="faq">
+
+        <details class="faq__item" data-reveal>
+          <summary class="faq__q">
+            « C'est trop cher pour notre budget »
+            <svg class="faq__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <div class="faq__a">
+            <p>
+              Un site inadapté vous coûte du temps perdu chaque semaine. Ici, l'outil
+              est amorti par les heures gagnées — et il est souvent finançable par un
+              subside « transition numérique ». Je vous aide à identifier celui qui
+              correspond à votre structure.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item" data-reveal>
+          <summary class="faq__q">
+            « On n'est pas du tout technophiles »
+            <svg class="faq__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <div class="faq__a">
+            <p>
+              C'est précisément pour vous que je conçois. Accompagnement pas-à-pas,
+              langage clair sans jargon, formation à l'autonomie et 3 mois de support
+              inclus. Mes interfaces sont pensées pour des non-techniciens.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item" data-reveal>
+          <summary class="faq__q">
+            « On dépendrait d'un prestataire solo »
+            <svg class="faq__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <div class="faq__a">
+            <p>
+              Documentation complète, site éditable en autonomie, contrat de
+              continuité et technologies standards : aucun verrouillage. Si vous
+              changez de prestataire un jour, tout est transmissible.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item" data-reveal>
+          <summary class="faq__q">
+            « Combien de temps ça prend&nbsp;? »
+            <svg class="faq__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <div class="faq__a">
+            <p>
+              Comptez 4 à 8 semaines pour un site vitrine, selon votre disponibilité
+              pour les contenus et les validations. Un outil de gestion demande
+              davantage : le calendrier est fixé dans le devis.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item" data-reveal>
+          <summary class="faq__q">
+            « Et le RGPD, l'accessibilité&nbsp;? »
+            <svg class="faq__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <div class="faq__a">
+            <p>
+              Traités dès la conception, jamais vendus en option. C'est aussi un
+              argument reconnu dans les appels à projets : les bailleurs attendent
+              cette exemplarité de la part des structures qu'ils financent.
+            </p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       CTA FINAL + FORMULAIRE
+       ========================================================== -->
+  <section class="section" id="contact">
+    <div class="shell">
+      <div class="cta">
+        <img class="decor-plant decor-plant--cta" src="assets/svg/plants/plant-15.svg"
+             alt="" aria-hidden="true" width="114" height="236" data-specimen>
+
+        <div class="cta__inner">
+
+          <div>
+            <h2 class="cta__title" data-reveal>On prend un café&nbsp;?</h2>
+            <p class="cta__text" data-reveal>
+              Trente minutes pour parler de votre structure, sans engagement.
+              Vous repartez au minimum avec des pistes concrètes — même si
+              on ne travaille pas ensemble.
+            </p>
+            <ul class="cta__list" data-reveal>
+              <li class="cta__row">
+                <svg class="cta__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Réponse sous 48&nbsp;h ouvrables
+              </li>
+              <li class="cta__row">
+                <svg class="cta__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Premier échange gratuit, sur place ou en visio
+              </li>
+              <li class="cta__row">
+                <svg class="cta__tick" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.5 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Aide à identifier un subside mobilisable
+              </li>
+            </ul>
+          </div>
+
+          <div class="form" id="contact-form-wrap" data-reveal>
+            <p class="form__success" id="form-success" role="status">
+              Merci&nbsp;! Votre message est bien noté — je reviens vers vous sous 48&nbsp;h.
+            </p>
+
+            <form class="form__body" id="contact-form" novalidate>
+
+              <div class="form__row" data-field>
+                <label class="form__label" for="f-nom">
+                  Votre nom <span aria-hidden="true">*</span>
+                </label>
+                <input class="form__input" type="text" id="f-nom" name="nom"
+                       autocomplete="name" required
+                       aria-describedby="e-nom">
+                <p class="form__error" id="e-nom">Merci d'indiquer votre nom.</p>
+              </div>
+
+              <div class="form__row" data-field>
+                <label class="form__label" for="f-asbl">
+                  Votre ASBL <span class="form__hint">(facultatif)</span>
+                </label>
+                <input class="form__input" type="text" id="f-asbl" name="asbl"
+                       autocomplete="organization">
+              </div>
+
+              <div class="form__row" data-field>
+                <label class="form__label" for="f-email">
+                  Votre e-mail <span aria-hidden="true">*</span>
+                </label>
+                <input class="form__input" type="email" id="f-email" name="email"
+                       autocomplete="email" required
+                       aria-describedby="e-email">
+                <p class="form__error" id="e-email">Merci d'indiquer un e-mail valide.</p>
+              </div>
+
+              <div class="form__row" data-field>
+                <label class="form__label" for="f-besoin">Votre besoin</label>
+                <select class="form__select" id="f-besoin" name="besoin">
+                  <option value="site">Un site vitrine</option>
+                  <option value="plateforme">Une plateforme membres</option>
+                  <option value="outil">Un outil de gestion</option>
+                  <option value="autre">Je ne sais pas encore</option>
+                </select>
+              </div>
+
+              <div class="form__row" data-field>
+                <label class="form__label" for="f-message">
+                  Votre message <span aria-hidden="true">*</span>
+                </label>
+                <textarea class="form__textarea" id="f-message" name="message"
+                          required aria-describedby="e-message"
+                          placeholder="Parlez-moi de votre structure et de ce qui vous bloque aujourd'hui…"></textarea>
+                <p class="form__error" id="e-message">Merci d'écrire quelques mots.</p>
+              </div>
+
+              <!-- Anti-spam : champ piège, invisible aux humains -->
+              <div class="form__honey" aria-hidden="true">
+                <label for="f-site">Ne pas remplir</label>
+                <input type="text" id="f-site" name="site" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="form__actions">
+                <button class="btn btn--primary btn--lg form__submit" type="submit">
+                  Demander mon devis gratuit
+                </button>
+                <p class="form__legal">
+                  Vos données servent uniquement à vous répondre. Aucun partage,
+                  aucune newsletter automatique.
+                </p>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     PRAIRIE PRÉ-FOOTER — la nature émerge du footer (la terre)
+     et pousse vers le haut. flora.js : croissance path par path,
+     une seule fois.
+     ============================================================ -->
+<div class="meadow" aria-hidden="true">
+  <img class="meadow__plant meadow__slot--a" src="assets/svg/plants/plant-16.svg" alt="" width="114" height="236" data-specimen>
+  <img class="meadow__plant meadow__slot--b" src="assets/svg/plants/plant-3.svg"  alt="" width="114" height="236" data-specimen>
+  <img class="meadow__plant meadow__slot--c" src="assets/svg/plants/plant-9.svg"  alt="" width="114" height="236" data-specimen>
+  <img class="meadow__plant meadow__slot--d" src="assets/svg/plants/plant-12.svg" alt="" width="114" height="236" data-specimen>
+  <img class="meadow__plant meadow__slot--e" src="assets/svg/plants/plant-18.svg" alt="" width="114" height="236" data-specimen>
+  <img class="meadow__plant meadow__slot--f" src="assets/svg/plants/plant-6.svg"  alt="" width="114" height="236" data-specimen>
+  <img class="meadow__plant meadow__slot--g" src="assets/svg/plants/plant-10.svg" alt="" width="114" height="236" data-specimen>
+</div>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__grid">
+
+      <div>
+        <p class="footer__title">Mon Site ASBL</p>
+        <p class="footer__text">
+          Sites web et outils de gestion sur mesure pour les organisations
+          du non-marchand. Un partenaire issu du secteur associatif,
+          basé à Bruxelles.
+        </p>
+      </div>
+
+      <div>
+        <p class="footer__heading">Navigation</p>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="#constat">Le constat</a></li>
+          <li><a class="footer__link" href="#solutions">Solutions</a></li>
+          <li><a class="footer__link" href="#methode">Méthode</a></li>
+          <li><a class="footer__link" href="#realisations">Réalisations</a></li>
+          <li><a class="footer__link" href="#questions">Questions</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__heading">Contact</p>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="#contact">Demander un devis</a></li>
+          <li>
+            <a class="footer__link" href="https://olivervdb.com/" target="_blank" rel="noopener">
+              Portfolio · olivervdb.com
+            </a>
+          </li>
+          <li><span class="footer__link">Bruxelles, Belgique</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 Oliver Van Droogenbroeck — Bruxelles</p>
+      <p>Site écoconçu · RGPD · accessible WCAG 2.2 AA</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

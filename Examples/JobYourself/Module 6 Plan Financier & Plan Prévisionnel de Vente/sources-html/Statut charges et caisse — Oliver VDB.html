@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Statut, charges &amp; caisse sociale — Oliver Van Droogenbroeck</title>
+<style>
+  @page { size: A4; margin: 14mm 13mm 13mm 13mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: #1a2a33; font-size: 9.8pt; line-height: 1.42; margin: 0; }
+  h1 { font-size: 17pt; color: #14504a; margin: 0 0 1.5mm 0; line-height: 1.1; }
+  .sub { color: #6a7b82; font-size: 9pt; margin: 0 0 4mm 0; }
+  h2 { font-size: 12pt; color: #14504a; border-bottom: 1.5px solid #14504a; padding-bottom: 1.1mm; margin: 6mm 0 2.5mm 0; page-break-after: avoid; }
+  h3 { font-size: 10.5pt; color: #10403b; margin: 3.5mm 0 1.5mm 0; page-break-after: avoid; }
+  p { margin: 0 0 2mm 0; }
+  ul { margin: 0 0 2.5mm 0; padding-left: 4.5mm; }
+  li { margin-bottom: 1mm; }
+  strong { color: #10403b; }
+  .hyp { font-size: 8.7pt; color: #445; background: #f2f6f5; border: 1px solid #d7e2df; border-radius: 3px; padding: 2.5mm 3mm; margin: 0 0 3mm 0; }
+  .hyp b { color: #10403b; }
+  table { width: 100%; border-collapse: collapse; margin: 2mm 0 3mm 0; font-size: 8.8pt; page-break-inside: avoid; }
+  caption { caption-side: top; text-align: left; font-weight: 700; color: #10403b; font-size: 10pt; padding: 1.5mm 0 1.5mm 0; }
+  th, td { border: 1px solid #cfdad8; padding: 1.5mm 2mm; }
+  thead th { background: #14504a; color: #fff; font-weight: 600; text-align: right; }
+  thead th:first-child, th.lbl { text-align: left; }
+  td:first-child { text-align: left; }
+  td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  td.c { text-align: center; }
+  .tag { font-size: 7.6pt; color: #7a8a90; }
+  tr.sec td { background: #e3ede9; font-weight: 700; color: #10403b; }
+  tr.tot td { background: #14504a; color: #fff; font-weight: 700; }
+  .pos { color: #14504a; font-weight: 700; }
+  .neg { color: #9a3226; }
+  .col-i { background: #eef4f1; } .col-s { background: #fbf1ea; }
+  tr.tot td.col-i, tr.tot td.col-s { background: #14504a; }
+  tr.sec td.col-i, tr.sec td.col-s { background:#e3ede9; }
+  .synth tr:nth-child(even) td { background: #f2f6f5; }
+  .synth td, .synth th { text-align: right; } .synth td:first-child, .synth th:first-child { text-align: left; }
+  .callout { border-left: 4px solid #c98a1b; background: #fdf6e9; padding: 2.3mm 3.2mm; margin: 2.5mm 0; page-break-inside: avoid; font-size: 9pt; }
+  .callout.key { border-left-color: #14504a; background: #eef4f1; }
+  .callout.warn { border-left-color: #b23a2e; background: #fbeceb; }
+  .callout p:last-child { margin-bottom: 0; }
+  .foot { margin-top: 5mm; padding-top: 2.5mm; border-top: 1px solid #cfdad8; font-size: 7.8pt; color: #6a7b82; }
+  .pb { page-break-before: always; }
+  .win { background:#14504a; color:#fff; font-weight:700; }
+  .rank1 td:first-child { font-weight:700; color:#10403b; }
+  .two { display:flex; gap:5mm; }
+  .two > div { flex:1; border:1px solid #cfdad8; border-radius:4px; padding:2.5mm 3mm; }
+  .two h3 { margin-top:0; }
+  .badge { display:inline-block; background:#14504a; color:#fff; font-size:7.8pt; padding:0.4mm 1.6mm; border-radius:3px; vertical-align:middle; }
+  .yes { color: #14504a; font-weight: 700; } .no2 { color: #b23a2e; font-weight: 700; }
+  .zero { color:#14504a; font-weight:700; }
+</style>
+</head>
+<body>
+
+  <h1>Statut, charges sociales &amp; caisse — dossier de décision</h1>
+  <p class="sub">Oliver Van Droogenbroeck · Développement web &amp; outils numériques pour le non-marchand · Module 6 JobYourself · juillet 2026</p>
+
+  <div class="hyp">
+    <b>Cadre.</b> Revenus de l'<b>activité</b> (sites, apps, hébergements) s'ajoutant à un mi-temps salarié CP&nbsp;329.02 échelon&nbsp;4.1
+    début de carrière (~1&nbsp;100&nbsp;€&nbsp;net/mois, ~13&nbsp;300&nbsp;€ imposable/an) déjà acquis. Prix inchangés.
+    <b>Indépendant complémentaire</b> = franchise TVA 0&nbsp;% (CA&nbsp;&lt;&nbsp;25&nbsp;000&nbsp;€). <b>Smart</b> = salarié, TVA 21&nbsp;% inévitable,
+    <b>RC pro incluse</b> dans la commission (retirée des frais côté Smart). Frais généraux 3&nbsp;289&nbsp;€/an (dont RC pro 425&nbsp;€),
+    amortissement ordinateur 496&nbsp;€/an, appro 530&nbsp;€/an. Cotisations INASTI 20,5&nbsp;% + <b>frais de gestion 3,05&nbsp;%</b> (Xerius/Acerta).
+    IPP barème fédéral 2025 + ~7&nbsp;% additionnels communaux, taux marginal (quotité absorbée par le mi-temps).
+    Montants = ordres de grandeur, à valider (comptable / simulateur Smart / Tax-Calc / caisse).
+  </div>
+
+  <h2>1. Comparatif Smart vs Indépendant — détail poste par poste</h2>
+  <table>
+    <caption>Décomposition annuelle, du CA facturé au net de l'activité</caption>
+    <thead>
+      <tr><th class="lbl" rowspan="2">Poste (annuel)</th><th colspan="2">CA 13&nbsp;000&nbsp;€</th><th colspan="2">CA 19&nbsp;000&nbsp;€</th><th colspan="2">CA 25&nbsp;000&nbsp;€</th></tr>
+      <tr><th>Indép.</th><th>Smart</th><th>Indép.</th><th>Smart</th><th>Indép.</th><th>Smart</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>CA facturé au client</td><td class="num col-i">13&nbsp;000</td><td class="num col-s">13&nbsp;000</td><td class="num col-i">19&nbsp;000</td><td class="num col-s">19&nbsp;000</td><td class="num col-i">25&nbsp;000</td><td class="num col-s">25&nbsp;000</td></tr>
+      <tr><td>TVA reversée (21&nbsp;%)</td><td class="num col-i">0</td><td class="num col-s neg">−2&nbsp;256</td><td class="num col-i">0</td><td class="num col-s neg">−3&nbsp;298</td><td class="num col-i">0</td><td class="num col-s neg">−4&nbsp;339</td></tr>
+      <tr class="sec"><td>CA HTVA réel</td><td class="num col-i">13&nbsp;000</td><td class="num col-s">10&nbsp;744</td><td class="num col-i">19&nbsp;000</td><td class="num col-s">15&nbsp;702</td><td class="num col-i">25&nbsp;000</td><td class="num col-s">20&nbsp;661</td></tr>
+      <tr><td>− Frais pros (appro + frais généraux)</td><td class="num col-i">−3&nbsp;819</td><td class="num col-s">−3&nbsp;394</td><td class="num col-i">−3&nbsp;819</td><td class="num col-s">−3&nbsp;394</td><td class="num col-i">−3&nbsp;819</td><td class="num col-s">−3&nbsp;394</td></tr>
+      <tr><td>− Amortissement ordinateur</td><td class="num col-i">−496</td><td class="num col-s tag" style="text-align:right">en frais</td><td class="num col-i">−496</td><td class="num col-s tag" style="text-align:right">en frais</td><td class="num col-i">−496</td><td class="num col-s tag" style="text-align:right">en frais</td></tr>
+      <tr><td>− Commission Smart (6,5&nbsp;%) <span class="tag">RC pro incl.</span></td><td class="num col-i">—</td><td class="num col-s neg">−478</td><td class="num col-i">—</td><td class="num col-s neg">−800</td><td class="num col-i">—</td><td class="num col-s neg">−1&nbsp;122</td></tr>
+      <tr><td>− ONSS patronal (~27&nbsp;%)</td><td class="num col-i">—</td><td class="num col-s neg">−1&nbsp;461</td><td class="num col-i">—</td><td class="num col-s neg">−2&nbsp;447</td><td class="num col-i">—</td><td class="num col-s neg">−3&nbsp;432</td></tr>
+      <tr><td>− Cotis. INASTI (20,5&nbsp;% + gestion 3,05&nbsp;%)</td><td class="num col-i neg">−1&nbsp;835</td><td class="num col-s">—</td><td class="num col-i neg">−3&nbsp;102</td><td class="num col-s">—</td><td class="num col-i neg">−4&nbsp;370</td><td class="num col-s">—</td></tr>
+      <tr><td>− ONSS personnel (13,07&nbsp;%)</td><td class="num col-i">—</td><td class="num col-s neg">−707</td><td class="num col-i">—</td><td class="num col-s neg">−1&nbsp;184</td><td class="num col-i">—</td><td class="num col-s neg">−1&nbsp;662</td></tr>
+      <tr class="sec"><td>= Base imposable (IPP)</td><td class="num col-i">6&nbsp;850</td><td class="num col-s">4&nbsp;704</td><td class="num col-i">11&nbsp;583</td><td class="num col-s">7&nbsp;877</td><td class="num col-i">16&nbsp;315</td><td class="num col-s">11&nbsp;051</td></tr>
+      <tr><td>− IPP (empilé sur le mi-temps, ~38&nbsp;% moyen)</td><td class="num col-i neg">−2&nbsp;383</td><td class="num col-s neg">−1&nbsp;464</td><td class="num col-i neg">−4&nbsp;409</td><td class="num col-s neg">−2&nbsp;823</td><td class="num col-i neg">−6&nbsp;440</td><td class="num col-s neg">−4&nbsp;181</td></tr>
+      <tr class="tot"><td>= NET ANNUEL de l'activité</td><td class="num col-i">4&nbsp;467</td><td class="num col-s">3&nbsp;240</td><td class="num col-i">7&nbsp;174</td><td class="num col-s">5&nbsp;055</td><td class="num col-i">9&nbsp;876</td><td class="num col-s">6&nbsp;870</td></tr>
+      <tr class="tot"><td>= NET MENSUEL de l'activité</td><td class="num col-i">372</td><td class="num col-s">270</td><td class="num col-i">598</td><td class="num col-s">421</td><td class="num col-i">823</td><td class="num col-s">573</td></tr>
+      <tr><td>Taux de conversion (net / CA)</td><td class="num col-i pos">34&nbsp;%</td><td class="num col-s">25&nbsp;%</td><td class="num col-i pos">38&nbsp;%</td><td class="num col-s">27&nbsp;%</td><td class="num col-i pos">40&nbsp;%</td><td class="num col-s">27&nbsp;%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout key">
+    <p><strong>Lecture de l'IPP.</strong> Smart paie <em>moins</em> d'impôt — non parce que c'est avantageux, mais parce qu'il <strong>reste moins à imposer</strong> (TVA + commission + ONSS ont rongé la base avant l'impôt). L'impôt <em>suit</em> la base ; le vrai clivage se joue <strong>avant l'impôt</strong>. (Barème revenus 2026 — voir §5 pour le détail des tranches.)</p>
+  </div>
+
+  <h2>2. Synthèse — net mensuel selon le CA</h2>
+  <table class="synth">
+    <thead><tr><th class="lbl">CA annuel</th><th>Indép. net/mois</th><th>Smart net/mois</th><th>Écart /mois</th></tr></thead>
+    <tbody>
+      <tr><td>13&nbsp;000&nbsp;€</td><td class="pos">372&nbsp;€</td><td>270&nbsp;€</td><td class="pos">+102&nbsp;€</td></tr>
+      <tr><td>15&nbsp;000&nbsp;€</td><td class="pos">447&nbsp;€</td><td>320&nbsp;€</td><td class="pos">+127&nbsp;€</td></tr>
+      <tr><td>17&nbsp;000&nbsp;€</td><td class="pos">523&nbsp;€</td><td>371&nbsp;€</td><td class="pos">+152&nbsp;€</td></tr>
+      <tr><td>19&nbsp;000&nbsp;€</td><td class="pos">598&nbsp;€</td><td>421&nbsp;€</td><td class="pos">+177&nbsp;€</td></tr>
+      <tr><td>21&nbsp;000&nbsp;€</td><td class="pos">673&nbsp;€</td><td>472&nbsp;€</td><td class="pos">+201&nbsp;€</td></tr>
+      <tr><td>23&nbsp;000&nbsp;€</td><td class="pos">748&nbsp;€</td><td>522&nbsp;€</td><td class="pos">+226&nbsp;€</td></tr>
+      <tr><td>25&nbsp;000&nbsp;€</td><td class="pos">823&nbsp;€</td><td>573&nbsp;€</td><td class="pos">+250&nbsp;€</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Sur toute la fourchette, l'indépendant complémentaire l'emporte</strong> (+102 à +250&nbsp;€/mois), et l'écart se creuse quand le CA monte. Smart se justifie non par le revenu mais par la <strong>sécurité et la simplicité</strong> (zéro admin, protection sociale complète, salaire garanti à 7&nbsp;jours, RC pro incluse).</p>
+
+  <h2 class="pb">3. Bien lire l'impôt : marginal ≠ moyen, et le rôle du mi-temps</h2>
+
+  <h3>Barème IPP — revenus 2026 (déclaration 2027)</h3>
+  <table>
+    <thead><tr><th class="lbl">Tranche de revenu imposable</th><th>Taux</th></tr></thead>
+    <tbody>
+      <tr><td>0 → 11&nbsp;180&nbsp;€ <span class="tag">(quotité exemptée)</span></td><td class="num zero">0&nbsp;%</td></tr>
+      <tr><td>11&nbsp;180 → 16&nbsp;720&nbsp;€</td><td class="num">25&nbsp;%</td></tr>
+      <tr><td>16&nbsp;720 → 29&nbsp;510&nbsp;€</td><td class="num">40&nbsp;%</td></tr>
+      <tr><td>29&nbsp;510 → 51&nbsp;070&nbsp;€</td><td class="num">45&nbsp;%</td></tr>
+      <tr><td>&gt; 51&nbsp;070&nbsp;€</td><td class="num">50&nbsp;%</td></tr>
+    </tbody>
+  </table>
+  <p class="tag">(Revenus 2025 pour mémoire : quotité 10&nbsp;910&nbsp;€ ; tranches 16&nbsp;320 / 28&nbsp;800 / 49&nbsp;840&nbsp;€. Montants indexés chaque année.) + additionnels communaux ~7&nbsp;%.</p>
+
+  <div class="callout key">
+    <p><strong>L'impôt ne « punit » pas le cumul.</strong> À revenu total égal, un temps plein salarié et un mi-temps + activité paient <strong>exactement le même impôt</strong> — l'IPP taxe le revenu <em>global</em>, peu importe sa source. Sur ton revenu total (~24&nbsp;800&nbsp;€), ton <strong>taux moyen réel est ~20&nbsp;%</strong>, pas 40&nbsp;%.</p>
+    <p>Le « 40&nbsp;% » (43&nbsp;% avec communaux) est le taux <strong>marginal</strong> : celui du <em>dernier</em> euro gagné. Il sert à estimer l'impôt d'un contrat <em>supplémentaire</em> (≈ 40&nbsp;% part par tranche haute), pas ton taux global. Le taux moyen de la part « activité » ressort à <strong>~38&nbsp;%</strong> car le mi-temps occupe déjà les tranches basses (0&nbsp;% et 25&nbsp;%).</p>
+  </div>
+
+  <h3>Pourquoi le cumul rapporte moins qu'un temps plein — et pourquoi ce n'est pas un problème</h3>
+  <p>Au démarrage (CA ~19k), mi-temps + activité ≈ <strong>1&nbsp;700&nbsp;€/mois</strong> net, contre ~1&nbsp;950&nbsp;€ pour un temps plein salarié. L'écart ne vient <strong>pas de l'impôt</strong> (identique) ni d'une double cotisation sur le même argent, mais de&nbsp;:</p>
+  <table>
+    <thead><tr><th class="lbl">Facteur</th><th>Effet</th></tr></thead>
+    <tbody>
+      <tr><td>Frais de structure de l'activité</td><td>FG ~3&nbsp;289&nbsp;€, amortissement, RC, comptable — un salarié n'en a aucun</td></tr>
+      <tr><td>Deux prélèvements sociaux (pas « 2× »)</td><td>ONSS sur le salaire + INASTI sur l'activité : <strong>un seul prélèvement par revenu</strong>, sur deux bases distinctes</td></tr>
+      <tr><td>Travail non facturable</td><td>Prospection, devis, admin, veille… non payés (un salarié est payé pour toutes ses heures)</td></tr>
+      <tr><td>Phase de démarrage</td><td>CA 19k = activité jeune vs salaire déjà à maturité</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>La bonne question n'est pas « cumul vs temps plein » mais « qu'est-ce que l'activité m'ajoute ? ».</strong> Partant du mi-temps que tu as déjà, l'activité complémentaire <strong>ajoute ~600&nbsp;€/mois net</strong> sur du temps disponible, avec des <strong>cotisations INASTI réduites</strong> (le mi-temps ouvre déjà tes droits sociaux → pas le lourd minimum du principal ~900&nbsp;€/trim), <strong>0&nbsp;€</strong> si l'activité reste sous ~1&nbsp;881&nbsp;€, tout en gardant la sécurité du salariat. Le taux marginal élevé est le <strong>signal</strong> qu'il ne faut pas rester à cheval éternellement&nbsp;: en passant l'activité en <em>principal</em> quand elle est solide, elle retombe dans les tranches basses et le même CA rapporte bien plus net.</p>
+  </div>
+
+  <h2 class="pb">4. Nuance TVA — quels clients profitent vraiment du « −21 % »</h2>
+  <p>La franchise (0&nbsp;% TVA) est un argument commercial <strong>uniquement face aux clients qui ne récupèrent pas la TVA</strong>. Ce qui compte est le <strong>régime TVA du client</strong>, pas son statut d'ASBL en soi :</p>
+  <table>
+    <thead><tr><th class="lbl">Type de client</th><th class="c">Récupère la TVA ?</th><th class="c">Avantage −21 %</th></tr></thead>
+    <tbody>
+      <tr><td>ASBL <strong>assujettie exemptée</strong> (art. 44 : social, culturel, éducatif, médical, sportif…)</td><td class="c no2">NON</td><td class="c yes">Oui, plein</td></tr>
+      <tr><td>ASBL <strong>non-assujettie</strong> (vit de subsides, dons, cotisations)</td><td class="c no2">NON</td><td class="c yes">Oui, plein</td></tr>
+      <tr><td>ASBL <strong>assujettie ordinaire / mixte</strong> (activité commerciale taxée : bar, boutique, billetterie…)</td><td class="c">OUI (totale/prorata)</td><td class="c">Neutre / partiel</td></tr>
+      <tr><td><strong>PME</strong> classique (assujettie)</td><td class="c">OUI</td><td class="c">Neutre</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <p>Le <strong>cœur de cible</strong> (ASBL socio-culturelles, éducation permanente, maisons médicales, refuges, collectifs artistiques) relève massivement des deux premières lignes → il ne récupère pas la TVA, l'avantage joue à plein. À <strong>ne pas sur-vendre</strong> à une ASBL avec activité commerciale taxée (ou une PME), qui récupère la TVA.</p>
+  </div>
+
+  <h2 class="pb">5. Cotisations INASTI (complémentaire) &amp; réserve de régularisation</h2>
+  <p>Les cotisations INASTI se calculent <strong>uniquement sur le bénéfice de l'activité</strong> — <strong>le mi-temps n'entre pas dans la base</strong> (il conditionne seulement le régime « complémentaire », plus léger). Il n'y a <strong>pas de double cotisation sur le même argent</strong>&nbsp;: l'ONSS prélève sur le salaire, l'INASTI sur l'activité — deux revenus distincts, une cotisation chacun. (Pour l'<em>impôt</em>, en revanche, les deux revenus se cumulent dans une base unique — voir §3.)</p>
+
+  <h3>Le barème est légal, national et proportionnel (identique dans toutes les caisses)</h3>
+  <p>Il n'y a <strong>pas de forfait minimum</strong> fixe en complémentaire&nbsp;: sous ~1&nbsp;881,76&nbsp;€ de revenu annuel, la cotisation est <strong>0&nbsp;€</strong> ; au-dessus, elle est <strong>strictement proportionnelle</strong> (~20,5&nbsp;% du revenu). Extrait du barème 2025 (indexé chaque année) :</p>
+  <table>
+    <thead><tr><th class="lbl">Bénéfice annuel de l'activité</th><th>Cotisation trimestrielle</th><th>≈ par an</th></tr></thead>
+    <tbody>
+      <tr><td>&lt; 1&nbsp;881,76&nbsp;€</td><td class="num zero">0,00&nbsp;€</td><td class="num zero">0&nbsp;€</td></tr>
+      <tr><td>5&nbsp;000&nbsp;€</td><td class="num">267&nbsp;€</td><td class="num">~1&nbsp;025&nbsp;€</td></tr>
+      <tr><td>8&nbsp;910&nbsp;€</td><td class="num">476&nbsp;€</td><td class="num">~1&nbsp;830&nbsp;€</td></tr>
+      <tr><td>15&nbsp;000&nbsp;€</td><td class="num">801&nbsp;€</td><td class="num">~3&nbsp;075&nbsp;€</td></tr>
+      <tr><td>17&nbsp;009&nbsp;€ et +</td><td class="num">908&nbsp;€ puis proportionnel</td><td class="num">~3&nbsp;485&nbsp;€ +</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Le piège : sous-estimer son revenu au départ → rappel en N+2</h3>
+  <p>En début d'activité, faute de visibilité, on déclare souvent un revenu estimé <strong>prudemment bas</strong> (ex. 5&nbsp;000&nbsp;€ → ~1&nbsp;025&nbsp;€/an de provisions). Si le réel est plus élevé, la <strong>régularisation tombe ~2 ans plus tard</strong> (année N réclamée en N+2)&nbsp;:</p>
+  <table>
+    <thead><tr><th class="lbl">CA</th><th>Bénéfice réel</th><th>Cotis. due (réel)</th><th>Payé si estimé 5&nbsp;000&nbsp;€</th><th>Rappel en N+2</th></tr></thead>
+    <tbody>
+      <tr><td>13&nbsp;000&nbsp;€</td><td class="num">8&nbsp;685&nbsp;€</td><td class="num">~1&nbsp;780&nbsp;€</td><td class="num">~1&nbsp;025&nbsp;€</td><td class="num neg">~755&nbsp;€</td></tr>
+      <tr><td>19&nbsp;000&nbsp;€</td><td class="num">14&nbsp;685&nbsp;€</td><td class="num">~3&nbsp;010&nbsp;€</td><td class="num">~1&nbsp;025&nbsp;€</td><td class="num neg">~1&nbsp;985&nbsp;€</td></tr>
+      <tr><td>25&nbsp;000&nbsp;€</td><td class="num">20&nbsp;685&nbsp;€</td><td class="num">~4&nbsp;240&nbsp;€</td><td class="num">~1&nbsp;025&nbsp;€</td><td class="num neg">~3&nbsp;215&nbsp;€</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Deux façons de se protéger — recommandation : Option A</h3>
+  <div class="two">
+    <div>
+      <h3>Option A <span class="badge">recommandée</span></h3>
+      <p><strong>Demander dès le début des provisions calées sur le revenu réel attendu</strong> (~15-19&nbsp;k€ → ~800&nbsp;€/trim), au lieu d'une estimation basse.</p>
+      <ul>
+        <li>✅ Quasi pas de rappel en N+2</li>
+        <li>✅ <strong>Déduction fiscale immédiate</strong> → ~1&nbsp;177&nbsp;€/an d'impôt en moins (à CA 19k) les 1res années</li>
+        <li>✅ Zéro discipline : l'argent est déjà versé</li>
+        <li>✅ Trop-payé remboursé à la régularisation</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Option B</h3>
+      <p><strong>Provisions basses + bloquer ~22,5 % sur un compte perso.</strong></p>
+      <ul>
+        <li>✅ Tu gardes le cash (liquidité, intérêts éventuels)</li>
+        <li>❌ Cotisations non payées = <strong>non déductibles</strong> → +~1&nbsp;177&nbsp;€/an d'impôt les 1res années</li>
+        <li>❌ Discipline requise (ne pas y toucher)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Trésorerie trimestrielle.</strong> Le paiement est trimestriel et <strong>proportionnel au revenu estimé</strong> — une année sous ~1&nbsp;880&nbsp;€ = <strong>0&nbsp;€</strong> (pas de plancher en complémentaire). La provision est <strong>modulable</strong> : on l'ajuste en cours d'année selon les ventes (via l'app de la caisse). Idéal pour un revenu irrégulier : on provisionne <em>quand l'argent rentre</em>. Réserve prudente à viser : <strong>~22,5 % du bénéfice</strong>.</p>
+  </div>
+
+  <h2 class="pb">6. Choix de la caisse d'assurances sociales</h2>
+  <p>Les <strong>cotisations sont identiques partout</strong> — le barème est fixé par l'<strong>INASTI</strong> (organisme public fédéral), pas par les caisses. Les caisses (Xerius, Acerta, Partena, Liantis, UCM… — toutes des <strong>organismes privés agréés</strong>) ne diffèrent que par leurs <strong>frais de gestion</strong> ajoutés par-dessus (appliqués sur les cotisations, pas le revenu) — écart réel faible à ton niveau (<strong>~2-4&nbsp;€/mois</strong>). Le vrai critère est donc <strong>l'app + le support FR</strong>.</p>
+
+  <table>
+    <caption>Évaluation multicritère pondérée (profil : Bruxelles, FR, activité irrégulière, starter)</caption>
+    <thead>
+      <tr><th class="lbl">Caisse</th><th>Frais gestion</th><th>App / digital<br><span class="tag">30&nbsp;%</span></th><th>Support FR Bxl<br><span class="tag">25&nbsp;%</span></th><th>Prix<br><span class="tag">15&nbsp;%</span></th><th>Guichet<br><span class="tag">15&nbsp;%</span></th><th>Starter<br><span class="tag">15&nbsp;%</span></th><th>Score /10</th></tr>
+    </thead>
+    <tbody>
+      <tr class="rank1"><td>🥇 Xerius</td><td class="num">3,05&nbsp;%</td><td class="num">10</td><td class="num">8</td><td class="num">10</td><td class="num">10</td><td class="num">8</td><td class="num win">9,20</td></tr>
+      <tr><td>🥈 Acerta</td><td class="num">3,05&nbsp;%</td><td class="num">9</td><td class="num">8</td><td class="num">10</td><td class="num">9</td><td class="num">10</td><td class="num"><strong>9,05</strong></td></tr>
+      <tr><td>🥉 Liantis</td><td class="num">3,40&nbsp;%</td><td class="num">8</td><td class="num">9</td><td class="num">8</td><td class="num">8</td><td class="num">8</td><td class="num">8,25</td></tr>
+      <tr><td>Securex</td><td class="num">3,65&nbsp;%</td><td class="num">7</td><td class="num">9</td><td class="num">7</td><td class="num">8</td><td class="num">7</td><td class="num">7,65</td></tr>
+      <tr><td>UCM</td><td class="num">4,25&nbsp;%</td><td class="num">6</td><td class="num">10</td><td class="num">4</td><td class="num">8</td><td class="num">9</td><td class="num">7,45</td></tr>
+      <tr><td>Partena</td><td class="num">4,25&nbsp;%</td><td class="num">7</td><td class="num">9</td><td class="num">4</td><td class="num">8</td><td class="num">8</td><td class="num">7,35</td></tr>
+      <tr><td>Group S</td><td class="num">~3,80&nbsp;%</td><td class="num">6</td><td class="num">8</td><td class="num">6</td><td class="num">7</td><td class="num">7</td><td class="num">6,80</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout key">
+    <p><strong>Recommandation : Xerius.</strong> Meilleure app du marché (NPS 60) gérant explicitement « l'adaptation de vos cotisations sociales » — exactement la stratégie de provisions modulables — au tarif plancher (3,05&nbsp;%), avec le plus grand guichet d'entreprise de Belgique (inscription BCE au même endroit) et des <strong>canaux FR dédiés à Bruxelles</strong> (permanence 02&nbsp;609&nbsp;62&nbsp;20, guichet ol.bruxelles@xerius.be). <strong>Acerta</strong> est un plan B quasi ex æquo (9,05), plus fort sur l'accompagnement starter.</p>
+  </div>
+
+  <h2>7. Conclusion décisionnelle</h2>
+  <ul>
+    <li><strong>Statut</strong> : l'indépendant complémentaire sous franchise est <strong>financièrement supérieur</strong> (+100 à +240&nbsp;€/mois) et préserve l'argument « −21&nbsp;% » pour les ASBL <em>qui ne récupèrent pas la TVA</em> (le cœur de cible). Smart = sécurité/simplicité + RC incluse, au prix d'un net plus bas.</li>
+    <li><strong>Cotisations</strong> : demander des <strong>provisions calées sur le revenu réel attendu dès le début</strong> (option A) — évite le rappel N+2 <em>et</em> optimise l'impôt. Base = activité seule ; 0&nbsp;€ sous ~1&nbsp;880&nbsp;€, sinon proportionnel.</li>
+    <li><strong>Trésorerie</strong> : trimestriel, proportionnel au revenu, modulable via l'app ; pas de plancher en complémentaire.</li>
+    <li><strong>Caisse</strong> : <strong>Xerius</strong> (ou Acerta), 3,05&nbsp;%, pour l'app et le guichet intégré.</li>
+    <li><strong>À confirmer</strong> : barème indexé 2026 (mécanique inchangée : 0&nbsp;€ sous ~1&nbsp;880&nbsp;€, puis proportionnel) et plafonds RC pro chez Smart.</li>
+  </ul>
+
+  <div class="foot">
+    <p>Chiffres = ordres de grandeur pédagogiques. Cotisations INASTI à 20,5&nbsp;% + gestion 3,05&nbsp;% (Xerius/Acerta) ; barème complémentaire officiel 2025 (0&nbsp;€ sous 1&nbsp;881,76&nbsp;€, puis proportionnel — plein tarif à partir de 17&nbsp;008,88&nbsp;€), indexé annuellement ; provisions régularisées ~2 ans après. IPP : barème fédéral 2025, +7&nbsp;% additionnels communaux, hors réductions personnelles. ONSS Smart aux taux standards (patronal ~27&nbsp;%, personnel 13,07&nbsp;%), RC pro incluse dans la commission. Régime TVA des ASBL : art. 44 CTVA. Scores app/FR/starter = appréciations qualitatives ; barème INASTI, frais de gestion et fonctionnalités app = factuels. Sources : art. 56bis &amp; 44 CTVA ; barème cotisations trimestrielles indépendants 2025 (INASTI / Partena Professional) ; barème IPP SPF Finances ; smartbe.be ; monasbl.be ; mon-secretariat-social.be, xerius.be, acerta.be. À confirmer via simulateur Smart, Tax-Calc (SPF Finances) et la caisse choisie avant décision.</p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<style>
+  @page{size:A4;margin:0;}
+  :root{
+    --bg:#FFFBF5; --ink:#2C2824; --muted:#8A7D70;
+    --green:#8FCBA9; --green-deep:#3E7C5E;
+    --orange:#F6B26B; --orange-deep:#E0823E;
+    --cream:#FDE9CE; --mint:#E4F1E9; --peach:#FCE8D6; --line:#EFE6DA;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{font-family:'Mona Sans','Helvetica Neue',Arial,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;}
+  .page{
+    width:210mm;height:296.6mm;position:relative;overflow:hidden;background:var(--bg);
+    padding:16mm 15mm 13mm;display:flex;flex-direction:column;
+  }
+  /* ---- cercles parfaits ---- */
+  .blob{position:absolute;z-index:0;border-radius:50%;}
+  /* haut-droite : un seul grand rond vert */
+  .b-green{width:124mm;height:124mm;top:-46mm;right:-40mm;background:var(--green);opacity:.50;}
+  /* bas */
+  .b-cream{width:120mm;height:120mm;bottom:-64mm;left:-46mm;background:var(--cream);opacity:.75;}
+  .b-mint{width:70mm;height:70mm;bottom:26mm;right:-30mm;background:var(--green);opacity:.20;}
+  .content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;}
+
+  /* header */
+  .brand{display:flex;justify-content:space-between;align-items:center;}
+  .brand .name{font-weight:800;font-size:15pt;letter-spacing:-.3px;}
+  .brand .tag{font-size:9pt;color:var(--ink);font-weight:600;}
+
+  /* hero */
+  .hero{margin-top:15mm;max-width:134mm;}
+  .kicker{display:inline-block;background:var(--green-deep);color:#fff;font-size:8.5pt;font-weight:700;
+    letter-spacing:.5px;text-transform:uppercase;padding:6px 14px;border-radius:30px;margin-bottom:9mm;}
+  h1{font-size:31pt;line-height:1.08;font-weight:800;letter-spacing:-1.1px;}
+  h1 .hl{background:var(--orange);color:var(--ink);padding:0 10px 3px;border-radius:30px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+  .sub{margin-top:13mm;font-size:12.5pt;line-height:1.5;color:var(--ink);max-width:108mm;font-weight:500;}
+
+  /* offres */
+  .offers{margin-top:auto;margin-bottom:20mm;display:grid;grid-template-columns:1fr 1fr;gap:6mm;}
+  .card{border-radius:26px;padding:7mm 6.5mm;position:relative;box-shadow:0 10px 26px rgba(90,70,40,.10);}
+  .card.green{background:var(--mint);border:1.5px solid #CFE6D9;}
+  .card.orange{background:var(--peach);border:1.5px solid #F3D9BF;}
+  .chip{display:inline-block;font-size:8pt;font-weight:800;letter-spacing:.6px;padding:4px 11px;border-radius:20px;color:#fff;}
+  .green .chip{background:var(--green-deep);}
+  .orange .chip{background:var(--orange-deep);}
+  .card h3{font-size:14.5pt;font-weight:800;letter-spacing:-.4px;margin:3.5mm 0 3.5mm;line-height:1.1;}
+  .card ul{list-style:none;}
+  .card li{font-size:9.7pt;line-height:1.45;color:var(--ink);padding-left:17px;position:relative;margin-bottom:2.2mm;}
+  .green li::before{content:"";position:absolute;left:0;top:5px;width:8px;height:8px;border-radius:50%;background:var(--green-deep);}
+  .orange li::before{content:"";position:absolute;left:0;top:5px;width:8px;height:8px;border-radius:50%;background:var(--orange-deep);}
+  .card .for{margin-top:4mm;font-size:8.8pt;font-weight:700;padding-top:3.5mm;}
+  .green .for{color:var(--green-deep);border-top:1.5px solid #CFE6D9;}
+  .orange .for{color:var(--orange-deep);border-top:1.5px solid #F3D9BF;}
+
+  /* value */
+  .value{margin-top:6mm;font-size:11.5pt;font-weight:700;line-height:1.45;letter-spacing:-.2px;max-width:150mm;color:var(--ink);}
+  .value .accent{color:var(--orange-deep);font-weight:800;}
+
+  /* footer */
+  .footer{margin-top:6mm;display:flex;justify-content:space-between;align-items:center;
+    border-top:1.5px solid var(--line);padding-top:5mm;}
+  .contact{font-size:11pt;color:var(--ink);font-weight:700;}
+  .cta{background:var(--orange-deep);color:#fff;font-size:11pt;font-weight:700;padding:12px 22px;border-radius:30px;
+    display:inline-flex;align-items:center;gap:9px;letter-spacing:.2px;box-shadow:0 8px 18px rgba(224,130,62,.35);}
+  .cta .arr{font-size:13pt;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="blob b-green"></div>
+  <div class="blob b-cream"></div>
+  <div class="blob b-mint"></div>
+  <div class="content">
+
+    <div class="brand">
+      <div class="name">Oliver Van Droogenbroeck</div>
+      <div class="tag">Développeur web &amp; outils numériques · Bruxelles</div>
+    </div>
+
+    <div class="hero">
+      <span class="kicker">Au service des ASBL &amp; du non-marchand</span>
+      <h1>Votre association mérite une <span class="hl">plateforme</span> à sa hauteur.</h1>
+      <p class="sub">Je conçois des sites web modernes et des outils de gestion sur mesure pour les ASBL.
+      Simples à utiliser, durables, et pensés pour votre réalité de terrain.</p>
+    </div>
+
+    <div class="offers">
+      <div class="card green">
+        <span class="chip">OFFRE 01</span>
+        <h3>Outils de gestion sur mesure</h3>
+        <ul>
+          <li>Membres, dons, subsides &amp; activités centralisés</li>
+          <li>Rapports de subsides en quelques clics</li>
+          <li>Fini la triple saisie dans Excel</li>
+          <li>Sécurisé RGPD, évolutif, formé &amp; maintenu</li>
+        </ul>
+        <div class="for">Pour les ASBL qui veulent gérer plus, sans s'épuiser.</div>
+      </div>
+      <div class="card orange">
+        <span class="chip">OFFRE 02</span>
+        <h3>Sites &amp; plateformes web</h3>
+        <ul>
+          <li>Un site moderne, crédible et responsive</li>
+          <li>Que vous mettez à jour vous-même</li>
+          <li>Dons &amp; inscriptions qui convertissent</li>
+          <li>Écoconçu · formation &amp; support inclus</li>
+        </ul>
+        <div class="for">Pour les ASBL socio-culturelles qui veulent rayonner.</div>
+      </div>
+    </div>
+
+    <p class="value">Un prestataire qui <span class="accent">parle votre langue</span> : subsides, bénéficiaires, RGPD<br>
+    et qui <span class="accent">partage vos valeurs</span>. Du vrai sur-mesure, qui reste abordable.</p>
+
+    <div class="footer">
+      <div class="contact">Discutons de votre projet ensemble.</div>
+      <div class="cta">olivervdb.com <span class="arr">→</span></div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

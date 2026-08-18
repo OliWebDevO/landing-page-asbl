@@ -1,0 +1,564 @@
+<title>Trajectoire financière & statut — Oliver VDB</title>
+<style>
+  :root {
+    --paper: #FBF7EE;
+    --card: #FFFFFF;
+    --ink: #232819;
+    --muted: #6E7363;
+    --line: rgba(35, 40, 25, 0.14);
+    --green: #2E6B4E;
+    --green-deep: #1E4A36;
+    --green-soft: #DCE9DF;
+    --green-bar: #8FBCA3;
+    --orange: #D9742F;
+    --orange-soft: #F6E4D2;
+    --ref-line: #232819;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #171B14;
+      --card: #1F251C;
+      --ink: #EFEDE0;
+      --muted: #A2A894;
+      --line: rgba(239, 237, 224, 0.16);
+      --green: #7FB99A;
+      --green-deep: #A9D3BC;
+      --green-soft: #2A3629;
+      --green-bar: #55836C;
+      --orange: #E89050;
+      --orange-soft: #3A2C1E;
+      --ref-line: #EFEDE0;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #FBF7EE;
+    --card: #FFFFFF;
+    --ink: #232819;
+    --muted: #6E7363;
+    --line: rgba(35, 40, 25, 0.14);
+    --green: #2E6B4E;
+    --green-deep: #1E4A36;
+    --green-soft: #DCE9DF;
+    --green-bar: #8FBCA3;
+    --orange: #D9742F;
+    --orange-soft: #F6E4D2;
+    --ref-line: #232819;
+  }
+  :root[data-theme="dark"] {
+    --paper: #171B14;
+    --card: #1F251C;
+    --ink: #EFEDE0;
+    --muted: #A2A894;
+    --line: rgba(239, 237, 224, 0.16);
+    --green: #7FB99A;
+    --green-deep: #A9D3BC;
+    --green-soft: #2A3629;
+    --green-bar: #55836C;
+    --orange: #E89050;
+    --orange-soft: #3A2C1E;
+    --ref-line: #EFEDE0;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Avenir Next", Avenir, Seravek, "Gill Sans", -apple-system, "Segoe UI", sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2rem) 4rem;
+  }
+
+  /* ---------- header ---------- */
+  .doc-eyebrow {
+    display: inline-block;
+    background: var(--green);
+    color: var(--paper);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    margin: 1rem 0 0.5rem;
+  }
+  h1 .hl {
+    background: linear-gradient(transparent 55%, var(--orange-soft) 55%);
+    padding: 0 0.15em;
+    border-radius: 0.2em;
+  }
+  .doc-meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0 0 0.25rem;
+  }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 3.25rem; }
+  .sec-label {
+    color: var(--green);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 0.4rem;
+  }
+  h2 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    text-wrap: balance;
+    margin: 0 0 0.75rem;
+  }
+  p { max-width: 62ch; margin: 0.75rem 0; }
+  .note { color: var(--muted); font-size: 0.85rem; max-width: 70ch; }
+  strong { font-weight: 650; }
+
+  /* ---------- stat tiles ---------- */
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 0.75rem;
+    margin: 1.25rem 0 0.5rem;
+  }
+  .tile {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    padding: 1rem 1.1rem;
+  }
+  .tile.total { background: var(--green-soft); border-color: transparent; }
+  .tile .k {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 0.35rem;
+  }
+  .tile.total .k { color: var(--green); }
+  .tile .v {
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+    margin: 0;
+  }
+  .tile .s { color: var(--muted); font-size: 0.82rem; margin: 0.25rem 0 0; }
+
+  /* ---------- waterfall table ---------- */
+  .tablewrap { overflow-x: auto; margin-top: 1.25rem; }
+  table.flow {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    font-size: 0.95rem;
+  }
+  table.flow th, table.flow td {
+    text-align: left;
+    padding: 0.65rem 1rem;
+    border-top: 1px solid var(--line);
+  }
+  table.flow tr:first-child th, table.flow tr:first-child td { border-top: none; }
+  table.flow td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  table.flow td.op {
+    color: var(--muted);
+    width: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+  }
+  table.flow tr.result { background: var(--green-soft); }
+  table.flow tr.result td { font-weight: 700; border-top: 1px solid var(--line); }
+
+  /* ---------- bar chart ---------- */
+  .chart {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    padding: 1.4rem 1.4rem 1.1rem;
+    margin-top: 1.25rem;
+  }
+  .chart-title { font-weight: 700; font-size: 1rem; margin: 0 0 0.2rem; }
+  .chart-sub { color: var(--muted); font-size: 0.82rem; margin: 0 0 1.1rem; }
+  .plot { position: relative; }
+  .refline {
+    position: absolute;
+    top: -0.4rem;
+    bottom: 1.4rem;
+    left: var(--x);
+    border-left: 2px dashed var(--ref-line);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  .refline .tag {
+    position: absolute;
+    top: -1.05rem;
+    left: -0.4rem;
+    transform: translateX(-100%);
+    white-space: nowrap;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--ink);
+    opacity: 0.9;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 4.4rem 1fr;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.3rem 0;
+    border-radius: 0.4rem;
+  }
+  .row:hover { background: color-mix(in srgb, var(--green-soft) 55%, transparent); }
+  .row .ca {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .track { position: relative; height: 1.35rem; }
+  .bar {
+    position: absolute;
+    inset: 0.1rem auto 0.1rem 0;
+    width: var(--w);
+    background: var(--green-bar);
+    border-radius: 0 4px 4px 0;
+  }
+  .row.win .bar { background: var(--green); }
+  .row.pivot .bar { background: var(--green-deep); }
+  .val {
+    position: absolute;
+    left: calc(var(--w) + 0.5rem);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.82rem;
+    font-weight: 650;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .val em {
+    font-style: normal;
+    color: var(--orange);
+    font-weight: 700;
+  }
+  .axis {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0 0 5.15rem;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0.9rem 0 0 5.15rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  .legend .sw {
+    display: inline-block;
+    width: 0.7rem; height: 0.7rem;
+    border-radius: 3px;
+    margin-right: 0.4rem;
+    vertical-align: -0.07em;
+  }
+
+  /* ---------- TVA band ---------- */
+  .band {
+    display: flex;
+    height: 2.4rem;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    margin-top: 1.25rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+  .band > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 0.4rem;
+    line-height: 1.2;
+  }
+  .band .z1 { flex: 25; background: var(--green-soft); color: var(--green); }
+  .band .z2 {
+    flex: 10;
+    background: repeating-linear-gradient(135deg, var(--orange-soft) 0 6px, transparent 6px 12px);
+    color: var(--orange);
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+  .band .z3 { flex: 25; background: var(--card); color: var(--muted); }
+  .band-axis {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-variant-numeric: tabular-nums;
+    margin-top: 0.3rem;
+  }
+
+  /* ---------- paliers ---------- */
+  .paliers { display: grid; gap: 0.75rem; margin-top: 1.25rem; }
+  .palier {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    gap: 1rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    padding: 1.1rem 1.2rem;
+  }
+  .palier .n {
+    width: 2.2rem; height: 2.2rem;
+    border-radius: 50%;
+    background: var(--green-soft);
+    color: var(--green);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .palier.now { border-color: var(--green); }
+  .palier h3 { margin: 0.15rem 0 0.3rem; font-size: 1.05rem; font-weight: 700; }
+  .palier p { margin: 0.2rem 0; font-size: 0.92rem; }
+  .palier .when {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  .pill {
+    display: inline-block;
+    background: var(--orange-soft);
+    color: var(--orange);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    margin-left: 0.4rem;
+    vertical-align: 0.08em;
+  }
+
+  /* ---------- signals & vigilance ---------- */
+  ul.clean { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 0.6rem; }
+  ul.clean li {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 0.6rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.93rem;
+    display: grid;
+    grid-template-columns: 1.4rem 1fr;
+    gap: 0.6rem;
+  }
+  ul.clean li .b { color: var(--green); font-weight: 700; }
+  ul.clean li.warn .b { color: var(--orange); }
+
+  /* ---------- footer ---------- */
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+  footer a { color: var(--green); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  footer a:focus-visible, .row:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .bar { transition: width 0.25s ease; }
+  }
+</style>
+
+<div class="page">
+  <header>
+    <span class="doc-eyebrow">Module 5 · Annexe financière au BMC</span>
+    <h1>Trajectoire de statut : quand passer <span class="hl">indépendant principal</span> ?</h1>
+    <p class="doc-meta">Oliver Van Droogenbroeck — Développement web &amp; outils numériques pour le non-marchand</p>
+    <p class="doc-meta">Chiffres belges 2026 vérifiés · personne isolée, taxe communale ≈ 7 % incluse · ordres de grandeur à valider avec un comptable</p>
+  </header>
+
+  <section>
+    <p class="sec-label">01 — Le point de départ</p>
+    <h2>La barre à battre : le combo mi-temps + complémentaire</h2>
+    <p>La stratégie de lancement (mi-temps salarié + activité en complémentaire via Smart) fixe la référence. Passer en principal n'a de sens financièrement que si l'activité <strong>seule</strong> rapporte au moins autant que le combo.</p>
+    <div class="tiles">
+      <div class="tile">
+        <p class="k">Mi-temps salarié</p>
+        <p class="v">≈ 15 600 €</p>
+        <p class="s">net / an (~1 300 €/mois)</p>
+      </div>
+      <div class="tile">
+        <p class="k">Complémentaire</p>
+        <p class="v">≈ 9 500 €</p>
+        <p class="s">net / an, à plein régime (CA 24 000 €)</p>
+      </div>
+      <div class="tile total">
+        <p class="k">Combo — la barre à battre</p>
+        <p class="v">≈ 25 000 €</p>
+        <p class="s">net / an (~2 100 €/mois)</p>
+      </div>
+    </div>
+    <p class="note">Si le mi-temps de référence est exprimé en brut (1 200-1 500 €), le net descend à ~1 050-1 250 €/mois et la barre à ~22-23 000 €/an — le point de bascule descend alors vers 44-46 000 € de CA. L'ordre de grandeur ne change pas.</p>
+  </section>
+
+  <section>
+    <p class="sec-label">02 — Le mécanisme</p>
+    <h2>Du chiffre d'affaires à la poche, en complémentaire</h2>
+    <p>Les cotisations sociales sont bien comptées : en complémentaire, pas de minimum trimestriel — on paie 20,5 % du bénéfice réel (ici ~1 050 €/trimestre, davantage que le plancher du statut principal).</p>
+    <div class="tablewrap">
+      <table class="flow">
+        <tr><td class="op"></td><td>Chiffre d'affaires (11 sites + hébergements + 2 apps)</td><td class="num">24 000 €</td></tr>
+        <tr><td class="op">−</td><td>Frais de fonctionnement (hébergement, licences, RC pro, comptable…)</td><td class="num">≈ 3 500 €</td></tr>
+        <tr><td class="op">=</td><td>Bénéfice net</td><td class="num">≈ 20 500 €</td></tr>
+        <tr><td class="op">−</td><td>Cotisations sociales — 20,5 % du bénéfice</td><td class="num">≈ 4 200 €</td></tr>
+        <tr><td class="op">−</td><td>Impôt au taux marginal (~40-45 %, car s'ajoute au mi-temps)</td><td class="num">≈ 6 800 €</td></tr>
+        <tr class="result"><td class="op">=</td><td>Net en poche, en plus du mi-temps</td><td class="num">≈ 9 500 € / an — ± 800 € / mois</td></tr>
+      </table>
+    </div>
+    <p class="note">Piège du débutant : la caisse sociale ne demande d'abord que ~102 €/trimestre (provisoire), puis régularise 2-3 ans plus tard sur le revenu réel. Mettre ~20 % du bénéfice de côté dès le premier euro.</p>
+  </section>
+
+  <section>
+    <p class="sec-label">03 — La simulation</p>
+    <h2>Ce que rapporte le statut principal, selon le CA</h2>
+    <p>En principal, l'impôt baisse (quotité exonérée, tranches basses) mais il n'y a plus de salaire à côté — et les cotisations ont un plancher de ± 917,58 €/trimestre même à revenu nul.</p>
+
+    <div class="chart">
+      <p class="chart-title">Net annuel en poche — indépendant à titre principal</p>
+      <p class="chart-sub">Après frais (~4-5 k€), cotisations 20,5 % et impôt des personnes physiques. En milliers d'euros.</p>
+      <div class="plot">
+        <div class="refline" style="--x: calc(5.15rem + (100% - 5.15rem - 3.5rem) * 25 / 32);">
+          <span class="tag">combo à battre ≈ 25 k€</span>
+        </div>
+        <div class="row" tabindex="0" title="CA 24 000 € → net ≈ 13 500 €">
+          <span class="ca">24 k€</span>
+          <span class="track"><span class="bar" style="--w: calc((100% - 3.5rem) * 13.5 / 32);"></span><span class="val" style="--w: calc((100% - 3.5rem) * 13.5 / 32);">13,5</span></span>
+        </div>
+        <div class="row" tabindex="0" title="CA 35 000 € → net ≈ 19 000 €">
+          <span class="ca">35 k€</span>
+          <span class="track"><span class="bar" style="--w: calc((100% - 3.5rem) * 19 / 32);"></span><span class="val" style="--w: calc((100% - 3.5rem) * 19 / 32);">19</span></span>
+        </div>
+        <div class="row" tabindex="0" title="CA 42 000 € → net ≈ 22 500 €">
+          <span class="ca">42 k€</span>
+          <span class="track"><span class="bar" style="--w: calc((100% - 3.5rem) * 22.5 / 32);"></span><span class="val" style="--w: calc((100% - 3.5rem) * 22.5 / 32);">22,5</span></span>
+        </div>
+        <div class="row pivot" tabindex="0" title="CA 50 000 € → net ≈ 25 500 € — le principal dépasse le combo">
+          <span class="ca">50 k€</span>
+          <span class="track"><span class="bar" style="--w: calc((100% - 3.5rem) * 25.5 / 32);"></span><span class="val" style="--w: calc((100% - 3.5rem) * 25.5 / 32);">25,5 <em>← point de bascule</em></span></span>
+        </div>
+        <div class="row win" tabindex="0" title="CA 60 000 € → net ≈ 30 000 €">
+          <span class="ca">60 k€</span>
+          <span class="track"><span class="bar" style="--w: calc((100% - 3.5rem) * 30 / 32);"></span><span class="val" style="--w: calc((100% - 3.5rem) * 30 / 32);">30</span></span>
+        </div>
+      </div>
+      <div class="axis"><span>0</span><span>8</span><span>16</span><span>24</span><span>32 k€ net</span></div>
+      <div class="legend">
+        <span><span class="sw" style="background: var(--green-bar);"></span>sous le combo</span>
+        <span><span class="sw" style="background: var(--green-deep);"></span>point de bascule</span>
+        <span><span class="sw" style="background: var(--green);"></span>au-dessus du combo</span>
+      </div>
+    </div>
+
+    <p><strong>Conclusion : la bascule se situe autour de 48-50 000 € de CA annuel.</strong> C'est hors de portée en soirées et week-ends, mais réaliste à temps plein : en récupérant ~20 h/semaine et en montant les prix vers les fourchettes validées par les interviews (2 200 €/site, 5 000 €/app), 50 k€ = environ 13 sites + 3 apps — ou moins, à mesure que le récurrent grossit.</p>
+  </section>
+
+  <section>
+    <p class="sec-label">04 — Le piège à éviter</p>
+    <h2>La zone grise TVA : 27 500 – 35 000 €</h2>
+    <p>Sous la franchise (CA &lt; 25 000 €), pas de TVA à facturer : un avantage de prix de fait de <strong>21 %</strong> face aux agences, car les ASBL ne récupèrent pas la TVA. Au-delà de 27 500 €, le régime saute immédiatement — sans encore avoir le volume qui justifie le principal.</p>
+    <div class="band" role="img" aria-label="Bande de chiffre d'affaires de 0 à 60 000 euros : franchise TVA jusqu'à 25 000, zone grise de 27 500 à 35 000, régime normal au-delà">
+      <div class="z1">Franchise TVA — avantage prix 21 %</div>
+      <div class="z2">Zone grise</div>
+      <div class="z3">Régime normal — volume qui justifie le principal</div>
+    </div>
+    <div class="band-axis"><span>0</span><span>25 k€ · 27,5 k€</span><span>35 k€</span><span>60 k€ CA</span></div>
+    <p class="note">Stratégie : tant qu'on est en complémentaire, rester juste sous 25 k€ en jouant sur les <strong>prix</strong> plutôt que le volume ; si la demande pousse vraiment, traverser la zone grise rapidement plutôt que s'y installer.</p>
+  </section>
+
+  <section>
+    <p class="sec-label">05 — Le plan</p>
+    <h2>Trois paliers, trois statuts</h2>
+    <div class="paliers">
+      <div class="palier now">
+        <span class="n">1</span>
+        <div>
+          <span class="when">Maintenant</span>
+          <h3>Test — JobYourself</h3>
+          <p>Facturation via le n° TVA de la coopérative, droits maintenus, risque quasi nul. Objectif : valider le marché en conditions réelles (premiers clients payants, premières références).</p>
+        </div>
+      </div>
+      <div class="palier">
+        <span class="n">2</span>
+        <div>
+          <span class="when">Lancement · CA &lt; 25 000 €</span>
+          <h3>Combo — mi-temps + complémentaire via Smart</h3>
+          <p>Revenu sécurisé par le mi-temps, activité qui monte en puissance en complémentaire. Rester sous la franchise TVA ; augmenter les <strong>prix</strong> avant le volume. Net visé : ~2 100 €/mois tout compris.</p>
+        </div>
+      </div>
+      <div class="palier">
+        <span class="n">3</span>
+        <div>
+          <span class="when">Bascule · CA ≈ 50 000 €<span class="pill">≈ 48-50 k€</span></span>
+          <h3>Indépendant à titre principal</h3>
+          <p>Temps plein sur l'activité. Le net dépasse le combo (~25 500 €/an, puis ~30 000 € à 60 k€ de CA) et les droits sociaux se construisent pleinement (pension, incapacité).</p>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 1.5rem;"><strong>Ne pas basculer sur une projection — basculer sur un carnet de commandes.</strong> Les trois signaux :</p>
+    <ul class="clean">
+      <li><span class="b">✓</span><span>Des projets <strong>refusés</strong> régulièrement, faute de temps.</span></li>
+      <li><span class="b">✓</span><span>Un récurrent (hébergement, maintenance, abonnements app) qui couvre déjà les frais fixes (~4-5 k€/an).</span></li>
+      <li><span class="b">✓</span><span>Environ <strong>6 mois de pipeline signé</strong> devant soi.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="sec-label">06 — Vigilance</p>
+    <h2>Trois points à garder à l'œil</h2>
+    <ul class="clean">
+      <li class="warn"><span class="b">!</span><span><strong>Régularisation des cotisations</strong> : la facture réelle arrive 2-3 ans après. Provisionner ~20 % du bénéfice dès le début.</span></li>
+      <li class="warn"><span class="b">!</span><span><strong>Pricing sous le marché</strong> : 1 500 €/site et 3 000 €/app sont dans le bas des fourchettes validées par les interviews (jusqu'à 3 000 € petit site, 4 000-8 000 € outil de gestion, 8 000-15 000 € fédérations). Levier n°1 de progression, sans risque marché.</span></li>
+      <li class="warn"><span class="b">!</span><span><strong>Seuil TVA</strong> : surveiller le CA cumulé en cours d'année ; à 27 500 € le régime saute immédiatement, TVA due dès l'opération qui franchit le cap.</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Document de travail — parcours JobYourself, Module 5 (Business Model Canvas durable). Hypothèses : personne isolée, frais 3 500-5 000 €/an, barème IPP 2026 approché. Chaque situation fiscale est particulière : faire valider les montants par un comptable avant la bascule de statut.</p>
+    <p>Sources : <a href="https://www.accountable.eu/fr-be/blog/cotisations-sociales/">Accountable — cotisations 2026</a> · <a href="https://www.liantis.be/fr/devenir-independant/cotisations-sociales/calculer/titre-complementaire">Liantis — indépendant complémentaire</a> · <a href="https://finances.belgium.be/fr/entreprises/tva/assujettissement-tva/regime-franchise-taxe">SPF Finances — franchise TVA</a> · <a href="https://www.accountable.eu/fr-be/blog/entreprise-partagee-smart/">Accountable — modèle Smart</a></p>
+  </footer>
+</div>
